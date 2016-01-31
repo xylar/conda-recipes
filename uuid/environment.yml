@@ -1,0 +1,9 @@
+name: PCMDI
+dependencies:
+ - ossuuid=1.6.2
+ - libjson-c=0.12
+ - netcdf=4.4.0
+ - libhdf5=1.8.16
+ - udunits=2.2.20
+ - ossuid=1.6.2
+

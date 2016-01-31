@@ -1,0 +1,20 @@
+package:
+  name: libhdf5
+  version: "1.8.16"
+ 
+source:
+  fn: hdf5-1.8.16.tar
+  url: file://home/dnadeau/hdf5-1.8.16.tar
+#  url: ftp://ftp.ossp.org/pkg/lib/uuid/uuid-1.6.1.tar.gz
+build:
+  string: PCMDI
+ 
+requirements:
+  build:
+  run:
+ 
+test:
+  imports:
+ 
+about:
+  home: https://www.hdfgroup.org
