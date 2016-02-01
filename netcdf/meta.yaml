@@ -1,18 +1,18 @@
 package:
-  name: netcdf
-  version: "4.4.0"
- 
+    name: netcdf
+    version: 4.4.0
+
 source:
-  fn: netcdf-4.4.0.tar.gz
-  url: file://home/dnadeau/netcdf-4.4.0.tar.gz
-#  url: ftp://ftp.ossp.org/pkg/lib/uuid/uuid-1.6.1.tar.gz
- 
+    fn:  netcdf-4.4.0.tar.gz
+    url: ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-4.4.0.tar.gz
+
 requirements:
-  build:
-  run:
- 
-test:
-  imports:
- 
+    build:
+        - libhdf5 # [unix]
+    run:
+        - libhdf5
+build:
+    string: PCMDI
+
 about:
-  home: https://www.hdfgroup.org
+    home:  http://hdfgroup.org 

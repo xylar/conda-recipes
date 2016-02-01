@@ -5,15 +5,14 @@ package:
 source:
   fn: uuid-1.6.2.tar.gz
   url: http://www.mirrorservice.org/sites/ftp.ossp.org/pkg/lib/uuid/uuid-1.6.2.tar.gz
-#  url: ftp://ftp.ossp.org/pkg/lib/uuid/uuid-1.6.1.tar.gz
  
+build:
+  string: PCMDI
+
 requirements:
   build:
   run:
  
-test:
-  imports:
  
 about:
   home: ftp://ftp.ossp.org/pkg/lib/uuid/
-  license: BSD

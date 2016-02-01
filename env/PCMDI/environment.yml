@@ -1,0 +1,21 @@
+name: PCMDI
+dependencies:
+- cmor=3.0alpha=PCMDI
+- libgfortran=1.0=0
+- libhdf5=1.8.16=PCMDI
+- libjson-c=0.12=PCMDI
+- netcdf=4.4.0=PCMDI
+- numpy=1.10.2=py27_0
+- openblas=0.2.14=3
+- openssl=1.0.2d=0
+- ossuuid=1.6.2=PCMDI
+- pip=8.0.1=py27_0
+- python=2.7.10=2
+- readline=6.2=2
+- setuptools=19.4=py27_0
+- sqlite=3.9.2=0
+- tk=8.5.18=0
+- udunits=2.2.20=PCMDI
+- wheel=0.26.0=py27_1
+- zlib=1.2.8=0
+

@@ -1,8 +1,8 @@
 #!/bin/bash
 
-export CFLAGS="-I/home/dnadeau/anaconda2/include"
-export LDFLAGS="-L/home/dnadeau/anaconda2/lib"
-./configure  --prefix=$PREFIX
-make
+export CFLAGS="-I${PREFIX}/include"
+export LDFLAGS="-L${PREFIX}/lib"
+./configure  --prefix=$PREFIX --enable-netcdf4
+make -j 4
 make install
 

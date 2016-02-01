@@ -1,34 +1,31 @@
 package:
-  name: cmor
-  version: "3.0alpha"
- 
+    name: cmor
+    version: 3.0alpha
+
 source:
-  git_rev: cmor3
-  git_url: https://github.com/PCMDI/cmor.git
+    git_rev: cmor3
+    git_url: http://github.com/PCMDI/cmor.git
 
 build:
   string: PCMDI
  
 requirements:
   build:
-    - python    [unix]
-    - libhdf5   [unix]
-    - libnetcdf [unix]
-    - libjson-c [unix]
-    - ossuuid   [unix]
-    - udunits   [unix]
+    - python
+    - ossuuid 1.6.2 PCMDI
+    - udunits 2.2.20 PCMDI
+    - libhdf5 1.8.16 PCMDI
+    - netcdf 4.4.0 PCMDI
+    - libjson-c 0.12 PCMDI
     - numpy
   run:
-    - python    [unix]
-    - libhdf5   [unix]
-    - libnetcdf [unix]
-    - libjson-c [unix]
-    - ossuuid   [unix]
-    - udunits   [unix]
+    - python
+    - ossuuid
+    - udunits
+    - libhdf5
+    - netcdf
+    - libjson-c
     - numpy
- 
-test:
-  imports:
- 
+
 about:
-  home: https://github.com/PCMDI/cmor
+    home:  http://gitub.com/PCMDI

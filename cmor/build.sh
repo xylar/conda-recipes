@@ -1,23 +1,14 @@
-#!/bin/bash
-
-export CFLAGS="-I/home/dnadeau/anaconda2/include -I/home/dnadeau/anaconda2/include/json-c"
-export LDFLAGS="-L/home/dnadeau/anaconda2/lib"
-
+export CFLAGS="-Wall -g -m64 -pipe -O2  -fPIC"
+export CXXLAGS="${CFLAGS}"
+export CPPFLAGS="-I${PREFIX}/include"
+export LDFLAGS="-L${PREFIX}/lib"
 
 ./configure \
-    --with-python=$PREFIX \
-    --with-netcdf=$PREFIX \
-    --with-uuid=$PREFIX \
-    --with-json-c=$PREFIX \
-    --with-udunits2=$PREFIX \
-    --prefix=$PREFIX
-make
+    --with-python=${PREFIX}   \
+    --with-uuid=${PREFIX} \
+    --with-udunits2=${PREFIX} \
+    --with-netcdf=${PREFIX} \
+    --with-libjson-c=${PREFIX} \
+    --prefix=${PREFIX}
+make 
 make install
-
-#ACTIVATE_DIR=$PREFIX/etc/conda/activate.d
-#DEACTIVATE_DIR=$PREFIX/etc/conda/deactivate.d
-#mkdir -p $ACTIVATE_DIR
-#mkdir -p $DEACTIVATE_DIR
-
-#cp $RECIPE_DIR/posix/activate.sh $ACTIVATE_DIR/cmor-activate.sh
-#cp $RECIPE_DIR/posix/deactivate.sh $DEACTIVATE_DIR/cmor-deactivate.sh
