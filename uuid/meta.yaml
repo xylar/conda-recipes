@@ -4,10 +4,10 @@ package:
  
 source:
   fn: uuid-1.6.2.tar.gz
-  url: http://www.mirrorservice.org/sites/ftp.ossp.org/pkg/lib/uuid/uuid-1.6.2.tar.gz
+  url: http://uvcdat.llnl.gov/cdat/resources/uuid-1.6.2.tar.gz
  
 build:
-  string: PCMDI
+  string: UVCDAT
 
 requirements:
   build:
