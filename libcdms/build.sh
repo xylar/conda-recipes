@@ -8,7 +8,7 @@ export LDFLAGS="-L${PREFIX}/lib"
     --enable-drs=no \
     --enable-hdf=no \
     --enable-pp=yes \
-    --eanble-ql=no \
+    --enable-ql=no \
     --cache-file=/dev/null \
     --with-nclib=${PREFIX}/lib \
     --with-ncinc=${PREFIX}/include \
@@ -24,4 +24,5 @@ export LDFLAGS="-L${PREFIX}/lib"
     --enable-grib2 \
     --prefix=${PREFIX}
 make 
-make install
+make libinstall
+make bininstall

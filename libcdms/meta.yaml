@@ -1,9 +1,9 @@
 package:
     name: libcdms
-    version: uvcdat-2.4.0
+    version: "uvcdat_2.4.0"
 
 source:
-    git_rev: uvcdat-2.4.0
+    git_rev: master
     git_url: http://github.com/UV-CDAT/libcdms.git
 
 build:

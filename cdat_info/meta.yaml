@@ -1,0 +1,18 @@
+package:
+    name: cdat_info
+    version: "uvcdat_2.4.0"
+
+source:
+
+build:
+  string: UVCDAT
+ 
+requirements:
+  build:
+   - python
+   - setuptools
+  run:
+   - python
+
+about:
+    home:  http://gitub.com/UV-CDAT/uvcdat
