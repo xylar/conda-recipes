@@ -1,0 +1,31 @@
+package:
+    name: libcdms
+    version: uvcdat-2.4.0
+
+source:
+    git_rev: uvcdat-2.4.0
+    git_url: http://github.com/UV-CDAT/libcdms.git
+
+build:
+  string: UVCDAT
+ 
+requirements:
+  build:
+    - hdf5
+    - libnetcdf 4.3.3.1
+    - jasper
+    - g2clib
+    - libpng
+    - libtiff
+    - jpeg
+  run:
+    - hdf5
+    - libnetcdf
+    - jasper
+    - g2clib
+    - libpng
+    - libtiff
+    - jpeg
+
+about:
+    home:  http://gitub.com/UV-CDAT/libcdms
