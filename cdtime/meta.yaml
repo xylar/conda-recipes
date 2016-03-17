@@ -17,6 +17,9 @@ requirements:
     - cdat_info
   run:
     - python
+    - setuptools
+    - libcdms
+    - cdat_info
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat
