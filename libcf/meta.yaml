@@ -1,0 +1,27 @@
+package:
+    name: libcf
+    version: "uvcdat_2.4.0"
+
+source:
+  fn: libcf-1.0-beta11.tar.gz
+  url: http://uvcdat.llnl.gov/cdat/resources/libcf-1.0-beta11.tar.gz
+
+build:
+  string: UVCDAT
+ 
+requirements:
+  build:
+    - hdf5
+    - libnetcdf 4.3.3.1
+    - lapack >=3.5.0 openturns
+    - clapack >=3.5.0 omnia
+    - curl
+  run:
+    - hdf5
+    - libnetcdf 4.3.3.1
+    - lapack >=3.5.0 openturns
+    - clapack >=3.5.0 omnia
+    - curl
+
+about:
+    home:  http://gitub.com/UV-CDAT/uvcdat
