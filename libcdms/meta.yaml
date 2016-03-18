@@ -20,7 +20,7 @@ requirements:
     - jpeg
   run:
     - hdf5
-    - libnetcdf
+    - libnetcdf 4.3.3.1
     - jasper
     - g2clib
     - libpng
