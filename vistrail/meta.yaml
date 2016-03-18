@@ -14,9 +14,13 @@ requirements:
     - python
     - numpy <=1.9.2
     - scipy
+    - pyqt
+    - uvcmetrics
   run:
     - numpy <=1.9.2
     - scipy
+    - pyqt
+    - uvcmetrics
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat
