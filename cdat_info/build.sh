@@ -169,26 +169,25 @@ def submitPing(source,action,source_version=None):
 
 import os,sys
 os.environ["UVCDAT_SETUP_PATH"] = sys.prefix
-ANACONDAPREFIX = sys.prefix
 CDMS_INCLUDE_DAP = 'yes'
 CDMS_DAP_DIR = '.'
 CDMS_HDF_DIR = '.'
-CDMS_GRIB2LIB_DIR = 'UVCDATPREFIX'
+CDMS_GRIB2LIB_DIR = sys.prefix
 CDMS_INCLUDE_GRIB2LIB = 'yes'
 CDMS_INCLUDE_DRS = 'no'
 CDMS_INCLUDE_HDF = 'no'
 CDMS_INCLUDE_PP = 'yes'
 CDMS_INCLUDE_QL = 'no'
 drs_file = '/usr/local/libdrs.a'
-netcdf_directory = 'UVCDATPREFIX'
-netcdf_include_directory = 'UVCDATPREFIX/include'
-cdunif_include_directories = ['UVCDATPREFIX/include/cdms'] + ['UVCDATPREFIX/include', 'UVCDATPREFIX/lib/libffi-3.1/include', '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/include', '/usr/X11R6/include'] + []
-cdunif_library_directories = ['UVCDATPREFIX/lib'] + get_drs_dirs() + ['UVCDATPREFIX/lib'] +["/usr/X11/lib","/usr/X11R6/lib"]
+netcdf_directory = sys.prefix
+netcdf_include_directory = sys.prefix+'/include'
+cdunif_include_directories = [sys.prefix+'/include/cdms'] + [sys.prefix+'/include', sys.prefix+'/lib/libffi-3.1/include', '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/include', '/usr/X11R6/include'] + []
+cdunif_library_directories = [sys.prefix+'/lib'] + get_drs_dirs() + [sys.prefix+'/lib'] +["/usr/X11/lib","/usr/X11R6/lib"]
 cdunif_libraries = ['cdms', 'netcdf'] + ['netcdf'] + get_drs_libs() + [] + ['grib2c', 'pngPNGVER', 'jasper']
 x11include = ['/usr/X11R6/include', '/usr/include', '/opt/include']
 x11libdir = ['/usr/X11R6/lib', '/usr/lib', '/opt/lib']
 mathlibs = ['m']
-externals = 'UVCDATPREFIX'
+externals = sys.prefix
 
 EOF
 
@@ -199,7 +198,7 @@ else
 fi
 
 mkdir cdat_info_dir
-sed "s#UVCDATPREFIX#\$\{ANACONDAPREFIX\}#g;s/PNGVER/${PNGVER}/g;" cdat_info.py.in > cdat_info_dir/cdat_info.py
+sed "s/PNGVER/${PNGVER}/g;" cdat_info.py.in > cdat_info_dir/cdat_info.py
 cat > cdat_info_dir/__init__.py << EOF
 from cdat_info import *
 EOF

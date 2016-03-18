@@ -1,0 +1,32 @@
+package:
+    name: vcs
+    version: "uvcdat_2.4.0"
+
+source:
+    git_rev: master
+    git_url: http://github.com/UV-CDAT/uvcdat.git
+
+build:
+  string: UVCDAT
+ 
+requirements:
+  build:
+    - python
+    - setuptools
+    - cdat_info
+    - genutil
+    - unidata
+    - vcsaddons
+    - dv3d
+    - vtk
+  run:
+    - python
+    - cdat_info
+    - genutil
+    - unidata
+    - vcsaddons
+    - dv3d
+    - vtk
+
+about:
+    home:  http://gitub.com/UV-CDAT/uvcdat
