@@ -9,23 +9,41 @@ build:
  
 requirements:
   build:
-  run:
   - cdms2
   - cdtime
   - cdutil
   - cmor
-  - DV3D
+  - dv3d 
   - esg
   - genutil
   - pydebug
   - regrid2
-  - Thermo
+  - thermo
   - unidata
   - uvcmetrics
   - vcs
   - vcsaddons
   - vistrails
-  - WK
+  - wk 
+  - xmgrace
+
+  run:
+  - cdms2
+  - cdtime
+  - cdutil
+  - cmor
+  - dv3d
+  - esg
+  - genutil
+  - pydebug
+  - regrid2
+  - thermo
+  - unidata
+  - uvcmetrics
+  - vcs
+  - vcsaddons
+  - vistrails
+  - wk
   - xmgrace
 
 
