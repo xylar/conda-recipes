@@ -1,0 +1,22 @@
+package:
+    name: uvcmetrics
+    version: "uvcdat_2.4.0"
+
+source:
+    git_rev: master
+    git_url: http://github.com/UV-CDAT/uvcmetrics.git
+
+build:
+  string: UVCDAT
+ 
+requirements:
+  build:
+    - python
+    - setuptools
+    - numpy <=1.9.2
+  run:
+    - python
+    - numpy <=1.9.2
+
+about:
+    home:  http://gitub.com/UV-CDAT/libcdms
