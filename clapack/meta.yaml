@@ -1,0 +1,17 @@
+package:
+    name: clapack
+    version: "uvcdat_2.4.0"
+
+source:
+  fn: clapack-3.2.1-CMAKE.tgz
+  url: http://uvcdat.llnl.gov/cdat/resources/clapack-3.2.1-CMAKE.tgz
+
+build:
+  string: UVCDAT
+ 
+requirements:
+  build:
+  run:
+
+about:
+    home:  http://gitub.com/UV-CDAT/uvcdat

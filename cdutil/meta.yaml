@@ -1,0 +1,19 @@
+package:
+    name: cdutil
+    version: "uvcdat_2.4.0"
+
+source:
+    git_rev: master
+    git_url: http://github.com/UV-CDAT/uvcdat.git
+
+build:
+  string: UVCDAT
+ 
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+about:
+    home:  http://gitub.com/UV-CDAT/uvcdat
