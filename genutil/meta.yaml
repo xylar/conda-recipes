@@ -13,8 +13,7 @@ requirements:
   build:
     - python
     - setuptools
-    - cdms2
-    - cdutil
+    - numpy
   run:
     - python
     - cdms2
