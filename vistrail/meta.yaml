@@ -1,0 +1,22 @@
+package:
+    name: vistrail
+    version: "uvcdat_2.4.0"
+
+source:
+    git_rev: uvcdat-master
+    git_url: http://github.com/UV-CDAT/VisTrails.git
+
+build:
+  string: UVCDAT
+ 
+requirements:
+  build:
+    - python
+    - numpy <=1.9.2
+    - scipy
+  run:
+    - numpy <=1.9.2
+    - scipy
+
+about:
+    home:  http://gitub.com/UV-CDAT/uvcdat

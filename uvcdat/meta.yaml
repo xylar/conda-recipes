@@ -1,0 +1,22 @@
+package:
+    name: cdms2
+    version: "uvcdat_2.4.0"
+
+source:
+    git_rev: master
+    git_url: http://github.com/UV-CDAT/uvcdat.git
+
+build:
+  string: UVCDAT
+ 
+requirements:
+  build:
+    - python
+    - setuptools
+    - regrid2
+  run:
+    - python
+    - regrid2
+
+about:
+    home:  http://gitub.com/UV-CDAT/uvcdat
