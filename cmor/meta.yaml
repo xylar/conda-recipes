@@ -17,7 +17,7 @@ requirements:
     - libhdf5 1.8.16 PCMDI
     - netcdf 4.4.0 PCMDI
     - libjson-c 0.12 PCMDI
-    - numpy
+    - numpy <=1.9.2
   run:
     - python
     - ossuuid
@@ -25,7 +25,7 @@ requirements:
     - libhdf5
     - netcdf
     - libjson-c
-    - numpy
+    - numpy <=1.9.2
 
 about:
     home:  http://gitub.com/PCMDI

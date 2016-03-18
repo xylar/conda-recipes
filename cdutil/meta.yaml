@@ -14,6 +14,8 @@ requirements:
     - python
   run:
     - python
+    - cdms2
+    - vcs
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat

@@ -27,17 +27,8 @@ def get_version():
   return Version
 
 def get_prefix():
-  import os,sys
-  try:
-    uv_setup_pth = os.environ["UVCDAT_SETUP_PATH"]
-    if os.uname()[0] == "Darwin":
-      uv_setup_pth = os.path.join(uv_setup_pth,
-          "Library","Frameworks","Python.framework","Versions",
-          "%i.%i" % (sys.version_info.major,sys.version_info.minor)
-          )
-    return uv_setup_pth
-  except KeyError:
-    raise RuntimeError("UVCDAT environment not configured. Please source the setup_runtime script.")
+  import sys
+  return sys.prefix
 
 def get_sampledata_path():
   import os

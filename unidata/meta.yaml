@@ -20,7 +20,6 @@ requirements:
     - python
     - udunits
     - numpy <=1.9.2
-    - cdat_info
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat

@@ -13,11 +13,13 @@ requirements:
   build:
     - python
     - setuptools
-    - numpy
+    - numpy <=1.9.2
   run:
     - python
     - cdms2
     - cdutil
+    - unidata
+    - numpy <=1.9.2
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat

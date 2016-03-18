@@ -1,10 +1,10 @@
 package:
   name: udunits
-  version: 2.2.20
+  version: 2.2.17
  
 source:
-  fn: udunits-2.2.20.tar.gz
-  url: ftp://ftp.unidata.ucar.edu/pub/udunits/udunits-2.2.20.tar.gz
+  fn: udunits-2.2.17.tar.gz
+  url: http://uvcdat.llnl.gov/cdat/resources/udunits-2.2.17.tar.gz
  
 build:
   string: PCMDI
