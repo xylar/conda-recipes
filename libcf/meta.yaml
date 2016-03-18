@@ -1,6 +1,6 @@
 package:
     name: libcf
-    version: "uvcdat_2.4.0"
+    version: 1.0.beta11
 
 source:
   fn: libcf-1.0-beta11.tar.gz
@@ -13,15 +13,19 @@ requirements:
   build:
     - hdf5
     - libnetcdf 4.3.3.1
-    - lapack >=3.5.0 openturns
-    - clapack >=3.5.0 omnia
+    - lapack >=3.4.2
+    - clapack >=3.2.1
     - curl
+    - python
+    - ossuuid 
   run:
+    - python
     - hdf5
     - libnetcdf 4.3.3.1
-    - lapack >=3.5.0 openturns
-    - clapack >=3.5.0 omnia
+    - lapack >=3.4.2
+    - clapack >=3.2.1
     - curl
+    - ossuuid
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat

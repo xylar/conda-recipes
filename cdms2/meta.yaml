@@ -1,6 +1,6 @@
 package:
     name: cdms2
-    version: "uvcdat_2.4.0"
+    version: 2.4.0
 
 source:
     git_rev: master
@@ -17,6 +17,7 @@ requirements:
   run:
     - python
     - regrid2
+    - libcf
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat

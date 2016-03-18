@@ -1,6 +1,6 @@
 package:
     name: lapack
-    version: "uvcdat_2.4.0"
+    version: 3.4.2
 
 source:
   fn: lapack-3.4.2-CMAKE.tgz

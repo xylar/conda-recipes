@@ -4,7 +4,7 @@ export CPPFLAGS="-I${PREFIX}/include"
 export LDFLAGS="-L${PREFIX}/lib"
 
 cmake . -DCMAKE_INSTALL_PREFIX=${PREFIX}
-make
+make -j${CPU_COUNT}
 mkdir -p ${PREFIX}/lib
 mkdir -p ${PREFIX}/include
 cp  SRC/liblapack.a ${PREFIX}/lib
