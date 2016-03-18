@@ -1,6 +1,6 @@
 package:
     name: pydebug
-    version: "uvcdat_2.4.0"
+    version: 2.4.0
 
 source:
     git_rev: master
