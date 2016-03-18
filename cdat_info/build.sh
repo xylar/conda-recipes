@@ -167,6 +167,9 @@ def submitPing(source,action,source_version=None):
   except Exception,err:
     pass
 
+import os,sys
+os.environ["UVCDAT_SETUP_PATH"] = sys.prefix
+ANACONDAPREFIX = sys.prefix
 CDMS_INCLUDE_DAP = 'yes'
 CDMS_DAP_DIR = '.'
 CDMS_HDF_DIR = '.'
@@ -196,7 +199,7 @@ else
 fi
 
 mkdir cdat_info_dir
-sed "s#UVCDATPREFIX#${PREFIX}#g;s/PNGVER/${PNGVER}/g;" cdat_info.py.in > cdat_info_dir/cdat_info.py
+sed "s#UVCDATPREFIX#\$\{ANACONDAPREFIX\}#g;s/PNGVER/${PNGVER}/g;" cdat_info.py.in > cdat_info_dir/cdat_info.py
 cat > cdat_info_dir/__init__.py << EOF
 from cdat_info import *
 EOF
