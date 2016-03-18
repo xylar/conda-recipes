@@ -18,6 +18,7 @@ requirements:
     - python
     - regrid2
     - libcf
+    - distarray
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat
