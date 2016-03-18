@@ -16,6 +16,7 @@ requirements:
     - scipy
     - pyqt
     - uvcmetrics
+    - matplotlib
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat
