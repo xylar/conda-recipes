@@ -1,6 +1,6 @@
 package:
     name: cdat_info
-    version: 2.4.0
+    version: master
 
 source:
 
@@ -16,3 +16,6 @@ requirements:
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat
+
+
+

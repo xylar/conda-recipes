@@ -22,7 +22,7 @@ if current_version == version:
 print "Converting cdat tag from %s to %s" % (current_version,version)
         
 for fnm in files:
-    print "META File:",f
+    print "META File:",fnm
     lines = []
     f = open(fnm)
     found = False
@@ -35,10 +35,9 @@ for fnm in files:
         lines.append(nl)
     f.close()
     if found:
-        print "Found the string, replaced it",args.dry_run
         if not args.dry_run:
             f = open(fnm,"w")
-            print >> f, "\n".join(lines)
+            print >> f, "".join(lines)
             f.close()
         else:
             print "Would replace version in:",fnm

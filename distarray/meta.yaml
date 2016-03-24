@@ -1,6 +1,6 @@
 package:
     name: distarray
-    version: 2.4.0
+    version: master
 
 source:
     git_rev: master
@@ -18,3 +18,6 @@ requirements:
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat
+
+
+
