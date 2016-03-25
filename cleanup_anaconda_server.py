@@ -5,7 +5,7 @@ import sys
 myos="osx-64"
 #myos = "linux-64"
 package = "*"
-channel = "uvcdat"
+channel = "doutriaux1"
 buildstring = "UVCDAT"
 
 import glob
@@ -28,7 +28,7 @@ for p in glob.glob(package):
     rd = rd[rd.find("version:"):]
     iversion = rd.find("\n")
     version = rd[:iversion].split()[-1]
-    version="uvcdat_2.4.0"
+    version="master"
     print version
     rd=rd[rd.find("string:"):]
     ibuild = rd.find("\n")

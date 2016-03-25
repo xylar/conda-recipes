@@ -9,11 +9,15 @@ build:
  
 requirements:
   build:
+  - python
+  - regrid2
+  - libcf
+  - distarray
   - cdms2
   - cdtime
   - cdutil
   - cmor
-  - dv3d 
+  - dv3d
   - esg
   - genutil
   - pydebug
@@ -24,10 +28,14 @@ requirements:
   - vcs
   - vcsaddons
   - vistrails
-  - wk 
+  - wk
   - xmgrace
 
   run:
+  - python
+  - regrid2
+  - libcf
+  - distarray
   - cdms2
   - cdtime
   - cdutil

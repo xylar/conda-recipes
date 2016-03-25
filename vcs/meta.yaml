@@ -19,7 +19,6 @@ requirements:
     - cdat_info
     - genutil
     - unidata
-    - vcsaddons
     - dv3d
     - vtk
     - cdms2

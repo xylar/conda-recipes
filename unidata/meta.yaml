@@ -13,12 +13,12 @@ requirements:
   build:
     - python
     - setuptools
-    - udunits
+    - udunits2
     - numpy <=1.9.2
     - cdat_info
   run:
     - python
-    - udunits
+    - udunits2
     - numpy <=1.9.2
 
 about:

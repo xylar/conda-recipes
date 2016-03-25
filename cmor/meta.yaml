@@ -13,14 +13,14 @@ requirements:
   build:
     - python
     - ossuuid 1.6.2
-    - udunits
+    - udunits2
     - hdf5 
     - libnetcdf 4.3.3.1
     - numpy <=1.9.2
   run:
     - python
     - ossuuid 1.6.2
-    - udunits
+    - udunits2
     - hdf5
     - libnetcdf 4.3.3.1
     - numpy <=1.9.2

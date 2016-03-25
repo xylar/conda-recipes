@@ -16,11 +16,6 @@ requirements:
     run:
         - jpeg
 
-test:
-    commands:
-        - jasper --version
-        - conda inspect linkages jasper --name _test
-
 about:
   home: http://www.ece.uvic.ca/~frodo/jasper/
   license: http://www.ece.uvic.ca/~frodo/jasper/LICENSE
