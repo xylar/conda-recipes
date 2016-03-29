@@ -4,7 +4,7 @@ package:
 
 source:
     git_rev: uvcdat-master
-    git_url: http://github.com/UV-CDAT/VisTrails.git
+    git_url: git://github.com/UV-CDAT/VisTrails.git
 
 build:
   string: UVCDAT

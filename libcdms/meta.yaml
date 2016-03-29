@@ -4,7 +4,7 @@ package:
 
 source:
     git_rev: master
-    git_url: http://github.com/UV-CDAT/libcdms.git
+    git_url: git://github.com/UV-CDAT/libcdms.git
 
 build:
   string: UVCDAT
