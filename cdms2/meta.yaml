@@ -19,6 +19,7 @@ requirements:
     - regrid2
     - libcf
     - distarray
+    - esmf
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat
