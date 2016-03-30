@@ -1,2 +1,96 @@
-['[\'["[\\\'[masterpackage:\\\\\\\\\\\\\\\\nmaster, master  name: vtk\\\\\\\\\\\\\\\\nmaster, master  version: uvcdat_master\\\\\\\\\\\\\\\\nmaster, master\\\\\\\\\\\\\\\\nmaster, mastersource:\\\\\\\\\\\\\\\\nmaster, master  git_rev: uvcdat-master\\\\\\\\\\\\\\\\nmaster, master  git_url: git://github.com/UV-CDAT/VTK.git\\\\\\\\\\\\\\\\nmaster, master  patches:\\\\\\\\\\\\\\\\nmaster, master    - dlls.patch                              [win]\\\\\\\\\\\\\\\\nmaster, master    - apple.patch                             [osx]\\\\\\\\\\\\\\\\nmaster, master\\\\\\\\\\\\\\\\nmaster, masterbuild:\\\\\\\\\\\\\\\\nmaster, master  string: UVCDAT\\\\\\\\\\\\\\\\nmaster, master  has_prefix_files:                           [win]\\\\\\\\\\\\\\\\nmaster, master    - Lib/site-packages/vtk/__init__.py       [win]\\\\\\\\\\\\\\\\nmaster, master\\\\\\\\\\\\\\\\nmaster, masterrequirements:\\\\\\\\\\\\\\\\nmaster, master  build:\\\\\\\\\\\\\\\\nmaster, master    - cmake\\\\\\\\\\\\\\\\nmaster, master    - python\\\\\\\\\\\\\\\\nmaster, master  run:\\\\\\\\\\\\\\\\nmaster, master    - python\\\\\\\\\\\\\\\\nmaster, master\\\\\\\\\\\\\\\\nmaster, masterabout:\\\\\\\\\\\\\\\\nmaster, master  home: http://www.vtk.org/\\\\\\\\\\\\\\\\nmaster, master  license: BSD\\\\\\\\\\\\\\\\nmaster, master  summary: VTK is an open-source, freely available software system for 3D computer graphics\\\\\\\\\\\\\\\\nmaster]\\\\\\\\n\\\']\\\\n"]\\n\']\n']
+package:
+  name: vtk
+  version: uvcdat
 
+source:
+    git_rev: uvcdat-master
+    git_url: git://github.com/UV-CDAT/VTK.git
+
+    #  patches:
+    #    - dlls.patch                              [win]
+    #    - apple.patch                             [osx]
+
+build:
+  number: 1
+  has_prefix_files:                           [win]
+    - Lib/site-packages/vtk/__init__.py       [win]
+
+requirements:
+  build:
+    - cmake
+    - python
+    - proj4
+    - hdf5
+  run:
+    - python
+    - proj4
+    - hdf5
+
+#test:
+#  imports:
+#    - vtk
+#    - vtk.vtkChartsCore
+#    - vtk.vtkCommonCore
+#    - vtk.vtkFiltersCore
+#    - vtk.vtkFiltersGeneric
+#    - vtk.vtkGeovisCore
+#    - vtk.vtkFiltersHybrid
+#    - vtk.vtkIOCore
+#    - vtk.vtkImagingCore
+#    - vtk.vtkInfovisCore
+#    - vtk.vtkRenderingCore
+#    - vtk.vtkViewsCore
+#    - vtk.vtkRenderingVolume
+#    - vtk.vtkInteractionWidgets
+#    - vtk.vtkCommonComputationalGeometry
+#    - vtk.vtkCommonCore
+#    - vtk.vtkCommonExecutionModel
+#    - vtk.vtkCommonMisc
+#    - vtk.vtkCommonSystem
+#    - vtk.vtkCommonTransforms
+#    - vtk.vtkFiltersAMR
+#    - vtk.vtkFiltersCore
+#    - vtk.vtkFiltersExtraction
+#    - vtk.vtkFiltersFlowPaths
+#    - vtk.vtkFiltersGeneral
+#    - vtk.vtkFiltersGeneric
+#    - vtk.vtkFiltersGeometry
+#    - vtk.vtkFiltersHybrid
+#    - vtk.vtkFiltersImaging
+#    - vtk.vtkFiltersModeling
+#    - vtk.vtkFiltersSelection
+#    - vtk.vtkFiltersSMP
+#    - vtk.vtkFiltersSources
+#    - vtk.vtkFiltersStatistics
+#    - vtk.vtkFiltersTexture
+#    - vtk.vtkGeovisCore
+#    - vtk.vtkImagingColor
+#    - vtk.vtkImagingCore
+#    - vtk.vtkImagingGeneral
+#    - vtk.vtkImagingMath
+#    - vtk.vtkImagingSources
+#    - vtk.vtkImagingStencil
+#    - vtk.vtkInteractionImage
+#    - vtk.vtkInteractionStyle
+#    - vtk.vtkInteractionWidgets
+#    - vtk.vtkIOCore
+#    - vtk.vtkIOExport
+#    - vtk.vtkIOExportOpenGL
+#    - vtk.vtkIOGeometry
+#    - vtk.vtkIOImage
+#    - vtk.vtkIOImport
+#    - vtk.vtkRenderingCore
+#    - vtk.vtkRenderingFreeType
+#    - vtk.vtkRenderingFreeTypeOpenGL
+#    - vtk.vtkRenderingImage
+#    - vtk.vtkRenderingLabel
+#    - vtk.vtkRenderingOpenGL
+#    - vtk.vtkRenderingVolume
+#    - vtk.vtkRenderingVolumeOpenGL
+#    - vtk.vtkViewsCore
+#    - vtk.vtkViewsGeovis
+#
+about:
+  home: http://www.vtk.org/
+  license: BSD
+  summary: VTK is an open-source, freely available software system for 3D computer graphics
