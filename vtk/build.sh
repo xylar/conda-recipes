@@ -25,7 +25,9 @@ if [ `uname` == Linux ]; then
         -DPYTHON_LIBRARY=${PREFIX}/lib/${PY_LIB} \
         -DVTK_INSTALL_PYTHON_MODULE_DIR=${SP_DIR} \
         -DModule_vtkRenderingMatplotlib=ON \
-        -DVTK_USE_X=ON
+        -DVTK_USE_X=ON \
+        -DLIBPROJ4_INCLUDE_DIR:PATH=${PREFIX}/include \
+        -DLIBPROJ4_LIBRARIES:FILEPATH=${PREFIX}/lib/libproj${_LINK_LIBRARY_SUFFIX}
 fi
 
 if [ `uname` == Darwin ]; then
@@ -38,7 +40,6 @@ if [ `uname` == Darwin ]; then
         -DCMAKE_CXX_COMPILER=$CXX \
         -DVTK_REQUIRED_OBJCXX_FLAGS='' \
         -DVTK_USE_CARBON=OFF \
-        -DVTK_USE_TK=OFF \
         -DVTK_USE_COCOA=ON \
         -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_PREFIX="$PREFIX" \
@@ -55,7 +56,9 @@ if [ `uname` == Darwin ]; then
         -DVTK_INSTALL_PYTHON_MODULE_DIR=${SP_DIR} \
         -DModule_vtkRenderingMatplotlib=ON \
         -DVTK_USE_X=OFF \
-        -DVTK_Group_Web:BOOL=ON
+        -DVTK_Group_Web:BOOL=ON \
+        -DLIBPROJ4_INCLUDE_DIR:PATH=${PREFIX}/include \
+        -DLIBPROJ4_LIBRARIES:FILEPATH=${PREFIX}/lib/libproj${_LINK_LIBRARY_SUFFIX}
 fi
 
 make -j4

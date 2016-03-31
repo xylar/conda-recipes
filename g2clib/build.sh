@@ -6,5 +6,5 @@ export CPPFLAGS="-I${PREFIX}/include"
 export LDFLAGS="-L${PREFIX}/lib"
 export EXTERNALS=${PREFIX}
 
-make
+make -j
 make install

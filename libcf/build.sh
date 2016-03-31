@@ -5,6 +5,4 @@ export LDFLAGS="-L${PREFIX}/lib"
 export LFLAGS="-fPIC"
 
 ./configure --prefix=${PREFIX}
-#make  -j${CPU_COUNT}
-#make install
 ${PYTHON} setup.py install

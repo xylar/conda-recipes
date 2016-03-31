@@ -9,7 +9,16 @@ build:
  
 requirements:
   build:
+  - jasper
+  - g2clib
+  - hdf5
+  - libnetcdf 4.3.3.1
+  - lapack >=3.4.2
+  - clapack >=3.2.1
+  - curl
   - python
+  - ossuuid 
+  - libcdms
   - regrid2
   - libcf
   - distarray
@@ -32,6 +41,9 @@ requirements:
   - xmgrace
 
   run:
+  - g2clib
+  - jasper
+  - libcdms
   - python
   - regrid2
   - libcf

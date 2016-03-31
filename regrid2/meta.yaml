@@ -21,6 +21,7 @@ requirements:
     - libcdms
     - cdat_info
     - numpy <=1.9.2
+    - esmf
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat
