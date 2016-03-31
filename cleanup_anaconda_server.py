@@ -1,20 +1,54 @@
+#!/usr/bin/env python
 import argparse
 import os
 import sys
 
-myos="osx-64"
-#myos = "linux-64"
-package = "*"
-channel = "doutriaux1"
-buildstring = "UVCDAT"
+parser = argparse.ArgumentParser(description='Cleanup your anaconda server')
 
-import glob
-pkg = glob.glob(package)
-print pkg
-for p in glob.glob(package):
-    print "PACKAGE:",p
+if os.uname()[0] == "Linux":
+    def_os = "linux-64"
+else:
+    def_os = "osx-64"
+
+parser.add_argument(
+    "-o",
+     "--os",
+     default=def_os,
+     help="OS from which you want to cleanup the binaries")
+
+parser.add_argument(
+    "-p",
+     "--packages",
+     default="*",
+     help="Packages to cleanup",
+     nargs="*")
+
+parser.add_argument(
+    "-c",
+     "--channel",
+     default=os.getlogin(),
+     help="channel to cleanup")
+
+parser.add_argument("-b", "--build", default=None, help="Build to remove")
+
+parser.add_argument("-v", "--version", default=None, help="Version to remove")
+
+args = parser.parse_args(sys.argv[1:])
+
+myos = args.os
+pkg = args.packages
+channel = args.channel
+build = args.build
+version = args.version
+
+if pkg == "*":
+    import glob
+    pkg = glob.glob(pkg)
+
+for p in pkg:
+    print "Cleaning up", p, "from channel", channel, "os", myos
     try:
-        f= open(os.path.join(p,"meta.yaml"))
+        f = open(os.path.join(p, "meta.yaml"))
         rd = f.read()
         f.close()
     except:
@@ -24,16 +58,22 @@ for p in glob.glob(package):
     name = rd[:iname]
     rd = rd[iname:]
     name = name.split()[-1]
-    print "name:",name
-    rd = rd[rd.find("version:"):]
-    iversion = rd.find("\n")
-    version = rd[:iversion].split()[-1]
-    version="master"
-    print version
-    rd=rd[rd.find("string:"):]
-    ibuild = rd.find("\n")
-    build=rd[:ibuild].split()[-1]
-    print "build:",build
-    cmd = "anaconda remove -f %s/%s/%s/%s/%s-%s-%s.tar.bz2" % (channel,name,version,myos,name,version,build)
-    print cmd
+    print "name:", name
+    if args.version is None:
+        rd = rd[rd.find("version:"):]
+        iversion = rd.find("\n")
+        version = rd[:iversion].split()[-1]
+    else:
+        version = args.version
+    print "\tversion:", version
+    if args.build is None:
+        rd = rd[rd.find("string:"):]
+        ibuild = rd.find("\n")
+        build = rd[:ibuild].split()[-1]
+    else:
+        build = args.build
+    print "\tbuild:", build
+    cmd = "anaconda remove -f %s/%s/%s/%s/%s-%s-%s.tar.bz2" % (
+        channel, name, version, myos, name, version, build)
+    print "\tExecuting:", cmd
     os.system(cmd)

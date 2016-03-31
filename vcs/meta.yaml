@@ -20,7 +20,7 @@ requirements:
     - genutil
     - unidata
     - dv3d
-    - vtk
+    - vtk uvcdat
     - cdms2
     - cdutil
 
