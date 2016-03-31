@@ -9,62 +9,69 @@ build:
  
 requirements:
   build:
-  - jasper
-  - g2clib
-  - hdf5
-  - libnetcdf 4.3.3.1
-  - lapack >=3.4.2
-  - clapack >=3.2.1
-  - curl
-  - python
-  - ossuuid 
-  - libcdms
-  - regrid2
-  - libcf
-  - distarray
-  - cdms2
-  - cdtime
-  - cdutil
-  - cmor
-  - dv3d
-  - esg
-  - genutil
-  - pydebug
-  - regrid2
-  - thermo
-  - unidata
-  - uvcmetrics
-  - vcs
-  - vcsaddons
-  - vistrails
-  - wk
-  - xmgrace
-
+    - lapack
+    - clapack
+    - ossuuid
+    - libcf
+    - esmf
+    - jasper
+    - g2clib
+    - ossuuid
+    - libcf
+    - libcdms
+    - cdat_info
+    - distarray
+    - regrid2
+    - cdms2
+    - cdtime
+    - cdutil
+    - udunits2
+    - unidata
+    - genutil
+    - vtk
+    - dv3d
+    - vcs
+    - vcsaddons
+    - thermo
+    - wk
+    - cmor
+    - pydebug
+    - uvcmetrics
+    - vistrails
+    - xmgrace
+    - esg
   run:
-  - g2clib
-  - jasper
-  - libcdms
-  - python
-  - regrid2
-  - libcf
-  - distarray
-  - cdms2
-  - cdtime
-  - cdutil
-  - cmor
-  - dv3d
-  - esg
-  - genutil
-  - pydebug
-  - regrid2
-  - thermo
-  - unidata
-  - uvcmetrics
-  - vcs
-  - vcsaddons
-  - vistrails
-  - wk
-  - xmgrace
+    - lapack
+    - clapack
+    - ossuuid
+    - libcf
+    - esmf
+    - jasper
+    - g2clib
+    - ossuuid
+    - libcf
+    - libcdms
+    - cdat_info
+    - distarray
+    - regrid2
+    - cdms2
+    - cdtime
+    - cdutil
+    - udunits2
+    - unidata
+    - genutil
+    - vtk
+    - dv3d
+    - vcs
+    - vcsaddons
+    - thermo
+    - wk
+    - cmor
+    - pydebug
+    - uvcmetrics
+    - vistrails
+    - xmgrace
+    - esg
 
 
 about:
