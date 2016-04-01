@@ -28,6 +28,9 @@ requirements:
     - udunits2
     - unidata
     - genutil
+    - yasm
+    - x264
+    - ffmpeg
     - vtk
     - dv3d
     - vcs
@@ -60,6 +63,9 @@ requirements:
     - udunits2
     - unidata
     - genutil
+    - yasm
+    - x264
+    - ffmpeg
     - vtk
     - dv3d
     - vcs

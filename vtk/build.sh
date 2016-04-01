@@ -17,7 +17,6 @@ if [ `uname` == Linux ]; then
         -DBUILD_DOCUMENTATION=OFF \
         -DBUILD_TESTING:BOOL=OFF \
         -DVTK_HAS_FEENABLEEXCEPT=OFF \
-        -DBUILD_TESTING=OFF \
         -DBUILD_EXAMPLES=OFF \
         -DModule_CommonComputationalGeometry:BOOL=ON \
         -DModule_CommonCore:BOOL=ON \
@@ -96,7 +95,6 @@ if [ `uname` == Darwin ]; then
         -DBUILD_DOCUMENTATION=OFF \
         -DBUILD_TESTING=OFF \
         -DVTK_HAS_FEENABLEEXCEPT=OFF \
-        -DBUILD_TESTING=OFF \
         -DBUILD_EXAMPLES=OFF \
         -DModule_CommonComputationalGeometry:BOOL=ON \
         -DModule_CommonCore:BOOL=ON \

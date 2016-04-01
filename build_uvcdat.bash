@@ -18,6 +18,9 @@ conda build cdutil
 conda build udunits2
 conda build unidata
 conda build genutil
+conda build yasm
+conda build x264
+conda build ffmpeg
 conda build vtk
 conda build dv3d
 conda build vcs

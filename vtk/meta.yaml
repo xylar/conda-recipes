@@ -21,10 +21,12 @@ requirements:
     - python
     - proj4
     - hdf5
+    - ffmpeg
   run:
     - python
     - proj4
     - hdf5
+    - ffmpeg
 
 #test:
 #  imports:

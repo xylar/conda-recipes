@@ -23,6 +23,7 @@ requirements:
     - vtk uvcdat
     - cdms2
     - cdutil
+    - ffmpeg
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat
