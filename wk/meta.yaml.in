@@ -1,9 +1,9 @@
 package:
-    name: genutil
+    name: wk
     version: master
 
 source:
-    git_rev: master
+    git_rev: @UVCDAT_BRANCH@
     git_url: git://github.com/UV-CDAT/uvcdat.git
 
 build:
@@ -13,13 +13,10 @@ requirements:
   build:
     - python
     - setuptools
-    - numpy <=1.9.2
   run:
     - python
     - cdms2
-    - cdutil
-    - unidata
-    - numpy <=1.9.2
+    - vcs
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat

@@ -1,9 +1,9 @@
 package:
-    name: unidata
+    name: cdtime
     version: master
 
 source:
-    git_rev: master
+    git_rev: @UVCDAT_BRANCH@
     git_url: git://github.com/UV-CDAT/uvcdat.git
 
 build:
@@ -13,13 +13,13 @@ requirements:
   build:
     - python
     - setuptools
-    - udunits2
-    - numpy <=1.9.2
+    - libcdms
     - cdat_info
   run:
     - python
-    - udunits2
-    - numpy <=1.9.2
+    - setuptools
+    - libcdms
+    - cdat_info
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat

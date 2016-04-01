@@ -1,9 +1,9 @@
 package:
-    name: xmgrace
+    name: pydebug
     version: master
 
 source:
-    git_rev: master
+    git_rev: @UVCDAT_BRANCH@
     git_url: git://github.com/UV-CDAT/uvcdat.git
 
 build:
@@ -15,7 +15,6 @@ requirements:
     - setuptools
   run:
     - python
-    - cdms2
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat

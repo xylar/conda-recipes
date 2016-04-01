@@ -1,9 +1,9 @@
 package:
-    name: regrid2
+    name: vcs
     version: master
 
 source:
-    git_rev: master
+    git_rev: @UVCDAT_BRANCH@
     git_url: git://github.com/UV-CDAT/uvcdat.git
 
 build:
@@ -13,15 +13,17 @@ requirements:
   build:
     - python
     - setuptools
-    - libcdms
     - cdat_info
-    - numpy <=1.9.2
   run:
     - python
-    - libcdms
     - cdat_info
-    - numpy <=1.9.2
-    - esmf
+    - genutil
+    - unidata
+    - dv3d
+    - vtk uvcdat
+    - cdms2
+    - cdutil
+    - ffmpeg
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat

@@ -1,9 +1,9 @@
 package:
-    name: distarray
+    name: vcsaddons
     version: master
 
 source:
-    git_rev: master
+    git_rev: @UVCDAT_BRANCH@
     git_url: git://github.com/UV-CDAT/uvcdat.git
 
 build:
@@ -15,6 +15,8 @@ requirements:
     - setuptools
   run:
     - python
+    - vcs
+    - cdms2
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat

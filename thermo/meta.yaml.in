@@ -1,9 +1,9 @@
 package:
-    name: dv3d
+    name: thermo
     version: master
 
 source:
-    git_rev: master
+    git_rev: @UVCDAT_BRANCH@
     git_url: git://github.com/UV-CDAT/uvcdat.git
 
 build:
@@ -15,7 +15,7 @@ requirements:
     - setuptools
   run:
     - python
-    - vtk uvcdat
+    - vcs
     - cdms2
 
 about:

@@ -3,7 +3,7 @@ package:
     version: master
 
 source:
-    git_rev: master
+    git_rev: @UVCDAT_BRANCH@
     git_url: git://github.com/UV-CDAT/libcdms.git
 
 build:

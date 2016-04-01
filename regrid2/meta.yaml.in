@@ -1,9 +1,9 @@
 package:
-    name: thermo
+    name: regrid2
     version: master
 
 source:
-    git_rev: master
+    git_rev: @UVCDAT_BRANCH@
     git_url: git://github.com/UV-CDAT/uvcdat.git
 
 build:
@@ -13,10 +13,15 @@ requirements:
   build:
     - python
     - setuptools
+    - libcdms
+    - cdat_info
+    - numpy <=1.9.2
   run:
     - python
-    - vcs
-    - cdms2
+    - libcdms
+    - cdat_info
+    - numpy <=1.9.2
+    - esmf
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat

@@ -1,9 +1,9 @@
 package:
-    name: cdms2
+    name: distarray
     version: master
 
 source:
-    git_rev: master
+    git_rev: @UVCDAT_BRANCH@
     git_url: git://github.com/UV-CDAT/uvcdat.git
 
 build:
@@ -13,13 +13,8 @@ requirements:
   build:
     - python
     - setuptools
-    - regrid2
   run:
     - python
-    - regrid2
-    - libcf
-    - distarray
-    - esmf
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat
