@@ -15,6 +15,8 @@ else
     export ESMF_OPENMP "ON"
 fi
 export ESMF_INSTALL=${PREFIX}
+export ESMF_INSTALL_PREFIX=${PREFIX}
+
 # ESMF_COMM env variable, choices are openmpi, mpiuni, mpi, mpich2, or mvapich2
 ESMF_COMM="mpiuni"
 
@@ -24,6 +26,13 @@ cd esmf
 make  -j
 make install
 cd ../ESMP
+find ../../../.. -name "e*.mk" 
+export FILES=`find ../../../.. -name "e*.mk" | tail -n1 `
+echo "ESMK FILES ${FILES}"
+export ESMFMKFILE=`python -c "import sys,os;full = sys.argv[1]; pth2 = os.path.join('libO',full.split('libO')[1][1:]) ; print pth2" ${FILES}`
+echo "ESMF_mkfile: ${ESMFMKFILE}"
+echo "INSTAL LWAS AT: ${ESMF_INSTALL_PREFIX}"
+
 ${PYTHON} generateESMP_Config.py
 
 cat > ESMP.patch << EOF
@@ -38,8 +47,8 @@ cat > ESMP.patch << EOF
 +    # current Python module.
 +    if not os.path.isabs(esmfmk):
 +      # Get the directory for this module
-+      rel_dir = os.path.dirname(os.path.realpath(__file__))
-+      esmfmk = os.path.abspath(os.path.join(rel_dir, esmfmk))
++      esmfmk = os.path.abspath(os.path.join(sys.prefix,'lib', esmfmk))
++      print 'ESMFFILE:',esmfmk
 +
      MKFILE = open(esmfmk, 'r')
    except:
@@ -60,6 +69,9 @@ cat > ESMP.patch << EOF
        esmfos = line.split(":")[1]
      elif 'ESMF_ABI:' in line:
        esmfabi = line.split(":")[1]
+
 EOF
+
 patch -p1 src/ESMP_LoadESMF.py ESMP.patch
-#${PYTHON} setup.py install
+cd ..
+cp -rf ESMP ${SP_DIR}
