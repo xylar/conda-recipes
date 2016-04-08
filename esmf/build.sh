@@ -26,12 +26,10 @@ cd esmf
 make  -j
 make install
 cd ../ESMP
-find ../../../.. -name "e*.mk" 
 export FILES=`find ../../../.. -name "e*.mk" | tail -n1 `
 echo "ESMK FILES ${FILES}"
 export ESMFMKFILE=`python -c "import sys,os;full = sys.argv[1]; pth2 = os.path.join('libO',full.split('libO')[1][1:]) ; print pth2" ${FILES}`
 echo "ESMF_mkfile: ${ESMFMKFILE}"
-echo "INSTAL LWAS AT: ${ESMF_INSTALL_PREFIX}"
 
 ${PYTHON} generateESMP_Config.py
 
@@ -48,7 +46,6 @@ cat > ESMP.patch << EOF
 +    if not os.path.isabs(esmfmk):
 +      # Get the directory for this module
 +      esmfmk = os.path.abspath(os.path.join(sys.prefix,'lib', esmfmk))
-+      print 'ESMFFILE:',esmfmk
 +
      MKFILE = open(esmfmk, 'r')
    except:
