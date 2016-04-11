@@ -36,7 +36,7 @@ ${PYTHON} generateESMP_Config.py
 cat > ESMP.patch << EOF
 --- a/ESMP_LoadESMF.py  2014-01-14 10:00:22.000000000 -0500
 +++ b/ESMP_LoadESMF.py  2014-01-14 10:40:57.000000000 -0500
-@@ -64,6 +64,14 @@
+@@ -64,6 +64,13 @@
  #      esmfmk = c[2]
 
    try:
@@ -50,7 +50,7 @@ cat > ESMP.patch << EOF
      MKFILE = open(esmfmk, 'r')
    except:
      raise IOError("File not found\n  %s") % esmfmk
-@@ -72,11 +80,12 @@
+@@ -72,11 +79,12 @@
    libsdir = 0
    esmfos = 0
    esmfabi = 0
@@ -66,7 +66,6 @@ cat > ESMP.patch << EOF
        esmfos = line.split(":")[1]
      elif 'ESMF_ABI:' in line:
        esmfabi = line.split(":")[1]
-
 EOF
 
 patch -p1 src/ESMP_LoadESMF.py ESMP.patch
