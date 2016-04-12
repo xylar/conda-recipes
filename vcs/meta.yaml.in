@@ -24,6 +24,7 @@ requirements:
     - cdms2
     - cdutil
     - ffmpeg
+    - vcsaddons
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat

@@ -20,6 +20,7 @@ requirements:
     - libcf
     - distarray
     - esmf
+    - cdtime
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat
