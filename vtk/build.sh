@@ -75,7 +75,8 @@ if [ `uname` == Linux ]; then
         -DVTK_USE_X=ON \
         -DVTK_Group_Web:BOOL=ON \
         -DLIBPROJ4_INCLUDE_DIR:PATH=${PREFIX}/include \
-        -DLIBPROJ4_LIBRARIES:FILEPATH=${PREFIX}/lib/libproj${_LINK_LIBRARY_SUFFIX}
+        -DLIBPROJ4_LIBRARIES:FILEPATH=${PREFIX}/lib/libproj${_LINK_LIBRARY_SUFFIX} \
+        -DVTK_RENDERING_BACKEND=OpenGL
 fi
 
 if [ `uname` == Darwin ]; then
@@ -153,7 +154,8 @@ if [ `uname` == Darwin ]; then
         -DVTK_USE_X=OFF \
         -DVTK_Group_Web:BOOL=ON \
         -DLIBPROJ4_INCLUDE_DIR:PATH=${PREFIX}/include \
-        -DLIBPROJ4_LIBRARIES:FILEPATH=${PREFIX}/lib/libproj${_LINK_LIBRARY_SUFFIX}
+        -DLIBPROJ4_LIBRARIES:FILEPATH=${PREFIX}/lib/libproj${_LINK_LIBRARY_SUFFIX} \
+        -DVTK_RENDERING_BACKEND=OpenGL
 fi
 
 make -j4
