@@ -3,6 +3,7 @@ import argparse
 import os
 import sys
 import glob
+import time
 
 parser = argparse.ArgumentParser(description='Cleanup your anaconda server')
 

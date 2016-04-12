@@ -3,7 +3,7 @@ import argparse
 import os
 import sys
 
-parser = argparse.ArgumentParser(description='Cleanup your anaconda server')
+parser = argparse.ArgumentParser(description='Manage your anaconda packages')
 
 if os.uname()[0] == "Linux":
     def_os = "linux-64"
@@ -29,10 +29,12 @@ parser.add_argument(
      default=os.getlogin(),
      help="channel to cleanup")
 
-parser.add_argument("-b", "--build", default=None, help="Build to remove")
+parser.add_argument("-b", "--build", default=None, help="Build to use")
 
-parser.add_argument("-v", "--version", default=None, help="Version to remove")
-parser.add_argument("-l", "--label", default=None, help="Label to remove")
+parser.add_argument("-v", "--version", default=None, help="Version to use")
+parser.add_argument("-l", "--label", default=None, help="Label to use")
+
+parser.add_argument("-u","--upload", default=False, action="store_true",help="upload packages (default is remove)")
 
 args = parser.parse_args(sys.argv[1:])
 
@@ -49,7 +51,10 @@ if pkg == "*":
     pkg = glob.glob(pkg)
 
 for p in pkg:
-    print "Cleaning up", p, "from channel", channel, "os", myos
+    if args.upload:
+        print "Uploading up", p, "from channel", channel, "os", myos
+    else:
+        print "Cleaning up", p, "from channel", channel, "os", myos
     try:
         f = open(os.path.join(p, "meta.yaml"))
         rd = f.read()
@@ -76,7 +81,13 @@ for p in pkg:
     else:
         build = args.build
     print "\tbuild:", build
-    cmd = "anaconda remove -f %s/%s/%s/%s/%s-%s-%s.tar.bz2" % (
-        channel, name, version, myos, name, version, build)
+    if args.upload:
+        cmd = "anaconda upload "
+        if args.label is not None:
+            cmd+="-l %s " % args.label
+        cmd+="%s/conda-bld/%s/%s-%s-%s.tar.bz2" % (sys.prefix,myos,name,version,build)
+    else:
+        cmd = "anaconda remove -f %s/%s/%s/%s/%s-%s-%s.tar.bz2" % (
+            channel, name, version, myos, name, version, build)
     print "\tExecuting:", cmd
     os.system(cmd)
