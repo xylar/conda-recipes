@@ -32,6 +32,7 @@ parser.add_argument(
 parser.add_argument("-b", "--build", default=None, help="Build to remove")
 
 parser.add_argument("-v", "--version", default=None, help="Version to remove")
+parser.add_argument("-l", "--label", default=None, help="Label to remove")
 
 args = parser.parse_args(sys.argv[1:])
 
@@ -40,6 +41,8 @@ pkg = args.packages
 channel = args.channel
 build = args.build
 version = args.version
+if args.label is not None:
+    channel = "%s/label/%s" % (channel, args.label)
 
 if pkg == "*":
     import glob

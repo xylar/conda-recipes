@@ -3,7 +3,7 @@ package:
     version: 2.9.2
 
 source:
-    git_rev: @UVCDAT_BRANCH@
+    git_rev: 2.9.2
     git_url: git://github.com/PCMDI/cmor.git
 
 build:
