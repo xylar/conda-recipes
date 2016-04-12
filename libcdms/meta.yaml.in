@@ -1,6 +1,6 @@
 package:
     name: libcdms
-version: @VERSION@
+    version: @VERSION@
 
 source:
     git_rev: @UVCDAT_BRANCH@
