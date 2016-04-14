@@ -7,7 +7,7 @@ source:
   url: http://uvcdat.llnl.gov/cdat/resources/udunits-2.2.17.tar.gz
  
 build:
-  string: PCMDI
+    string: UVCDAT
 
 requirements:
   build:
