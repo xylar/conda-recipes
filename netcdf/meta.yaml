@@ -12,7 +12,7 @@ requirements:
     run:
         - libhdf5
 build:
-    string: PCMDI
+    string: UVCDAT
 
 about:
     home:  http://hdfgroup.org 
