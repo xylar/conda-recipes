@@ -1,13 +1,5 @@
 #!/usr/bin/env bash
-conda build lapack
-conda build clapack
-conda build ossuuid
-conda build libcf
-conda build esmf
-conda build jasper
-conda build g2clib
-conda build ossuuid
-conda build libcf
+#./build_uvcdat_externals.bash
 conda build libcdms
 conda build cdat_info
 conda build distarray
@@ -18,16 +10,11 @@ conda build cdutil
 conda build udunits2
 conda build unidata
 conda build genutil
-conda build yasm
-conda build x264
-conda build ffmpeg
-conda build vtk
 conda build dv3d
 conda build vcs
 conda build vcsaddons
 conda build thermo
 conda build wk
-conda build cmor
 conda build pydebug
 conda build uvcmetrics
 conda build vistrails
