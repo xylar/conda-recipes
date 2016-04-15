@@ -35,6 +35,7 @@ parser.add_argument("-v", "--version", default=None, help="Version to use")
 parser.add_argument("-l", "--label", default=None, help="Label to use")
 
 parser.add_argument("-u","--upload", default=False, action="store_true",help="upload packages (default is remove)")
+parser.add_argument("-r","--remove",default=False,action="store_true",help="also remove from local conda")
 
 args = parser.parse_args(sys.argv[1:])
 
@@ -91,3 +92,6 @@ for p in pkg:
             channel, name, version, myos, name, version, build)
     print "\tExecuting:", cmd
     os.system(cmd)
+    if args.remove:
+        cmd = "conda remove %s" % name
+        os.system(cmd)
