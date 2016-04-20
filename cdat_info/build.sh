@@ -3,9 +3,11 @@ export CXXLAGS="${CFLAGS}"
 export CPPFLAGS="-I${PREFIX}/include"
 export LDFLAGS="-L${PREFIX}/lib"
 
+export GIT_DESCRIBE=`git describe --tags`
+
 cat > cdat_info.py.in << EOF
 
-Version = 'GIT_DESCRIBE_TAG-GIT_DESCRIBE_NUMBER-GIT_DESCRIBE_HASH'
+Version = 'GIT_DESCRIBE'
 ping_checked = False 
 check_in_progress = False
 def version():
@@ -193,7 +195,7 @@ else
 fi
 
 mkdir cdat_info_dir
-sed "s/PNGVER/${PNGVER}/g;s/GIT_DESCRIBE_TAG/${GIT_DESCRIBE_TAG}/g;s/GIT_DESCRIBE_NUMBER/${GIT_DESCRIBE_NUMBER}/g;s/GIT_DESCRIBE_HASH/${GIT_DESCRIBE_HASH}/g;" cdat_info.py.in > cdat_info_dir/cdat_info.py
+sed "s/PNGVER/${PNGVER}/g;s/GIT_DESCRIBE/${GIT_DESCRIBE}/g;" cdat_info.py.in > cdat_info_dir/cdat_info.py
 cat > cdat_info_dir/__init__.py << EOF
 from cdat_info import *
 EOF
@@ -208,4 +210,4 @@ setup (name = "cdat_info",
 EOF
 
 $PYTHON setup.py install
-
+env
