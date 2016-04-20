@@ -2,13 +2,17 @@ export CFLAGS="-Wall -g -m64 -pipe -O2  -fPIC"
 export CXXLAGS="${CFLAGS}"
 export CPPFLAGS="-I${PREFIX}/include"
 export LDFLAGS="-L${PREFIX}/lib"
+
 cat > cdat_info.py.in << EOF
 
-Version = 'v2.5.0-108-g2dc74bf'
+Version = 'GIT_DESCRIBE_TAG-GIT_DESCRIBE_NUMBER-GIT_DESCRIBE_HASH'
 ping_checked = False 
 check_in_progress = False
 def version():
-    return ['v2', 5, '0-108-g2dc74bf']
+    sp = Version.split("-")
+    vname = "-".join(sp[:-2])
+    vlist = vnm.split(".") + sp[-2:]
+    return vlist
 
 
 def get_drs_dirs ():
@@ -189,7 +193,7 @@ else
 fi
 
 mkdir cdat_info_dir
-sed "s/PNGVER/${PNGVER}/g;" cdat_info.py.in > cdat_info_dir/cdat_info.py
+sed "s/PNGVER/${PNGVER}/g;s/GIT_DESCRIBE_TAG/${GIT_DESCRIBE_TAG}/g;s/GIT_DESCRIBE_NUMBER/${GIT_DESCRIBE_NUMBER}/g;s/GIT_DESCRIBE_HASH/${GIT_DESCRIBE_HASH}/g;" cdat_info.py.in > cdat_info_dir/cdat_info.py
 cat > cdat_info_dir/__init__.py << EOF
 from cdat_info import *
 EOF
