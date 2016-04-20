@@ -23,7 +23,7 @@ for fnm in files:
     s = f.read()
     f.close()
     s = s.replace("@UVCDAT_BRANCH@",args.branch)
-    s = s.replace("@BUILD_NAME@",args.name)
+    s = s.replace("@BUILD_NAME@",args.build)
     s = s.replace("@VERSION@",args.version)
     f=open(fnm[:-3],"w")
     print >> f,s
