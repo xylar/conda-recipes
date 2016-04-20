@@ -20,3 +20,4 @@ conda build uvcmetrics
 conda build vistrails
 conda build xmgrace
 conda build esg
+#./build_uvcdat_contrib.bash

@@ -17,6 +17,7 @@ requirements:
   run:
     - python
     - numpy <=1.9.2
+    - hdf5
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat
