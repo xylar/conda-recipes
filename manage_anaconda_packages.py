@@ -3,8 +3,9 @@ import argparse
 import os
 import sys
 
-parser = argparse.ArgumentParser(description='Manage your anaconda packages',
-                                 formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+parser = argparse.ArgumentParser(
+        description='Manage your anaconda packages',
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
 if os.uname()[0] == "Linux":
     def_os = "linux-64"

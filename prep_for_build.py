@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 import argparse
-import os
 import sys
 import glob
 import time
@@ -9,8 +8,9 @@ import time
 l = time.localtime()
 today = "%s.%s.%s" % (l.tm_year, l.tm_mon, l.tm_mday)
 
-parser = argparse.ArgumentParser(description='Cleanup your anaconda server',
-                                 formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+parser = argparse.ArgumentParser(
+        description='Cleanup your anaconda server',
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
 parser.add_argument("-b", "--branch", default="master",
                     help="branch to use on uvcdat repo")

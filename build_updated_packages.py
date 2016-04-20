@@ -8,8 +8,9 @@ import subprocess
 import shlex
 
 
-parser = argparse.ArgumentParser(description='Build packages that have changed',
-                                 formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+parser = argparse.ArgumentParser(
+        description='Build changed packages',
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 parser.add_argument("-g", "--git-sources", default="/git/uvcdat")
 parser.add_argument(
     "-d",
