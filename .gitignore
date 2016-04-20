@@ -20,4 +20,16 @@ xmgrace/meta.yaml
 regrid2/meta.yaml
 vcs/meta.yaml
 vcsaddons/meta.yaml
-
+EzTemplate/meta.yaml
+HDF5Tools/meta.yaml
+asciidata/meta.yaml
+binaryio/meta.yaml
+cssgrid/meta.yaml
+dsgrid/meta.yaml
+lmoments/meta.yaml
+natgrid/meta.yaml
+ort/meta.yaml
+regridpack/meta.yaml
+shgrid/meta.yaml
+trends/meta.yaml
+spherepack/meta.yaml

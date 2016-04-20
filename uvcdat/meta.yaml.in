@@ -1,11 +1,11 @@
 package:
     name: uvcdat
-    version: 2.4.1
+    version: @VERSION@
 
 source:
 
 build:
-  string: UVCDAT
+  string: @BUILD_NAME@
  
 requirements:
   build:
@@ -95,7 +95,6 @@ requirements:
 
 about:
   home:  http://gitub.com/UV-CDAT/uvcdat
-
 
 
 
