@@ -4,7 +4,7 @@ import os
 import sys
 
 parser = argparse.ArgumentParser(description='Manage your anaconda packages',
-        formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+                                 formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
 if os.uname()[0] == "Linux":
     def_os = "linux-64"
@@ -13,30 +13,44 @@ else:
 
 parser.add_argument(
     "-o",
-     "--os",
-     default=def_os,
-     help="OS from which you want to cleanup the binaries")
+    "--os",
+    default=def_os,
+    help="OS from which you want to cleanup the binaries")
 
 parser.add_argument(
     "-p",
-     "--packages",
-     default="*",
-     help="Packages to cleanup",
-     nargs="*")
+    "--packages",
+    default="*",
+    help="Packages to cleanup",
+    nargs="*")
 
 parser.add_argument(
     "-c",
-     "--channel",
-     default=os.getlogin(),
-     help="channel to cleanup")
+    "--channel",
+    default=os.getlogin(),
+    help="channel to cleanup")
 
 parser.add_argument("-B", "--build", default=None, help="Build to use")
 
-parser.add_argument("-v", "--version", default=None, help="Version to use, or use meta.yaml to figure out")
+parser.add_argument(
+    "-v",
+    "--version",
+    default=None,
+    help="Version to use, or use meta.yaml to figure out")
 parser.add_argument("-l", "--label", default=None, help="Label to use")
 
-parser.add_argument("-u","--upload", default=False, action="store_true",help="upload packages (default is remove)")
-parser.add_argument("-r","--remove",default=False,action="store_true",help="also remove from local conda")
+parser.add_argument(
+    "-u",
+    "--upload",
+    default=False,
+    action="store_true",
+    help="upload packages (default is remove)")
+parser.add_argument(
+    "-r",
+    "--remove",
+    default=False,
+    action="store_true",
+    help="also remove from local conda")
 
 args = parser.parse_args(sys.argv[1:])
 
@@ -86,8 +100,9 @@ for p in pkg:
     if args.upload:
         cmd = "anaconda upload "
         if args.label is not None:
-            cmd+="-l %s " % args.label
-        cmd+="%s/conda-bld/%s/%s-%s-%s.tar.bz2" % (sys.prefix,myos,name,version,build)
+            cmd += "-l %s " % args.label
+        cmd += "%s/conda-bld/%s/%s-%s-%s.tar.bz2" % (
+            sys.prefix, myos, name, version, build)
     else:
         cmd = "anaconda remove -f %s/%s/%s/%s/%s-%s-%s.tar.bz2" % (
             channel, name, version, myos, name, version, build)
