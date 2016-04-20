@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#./build_uvcdat_externals.bash
+./build_uvcdat_externals.bash
 conda build libcdms
 conda build cdat_info
 conda build distarray
@@ -20,4 +20,4 @@ conda build uvcmetrics
 conda build vistrails
 conda build xmgrace
 conda build esg
-#./build_uvcdat_contrib.bash
+./build_uvcdat_contrib.bash
