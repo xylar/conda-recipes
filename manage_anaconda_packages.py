@@ -29,7 +29,7 @@ parser.add_argument(
      default=os.getlogin(),
      help="channel to cleanup")
 
-parser.add_argument("-b", "--build", default=None, help="Build to use")
+parser.add_argument("-B", "--build", default=None, help="Build to use")
 
 parser.add_argument("-v", "--version", default=None, help="Version to use")
 parser.add_argument("-l", "--label", default=None, help="Label to use")

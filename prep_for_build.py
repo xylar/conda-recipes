@@ -8,7 +8,7 @@ import time
 parser = argparse.ArgumentParser(description='Cleanup your anaconda server')
 
 parser.add_argument("-b","--branch",default="master")
-parser.add_argument("-n","--name",default="master")
+parser.add_argument("-B","--build",default="UVCDAT")
 parser.add_argument("-v","--version",default=None)
 
 args = parser.parse_args(sys.argv[1:])
