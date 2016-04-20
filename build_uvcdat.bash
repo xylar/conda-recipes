@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-if [ $1 == "FULL" ]; then ./build_uvcdat_externals.bash ; fi
+if [ $1"-" == "FULL-" ]; then ./build_uvcdat_externals.bash ; fi
 conda build libcdms
 conda build cdat_info
 conda build distarray
@@ -20,4 +20,4 @@ conda build uvcmetrics
 conda build vistrails
 conda build xmgrace
 conda build esg
-if [ $1 == "FULL" ]; then ./build_uvcdat_contrib.bash ; fi
+if [ $1"-" == "FULL-" ]; then ./build_uvcdat_contrib.bash ; fi
