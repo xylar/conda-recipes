@@ -8,7 +8,8 @@ import subprocess
 import shlex
 
 
-parser = argparse.ArgumentParser(description='Build packages that have changed')
+parser = argparse.ArgumentParser(description='Build packages that have changed',
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 parser.add_argument("-g","--git-sources",default="/git/uvcdat")
 parser.add_argument("-d","--delta",help="delta to look back in git history to figure out Packages to update",default=1,type=int)
 parser.add_argument("-u","--units",help="units for delta",choices=["days","hours","months","years"],default="days")
@@ -23,7 +24,6 @@ parser.add_argument(
 
 parser.add_argument("-B", "--build", default=None, help="Build to use")
 
-parser.add_argument("-v", "--version", default=None, help="Version to use")
 parser.add_argument("-l", "--label", default=None, help="Label to use")
 
 files = glob.glob("*/meta.yaml.in")
@@ -57,7 +57,7 @@ if args.branch is not None:
     cmd += " -b %s" % args.branch
 
 if args.build is not None:
-    cmd += "-B "%s args.build
+    cmd += "-B %s" % args.build
 
 if args.version is not None:
     cmd+= "-v %s" % args.version

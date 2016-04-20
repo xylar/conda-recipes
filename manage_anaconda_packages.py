@@ -3,7 +3,8 @@ import argparse
 import os
 import sys
 
-parser = argparse.ArgumentParser(description='Manage your anaconda packages')
+parser = argparse.ArgumentParser(description='Manage your anaconda packages',
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
 if os.uname()[0] == "Linux":
     def_os = "linux-64"
@@ -31,7 +32,7 @@ parser.add_argument(
 
 parser.add_argument("-B", "--build", default=None, help="Build to use")
 
-parser.add_argument("-v", "--version", default=None, help="Version to use")
+parser.add_argument("-v", "--version", default=None, help="Version to use, or use meta.yaml to figure out")
 parser.add_argument("-l", "--label", default=None, help="Label to use")
 
 parser.add_argument("-u","--upload", default=False, action="store_true",help="upload packages (default is remove)")
