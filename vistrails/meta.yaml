@@ -18,6 +18,7 @@ requirements:
     - uvcmetrics
     - matplotlib
     - scikit-learn
+    - pyopenssl
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat
