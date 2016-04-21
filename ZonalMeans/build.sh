@@ -1,4 +1,4 @@
 if [ `uname` == Darwin ]; then export LDFLAGS="-lpython" ; fi
-cd contrib/regridpack
+cd contrib/ZonalMeans
 python setup.py install
 

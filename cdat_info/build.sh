@@ -12,7 +12,7 @@ ping_checked = False
 check_in_progress = False
 def version():
     sp = Version.split("-")
-    vname = "-".join(sp[:-2])
+    vnm = "-".join(sp[:-2])
     vlist = vnm.split(".") + sp[-2:]
     return vlist
 

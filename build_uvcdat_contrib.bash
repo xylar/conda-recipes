@@ -12,3 +12,4 @@ conda build regridpack
 conda build shgrid
 conda build trends
 conda build spherepack
+conda build ZonalMeans

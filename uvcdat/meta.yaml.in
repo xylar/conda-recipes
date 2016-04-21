@@ -43,6 +43,20 @@ requirements:
     - vistrails
     - xmgrace
     - esg
+    - eztemplate
+    - hdf5tools
+    - asciidata
+    - binaryio
+    - cssgrid
+    - dsgrid
+    - lmoments
+    - natgrid
+    - ort
+    - regridpack
+    - shgrid
+    - trends
+    - spherepack
+    - zonalmeans
   run:
     - lapack
     - clapack
@@ -78,8 +92,8 @@ requirements:
     - vistrails
     - xmgrace
     - esg
-    - EzTemplate
-    - HDF5Tools
+    - eztemplate
+    - hdf5tools
     - asciidata
     - binaryio
     - cssgrid
@@ -91,6 +105,7 @@ requirements:
     - shgrid
     - trends
     - spherepack
+    - zonalmeans
 
 
 about:
