@@ -29,7 +29,7 @@ parser.add_argument(
     "-c",
     "--channel",
     default=os.getlogin(),
-    help="channel to cleanup")
+    help="channel/organization to cleanup/upload")
 
 parser.add_argument("-B", "--build", default=None, help="Build to use")
 
@@ -69,7 +69,7 @@ if pkg == "*":
 
 for p in pkg:
     if args.upload:
-        print "Uploading up", p, "from channel", channel, "os", myos
+        print "Uploading up", p, "to organization", channel, "os", myos
     else:
         print "Cleaning up", p, "from channel", channel, "os", myos
     try:
@@ -99,10 +99,10 @@ for p in pkg:
         build = args.build
     print "\tbuild:", build
     if args.upload:
-        cmd = "anaconda upload "
+        cmd = "anaconda upload -u %s" % args.channel
         if args.label is not None:
-            cmd += "-l %s " % args.label
-        cmd += "%s/conda-bld/%s/%s-%s-%s.tar.bz2" % (
+            cmd += " -l %s" % args.label
+        cmd += " %s/conda-bld/%s/%s-%s-%s.tar.bz2" % (
             sys.prefix, myos, name, version, build)
     else:
         cmd = "anaconda remove -f %s/%s/%s/%s/%s-%s-%s.tar.bz2" % (
