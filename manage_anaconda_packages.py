@@ -72,17 +72,27 @@ for p in pkg:
         print "Uploading up", p, "to organization", channel, "os", myos
     else:
         print "Cleaning up", p, "from channel", channel, "os", myos
-    try:
-        f = open(os.path.join(p, "meta.yaml"))
-        rd = f.read()
-        f.close()
-    except:
-        continue
-    rd = rd[rd.find("name:"):]
-    iname = rd.find("\n")
-    name = rd[:iname]
-    rd = rd[iname:]
-    name = name.split()[-1]
+    if args.version!="all" and args.os != "all":
+        try:
+            f = open(os.path.join(p, "meta.yaml"))
+            rd = f.read()
+            f.close()
+        except:
+            continue
+        rd = rd[rd.find("name:"):]
+        iname = rd.find("\n")
+        name = rd[:iname]
+        rd = rd[iname:]
+        name = name.split()[-1]
+        if args.build is None:
+            rd = rd[rd.find("string:"):]
+            ibuild = rd.find("\n")
+            build = rd[:ibuild].split()[-1]
+        else:
+            build = args.build
+    else:
+        name = p
+        build = "all"
     print "name:", name
     if args.version is None:
         rd = rd[rd.find("version:"):]
@@ -91,12 +101,8 @@ for p in pkg:
     else:
         version = args.version
     print "\tversion:", version
-    if args.build is None:
-        rd = rd[rd.find("string:"):]
-        ibuild = rd.find("\n")
-        build = rd[:ibuild].split()[-1]
-    else:
-        build = args.build
+    if version =="all":
+        version = "*"
     print "\tbuild:", build
     if args.upload:
         cmd = "anaconda upload -u %s" % args.channel
@@ -105,8 +111,14 @@ for p in pkg:
         cmd += " %s/conda-bld/%s/%s-%s-%s.tar.bz2" % (
             sys.prefix, myos, name, version, build)
     else:
-        cmd = "anaconda remove -f %s/%s/%s/%s/%s-%s-%s.tar.bz2" % (
-            channel, name, version, myos, name, version, build)
+        if myos=="all":
+            myos="*"
+        if myos=="*" and version=="*":
+            cmd = "anaconda remove -f %s/%s" % (
+                channel, name)
+        else:
+            cmd = "anaconda remove -f %s/%s/%s/%s/%s-%s-%s.tar.bz2" % (
+                channel, name, version, myos, name, version, build)
     print "\tExecuting:", cmd
     os.system(cmd)
     if args.remove:
