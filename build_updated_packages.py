@@ -17,7 +17,7 @@ parser.add_argument(
     "--delta",
     help="delta to look back in git history to figure out Packages to update",
     default=1,
-    type=int)
+    )
 parser.add_argument(
     "-u",
     "--units",
@@ -26,7 +26,9 @@ parser.add_argument(
         "days",
         "hours",
         "months",
-        "years"],
+        "years",
+        "tag",
+        "date"],
     default="days")
 parser.add_argument(
     "-v",
@@ -59,10 +61,14 @@ files = glob.glob("*/meta.yaml.in")
 args = parser.parse_args(sys.argv[1:])
 
 
-def run_cmd(cmd):
+def run_cmd(cmd, cwd = None):
+    if cwd is None:
+        cwd=args.git_sources
+    if args.verbose:
+        print "running:",cmd,"in directory",cwd
     sub = subprocess.Popen(
         shlex.split(cmd),
-        cwd=args.git_sources,
+        cwd=cwd,
         stderr=subprocess.PIPE,
         stdout=subprocess.PIPE)
     sub.wait()
@@ -75,10 +81,16 @@ def run_cmd(cmd):
     except:
         e = "no err"
     if args.verbose:
-        print "OUT:", len(o)
+        if len(o)==0:
+            print "OUT OK"
+        else:
+            print "OUT:",o
     if args.verbose:
-        print "ERR:", len(e)
-    return len(o) + len(e)
+        if len(e)==0:
+            print "ERR OK"
+        else:
+            print "ERR:", e
+    return len(o), len(e)
 
 if not os.path.exists(args.git_sources):
     raise RuntimeError(
@@ -86,9 +98,10 @@ if not os.path.exists(args.git_sources):
         args.git_sources)
 
 cmd = "git fetch --all"
+run_cmd(cmd)
 
 # Preping the meta files
-cmd = "prep_for_build.py"
+cmd = "./prep_for_build.py"
 
 if args.branch is not None:
     cmd += " -b %s" % args.branch
@@ -99,10 +112,9 @@ if args.build is not None:
 if args.version is not None:
     cmd += "-v %s" % args.version
 
-run_cmd(cmd)
+run_cmd(cmd,os.getcwd())
 
 
-run_cmd(cmd)
 if args.branch is not None:
     cmd = "git checkout %s" % args.branch
     run_cmd(cmd)
@@ -119,12 +131,19 @@ for f in files:
         b = sp[0]
     print "package:", b
     p = f.split("/")[0]
-    cmd = "git diff --dirstat HEAD 'HEAD@{%i %s ago}' -- Packages/%s" % (
-        args.delta, args.units, b)
+    last_commit_format="'HEAD@{%s}'"
+    if args.units not in ["tag", "date"]:
+        last_commit_format += " %s ago" % args.units
+    elif args.units == "tag":
+        last_commit_format="%s"
+    last_commit = last_commit_format % args.delta
+    cmd = "git diff --dirstat HEAD %s -- Packages/%s" % (
+        last_commit, b)
     if args.verbose:
         print "CMD:", cmd
-    changes = run_cmd(cmd)
+    changes, errors = run_cmd(cmd)
+    
     if changes > 0:
         print "\tChanged"
         cmd = "conda build %s" % sp[0]
-        run_cmd(cmd)
+        run_cmd(cmd,os.getcwd())
