@@ -50,6 +50,7 @@ if [ `uname` == Linux ]; then
         -DModule_vtkInteractionWidgets:BOOL=ON \
         -DModule_vtkIOCore:BOOL=ON \
         -DModule_vtkIOExport:BOOL=ON \
+        -DModule_vtkIOExportOpenGL:BOOL=ON \
         -DModule_vtkIOGeometry:BOOL=ON \
         -DModule_vtkIOImage:BOOL=ON \
         -DModule_vtkIOImport:BOOL=ON \
@@ -139,6 +140,7 @@ if [ `uname` == Darwin ]; then
         -DModule_vtkInteractionWidgets:BOOL=ON \
         -DModule_vtkIOCore:BOOL=ON \
         -DModule_vtkIOExport:BOOL=ON \
+        -DModule_vtkIOExportOpenGL:BOOL=ON \
         -DModule_vtkIOGeometry:BOOL=ON \
         -DModule_vtkIOImage:BOOL=ON \
         -DModule_vtkIOImport:BOOL=ON \

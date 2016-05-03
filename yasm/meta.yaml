@@ -11,8 +11,10 @@ source:
 requirements:
     build:
         - python
+        - openssl
     run:
         - python
+        - openssl
 build:
     string: UVCDAT
 
