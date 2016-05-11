@@ -17,8 +17,3 @@ requirements:
         - openssl
 build:
     string: UVCDAT
-
-about:
-
-
-

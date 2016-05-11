@@ -8,7 +8,16 @@ if [ `uname` == Linux ]; then
     CXX=g++
     PY_LIB="libpython${PY_VER}.so"
 
+    echo "CONDA LISTING"
+    CONDA_LST=`conda list`
+
+    if [[ ${CONDA_LST}'y' == *'mesalib'* ]]; then
+        X_ARGS="-DVTK_USE_X:BOOL=OFF -DVTK_OPENGL_HAS_OSMESA:BOOL=ON -DOPENGL_INCLUDE_DIR:PATH=${prefix}/include -DOPENGL_gl_LIBRARY:FILEPATH=${prefix}/lib/libOSMesa.so -DOPENGL_glu_LIBRARY:FILEPATH=${prefix}/lib/libGLU.so -DOSMESA_INCLUDE_DIR:PATH=${prefix}/include -DOSMESA_LIBRARY:FILEPATH=${prefix}/lib/libOSMesa.so"
+    else
+        X_ARGS="-DVTK_USE_X:BOOL=ON"
+    fi
     cmake .. \
+        ${X_ARGS} \
         -DCMAKE_C_COMPILER=$CC \
         -DCMAKE_CXX_COMPILER=$CXX \
         -DCMAKE_INSTALL_PREFIX="${PREFIX}" \
@@ -72,7 +81,6 @@ if [ `uname` == Linux ]; then
         -DPYTHON_LIBRARY=${PREFIX}/lib/${PY_LIB} \
         -DVTK_INSTALL_PYTHON_MODULE_DIR=${SP_DIR} \
         -DModule_vtkRenderingMatplotlib=ON \
-        -DVTK_USE_X=ON \
         -DVTK_Group_Web:BOOL=ON \
         -DLIBPROJ4_INCLUDE_DIR:PATH=${PREFIX}/include \
         -DLIBPROJ4_LIBRARIES:FILEPATH=${PREFIX}/lib/libproj.so \
@@ -177,5 +185,5 @@ if [ `uname` == Darwin ]; then
         -DVTK_LEGACY_SILENT:BOOL=ON
 fi
 
-make -j4
-make install
+#make -j
+#make install
