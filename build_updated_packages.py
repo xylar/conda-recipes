@@ -46,10 +46,17 @@ parser.add_argument(
     action="store_true",
     default=False,
     help="verbose output")
+
+try:
+    user_login = os.getlogin()
+except:
+    print "COULD NOT figure out your username"
+    user_login = "some_user"
+
 parser.add_argument(
     "-c",
     "--channel",
-    default=os.getlogin(),
+    default=user_login,
     help="channel to cleanup")
 
 parser.add_argument("-B", "--build", default=None, help="Build to use")
@@ -121,6 +128,7 @@ if args.branch is not None:
 
 run_cmd("git pull")
 
+changed = False
 for f in files:
     sp = f.split("/")
     bnm = "/".join(sp[:-1] + ["build.sh"])
@@ -144,6 +152,19 @@ for f in files:
     changes, errors = run_cmd(cmd)
     
     if changes > 0:
+        changed = True
         print "\tChanged"
         cmd = "conda build %s" % sp[0]
         run_cmd(cmd,os.getcwd())
+        cmd = "python manage_anaconda_packages.py -l %s -c %s -p %s" % (args.label, args.channel, sp[0])
+        run_cmd(cmd,os.getcwd())
+        cmd = "python manage_anaconda_packages.py -u -l %s -c %s -p %s" % (args.label, args.channel, sp[0])
+        run_cmd(cmd,os.getcwd())
+
+if changed:
+    cmd = "conda build cdat_info"
+    run_cmd(cmd,os.getcwd())
+    cmd = "python manage_anaconda_packages.py -l %s -c %s -p cdat_info" % (args.label, args.channel)
+    run_cmd(cmd,os.getcwd())
+    cmd = "python manage_anaconda_packages.py -u -l %s -c %s -p cdat_info" % (args.label, args.channel)
+    run_cmd(cmd,os.getcwd())

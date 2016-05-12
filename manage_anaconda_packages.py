@@ -85,16 +85,18 @@ for p in pkg:
         rd = rd[iname:]
         name = name.split()[-1]
         if args.build is None:
-            rd = rd[rd.find("string:"):]
-            ibuild = rd.find("\n")
-            build = rd[:ibuild].split()[-1]
+            rd2 = rd[rd.find("string:"):]
+            ibuild = rd2.find("\n")
+            build = rd2[:ibuild].split()[-1]
         else:
             build = args.build
     else:
         name = p
         build = "all"
     print "name:", name
+    print "RD:",rd
     if args.version is None:
+        print rd.find("version:")
         rd = rd[rd.find("version:"):]
         iversion = rd.find("\n")
         version = rd[:iversion].split()[-1]
