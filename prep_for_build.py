@@ -68,9 +68,9 @@ for fnm in files:
             sp = l.split("name:")
             original_name = sp[-1].strip()
             sp[-1] = "-".join([sp[-1]]+sorted(list(features_used)))
-            print >> f, "name:".join(sp)
+            print >> f, "name:".join(sp).rstrip()
         else:
-            print >> f, l
+            print >> f, l.rstrip()
     f.close()
     if len(features_used)>0:
         featured_packages[original_name]=features_used
@@ -94,11 +94,11 @@ while len(featured_packages.keys())>0:
             ## Let's go to the requirements section
             if l.find("requirements:")>-1:
                 found_req = True
-                print >>f, l
+                print >>f, l.rstrip()
                 print "found req section"
                 continue
             if not found_req:
-                print >>f, l
+                print >>f, l.rstrip()
                 continue
             ## Ok from now on let's see if one of these req is a "featured package"
             wrote_it = False
@@ -150,4 +150,6 @@ while len(featured_packages.keys())>0:
             else:
                 print >>f, l.rstrip()
 
+    print "ok new ones:",featured_packages_2
+    raw_input("press enter")
     featured_packages = featured_packages_2
