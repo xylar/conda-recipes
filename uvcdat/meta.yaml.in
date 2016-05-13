@@ -57,6 +57,8 @@ requirements:
     - trends
     - spherepack
     - zonalmeans
+    - openmpi {openmpi}
+    - mpi4py {openmpi}
   run:
     - lapack
     - clapack
@@ -106,7 +108,8 @@ requirements:
     - trends
     - spherepack
     - zonalmeans
-
+    - openmpi {openmpi}
+    - mpi4py {openmpi}
 
 about:
   home:  http://gitub.com/UV-CDAT/uvcdat
