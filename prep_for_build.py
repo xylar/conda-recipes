@@ -76,7 +76,7 @@ for fnm in files:
         featured_packages[original_name]=features_used
 
 while len(featured_packages.keys())>0:
-    print "FEATURED PACKAGES",featured_packages
+    #print "FEATURED PACKAGES",featured_packages
 
     files = glob.glob("*/meta.yaml")
     packages_renaming = {}
@@ -114,11 +114,11 @@ while len(featured_packages.keys())>0:
                 print >>f,l.rstrip()
         f.close()
 
-    print packages_renaming
+    #print packages_renaming
 
 
     for fnm in packages_renaming.keys():
-        print "Post renaming",fnm
+        #print "Post renaming",fnm
         f = open(fnm)
         lines = f.readlines()
         f.close()
@@ -129,7 +129,7 @@ while len(featured_packages.keys())>0:
             if l.find("name:")>-1:
                 sp = l.split("name:")
                 name = sp[-1].strip()
-                print "in name:",name
+                #print "in name:",name
                 sp2 = name.split("-")
                 removed = []
                 for ft in args.features:
@@ -137,11 +137,12 @@ while len(featured_packages.keys())>0:
                         removed.append(ft)
                         sp2.remove(ft)
                 clean_name = "-".join(sp2)
-                print "cleaned name:",clean_name
+                #print "cleaned name:",clean_name
                 if not clean_name in featured_packages.keys():
                     featured_packages_2[clean_name]=set(removed+list(packages_renaming[fnm]))
                 final_name = "-".join([clean_name,]+sorted(list(set(removed+list(packages_renaming[fnm])))))
-                print "final name:",final_name
+                if final_name != clean_name:
+                    print "final name:",final_name
                 sp[-1]=" "+final_name
                 print >>f, "name:".join(sp).rstrip()
             else:

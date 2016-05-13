@@ -4,7 +4,7 @@ package:
  
 source:
   fn: hdf5-1.8.15.tar
-  url: http://uvcdat.llnl.gov/hdf5-1.8.15.tar.bz2
+  url: http://uvcdat.llnl.gov/cdat/resources/hdf5-1.8.15.tar.gz
   md5: 03cccb5b33dbe975fdcd8ae9dc021f24
 
 build:

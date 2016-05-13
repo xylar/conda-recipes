@@ -18,7 +18,7 @@ requirements:
     - python
     - numpy <=1.9.2
     - vcs
-    - cdms2
+    - cdms2 >2.4.1
 
 about:
     home:  http://gitub.com/UV-CDAT/libcdms

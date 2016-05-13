@@ -14,14 +14,26 @@ if [ `uname` == Darwin ]; then
 else
     export ESMF_OPENMP "ON"
 fi
+
+# OPENMPI bits
+CONDA_LST=`conda list`
+if [[ ${CONDA_LST}'y' == *'openmpi'* ]]; then
+    export CC=mpicc
+    export CXX=mpicxx
+    export LC_RPATH="${PREFIX}/lib"
+    export DYLD_FALLBACK_LIBRARY_PATH=${PREFIX}/lib
+    # ESMF_COMM env variable, choices are openmpi, mpiuni, mpi, mpich2, or mvapich2
+    export ESMF_COMM="openmpi"
+else
+    export ESMF_COMM="mpiuni"
+fi
+
 export ESMF_INSTALL=${PREFIX}
 export ESMF_INSTALL_PREFIX=${PREFIX}
 
-# ESMF_COMM env variable, choices are openmpi, mpiuni, mpi, mpich2, or mvapich2
-ESMF_COMM="mpiuni"
 
-ESMF_MOAB="OFF"
-ESMF_ARRAYLITE="TRUE"
+export ESMF_MOAB="OFF"
+export ESMF_ARRAYLITE="TRUE"
 cd esmf
 make  -j
 make install

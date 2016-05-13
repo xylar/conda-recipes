@@ -3,6 +3,17 @@
 mkdir build
 cd build
 
+CONDA_LST=`conda list`
+if [[ ${CONDA_LST}'y' == *'openmpi'* ]]; then
+    export CC=mpicc
+    export CXX=mpicxx
+    export LC_RPATH="${PREFIX}/lib"
+    export DYLD_FALLBACK_LIBRARY_PATH=${PREFIX}/lib
+    MPI_ARGS="-DVTK_USE_MPI:BOOL=ON"
+else
+    MPI_ARGS=""
+fi
+
 if [ `uname` == Linux ]; then
     CC=gcc
     CXX=g++
@@ -17,6 +28,7 @@ if [ `uname` == Linux ]; then
         X_ARGS="-DVTK_USE_X:BOOL=ON"
     fi
     cmake .. \
+        ${MPI_ARGS} \
         ${X_ARGS} \
         -DCMAKE_C_COMPILER=$CC \
         -DCMAKE_CXX_COMPILER=$CXX \
@@ -103,6 +115,7 @@ if [ `uname` == Darwin ]; then
     PY_LIB="libpython${PY_VER}.dylib"
 
     cmake .. \
+        ${MPI_ARGS} \
         -DCMAKE_C_COMPILER=$CC \
         -DCMAKE_CXX_COMPILER=$CXX \
         -DVTK_REQUIRED_OBJCXX_FLAGS='' \

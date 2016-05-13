@@ -13,9 +13,13 @@ requirements:
   build:
     - python
     - numpy <=1.9.2
+    - openmpi >=1.6.4   {openmpi}
+    - mpi4py            {openmpi}
   run:
     - python
     - numpy <=1.9.2
+    - openmpi >=1.6.4   {openmpi}
+    - mpi4py            {openmpi}
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat
