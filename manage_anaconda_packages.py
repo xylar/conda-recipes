@@ -25,10 +25,15 @@ parser.add_argument(
     help="Packages to cleanup",
     nargs="*")
 
+try:
+    deflog = os.getlogin()
+except:
+    deflog = os.path.split(os.path.expanduser("~"))[-1]
+
 parser.add_argument(
     "-c",
     "--channel",
-    default=os.getlogin(),
+    default=deflog,
     help="channel/organization to cleanup/upload")
 
 parser.add_argument("-B", "--build", default=None, help="Build to use")
@@ -52,6 +57,9 @@ parser.add_argument(
     default=False,
     action="store_true",
     help="also remove from local conda")
+
+parser.add_argument("-f","--features", nargs="*",
+        help="features to be enabled",default=[])
 
 args = parser.parse_args(sys.argv[1:])
 
@@ -77,7 +85,8 @@ for p in pkg:
             f = open(os.path.join(p, "meta.yaml"))
             rd = f.read()
             f.close()
-        except:
+        except Exception,err:
+            print "EXCEPTION",err
             continue
         rd = rd[rd.find("name:"):]
         iname = rd.find("\n")
@@ -85,9 +94,9 @@ for p in pkg:
         rd = rd[iname:]
         name = name.split()[-1]
         if args.build is None:
-            rd = rd[rd.find("string:"):]
-            ibuild = rd.find("\n")
-            build = rd[:ibuild].split()[-1]
+            rd2 = rd[rd.find("string:"):]
+            ibuild = rd2.find("\n")
+            build = rd2[:ibuild].split()[-1]
         else:
             build = args.build
     else:
@@ -95,6 +104,7 @@ for p in pkg:
         build = "all"
     print "name:", name
     if args.version is None:
+        print rd.find("version:")
         rd = rd[rd.find("version:"):]
         iversion = rd.find("\n")
         version = rd[:iversion].split()[-1]
