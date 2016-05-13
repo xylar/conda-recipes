@@ -185,5 +185,5 @@ if [ `uname` == Darwin ]; then
         -DVTK_LEGACY_SILENT:BOOL=ON
 fi
 
-#make -j
-#make install
+make -j4
+make install

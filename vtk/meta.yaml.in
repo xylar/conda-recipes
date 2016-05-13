@@ -22,7 +22,7 @@ requirements:
     - proj4
     - hdf5
     - ffmpeg
-    - mesalib                          [linux] {mesa}
+    - mesalib                                 [linux] {mesa}
   run:
     - python
     - proj4
