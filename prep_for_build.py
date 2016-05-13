@@ -147,6 +147,4 @@ while len(featured_packages.keys())>0:
             else:
                 print >>f, l.rstrip()
 
-    print "ok new ones:",featured_packages_2
-    raw_input("press enter")
     featured_packages = featured_packages_2
