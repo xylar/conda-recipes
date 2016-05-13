@@ -28,7 +28,6 @@ parser.add_argument("-f","--features", nargs="*",
 
 
 args = parser.parse_args(sys.argv[1:])
-print args.features
 
 
 files = glob.glob("*/meta.yaml.in")
@@ -43,7 +42,6 @@ for fnm in files:
     lines=[]
     features_used = set()
     for l in s.split("\n"):
-        print l
         addline = True
         for f in args.features:
             if l.find("!{%s}" % f)>-1: # skip for this feature
@@ -55,12 +53,10 @@ for fnm in files:
         if addline:
             ## Sanitize the features out of the line
             while l.find("!{")>-1:
-                print "found a neg"
                 i = l.find("!{")
                 j=l[i:].find("}")
                 l=l[:i]+l[i+j+1:]
             while l.find("{")>-1:
-                print "found a feat",l
                 i = l.find("{")
                 j=l[i:].find("}")
                 l=l[:i]+l[i+j+1:]
