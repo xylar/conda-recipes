@@ -82,7 +82,6 @@ while len(featured_packages.keys())>0:
     packages_renaming = {}
     featured_packages_2 = {}
     for fnm in files:
-        print "Post analysing",fnm
         f = open(fnm)
         lines = f.readlines()
         f.close()
@@ -95,7 +94,6 @@ while len(featured_packages.keys())>0:
             if l.find("requirements:")>-1:
                 found_req = True
                 print >>f, l.rstrip()
-                print "found req section"
                 continue
             if not found_req:
                 print >>f, l.rstrip()
@@ -106,7 +104,6 @@ while len(featured_packages.keys())>0:
                 if l.find("- %s" %ft)>-1:  # ok it needs this 'featured package'
                     l2=l.replace("- %s" % ft, "- %s" % "-".join([ft,]+sorted(list(featured_packages[ft]))))
                     print >>f, l2.rstrip()
-                    print "replaced requirement %s in package %s" % (ft,fnm)
                     wrote_it = True
                     if fnm not in packages_renaming.keys():
                         packages_renaming[fnm] = set()
