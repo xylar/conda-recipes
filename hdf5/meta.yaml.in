@@ -1,0 +1,23 @@
+package:
+  name: hdf5
+  version: 1.8.15
+ 
+source:
+  fn: hdf5-1.8.15.tar
+  url: http://uvcdat.llnl.gov/hdf5-1.8.15.tar.bz2
+  md5: 03cccb5b33dbe975fdcd8ae9dc021f24
+
+build:
+  string: UVCDAT
+ 
+requirements:
+  build:
+   - openmpi   {openmpi}
+  run:
+   - openmpi   {openmpi}
+ 
+about:
+  home: https://www.hdfgroup.org
+
+
+

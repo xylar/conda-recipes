@@ -75,75 +75,79 @@ for fnm in files:
     if len(features_used)>0:
         featured_packages[original_name]=features_used
 
-print "FEATURED PACKAGES",featured_packages
+while len(featured_packages.keys())>0:
+    print "FEATURED PACKAGES",featured_packages
 
-files = glob.glob("uvcdat/meta.yaml")
-packages_renaming = {}
-for fnm in files:
-    print "Post analysing",fnm
-    f = open(fnm)
-    lines = f.readlines()
-    f.close()
-    found_req = False
+    files = glob.glob("*/meta.yaml")
+    packages_renaming = {}
+    featured_packages_2 = {}
+    for fnm in files:
+        print "Post analysing",fnm
+        f = open(fnm)
+        lines = f.readlines()
+        f.close()
+        found_req = False
 
-    f = open(fnm, "w")
+        f = open(fnm, "w")
 
-    for l in lines:
-        ## Let's go to the requirements section
-        if l.find("requirements:")>-1:
-            found_req = True
-            print >>f, l
-            print "found req section"
-            continue
-        if not found_req:
-            print >>f, l
-            continue
-        ## Ok from now on let's see if one of these req is a "featured package"
-        wrote_it = False
-        for ft in featured_packages.keys():
-            if l.find("- %s" %ft)>-1:  # ok it needs this 'featured package'
-                l2=l.replace("- %s" % ft, "- %s" % "-".join([ft,]+sorted(list(featured_packages[ft]))))
-                print >>f, l2.rstrip()
-                print "replaced requirement %s in package %s" % (ft,fnm)
-                wrote_it = True
-                if fnm not in packages_renaming.keys():
-                    packages_renaming[fnm] = set()
-                for F in featured_packages[ft]:
-                    packages_renaming[fnm].add(F)
-                break
-        if not wrote_it:
-            print >>f,l.rstrip()
-    f.close()
+        for l in lines:
+            ## Let's go to the requirements section
+            if l.find("requirements:")>-1:
+                found_req = True
+                print >>f, l
+                print "found req section"
+                continue
+            if not found_req:
+                print >>f, l
+                continue
+            ## Ok from now on let's see if one of these req is a "featured package"
+            wrote_it = False
+            for ft in featured_packages.keys():
+                if l.find("- %s" %ft)>-1:  # ok it needs this 'featured package'
+                    l2=l.replace("- %s" % ft, "- %s" % "-".join([ft,]+sorted(list(featured_packages[ft]))))
+                    print >>f, l2.rstrip()
+                    print "replaced requirement %s in package %s" % (ft,fnm)
+                    wrote_it = True
+                    if fnm not in packages_renaming.keys():
+                        packages_renaming[fnm] = set()
+                    for F in featured_packages[ft]:
+                        packages_renaming[fnm].add(F)
+                    break
+            if not wrote_it:
+                print >>f,l.rstrip()
+        f.close()
 
-print packages_renaming
-
-
-for fnm in packages_renaming.keys():
-    print "Post renaming",fnm
-    f = open(fnm)
-    lines = f.readlines()
-    f.close()
-
-    f = open(fnm, "w")
-
-    for l in lines:
-        if l.find("name:")>-1:
-            sp = l.split("name:")
-            name = sp[-1].strip()
-            print "in name:",name
-            sp2 = name.split("-")
-            removed = []
-            for ft in args.features:
-                if ft in sp2:
-                    removed.append(ft)
-                    sp2.remove(ft)
-            clean_name = "-".join(sp2)
-            print "cleaned name:",clean_name
-            final_name = "-".join([clean_name,]+sorted(removed+list(packages_renaming[fnm])))
-            print "final name:",final_name
-            sp[-1]=" "+final_name
-            print >>f, "name:".join(sp).rstrip()
-        else:
-            print >>f, l.rstrip()
+    print packages_renaming
 
 
+    for fnm in packages_renaming.keys():
+        print "Post renaming",fnm
+        f = open(fnm)
+        lines = f.readlines()
+        f.close()
+
+        f = open(fnm, "w")
+
+        for l in lines:
+            if l.find("name:")>-1:
+                sp = l.split("name:")
+                name = sp[-1].strip()
+                print "in name:",name
+                sp2 = name.split("-")
+                removed = []
+                for ft in args.features:
+                    if ft in sp2:
+                        removed.append(ft)
+                        sp2.remove(ft)
+                clean_name = "-".join(sp2)
+                print "cleaned name:",clean_name
+                if not clean_name in featured_packages.keys():
+                    featured_packages_2[clean_name]=set(removed+list(packages_renaming[fnm]))
+                final_name = "-".join([clean_name,]+sorted(removed+list(packages_renaming[fnm])))
+                print "final name:",final_name
+                sp[-1]=" "+final_name
+                print >>f, "name:".join(sp).rstrip()
+            else:
+                print >>f, l.rstrip()
+
+    featured_packages = featured_packages_2
