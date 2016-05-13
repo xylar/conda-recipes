@@ -140,7 +140,7 @@ while len(featured_packages.keys())>0:
                 print "cleaned name:",clean_name
                 if not clean_name in featured_packages.keys():
                     featured_packages_2[clean_name]=set(removed+list(packages_renaming[fnm]))
-                final_name = "-".join([clean_name,]+sorted(removed+list(packages_renaming[fnm])))
+                final_name = "-".join([clean_name,]+sorted(list(set(removed+list(packages_renaming[fnm])))))
                 print "final name:",final_name
                 sp[-1]=" "+final_name
                 print >>f, "name:".join(sp).rstrip()
