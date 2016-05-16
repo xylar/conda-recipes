@@ -116,13 +116,11 @@ while len(featured_packages.keys())>0:
                     if has_feature:
                         continue
                            
-                    print "FT:",ft,featured_packages[ft]
                     sp = l.split("[")
                     nm = "-".join([ft,]+sorted(list(featured_packages[ft])))
                     sp2 = sp[0].split("-")
                     sp[0]=sp2[0]+"- "+nm
                     l2 = "[".join(sp)
-                    print "L@:",l2
                     print >>f, l2.rstrip()
                     wrote_it = True
                     if fnm not in packages_renaming.keys():
@@ -149,7 +147,6 @@ while len(featured_packages.keys())>0:
             if l.find("name:")>-1:
                 sp = l.split("name:")
                 name = sp[-1].strip()
-                print "in name:",name,sp
                 sp2 = name.split("-")
                 removed = set()
                 for ft in args.features:
@@ -166,7 +163,6 @@ while len(featured_packages.keys())>0:
                     print "final name:",final_name, clean_name
                 sp[-1]=" "+final_name
                 print >>f, "name:".join(sp).rstrip()
-                print "PRINTED:","name:".join(sp).rstrip()
             else:
                 print >>f, l.rstrip()
 
