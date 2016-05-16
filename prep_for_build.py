@@ -157,8 +157,8 @@ while len(featured_packages.keys()) > 0:
                         sp2.remove(ft)
                 clean_name = "-".join(sp2)
                 # print "cleaned name:",clean_name
-                if not clean_name in featured_packages.keys(
-                ) and not clean_name in already_fixed_names:
+                if clean_name not in featured_packages.keys(
+                ) and clean_name not in already_fixed_names:
                     featured_packages_2[clean_name] = set(
                         list(removed) +
                         list(
