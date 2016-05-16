@@ -4,8 +4,8 @@ import os
 import sys
 
 parser = argparse.ArgumentParser(
-        description='Manage your anaconda packages',
-        formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    description='Manage your anaconda packages',
+    formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
 if os.uname()[0] == "Linux":
     def_os = "linux-64"
@@ -58,8 +58,8 @@ parser.add_argument(
     action="store_true",
     help="also remove from local conda")
 
-parser.add_argument("-f","--features", nargs="*",
-        help="features to be enabled",default=[])
+parser.add_argument("-f", "--features", nargs="*",
+                    help="features to be enabled", default=[])
 
 args = parser.parse_args(sys.argv[1:])
 
@@ -80,13 +80,13 @@ for p in pkg:
         print "Uploading up", p, "to organization", channel, "os", myos
     else:
         print "Cleaning up", p, "from channel", channel, "os", myos
-    if args.version!="all" and args.os != "all":
+    if args.version != "all" and args.os != "all":
         try:
             f = open(os.path.join(p, "meta.yaml"))
             rd = f.read()
             f.close()
-        except Exception,err:
-            print "EXCEPTION",err
+        except Exception as err:
+            print "EXCEPTION", err
             continue
         rd = rd[rd.find("name:"):]
         iname = rd.find("\n")
@@ -111,7 +111,7 @@ for p in pkg:
     else:
         version = args.version
     print "\tversion:", version
-    if version =="all":
+    if version == "all":
         version = "*"
     print "\tbuild:", build
     if args.upload:
@@ -121,9 +121,9 @@ for p in pkg:
         cmd += " %s/conda-bld/%s/%s-%s-%s.tar.bz2" % (
             sys.prefix, myos, name, version, build)
     else:
-        if myos=="all":
-            myos="*"
-        if myos=="*" and version=="*":
+        if myos == "all":
+            myos = "*"
+        if myos == "*" and version == "*":
             cmd = "anaconda remove -f %s/%s" % (
                 channel, name)
         else:
