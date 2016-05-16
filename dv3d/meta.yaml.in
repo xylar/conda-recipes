@@ -15,7 +15,7 @@ requirements:
     - setuptools
   run:
     - python
-    - vtk uvcdat
+    - vtk
     - cdms2
 
 about:

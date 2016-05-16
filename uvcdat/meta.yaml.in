@@ -40,8 +40,8 @@ requirements:
     - cmor
     - pydebug
     - uvcmetrics
-    - vistrails
-    - xmgrace
+    - vistrails !{mesa}
+    - xmgrace !{mesa}
     - esg
     - eztemplate
     - hdf5tools
@@ -57,6 +57,8 @@ requirements:
     - trends
     - spherepack
     - zonalmeans
+    - openmpi {openmpi}
+    - mpi4py {openmpi}
   run:
     - lapack
     - clapack
@@ -89,8 +91,8 @@ requirements:
     - cmor
     - pydebug
     - uvcmetrics
-    - vistrails
-    - xmgrace
+    - vistrails !{mesa}
+    - xmgrace !{mesa}
     - esg
     - eztemplate
     - hdf5tools
@@ -106,7 +108,8 @@ requirements:
     - trends
     - spherepack
     - zonalmeans
-
+    - openmpi {openmpi}
+    - mpi4py {openmpi}
 
 about:
   home:  http://gitub.com/UV-CDAT/uvcdat
