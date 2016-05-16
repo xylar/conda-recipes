@@ -75,8 +75,9 @@ for fnm in files:
     if len(features_used)>0:
         featured_packages[original_name]=features_used
 
+already_fixed_names = []
 while len(featured_packages.keys())>0:
-    #print "FEATURED PACKAGES",featured_packages
+    print "FEATURED PACKAGES",featured_packages
 
     files = glob.glob("*/meta.yaml")
     packages_renaming = {}
@@ -102,7 +103,26 @@ while len(featured_packages.keys())>0:
             wrote_it = False
             for ft in featured_packages.keys():
                 if l.find("- %s" %ft)>-1:  # ok it needs this 'featured package'
-                    l2=l.replace("- %s" % ft, "- %s" % "-".join([ft,]+sorted(list(featured_packages[ft]))))
+                    indx = l.find("- %s" %ft)
+                    if indx+2+len(ft)>=len(l):
+                        continue
+                    elif l[indx+2+len(ft)].isalnum():
+                        continue
+                    has_feature = False
+                    for F in args.features:
+                        if F in l.split("-"):
+                            has_feature = True
+                            break
+                    if has_feature:
+                        continue
+                           
+                    print "FT:",ft,featured_packages[ft]
+                    sp = l.split("[")
+                    nm = "-".join([ft,]+sorted(list(featured_packages[ft])))
+                    sp2 = sp[0].split("-")
+                    sp[0]=sp2[0]+"- "+nm
+                    l2 = "[".join(sp)
+                    print "L@:",l2
                     print >>f, l2.rstrip()
                     wrote_it = True
                     if fnm not in packages_renaming.keys():
@@ -129,22 +149,24 @@ while len(featured_packages.keys())>0:
             if l.find("name:")>-1:
                 sp = l.split("name:")
                 name = sp[-1].strip()
-                #print "in name:",name
+                print "in name:",name,sp
                 sp2 = name.split("-")
-                removed = []
+                removed = set()
                 for ft in args.features:
-                    if ft in sp2:
-                        removed.append(ft)
+                    while ft in sp2:
+                        removed.add(ft)
                         sp2.remove(ft)
                 clean_name = "-".join(sp2)
                 #print "cleaned name:",clean_name
-                if not clean_name in featured_packages.keys():
-                    featured_packages_2[clean_name]=set(removed+list(packages_renaming[fnm]))
-                final_name = "-".join([clean_name,]+sorted(list(set(removed+list(packages_renaming[fnm])))))
+                if not clean_name in featured_packages.keys() and not clean_name in already_fixed_names:
+                    featured_packages_2[clean_name]=set(list(removed)+list(packages_renaming[fnm]))
+                    already_fixed_names.append(clean_name)
+                final_name = "-".join([clean_name,]+sorted(list(set(list(removed)+list(packages_renaming[fnm])))))
                 if final_name != clean_name:
-                    print "final name:",final_name
+                    print "final name:",final_name, clean_name
                 sp[-1]=" "+final_name
                 print >>f, "name:".join(sp).rstrip()
+                print "PRINTED:","name:".join(sp).rstrip()
             else:
                 print >>f, l.rstrip()
 

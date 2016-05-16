@@ -1,21 +1,2 @@
 package:
   name: ossuuid
-  version: 1.6.2
-
-source:
-  fn: uuid-1.6.2.tar.gz
-  url: http://uvcdat.llnl.gov/cdat/resources/uuid-1.6.2.tar.gz
-
-build:
-  string: UVCDAT
-
-requirements:
-  build:
-  run:
-
-
-about:
-  home: ftp://ftp.ossp.org/pkg/lib/uuid/
-
-
-

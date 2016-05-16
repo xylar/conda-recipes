@@ -23,7 +23,7 @@ if [ `uname` == Linux ]; then
     CONDA_LST=`conda list`
 
     if [[ ${CONDA_LST}'y' == *'mesalib'* ]]; then
-        X_ARGS="-DVTK_USE_X:BOOL=OFF -DVTK_OPENGL_HAS_OSMESA:BOOL=ON -DOPENGL_INCLUDE_DIR:PATH=${prefix}/include -DOPENGL_gl_LIBRARY:FILEPATH=${prefix}/lib/libOSMesa.so -DOPENGL_glu_LIBRARY:FILEPATH=${prefix}/lib/libGLU.so -DOSMESA_INCLUDE_DIR:PATH=${prefix}/include -DOSMESA_LIBRARY:FILEPATH=${prefix}/lib/libOSMesa.so"
+        X_ARGS="-DVTK_USE_X:BOOL=OFF -DVTK_OPENGL_HAS_OSMESA:BOOL=ON -DOPENGL_INCLUDE_DIR:PATH=${PREFIX}/include -DOPENGL_gl_LIBRARY:FILEPATH=${PREFIX}/lib/libOSMesa.so -DOPENGL_glu_LIBRARY:FILEPATH=${PREFIX}/lib/libGLU.so -DOSMESA_INCLUDE_DIR:PATH=${PREFIX}/include -DOSMESA_LIBRARY:FILEPATH=${PREFIX}/lib/libOSMesa.so"
     else
         X_ARGS="-DVTK_USE_X:BOOL=ON"
     fi
