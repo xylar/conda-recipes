@@ -141,7 +141,7 @@ for f in files:
     p = f.split("/")[0]
     last_commit_format = "'HEAD@{%s}'"
     if args.units not in ["tag", "date"]:
-        last_commit_format += " %s ago" % args.units
+        last_commit_format = last_commit_format % ( "%%s %s ago" % args.units )
     elif args.units == "tag":
         last_commit_format = "%s"
     last_commit = last_commit_format % args.delta
