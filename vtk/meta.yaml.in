@@ -28,6 +28,7 @@ requirements:
     - proj4
     - hdf5
     - ffmpeg
+    - mesalib                                 [linux] {mesa}
 
 about:
   home: http://www.vtk.org/
