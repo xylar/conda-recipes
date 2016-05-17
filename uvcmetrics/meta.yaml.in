@@ -18,10 +18,11 @@ requirements:
     - python
     - numpy <=1.9.2
     - vcs
-    - cdms2
+    - cdms2 >2.4.1
 
 about:
-    home:  http://gitub.com/UV-CDAT/libcdms
+    home:  http://gitub.com/UV-CDAT/uvcmetrics
+    summary: A set of diagnostics to analyze climate model simulations
 
 
 
