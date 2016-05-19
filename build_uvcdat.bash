@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 if [ $1"-" == "FULL-" ]; then ./build_uvcdat_externals.bash ; fi
-conda build libcdms
 conda build cdat_info
 conda build distarray
 conda build regrid2

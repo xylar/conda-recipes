@@ -18,7 +18,12 @@ requirements:
     - g2clib
     - ossuuid
     - libcf
+    - libdrs_c
+    - lats
     - libcdms
+    - libdrs
+    - ezget
+    - cd77
     - cdat_info
     - distarray
     - regrid2
@@ -67,7 +72,12 @@ requirements:
     - g2clib
     - ossuuid
     - libcf
+    - libdrs_c
+    - lats
     - libcdms
+    - libdrs
+    - ezget
+    - cd77
     - cdat_info
     - distarray
     - regrid2

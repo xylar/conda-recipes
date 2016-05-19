@@ -11,3 +11,9 @@ conda build x264
 conda build ffmpeg
 conda build cmor
 conda build vtk
+conda build libdrs_c
+conda build libcdms
+conda build libdrs
+conda build lats
+conda build ezget
+conda build cd77
