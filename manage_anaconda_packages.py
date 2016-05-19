@@ -76,6 +76,7 @@ if pkg == "*":
     pkg = glob.glob(pkg)
 
 for p in pkg:
+  try:
     if args.upload:
         print "Uploading up", p, "to organization", channel, "os", myos
     else:
@@ -135,3 +136,5 @@ for p in pkg:
     if args.remove:
         cmd = "conda remove %s" % name
         os.system(cmd)
+  except:
+      print "Failed!"
