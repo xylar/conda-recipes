@@ -1,11 +1,11 @@
 package:
   name: g2clib
   version: "1.4.0b"
- 
+
 source:
   fn: g2clib-1.4.0b.tar.gz
   url: http://uvcdat.llnl.gov/cdat/resources/g2clib-1.4.0b.tar.gz
- 
+
 build:
   string: UVCDAT
 

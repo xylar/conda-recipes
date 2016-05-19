@@ -9,15 +9,15 @@ import shlex
 
 
 parser = argparse.ArgumentParser(
-        description='Build changed packages',
-        formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    description='Build changed packages',
+    formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 parser.add_argument("-g", "--git-sources", default="/git/uvcdat")
 parser.add_argument(
     "-d",
     "--delta",
     help="delta to look back in git history to figure out Packages to update",
     default=1,
-    )
+)
 parser.add_argument(
     "-u",
     "--units",
@@ -68,11 +68,11 @@ files = glob.glob("*/meta.yaml.in")
 args = parser.parse_args(sys.argv[1:])
 
 
-def run_cmd(cmd, cwd = None):
+def run_cmd(cmd, cwd=None):
     if cwd is None:
-        cwd=args.git_sources
+        cwd = args.git_sources
     if args.verbose:
-        print "running:",cmd,"in directory",cwd
+        print "running:", cmd, "in directory", cwd
     sub = subprocess.Popen(
         shlex.split(cmd),
         cwd=cwd,
@@ -88,12 +88,12 @@ def run_cmd(cmd, cwd = None):
     except:
         e = "no err"
     if args.verbose:
-        if len(o)==0:
+        if len(o) == 0:
             print "OUT OK"
         else:
-            print "OUT:",o
+            print "OUT:", o
     if args.verbose:
-        if len(e)==0:
+        if len(e) == 0:
             print "ERR OK"
         else:
             print "ERR:", e
@@ -119,7 +119,7 @@ if args.build is not None:
 if args.version is not None:
     cmd += "-v %s" % args.version
 
-run_cmd(cmd,os.getcwd())
+run_cmd(cmd, os.getcwd())
 
 
 if args.branch is not None:
@@ -139,18 +139,18 @@ for f in files:
         b = sp[0]
     print "package:", b
     p = f.split("/")[0]
-    last_commit_format="'HEAD@{%s}'"
+    last_commit_format = "'HEAD@{%s}'"
     if args.units not in ["tag", "date"]:
-        last_commit_format += " %s ago" % args.units
+        last_commit_format = last_commit_format % ( "%%s %s ago" % args.units )
     elif args.units == "tag":
-        last_commit_format="%s"
+        last_commit_format = "%s"
     last_commit = last_commit_format % args.delta
     cmd = "git diff --dirstat HEAD %s -- Packages/%s" % (
         last_commit, b)
     if args.verbose:
         print "CMD:", cmd
     changes, errors = run_cmd(cmd)
-    
+
     if changes > 0:
         changed = True
         print "\tChanged"

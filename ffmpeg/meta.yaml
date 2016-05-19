@@ -15,8 +15,3 @@ requirements:
         - x264
 build:
     string: UVCDAT
-
-about:
-
-
-
