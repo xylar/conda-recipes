@@ -12,8 +12,10 @@ requirements:
     build:
         - python
         - openssl
+        - glib [linux]
     run:
         - python
         - openssl
+        - glib [linux]
 build:
     string: UVCDAT
