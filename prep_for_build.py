@@ -51,6 +51,11 @@ for fnm in files:
             # other feature but NOT this one line
             elif l.find("{%s}" % f) == -1 and l.find("{") > -1:
                 addline = False
+        ## Ok now is there a feature on that line that we did not enable
+        if l.find(" {")>-1: # feature line
+            ft = l.split("{")[1].split("}")[0].strip()
+            if not ft in args.features:
+                addline = False
         if addline:
             # Sanitize the features out of the line
             while l.find("!{") > -1:

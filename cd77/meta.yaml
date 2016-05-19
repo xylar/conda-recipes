@@ -15,7 +15,7 @@ requirements:
     - setuptools
   run:
     - libcdms
-    - libdrs
+    - libdrs_f
     - ezget
     - lats
     - python

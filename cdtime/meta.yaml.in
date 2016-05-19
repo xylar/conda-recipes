@@ -15,11 +15,13 @@ requirements:
     - setuptools
     - libcdms
     - cdat_info
+    - libdrs_f
   run:
     - python
     - setuptools
     - libcdms
     - cdat_info
+    - libdrs_f
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat

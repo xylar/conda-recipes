@@ -21,7 +21,7 @@ requirements:
     - libdrs_c
     - lats
     - libcdms
-    - libdrs
+    - libdrs_f
     - ezget
     - cd77
     - cdat_info
@@ -77,7 +77,7 @@ requirements:
     - libdrs_c
     - lats
     - libcdms
-    - libdrs
+    - libdrs_f
     - ezget
     - cd77
     - cdat_info

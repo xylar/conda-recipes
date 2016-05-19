@@ -1,5 +1,5 @@
 package:
-    name: libdrs
+    name: libdrs_f
     version: 1.0.0
 
 source:

@@ -16,12 +16,14 @@ requirements:
     - libcdms
     - cdat_info
     - numpy <=1.9.2
+    - libdrs_f
   run:
     - python
     - libcdms
     - cdat_info
     - numpy <=1.9.2
     - esmf
+    - libdrs_f
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat
