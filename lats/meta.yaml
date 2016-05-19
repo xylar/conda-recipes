@@ -1,0 +1,22 @@
+package:
+    name: lats
+    version: 1.0.0
+
+source:
+    git_rev: master
+    git_url: git://github.com/UV-CDAT/lats.git
+
+build:
+  string: UVCDAT
+ 
+requirements:
+  build:
+    - libnetcdf
+  run:
+    - libnetcdf
+
+about:
+    home:  http://github.com/UV-CDAT/lats
+
+
+

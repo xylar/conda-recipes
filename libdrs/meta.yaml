@@ -1,0 +1,24 @@
+package:
+    name: libdrs
+    version: 1.0.0
+
+source:
+    git_rev: master
+    git_url: git://github.com/UV-CDAT/libdrs.git
+
+build:
+  string: UVCDAT
+ 
+requirements:
+  build:
+    - g2clib
+    - libcdms
+  run:
+    - g2clib
+    - libcdms
+
+about:
+    home:  http://github.com/UV-CDAT/libdrs
+
+
+

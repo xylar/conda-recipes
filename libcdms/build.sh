@@ -5,7 +5,10 @@ export LDFLAGS="-L${PREFIX}/lib"
 
 ./configure \
     --enable-dap= \
-    --enable-drs=no \
+    --enable-drs \
+    --with-drslib=${PREFIX}/lib \
+    --with-drsinc=${PREFIX}/include \
+    --with-drsincf=${PREFIX}/include \
     --enable-hdf=no \
     --enable-pp=yes \
     --enable-ql=no \

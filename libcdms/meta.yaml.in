@@ -18,6 +18,7 @@ requirements:
     - libpng
     - libtiff
     - jpeg
+    - libdrs_c
   run:
     - hdf5
     - libnetcdf 4.3.3.1
@@ -26,6 +27,7 @@ requirements:
     - libpng
     - libtiff
     - jpeg
+    - libdrs_c
 
 about:
     home:  http://gitub.com/UV-CDAT/libcdms

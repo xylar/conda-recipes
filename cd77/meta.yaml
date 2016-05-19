@@ -1,0 +1,27 @@
+package:
+    name: cd77
+    version: 1.0.0
+
+source:
+    git_rev: master
+    git_url: git://github.com/UV-CDAT/cd77.git
+
+build:
+  string: UVCDAT
+ 
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - libcdms
+    - libdrs
+    - ezget
+    - lats
+    - python
+
+about:
+    home:  http://github.com/UV-CDAT/cd77
+
+
+

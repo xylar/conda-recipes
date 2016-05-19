@@ -15,9 +15,6 @@ requirements:
     - libpng
     - jpeg
   run:
- 
- 
-about:
-
-
-
+    - jasper
+    - libpng
+    - jpeg

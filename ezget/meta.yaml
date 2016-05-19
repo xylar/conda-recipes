@@ -1,0 +1,24 @@
+package:
+    name: ezget
+    version: 1.0.0
+
+source:
+    git_rev: master
+    git_url: git://github.com/UV-CDAT/ezget.git
+
+build:
+  string: UVCDAT
+ 
+requirements:
+  build:
+    - libcdms
+    - libdrs
+  run:
+    - libcdms
+    - libdrs
+
+about:
+    home:  http://github.com/UV-CDAT/ezget
+
+
+
