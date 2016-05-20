@@ -96,7 +96,7 @@ COMMON_ARGS=" \
         -DVTK_USE_SYSTEM_LIBXML2:BOOL=ON \
         -DVTK_USE_SYSTEM_HDF5:BOOL=ON \
         -DVTK_USE_SYSTEM_NETCDF:BOOL=ON \
-        -DVTK_USE_SYSTEM_FREETYPE:BOOL=ON \
+        -DVTK_USE_SYSTEM_FREETYPE:BOOL=OFF \
         -DVTK_USE_SYSTEM_LIBPROJ4:BOOL=ON \
         -DVTK_Group_Rendering:BOOL=ON \
         -DVTK_Group_StandAlone:BOOL=OFF \
@@ -127,5 +127,5 @@ if [ `uname` == Darwin ]; then
         ${COMMON_ARGS}
 fi
 
-make -j
+make -j4
 make install

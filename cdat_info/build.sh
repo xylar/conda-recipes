@@ -18,9 +18,9 @@ def version():
 
 
 def get_drs_dirs ():
-    return []
+    return ['${PREFIX}/lib']
 def get_drs_libs():
-    return []
+    return ['drsfortran','gfortran']
 
 
 sleep=60 #minutes  (int required)
@@ -175,7 +175,7 @@ CDMS_INCLUDE_DRS = 'no'
 CDMS_INCLUDE_HDF = 'no'
 CDMS_INCLUDE_PP = 'yes'
 CDMS_INCLUDE_QL = 'no'
-drs_file = '/usr/local/libdrs.a'
+drs_file = '${PREFIX}/lib/libdrs.a'
 netcdf_directory = sys.prefix
 netcdf_include_directory = sys.prefix+'/include'
 cdunif_include_directories = [sys.prefix+'/include/cdms'] + [sys.prefix+'/include', sys.prefix+'/lib/libffi-3.1/include', '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/include', '/usr/X11R6/include'] + []
