@@ -5,7 +5,7 @@ export CXXFLAGS="-I${PREFIX}/include -fPIC -w"
 export CPPFLAGS="-I${PREFIX}/include -fPIC -w"
 export LDFLAGS="-L${PREFIX}/lib"
 
-CONDA_LST=`conda list`
+export CONDA_LST=`conda list`
 if [[ ${CONDA_LST}'y' == *'openmpi'* ]]; then
     MPI_ARG="--enable-parallel"
     export CC=mpicc
