@@ -147,9 +147,12 @@ for p in pkg:
         else:
             cmd = "anaconda remove -f %s/%s/%s/%s/%s-%s-%s.tar.bz2" % (
                 channel, name, version, myos, name, version, build)
-    print "\tExecuting:", cmd
+    print "\tCommand:", cmd,
     if not args.dry_run and match_regex(cmd):
+        print "(executed)"
         os.system(cmd)
+    else:
+        print "(skipped)"
     if args.remove and not args.dry_run and match_regex(cmd):
         print "Removing locally as well:",cmd
         cmd = "conda remove %s" % name
