@@ -2,6 +2,7 @@
 import argparse
 import os
 import sys
+import re
 
 parser = argparse.ArgumentParser(
     description='Manage your anaconda packages',
@@ -57,12 +58,24 @@ parser.add_argument(
     default=False,
     action="store_true",
     help="also remove from local conda")
+parser.add_argument(
+    "-d",
+    "--dry-run",
+    default=False,
+    action="store_true",
+    help="dry run do not actually do anything")
+parser.add_argument(
+    "-R",
+    "--regex",
+    default="",
+    help="tar.bz2 file needs to match regex in order to run command. STRING_IN regex: .*(2016).* STRING_NOT_IN regex:  (?\!.*2016.*)")
 
 parser.add_argument("-f", "--features", nargs="*",
                     help="features to be enabled", default=[])
 
 args = parser.parse_args(sys.argv[1:])
 
+regex = re.compile(args.regex.replace("\!","!"))
 myos = args.os
 pkg = args.packages
 channel = args.channel
@@ -74,6 +87,10 @@ if args.label is not None:
 if pkg == "*":
     import glob
     pkg = glob.glob(pkg)
+
+def match_regex(cmd):
+    m = regex.match(cmd)
+    return m is not None
 
 for p in pkg:
   try:
@@ -104,7 +121,6 @@ for p in pkg:
         name = p
         build = "all"
     print "name:", name
-    print "RD:",rd
     if args.version is None:
         print rd.find("version:")
         rd = rd[rd.find("version:"):]
@@ -132,8 +148,10 @@ for p in pkg:
             cmd = "anaconda remove -f %s/%s/%s/%s/%s-%s-%s.tar.bz2" % (
                 channel, name, version, myos, name, version, build)
     print "\tExecuting:", cmd
-    os.system(cmd)
-    if args.remove:
+    if not args.dry_run and match_regex(cmd):
+        os.system(cmd)
+    if args.remove and not args.dry_run and match_regex(cmd):
+        print "Removing locally as well:",cmd
         cmd = "conda remove %s" % name
         os.system(cmd)
   except:
