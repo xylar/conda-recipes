@@ -13,9 +13,11 @@ requirements:
   build:
     - g2clib
     - libcdms
+    - libpng ==1.6.17
   run:
     - g2clib
     - libcdms
+    - libpng ==1.6.17
 
 about:
     home:  http://github.com/UV-CDAT/libdrs

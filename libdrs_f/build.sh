@@ -15,7 +15,7 @@ sed "s#@cdat_EXTERNALS@#${PREFIX}#g;" ${MAKEFILE}.in > ${MAKEFILE}.tmp
 if [ `uname` == Linux ]; then
     sed "s#libdrs#libdrsfortran#g;" ${MAKEFILE}.tmp > ${MAKEFILE}
 else
-    cp ${MAKEFILE}.tmp > ${MAKEFILE}
+    cp ${MAKEFILE}.tmp ${MAKEFILE}
 fi
 make  -f ${MAKEFILE}
 make -f ${MAKEFILE} install

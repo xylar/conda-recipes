@@ -81,8 +81,8 @@ pkg = args.packages
 channel = args.channel
 build = args.build
 version = args.version
-if args.label is not None:
-    channel = "%s/label/%s" % (channel, args.label)
+#if args.label is not None:
+#    channel = "%s/label/%s" % (channel, args.label)
 
 if pkg == "*":
     import glob

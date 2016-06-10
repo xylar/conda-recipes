@@ -15,7 +15,7 @@ requirements:
     - libnetcdf 4.3.3.1
     - jasper
     - g2clib
-    - libpng
+    - libpng ==1.6.17
     - libtiff
     - jpeg
     - libdrs_c
@@ -24,7 +24,7 @@ requirements:
     - libnetcdf 4.3.3.1
     - jasper
     - g2clib
-    - libpng
+    - libpng ==1.6.17
     - libtiff
     - jpeg
     - libdrs_c

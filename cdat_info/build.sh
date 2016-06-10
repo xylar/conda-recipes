@@ -180,7 +180,7 @@ netcdf_directory = sys.prefix
 netcdf_include_directory = sys.prefix+'/include'
 cdunif_include_directories = [sys.prefix+'/include/cdms'] + [sys.prefix+'/include', sys.prefix+'/lib/libffi-3.1/include', '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/include', '/usr/X11R6/include'] + []
 cdunif_library_directories = [sys.prefix+'/lib'] + get_drs_dirs() + [sys.prefix+'/lib'] +["/usr/X11/lib","/usr/X11R6/lib"]
-cdunif_libraries = ['cdms', 'netcdf'] + ['netcdf'] + get_drs_libs() + [] + ['grib2c', 'pngPNGVER', 'jasper']
+cdunif_libraries = ['cdms', 'netcdf'] + ['netcdf'] + get_drs_libs() + [] + ['grib2c', 'png', 'jasper']
 x11include = ['/usr/X11R6/include', '/usr/include', '/opt/include']
 x11libdir = ['/usr/X11R6/lib', '/usr/lib', '/opt/lib']
 mathlibs = ['m']
@@ -188,14 +188,9 @@ externals = sys.prefix
 
 EOF
 
-if [[ "${OSTYPE}" == "darwin"* ]]; then
-    set PNGVER="15"
-else
-    set PNGVER=""
-fi
 
 mkdir cdat_info_dir
-sed "s/PNGVER/${PNGVER}/g;s/GIT_DESCRIBE/${GIT_DESCRIBE}/g;" cdat_info.py.in > cdat_info_dir/cdat_info.py
+sed "s/GIT_DESCRIBE/${GIT_DESCRIBE}/g;" cdat_info.py.in > cdat_info_dir/cdat_info.py
 cat > cdat_info_dir/__init__.py << EOF
 from cdat_info import *
 EOF
