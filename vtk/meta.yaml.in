@@ -1,6 +1,6 @@
 package:
   name: vtk
-  version: uvcdat
+  version: 7.1.0.uvcdat
 
 source:
     git_rev: uvcdat-master
@@ -22,12 +22,14 @@ requirements:
     - proj4
     - hdf5
     - ffmpeg
+    - freetype
     - mesalib                                 [linux] {mesa}
   run:
     - python
     - proj4
     - hdf5
     - ffmpeg
+    - freetype
     - mesalib                                 [linux] {mesa}
 
 about:

@@ -19,6 +19,7 @@ requirements:
     - numpy <=1.9.2
     - vcs
     - cdms2 >2.4.1
+    - eztemplate
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcmetrics
