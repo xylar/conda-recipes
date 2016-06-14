@@ -12,9 +12,9 @@ build:
 requirements:
   build:
     - jasper
-    - libpng
+    - libpng ==1.6.17
     - jpeg
   run:
     - jasper
-    - libpng
+    - libpng ==1.6.17
     - jpeg
