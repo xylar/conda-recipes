@@ -19,14 +19,14 @@ requirements:
   build:
     - cmake
     - python
-    - proj4
+    - proj4 >=4.9.2
     - hdf5
     - ffmpeg
     - freetype
     - mesalib                                 [linux] {mesa}
   run:
     - python
-    - proj4
+    - proj4 >=4.9.2
     - hdf5
     - ffmpeg
     - freetype

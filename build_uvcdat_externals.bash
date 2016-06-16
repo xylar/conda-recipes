@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 conda build hdf5
+conda build proj4
 conda build libnetcdf
 conda build lapack
 conda build clapack
