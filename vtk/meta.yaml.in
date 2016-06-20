@@ -20,17 +20,17 @@ requirements:
     - cmake
     - python
     - proj4 >=4.9.2
-    - hdf5
+    - hdf5 ==1.8.15
     - ffmpeg
     - freetype
-    - mesalib                                 [linux] {mesa}
+    - mesalib                                 [linux] {nox}
   run:
     - python
     - proj4 >=4.9.2
-    - hdf5
+    - hdf5 ==1.8.15
     - ffmpeg
     - freetype
-    - mesalib                                 [linux] {mesa}
+    - mesalib                                 [linux] {nox}
 
 about:
   home: http://www.vtk.org/

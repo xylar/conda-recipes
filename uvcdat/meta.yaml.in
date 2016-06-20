@@ -45,8 +45,8 @@ requirements:
     - cmor
     - pydebug
     - uvcmetrics
-    - vistrails !{mesa}
-    - xmgrace !{mesa}
+    - vistrails !{nox}
+    - xmgrace !{nox}
     - esg
     - eztemplate
     - hdf5tools
@@ -101,8 +101,8 @@ requirements:
     - cmor
     - pydebug
     - uvcmetrics
-    - vistrails !{mesa}
-    - xmgrace !{mesa}
+    - vistrails !{nox}
+    - xmgrace !{nox}
     - esg
     - eztemplate
     - hdf5tools
