@@ -1,11 +1,11 @@
 package:
   name: hdf5
-  version: 1.8.15
+  version: 1.8.17
  
 source:
-  fn: hdf5-1.8.15.tar
-  url: http://uvcdat.llnl.gov/cdat/resources/hdf5-1.8.15.tar.gz
-  md5: 03cccb5b33dbe975fdcd8ae9dc021f24
+  fn: hdf5-1.8.17.tar
+  url: http://uvcdat.llnl.gov/cdat/resources/hdf5-1.8.17.tar.bz2
+  md5: 34bd1afa5209259201a41964100d6203
 
 build:
   string: UVCDAT

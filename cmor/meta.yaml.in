@@ -14,14 +14,14 @@ requirements:
     - python
     - ossuuid 1.6.2
     - udunits2
-    - hdf5 ==1.8.15
+    - hdf5 ==1.8.17
     - libnetcdf 4.3.3.1
     - numpy <=1.9.2
   run:
     - python
     - ossuuid 1.6.2
     - udunits2
-    - hdf5 ==1.8.15
+    - hdf5 ==1.8.17
     - libnetcdf 4.3.3.1
     - numpy <=1.9.2
     - cdms2
