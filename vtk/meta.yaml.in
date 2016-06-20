@@ -3,10 +3,10 @@ package:
   version: 7.1.0.@VERSION@
 
 source:
-    #git_rev: uvcdat-master
-    #git_url: git://github.com/UV-CDAT/VTK.git
-    git_rev: remove-renderer-leak-followup
-    git_url: git://gitlab.kitware.com/danlipsa/vtk
+    git_rev: uvcdat-master
+    git_url: git://github.com/UV-CDAT/VTK.git
+    #git_rev: remove-renderer-leak-followup
+    #git_url: git://gitlab.kitware.com/danlipsa/vtk
 
     #  patches:
     #    - dlls.patch                              [win]
