@@ -9,9 +9,9 @@ source:
 
 requirements:
     build:
-        - hdf5 ==1.8.17
+        - hdf5
     run:
-        - hdf5 ==1.8.17
+        - hdf5
 build:
     string: UVCDAT
 
