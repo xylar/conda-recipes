@@ -6,7 +6,7 @@ source:
     git_rev: uvcdat-master
     git_url: git://github.com/UV-CDAT/VTK.git
     #git_rev: remove-renderer-leak-followup
-    #git_url: git://gitlab.kitware.com/danlipsa/vtk
+    #git_url: https://gitlab.kitware.com/danlipsa/vtk.git
 
     #  patches:
     #    - dlls.patch                              [win]
@@ -14,6 +14,7 @@ source:
 
 build:
   string: uvcdat_master
+  detect_binary_files_with_prefix: true
   has_prefix_files:                           [win]
     - Lib/site-packages/vtk/__init__.py       [win]
 
