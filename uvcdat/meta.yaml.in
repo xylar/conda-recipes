@@ -127,7 +127,7 @@ requirements:
     - cycler
     - ipython
     - basemap
-    - pyspharm
+    - pyspharm [linux]
 
 about:
   home:  http://gitub.com/UV-CDAT/uvcdat
