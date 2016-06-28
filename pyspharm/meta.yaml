@@ -14,7 +14,7 @@ requirements:
   build:
     - python
     - numpy 1.9.2
-    - libgfortran
+    - libgfortran  [linux]
   run:
     - python
     - numpy 1.9.2

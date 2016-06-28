@@ -67,7 +67,7 @@ requirements:
     - cycler
     - ipython
     - basemap
-    - pyspharm
+    - pyspharm [linux]
   run:
     - lapack
     - clapack
