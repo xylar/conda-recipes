@@ -127,5 +127,5 @@ if [ `uname` == Darwin ]; then
         ${COMMON_ARGS}
 fi
 
-make -j4
+make -j16
 make install

@@ -64,6 +64,10 @@ requirements:
     - zonalmeans
     - openmpi {openmpi}
     - mpi4py {openmpi}
+    - cycler
+    - ipython
+    - basemap
+    - pyspharm
   run:
     - lapack
     - clapack
@@ -120,6 +124,10 @@ requirements:
     - zonalmeans
     - openmpi {openmpi}
     - mpi4py {openmpi}
+    - cycler
+    - ipython
+    - basemap
+    - pyspharm
 
 about:
   home:  http://gitub.com/UV-CDAT/uvcdat
