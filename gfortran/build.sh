@@ -19,8 +19,11 @@ if [ "$(uname)" == "Darwin" ]; then
     # The system's libstdc++.6.dylib will be located in /usr/lib, and we need to help the gcc build find it.
     export LDFLAGS="-Wl,-headerpad_max_install_names -Wl,-L${PREFIX}/lib -Wl,-L/usr/lib"
     export DYLD_FALLBACK_LIBRARY_PATH="$PREFIX/lib:/usr/lib"
+    #export CFLAGS="-gdwarf-2"
+    #export CXXFLAGS="-gdwarf-2"
+    #export CPPFLAGS="-gdwarf-2"
 
-    ../gcc-5.2.0/configure \
+    ../gcc-4.9.3/configure \
         --prefix="$GCC_PREFIX" \
         --with-gxx-include-dir="$GCC_PREFIX/include/c++" \
         --bindir="$PREFIX/bin" \
@@ -33,9 +36,10 @@ if [ "$(uname)" == "Darwin" ]; then
         --with-cloog="$PREFIX" \
         --with-boot-ldflags="$LDFLAGS" \
         --with-stage1-ldflags="$LDFLAGS" \
-        --enable-checking=release \
         --with-tune=generic \
         --disable-multilib \
+        --enable-checking=release \
+        --with-build-config=bootstrap-debug \
         --enable-languages=c,fortran
 else
     # For reference during post-link.sh, record some

@@ -20,7 +20,7 @@ requirements:
     - libcf
     - libdrs_c
     - lats
-    - libcdms
+    - libcdms ==2.6
     - libdrs_f
     - ezget
     - cd77
@@ -68,6 +68,8 @@ requirements:
     - ipython
     - basemap
     - pyspharm [linux]
+    - hdf5 ==1.8.16
+    - libpng ==1.6.17
   run:
     - lapack
     - clapack
@@ -80,7 +82,7 @@ requirements:
     - libcf
     - libdrs_c
     - lats
-    - libcdms
+    - libcdms ==2.6
     - libdrs_f
     - ezget
     - cd77
@@ -128,6 +130,8 @@ requirements:
     - ipython
     - basemap
     - pyspharm [linux]
+    - hdf5 ==1.8.16
+    - libpng ==1.6.17
 
 about:
   home:  http://gitub.com/UV-CDAT/uvcdat
