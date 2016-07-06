@@ -14,6 +14,7 @@ requirements:
     - python
     - setuptools
     - regrid2
+    - libcdms
   run:
     - python
     - regrid2
@@ -21,6 +22,7 @@ requirements:
     - distarray
     - esmf
     - cdtime
+    - libcdms
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat
