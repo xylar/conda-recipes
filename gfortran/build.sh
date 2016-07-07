@@ -67,4 +67,9 @@ fi
 make -j"$CPU_COUNT"
 make install-strip
 rm "$PREFIX/lib64"
+rm "$PREFIX/bin/gcc"
+rm "$PREFIX/bin/g++"
+rm "$PREFIX/bin/cpp"
+rm "$PREFIX/bin/c++"
+
 

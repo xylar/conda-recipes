@@ -13,11 +13,13 @@ requirements:
   build:
     - python
     - numpy <=1.9.2
+    - gfortran          [osx]
     - openmpi >=1.6.4   {openmpi}
     - mpi4py            {openmpi}
   run:
     - python
     - numpy <=1.9.2
+    - gfortran          [osx]
     - openmpi >=1.6.4   {openmpi}
     - mpi4py            {openmpi}
 

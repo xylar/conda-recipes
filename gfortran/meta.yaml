@@ -1,5 +1,5 @@
 package:
-  name: gcc-4
+  name: gfortran
   version: 4.9.3
 
 source:

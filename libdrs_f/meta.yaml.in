@@ -14,10 +14,12 @@ requirements:
     - g2clib
     - libcdms
     - libpng ==1.6.17
+    - gfortran
   run:
     - g2clib
     - libcdms
     - libpng ==1.6.17
+    - gfortran
 
 about:
     home:  http://github.com/UV-CDAT/libdrs

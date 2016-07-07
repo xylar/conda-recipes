@@ -10,9 +10,13 @@ export ESMF_OS=`uname -s`
 export ESMF_COMPILER="gfortran"
 export ESMF_ABI="64"
 if [ `uname` == Darwin ]; then
-    export ESMF_OPENMP "OFF"
+    export ESMF_OPENMP="OFF"
+    export CC="/usr/bin/gcc"
+    export FC=${PREFIX}/bin/gfortran
+    export F77=${PREFIX}/bin/gfortran
+    export F90=${PREFIX}/bin/gfortran
 else
-    export ESMF_OPENMP "ON"
+    export ESMF_OPENMP="ON"
 fi
 
 # OPENMPI bits
