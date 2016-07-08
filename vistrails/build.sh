@@ -8,5 +8,5 @@ mkdir ${PREFIX}/vistrails
 cp -rf * ${PREFIX}/vistrails
 
 #mkdir ${PREFIX}/bin
-sed "s#CONDAPREFIX#${PREFIX}#g;" scripts/uvcdat_for_conda.in > ${PREFIX}/bin/uvcdat
+sed "s#CONDAPREFIX#${PREFIX}#g;s#python #${PREFIX}/bin/python #g;" scripts/uvcdat_for_conda.in > ${PREFIX}/bin/uvcdat
 chmod ugo+x ${PREFIX}/bin/uvcdat
