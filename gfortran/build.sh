@@ -66,10 +66,10 @@ else
 fi
 make -j"$CPU_COUNT"
 make install-strip
-rm "$PREFIX/lib64"
-rm "$PREFIX/bin/gcc"
-rm "$PREFIX/bin/g++"
-rm "$PREFIX/bin/cpp"
-rm "$PREFIX/bin/c++"
+#rm "$PREFIX/lib64"
+mv "$PREFIX/bin/gcc" "$PREFIX/bin/gcc.mved"
+mv "$PREFIX/bin/g++" "$PREFIX/bin/g++.mved"
+mv "$PREFIX/bin/cpp" "$PREFIX/bin/cpp.mved"
+mv "$PREFIX/bin/c++" "$PREFIX/bin/c++.mved"
 
 

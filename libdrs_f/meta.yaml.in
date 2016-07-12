@@ -1,9 +1,9 @@
 package:
     name: libdrs_f
-    version: 1.0.0
+    version: 1.0.1
 
 source:
-    git_rev: master
+    git_rev: conda_gfortran
     git_url: git://github.com/UV-CDAT/libdrs.git
 
 build:
@@ -14,12 +14,12 @@ requirements:
     - g2clib
     - libcdms
     - libpng ==1.6.17
-    - gfortran
+    - gfortran [osx]
   run:
     - g2clib
     - libcdms
     - libpng ==1.6.17
-    - gfortran
+    - gfortran [osx]
 
 about:
     home:  http://github.com/UV-CDAT/libdrs

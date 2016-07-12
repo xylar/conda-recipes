@@ -35,7 +35,6 @@ fi
 export ESMF_INSTALL=${PREFIX}
 export ESMF_INSTALL_PREFIX=${PREFIX}
 
-
 export ESMF_MOAB="OFF"
 export ESMF_ARRAYLITE="TRUE"
 cd esmf
@@ -87,3 +86,10 @@ EOF
 patch -p1 src/ESMP_LoadESMF.py ESMP.patch
 cd ..
 cp -rf ESMP ${SP_DIR}
+
+if [ `uname` == Darwin ]; then 
+    install_name_tool -id @rpath/libO/Darwin.gfortran.64.mpiuni.default/libesmf_fullylinked.dylib ${PREFIX}/lib/libO/Darwin.gfortran.64.mpiuni.default/libesmf_fullylinked.dylib
+    install_name_tool -id @rpath/libO/Darwin.gfortran.64.mpiuni.default/libesmf.dylib ${PREFIX}/lib/libO/Darwin.gfortran.64.mpiuni.default/libesmf.dylib
+fi
+
+

@@ -9,6 +9,16 @@ source:
 build:
   string: UVCDAT
 
+test:
+  requires:
+    - python
+    - numpy <=1.9.2
+    - gfortran          [osx]
+    - openmpi >=1.6.4   {openmpi}
+    - mpi4py            {openmpi}
+  imports:
+    - ESMP
+
 requirements:
   build:
     - python
@@ -25,6 +35,3 @@ requirements:
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat
-
-
-
