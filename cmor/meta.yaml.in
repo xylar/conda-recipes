@@ -1,10 +1,11 @@
 package:
     name: cmor
     version: 3.1.2
+#    version: @VERSION@
 
 source:
     path: /Users/nadeau1/software/cmor
-#    git_rev: master
+#    git_rev: @UVCDAT_BRANCH@
 #    git_url: git://github.com/PCMDI/cmor.git
 
 build:
@@ -14,7 +15,6 @@ requirements:
   build:
     - libuuid 
     - python
-#    - ossuuid 1.6.2
     - udunits2
     - hdf5
     - libnetcdf 4.3.3.1
@@ -22,12 +22,12 @@ requirements:
   run:
     - libuuid
     - python
-#    - ossuuid 1.6.2
     - udunits2
     - hdf5
     - libnetcdf 4.3.3.1
     - numpy <=1.9.2
-#    - cdms2
+    - expat [osx]
+    - cdms2
 
 about:
     home:  http://gitub.com/PCMDI
