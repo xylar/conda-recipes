@@ -11,6 +11,20 @@ source:
 build:
   string: PCMDI
 
+test:
+  requires:
+    - libuuid
+    - python
+    - udunits2
+    - hdf5
+    - libnetcdf 4.3.3.1
+    - numpy <=1.9.2
+    - expat [osx]
+
+  imports:
+    - cmor
+    - cmip6_cv
+
 requirements:
   build:
     - libuuid 
