@@ -9,6 +9,13 @@ source:
 build:
   string: PCMDI
  
+test:
+  requires:
+    - python
+    - gfortran [osx]
+  imports:
+    - cmor
+
 requirements:
   build:
     - python

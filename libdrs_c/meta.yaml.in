@@ -1,6 +1,6 @@
 package:
     name: libdrs_c
-    version: 1.0.0
+    version: 1.0.1
 
 source:
     git_rev: master
@@ -13,9 +13,11 @@ requirements:
   build:
     - libnetcdf
     - g2clib
+    - gfortran [osx]
   run:
     - libnetcdf
     - g2clib
+    - gfortran [osx]
 
 about:
     home:  http://github.com/UV-CDAT/libdrs

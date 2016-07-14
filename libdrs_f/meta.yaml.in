@@ -3,7 +3,7 @@ package:
     version: 1.0.1
 
 source:
-    git_rev: conda_gfortran
+    git_rev: master
     git_url: git://github.com/UV-CDAT/libdrs.git
 
 build:
