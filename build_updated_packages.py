@@ -139,13 +139,13 @@ for f in files:
         b = sp[0]
     print "package:", b
     p = f.split("/")[0]
-    last_commit_format = "'HEAD@{%s}'"
+    last_commit_format = "'origin@{%s}'"
     if args.units not in ["tag", "date"]:
         last_commit_format = last_commit_format % ( "%%s %s ago" % args.units )
     elif args.units == "tag":
         last_commit_format = "%s"
     last_commit = last_commit_format % args.delta
-    cmd = "git diff --dirstat HEAD %s -- Packages/%s" % (
+    cmd = "git diff --dirstat origin %s -- Packages/%s" % (
         last_commit, b)
     if args.verbose:
         print "CMD:", cmd
