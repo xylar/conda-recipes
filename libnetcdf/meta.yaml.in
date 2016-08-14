@@ -13,7 +13,7 @@ requirements:
     run:
         - hdf5
 build:
-    string: UVCDAT
+    number: @BUILD_NUMBER@
 
 about:
     home:  http://hdfgroup.org

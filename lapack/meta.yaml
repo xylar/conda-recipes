@@ -7,7 +7,7 @@ source:
   url: http://uvcdat.llnl.gov/cdat/resources/lapack-3.4.2.tgz
 
 build:
-  string: UVCDAT
+  number: @BUILD_NUMBER@
 
 requirements:
   build:

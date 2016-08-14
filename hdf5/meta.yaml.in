@@ -8,7 +8,7 @@ source:
   md5: b8ed9a36ae142317f88b0c7ef4b9c618
 
 build:
-  string: UVCDAT
+  number: @BUILD_NUMBER@
  
 requirements:
   build:

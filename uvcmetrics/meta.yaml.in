@@ -7,16 +7,16 @@ source:
     git_url: git://github.com/UV-CDAT/uvcmetrics.git
 
 build:
-  string: UVCDAT
+  number: @BUILD_NUMBER@
  
 requirements:
   build:
     - python
     - setuptools
-    - numpy <=1.9.2
+    - numpy  x.x
   run:
     - python
-    - numpy <=1.9.2
+    - numpy  x.x
     - vcs
     - cdms2 >2.4.1
     - eztemplate

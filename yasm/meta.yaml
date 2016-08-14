@@ -18,4 +18,4 @@ requirements:
         - openssl
         - glib [linux]
 build:
-    string: UVCDAT
+    number: @BUILD_NUMBER@

@@ -7,19 +7,19 @@ source:
     git_url: git://github.com/UV-CDAT/uvcdat.git
 
 build:
-  string: UVCDAT
+  number: @BUILD_NUMBER@
  
 requirements:
   build:
     - python
     - setuptools
     - udunits2
-    - numpy <=1.9.2
+    - numpy  x.x
     - cdat_info
   run:
     - python
     - udunits2
-    - numpy <=1.9.2
+    - numpy  x.x
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat

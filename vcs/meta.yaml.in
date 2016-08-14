@@ -7,7 +7,7 @@ source:
     git_url: git://github.com/UV-CDAT/uvcdat.git
 
 build:
-  string: @BUILD_NAME@
+  number: @BUILD_NUMBER@
  
 requirements:
   build:

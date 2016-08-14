@@ -14,4 +14,4 @@ requirements:
     run:
         - x264
 build:
-    string: UVCDAT
+    number: @BUILD_NUMBER@

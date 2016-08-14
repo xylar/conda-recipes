@@ -7,7 +7,7 @@ source:
     git_url: git://github.com/UV-CDAT/uvcdat.git
 
 build:
-  string: @BUILD_NAME@
+  number: @BUILD_NUMBER@
   detect_binary_files_with_prefix: true
 
 test:
@@ -21,11 +21,11 @@ requirements:
   build:
     - python
     - setuptools
-    - numpy <=1.9.2
+    - numpy  x.x
     - gfortran [osx]
   run:
     - python
-    - numpy <=1.9.2
+    - numpy  x.x
     - gfortran [osx]
 
 about:

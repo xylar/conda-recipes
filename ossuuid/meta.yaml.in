@@ -7,7 +7,7 @@ source:
   url: http://uvcdat.llnl.gov/cdat/resources/uuid-1.6.2.tar.gz
  
 build:
-  string: UVCDAT
+  number: @BUILD_NUMBER@
 
 requirements:
   build:

@@ -7,7 +7,7 @@ source:
     git_url: git://github.com/UV-CDAT/uvcdat.git
 
 build:
-  string: UVCDAT
+  number: @BUILD_NUMBER@
  
 requirements:
   build:
@@ -15,13 +15,13 @@ requirements:
     - setuptools
     - libcdms
     - cdat_info
-    - numpy <=1.9.2
+    - numpy  x.x
     - libdrs_f
   run:
     - python
     - libcdms
     - cdat_info
-    - numpy <=1.9.2
+    - numpy  x.x
     - esmf
     - libdrs_f
 

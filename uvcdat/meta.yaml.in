@@ -5,7 +5,7 @@ package:
 source:
 
 build:
-  string: @BUILD_NAME@
+  number: @BUILD_NUMBER@
 
 requirements:
   build:

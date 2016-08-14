@@ -7,7 +7,7 @@ source:
   url: http://uvcdat.llnl.gov/cdat/resources/libcf-1.0-beta11.tar.gz
 
 build:
-  string: UVCDAT
+  number: @BUILD_NUMBER@
  
 requirements:
   build:
