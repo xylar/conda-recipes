@@ -4,7 +4,7 @@ package:
 
 source:
     git_rev: @UVCDAT_BRANCH@
-    git_url: git://github.com/UV-CDAT/uvcdat.git
+    git_url: git://github.com/UV-CDAT/wk.git
 
 build:
   string: UVCDAT
@@ -19,7 +19,7 @@ requirements:
     - vcs
 
 about:
-    home:  http://gitub.com/UV-CDAT/uvcdat
+    home:  http://gitub.com/UV-CDAT/wk
 
 
 

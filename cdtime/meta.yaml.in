@@ -4,7 +4,7 @@ package:
 
 source:
     git_rev: @UVCDAT_BRANCH@
-    git_url: git://github.com/UV-CDAT/uvcdat.git
+    git_url: git://github.com/UV-CDAT/cdtime.git
 
 build:
   string: UVCDAT
@@ -24,7 +24,7 @@ requirements:
     - libdrs_f
 
 about:
-    home:  http://gitub.com/UV-CDAT/uvcdat
+    home:  http://gitub.com/UV-CDAT/cdtime
 
 
 

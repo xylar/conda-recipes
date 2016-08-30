@@ -13,17 +13,23 @@ requirements:
   build:
     - python
     - setuptools
-    - regrid2
+    - libcdms
+    - cdat_info
+    - numpy <=1.9.2
+    - libdrs_f
   run:
     - python
-    - regrid2
     - libcf
     - distarray
-    - esmf
     - cdtime
+    - libcdms
+    - cdat_info
+    - numpy <=1.9.2
+    - esmf
+    - libdrs_f
 
 about:
-    home:  http://gitub.com/UV-CDAT/uvcdat
+    home:  http://gitub.com/UV-CDAT/cdms
 
 
 
