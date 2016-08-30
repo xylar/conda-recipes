@@ -20,6 +20,7 @@ requirements:
     - vcs
     - cdms2 >2.4.1
     - eztemplate
+    - output_viewer <2.0.0
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcmetrics

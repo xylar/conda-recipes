@@ -124,8 +124,10 @@ if [ `uname` == Darwin ]; then
         -DVTK_USE_COCOA=ON \
         -DVTK_USE_X=OFF \
         -DLIBPROJ4_LIBRARIES:FILEPATH=${PREFIX}/lib/libproj.dylib \
+        -DCMAKE_OSX_DEPLOYMENT_TARGET=10.11 \
         ${COMMON_ARGS}
+#CMAKE_OSX_SYSROOT                /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk
 fi
 
-make -j4
+make -j16
 make install

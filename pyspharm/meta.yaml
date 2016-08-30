@@ -1,0 +1,26 @@
+package:
+    name: pyspharm
+    version: 1.0.8
+
+source:
+    fn: pyspharm-1.0.8.tar.gz
+    url: https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/pyspharm/pyspharm-1.0.8.tar.gz
+    md5: 7b3a33dd3cbeaa4b8bf67ed5bd210931
+
+build:
+  string: UVCDAT
+
+requirements:
+  build:
+    - python
+    - numpy 1.9.2
+    - libgfortran  [linux]
+  run:
+    - python
+    - numpy 1.9.2
+
+about:
+    home:  http://gitub.com/UV-CDAT/uvcdat
+
+
+

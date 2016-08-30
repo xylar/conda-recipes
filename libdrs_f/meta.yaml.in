@@ -1,6 +1,6 @@
 package:
     name: libdrs_f
-    version: 1.0.0
+    version: 1.0.1
 
 source:
     git_rev: master
@@ -14,10 +14,12 @@ requirements:
     - g2clib
     - libcdms
     - libpng ==1.6.17
+    - gfortran [osx]
   run:
     - g2clib
     - libcdms
     - libpng ==1.6.17
+    - gfortran [osx]
 
 about:
     home:  http://github.com/UV-CDAT/libdrs

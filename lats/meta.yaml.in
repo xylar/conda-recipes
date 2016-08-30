@@ -1,6 +1,6 @@
 package:
     name: lats
-    version: 1.0.0
+    version: 1.0.1
 
 source:
     git_rev: master
@@ -12,8 +12,12 @@ build:
 requirements:
   build:
     - libnetcdf
+    - hdf5 ==1.8.16
+    - gfortran [osx]
   run:
     - libnetcdf
+    - hdf5 ==1.8.16
+    - gfortran [osx]
 
 about:
     home:  http://github.com/UV-CDAT/lats

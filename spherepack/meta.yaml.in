@@ -9,14 +9,23 @@ source:
 build:
   string: @BUILD_NAME@
  
+test:
+  requires:
+    - python
+    - gfortran
+  imports:
+    - spherepack
+
 requirements:
   build:
     - python
     - setuptools
     - numpy <=1.9.2
+    - gfortran [osx]
   run:
     - python
     - numpy <=1.9.2
+    - gfortran [osx]
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat

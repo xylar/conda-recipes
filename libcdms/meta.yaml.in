@@ -11,7 +11,7 @@ build:
  
 requirements:
   build:
-    - hdf5
+    - hdf5 ==1.8.16
     - libnetcdf 4.3.3.1
     - jasper
     - g2clib
@@ -20,7 +20,7 @@ requirements:
     - jpeg
     - libdrs_c
   run:
-    - hdf5
+    - hdf5 ==1.8.16
     - libnetcdf 4.3.3.1
     - jasper
     - g2clib

@@ -3,6 +3,7 @@ import argparse
 import os
 import sys
 import re
+import traceback
 
 parser = argparse.ArgumentParser(
     description='Manage your anaconda packages',
@@ -113,6 +114,8 @@ for p in pkg:
         name = name.split()[-1]
         if args.build is None:
             rd2 = rd[rd.find("string:"):]
+            if rd2.strip()=="":
+                rd2 = rd[rd.find("number:"):]
             ibuild = rd2.find("\n")
             build = rd2[:ibuild].split()[-1]
         else:
@@ -145,6 +148,7 @@ for p in pkg:
             cmd = "anaconda remove -f %s/%s" % (
                 channel, name)
         else:
+            print "channel, name, version, myos, name, version, build",channel, name, version, myos, name, version, build
             cmd = "anaconda remove -f %s/%s/%s/%s/%s-%s-%s.tar.bz2" % (
                 channel, name, version, myos, name, version, build)
     print "\tCommand:", cmd,
@@ -157,5 +161,10 @@ for p in pkg:
         print "Removing locally as well:",cmd
         cmd = "conda remove %s" % name
         os.system(cmd)
-  except:
+  except Exception,err:
+      exc_type, exc_value, exc_traceback = sys.exc_info()
+      print "<<<<<<<<<<<< BEG TRACEBACK >>>>>>>>>>>>>>>>>>"
+      traceback.print_tb(exc_traceback)
+      print "<<<<<<<<<<<< END TRACEBACK >>>>>>>>>>>>>>>>>>"
+
       print "Failed!"

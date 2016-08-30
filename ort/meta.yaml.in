@@ -8,15 +8,25 @@ source:
 
 build:
   string: @BUILD_NAME@
- 
+  detect_binary_files_with_prefix: true
+
+test:
+  requires:
+    - python
+    - gfortran [osx]
+  imports:
+    - ort
+
 requirements:
   build:
     - python
     - setuptools
     - numpy <=1.9.2
+    - gfortran [osx]
   run:
     - python
     - numpy <=1.9.2
+    - gfortran [osx]
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat

@@ -10,9 +10,13 @@ export ESMF_OS=`uname -s`
 export ESMF_COMPILER="gfortran"
 export ESMF_ABI="64"
 if [ `uname` == Darwin ]; then
-    export ESMF_OPENMP "OFF"
+    export ESMF_OPENMP="OFF"
+    export CC="/usr/bin/gcc"
+    export FC=${PREFIX}/bin/gfortran
+    export F77=${PREFIX}/bin/gfortran
+    export F90=${PREFIX}/bin/gfortran
 else
-    export ESMF_OPENMP "ON"
+    export ESMF_OPENMP="ON"
 fi
 
 # OPENMPI bits
@@ -30,7 +34,6 @@ fi
 
 export ESMF_INSTALL=${PREFIX}
 export ESMF_INSTALL_PREFIX=${PREFIX}
-
 
 export ESMF_MOAB="OFF"
 export ESMF_ARRAYLITE="TRUE"
@@ -83,3 +86,10 @@ EOF
 patch -p1 src/ESMP_LoadESMF.py ESMP.patch
 cd ..
 cp -rf ESMP ${SP_DIR}
+
+if [ `uname` == Darwin ]; then 
+    install_name_tool -id @rpath/libO/Darwin.gfortran.64.mpiuni.default/libesmf_fullylinked.dylib ${PREFIX}/lib/libO/Darwin.gfortran.64.mpiuni.default/libesmf_fullylinked.dylib
+    install_name_tool -id @rpath/libO/Darwin.gfortran.64.mpiuni.default/libesmf.dylib ${PREFIX}/lib/libO/Darwin.gfortran.64.mpiuni.default/libesmf.dylib
+fi
+
+
