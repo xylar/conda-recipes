@@ -17,7 +17,7 @@ requirements:
     - cdtime ==@VERSION@
     - cdutil ==@VERSION@
     - clapack ==3.2.1
-    - cmor ==2.9.2
+    - cmor
     - cssgrid ==@VERSION@
     - distarray ==@VERSION@
     - dsgrid ==@VERSION@
@@ -33,8 +33,8 @@ requirements:
     - lapack ==3.4.2
     - libcdms ==@VERSION@
     - libcf ==1.0.beta11
-    - libnetcdf ==4.3.3.1
-    - libpng ==1.6.17
+    - libnetcdf
+    - libpng
     - lmoments ==@VERSION@
     - natgrid ==@VERSION@
     - ort ==@VERSION@
@@ -52,13 +52,13 @@ requirements:
     - uvcmetrics
     - vcsaddons ==@VERSION@
     - vistrails ==master
-    - vtk ==7.1.0.2.6
+    - vtk >=7.1.0
     - wk ==@VERSION@
     - x264 ==20151006.2245
     - xmgrace ==@VERSION@
     - yasm ==1.2.0
     - zonalmeans ==@VERSION@
-    - pyqt ==4.11.3
+    - pyqt
   run:
     - asciidata ==@VERSION@
     - basemap
@@ -84,8 +84,8 @@ requirements:
     - lapack ==3.4.2
     - libcdms ==@VERSION@
     - libcf ==1.0.beta11
-    - libnetcdf ==4.3.3.1
-    - libpng ==1.6.17
+    - libnetcdf
+    - libpng
     - lmoments ==@VERSION@
     - natgrid ==@VERSION@
     - ort ==@VERSION@
@@ -103,13 +103,13 @@ requirements:
     - uvcmetrics
     - vcsaddons ==@VERSION@
     - vistrails ==master
-    - vtk ==7.1.0.2.6
+    - vtk >=7.1.0.2.6
     - wk ==@VERSION@
     - x264 ==20151006.2245
     - xmgrace ==@VERSION@
     - yasm ==1.2.0
     - zonalmeans ==@VERSION@
-    - pyqt ==4.11.3
+    - pyqt
 
 about:
   home:  http://gitub.com/UV-CDAT/uvcdat

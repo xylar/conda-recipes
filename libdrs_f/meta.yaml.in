@@ -13,12 +13,12 @@ requirements:
   build:
     - g2clib
     - libcdms
-    - libpng ==1.6.17
+    - libpng
     - gfortran [osx]
   run:
     - g2clib
     - libcdms
-    - libpng ==1.6.17
+    - libpng
     - gfortran [osx]
 
 about:

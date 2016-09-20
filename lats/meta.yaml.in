@@ -12,11 +12,11 @@ build:
 requirements:
   build:
     - libnetcdf
-    - hdf5 ==1.8.16
+    - hdf5
     - gfortran [osx]
   run:
     - libnetcdf
-    - hdf5 ==1.8.16
+    - hdf5
     - gfortran [osx]
 
 about:
