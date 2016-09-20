@@ -3,5 +3,4 @@ export CXXLAGS="${CFLAGS}"
 export CPPFLAGS="-I${PREFIX}/include"
 export LDFLAGS="-L${PREFIX}/lib"
 
-cd Packages/cdutil
 python setup.py install
