@@ -1,6 +1,6 @@
 package:
     name: vistrails
-    version: master
+    version: @VERSION@
 
 source:
     git_rev: uvcdat-master
