@@ -13,11 +13,11 @@ requirements:
   build:
     - libcdms
     - libdrs_f
-    - gfortran [osx]
+    - gcc [osx]
   run:
     - libcdms
     - libdrs_f
-    - gfortran [osx]
+    - gcc [osx]
 
 about:
     home:  http://github.com/UV-CDAT/ezget

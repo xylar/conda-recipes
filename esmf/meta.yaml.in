@@ -13,7 +13,7 @@ test:
   requires:
     - python
     - numpy  x.x
-    - gfortran          [osx]
+    - gcc          [osx]
     - openmpi >=1.6.4   {openmpi}
     - mpi4py            {openmpi}
   imports:
@@ -23,13 +23,13 @@ requirements:
   build:
     - python
     - numpy  x.x
-    - gfortran          [osx]
+    - gcc          [osx]
     - openmpi >=1.6.4   {openmpi}
     - mpi4py            {openmpi}
   run:
     - python
     - numpy  x.x
-    - gfortran          [osx]
+    - gcc          [osx]
     - openmpi >=1.6.4   {openmpi}
     - mpi4py            {openmpi}
 

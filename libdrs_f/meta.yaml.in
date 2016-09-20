@@ -14,12 +14,12 @@ requirements:
     - g2clib
     - libcdms
     - libpng
-    - gfortran [osx]
+    - gcc [osx]
   run:
     - g2clib
     - libcdms
     - libpng
-    - gfortran [osx]
+    - gcc [osx]
 
 about:
     home:  http://github.com/UV-CDAT/libdrs

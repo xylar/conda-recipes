@@ -13,11 +13,11 @@ requirements:
   build:
     - libnetcdf
     - hdf5
-    - gfortran [osx]
+    - gcc [osx]
   run:
     - libnetcdf
     - hdf5
-    - gfortran [osx]
+    - gcc [osx]
 
 about:
     home:  http://github.com/UV-CDAT/lats

@@ -12,7 +12,7 @@ build:
 test:
   requires:
     - python
-    - gfortran [osx]
+    - gcc [osx]
     - cdms2
     - genutil
   imports:
@@ -23,11 +23,11 @@ requirements:
     - python
     - setuptools
     - numpy  x.x
-    - gfortran [osx]
+    - gcc [osx]
   run:
     - python
     - numpy  x.x
-    - gfortran [osx]
+    - gcc [osx]
     - cdms2
     - genutil
 

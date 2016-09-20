@@ -13,11 +13,11 @@ requirements:
   build:
     - libnetcdf
     - g2clib
-    - gfortran [osx]
+    - gcc [osx]
   run:
     - libnetcdf
     - g2clib
-    - gfortran [osx]
+    - gcc [osx]
 
 about:
     home:  http://github.com/UV-CDAT/libdrs

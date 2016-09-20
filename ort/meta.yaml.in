@@ -13,7 +13,7 @@ build:
 test:
   requires:
     - python
-    - gfortran [osx]
+    - gcc [osx]
   imports:
     - ort
 
@@ -22,11 +22,11 @@ requirements:
     - python
     - setuptools
     - numpy  x.x
-    - gfortran [osx]
+    - gcc [osx]
   run:
     - python
     - numpy  x.x
-    - gfortran [osx]
+    - gcc [osx]
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat
