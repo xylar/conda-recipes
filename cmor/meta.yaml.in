@@ -23,7 +23,7 @@ requirements:
     - udunits2
     - hdf5
     - libnetcdf 4.3.3.1
-    - numpy  x.x
+    - numpy  
     - gcc [osx]
     - hdf5 ==1.8.16
   run:
@@ -32,7 +32,7 @@ requirements:
     - udunits2
     - hdf5
     - libnetcdf 4.3.3.1
-    - numpy  x.x
+    - numpy  
     - cdms2
     - gcc [osx]
     - hdf5 ==1.8.16

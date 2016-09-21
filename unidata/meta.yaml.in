@@ -14,12 +14,12 @@ requirements:
     - python
     - setuptools
     - udunits2
-    - numpy  x.x
+    - numpy  
     - cdat_info
   run:
     - python
     - udunits2
-    - numpy  x.x
+    - numpy  
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat

@@ -13,10 +13,10 @@ requirements:
   build:
     - python
     - setuptools
-    - numpy  x.x
+    - numpy  
   run:
     - python
-    - numpy  x.x
+    - numpy  
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat

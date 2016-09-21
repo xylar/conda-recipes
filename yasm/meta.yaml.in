@@ -18,5 +18,4 @@ requirements:
         - openssl
         - glib [linux]
 build:
-    number: 1234
-
+    number: @BUILD_NUMBER@

@@ -13,7 +13,7 @@ test:
   requires:
     - python
     - gcc [osx]
-    - numpy  x.x
+    - numpy  
   imports:
     - css
 
@@ -21,11 +21,11 @@ requirements:
   build:
     - python
     - setuptools
-    - numpy  x.x
+    - numpy  
     - gcc [osx]
   run:
     - python
-    - numpy  x.x
+    - numpy  
     - gcc [osx]
 
 about:

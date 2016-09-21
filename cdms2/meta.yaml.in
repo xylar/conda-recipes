@@ -15,7 +15,7 @@ requirements:
     - setuptools
     - libcdms
     - cdat_info
-    - numpy <=1.9.2
+    - numpy 
     - libdrs_f
   run:
     - python
@@ -24,7 +24,7 @@ requirements:
     - cdtime
     - libcdms
     - cdat_info
-    - numpy <=1.9.2
+    - numpy 
     - esmf
     - libdrs_f
 

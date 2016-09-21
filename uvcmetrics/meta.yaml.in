@@ -13,10 +13,10 @@ requirements:
   build:
     - python
     - setuptools
-    - numpy  x.x
+    - numpy  
   run:
     - python
-    - numpy  x.x
+    - numpy  
     - vcs
     - cdms2 >2.4.1
     - eztemplate

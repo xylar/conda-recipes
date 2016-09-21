@@ -7,7 +7,7 @@ source:
     git_url: git://github.com/ESGF/output_viewer.git
 
 build:
-  number: 1234
+  number: @BUILD_NUMBER@
   #noarch_python: True
 
 requirements:
@@ -20,7 +20,6 @@ requirements:
 
 about:
     home:  http://gitub.com/ESGF/output_viewer
-
 
 
 
