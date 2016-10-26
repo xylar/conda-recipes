@@ -120,14 +120,20 @@ def pingPCMDIdb(*args,**kargs):
     kargs['target']=pingPCMDIdbThread
     kargs['args']=args
     t = threading.Thread(**kargs)
-    t.start()
+    try:
+        t.start()
+    except:
+        pass
 
 def pingPCMDIdbThread(*args,**kargs):
     import threading
     kargs['target']=submitPing
     kargs['args']=args
     t = threading.Thread(**kargs)
-    t.start()
+    try:
+        t.start()
+    except:
+        pass
     import time
     time.sleep(5) # Lets wait 5 seconds top for this ping to work
     if t.isAlive():
