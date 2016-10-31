@@ -12,7 +12,9 @@ build:
 requirements:
   build:
     - cmake
+    - gfortran [osx]
   run:
+    - gfortran [osx]
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat

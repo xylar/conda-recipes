@@ -7,12 +7,14 @@ source:
   url: http://uvcdat.llnl.gov/cdat/resources/lapack-3.4.2.tgz
 
 build:
-  number: 1234
+  number: 2
 
 requirements:
   build:
     - cmake
+    - gfortran [osx]
   run:
+    - gfortran [osx]
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat

@@ -16,8 +16,6 @@ requirements:
   run:
    - openmpi   {openmpi}
  
-about:
-  home: https://www.hdfgroup.org
 
 
 

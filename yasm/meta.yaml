@@ -18,5 +18,5 @@ requirements:
         - openssl
         - glib [linux]
 build:
-    number: 1234
+    number: 2
 

@@ -11,12 +11,12 @@ build:
  
 requirements:
   build:
-    - libnetcdf
-    - hdf5
+    - libnetcdf 4.4.1
+    - hdf5 1.8.17
     - gcc [osx]
   run:
-    - libnetcdf
-    - hdf5
+    - libnetcdf 4.4.1
+    - hdf5 1.8.17
     - gcc [osx]
 
 about:
