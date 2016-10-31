@@ -139,7 +139,7 @@ for p in pkg:
         cmd = "anaconda upload -u %s" % args.channel
         if args.label is not None:
             cmd += " -l %s" % args.label
-        cmd += " %s/conda-bld/%s/%s-%s-%s.tar.bz2" % (
+        cmd += " %s/conda-bld/%s/%s-%s-py27_%s.tar.bz2" % (
             sys.prefix, myos, name, version, build)
     else:
         if myos == "all":

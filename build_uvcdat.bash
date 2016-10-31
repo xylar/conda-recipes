@@ -2,7 +2,6 @@
 if [ $1"-" == "FULL-" ]; then ./build_uvcdat_externals.bash ; fi
 conda build cdat_info
 conda build distarray
-conda build regrid2
 conda build cdms2
 conda build cdtime
 conda build cdutil

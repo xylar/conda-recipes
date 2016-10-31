@@ -17,7 +17,7 @@ parser.add_argument("-b", "--branch", default="master",
 parser.add_argument(
     "-B",
     "--build",
-    default="UVCDAT",
+    default="0",
     help="name of this build")
 
 parser.add_argument("-v", "--version", default=today,
