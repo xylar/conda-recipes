@@ -23,14 +23,14 @@ requirements:
     - udunits2
     - hdf5 1.8.17
     - libnetcdf 4.4.1
-    - numpy  
+    - numpy x.x
     - gcc [osx]
   run:
     - python
     - ossuuid 1.6.2
     - udunits2
     - libnetcdf 4.4.1
-    - numpy  
+    - numpy x.x
     - cdms2
     - gcc [osx]
     - hdf5 1.8.17

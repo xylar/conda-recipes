@@ -1,15 +1,43 @@
 #!/usr/bin/env bash
-conda build eztemplate -c doutriaux1 -c uvcdat
-conda build hdf5tools -c doutriaux1 -c uvcdat
-conda build asciidata -c doutriaux1 -c uvcdat
-conda build binaryio -c doutriaux1 -c uvcdat
-conda build cssgrid -c doutriaux1 -c uvcdat
-conda build dsgrid -c doutriaux1 -c uvcdat
-conda build lmoments -c doutriaux1 -c uvcdat
-conda build natgrid -c doutriaux1 -c uvcdat
-conda build ort -c doutriaux1 -c uvcdat
-conda build regridpack -c doutriaux1 -c uvcdat
-conda build shgrid -c doutriaux1 -c uvcdat
-conda build trends -c doutriaux1 -c uvcdat
-conda build spherepack -c doutriaux1 -c uvcdat
-conda build zonalmeans -c doutriaux1 -c uvcdat
+conda build eztemplate -c conda-forge --numpy=1.9
+conda build hdf5tools -c conda-forge --numpy=1.9
+conda build asciidata -c conda-forge --numpy=1.9
+conda build binaryio -c conda-forge --numpy=1.9
+conda build cssgrid -c conda-forge --numpy=1.9
+conda build dsgrid -c conda-forge --numpy=1.9
+conda build lmoments -c conda-forge --numpy=1.9
+conda build natgrid -c conda-forge --numpy=1.9
+conda build ort -c conda-forge --numpy=1.9
+conda build regridpack -c conda-forge --numpy=1.9
+conda build shgrid -c conda-forge --numpy=1.9
+conda build trends -c conda-forge --numpy=1.9
+conda build spherepack -c conda-forge --numpy=1.9
+conda build zonalmeans -c conda-forge --numpy=1.9
+conda build eztemplate -c conda-forge --numpy=1.10
+conda build hdf5tools -c conda-forge --numpy=1.10
+conda build asciidata -c conda-forge --numpy=1.10
+conda build binaryio -c conda-forge --numpy=1.10
+conda build cssgrid -c conda-forge --numpy=1.10
+conda build dsgrid -c conda-forge --numpy=1.10
+conda build lmoments -c conda-forge --numpy=1.10
+conda build natgrid -c conda-forge --numpy=1.10
+conda build ort -c conda-forge --numpy=1.10
+conda build regridpack -c conda-forge --numpy=1.10
+conda build shgrid -c conda-forge --numpy=1.10
+conda build trends -c conda-forge --numpy=1.10
+conda build spherepack -c conda-forge --numpy=1.10
+conda build zonalmeans -c conda-forge --numpy=1.10
+conda build eztemplate -c conda-forge --numpy=1.11
+conda build hdf5tools -c conda-forge --numpy=1.11
+conda build asciidata -c conda-forge --numpy=1.11
+conda build binaryio -c conda-forge --numpy=1.11
+conda build cssgrid -c conda-forge --numpy=1.11
+conda build dsgrid -c conda-forge --numpy=1.11
+conda build lmoments -c conda-forge --numpy=1.11
+conda build natgrid -c conda-forge --numpy=1.11
+conda build ort -c conda-forge --numpy=1.11
+conda build regridpack -c conda-forge --numpy=1.11
+conda build shgrid -c conda-forge --numpy=1.11
+conda build trends -c conda-forge --numpy=1.11
+conda build spherepack -c conda-forge --numpy=1.11
+conda build zonalmeans -c conda-forge --numpy=1.11

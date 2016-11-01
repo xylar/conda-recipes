@@ -20,11 +20,11 @@ requirements:
   build:
     - python
     - setuptools
-    - numpy  
+    - numpy x.x
     - gcc [osx]
   run:
     - python
-    - numpy  
+    - numpy x.x
     - gcc [osx]
 
 about:
