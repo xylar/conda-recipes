@@ -52,7 +52,7 @@ requirements:
     - uvcmetrics
     - vcsaddons ==@VERSION@
     - vistrails ==master
-    - vtk >=7.1.0
+    - vtk-cdat >=7.1.0
     - wk ==@VERSION@
     - x264 ==20151006.2245
     - xmgrace ==@VERSION@

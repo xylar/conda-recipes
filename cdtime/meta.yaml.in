@@ -14,6 +14,7 @@ requirements:
     - python
     - setuptools
     - libcdms
+    - numpy x.x
     - cdat_info
     - libdrs_f
   run:
@@ -22,6 +23,7 @@ requirements:
     - libcdms
     - cdat_info
     - libdrs_f
+    - numpy x.x
 
 about:
     home:  http://gitub.com/UV-CDAT/cdtime

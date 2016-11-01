@@ -13,14 +13,14 @@ requirements:
   build:
     - python
     - setuptools
-    - numpy  
+    - numpy x.x
   run:
     - python
-    - numpy  
     - vcs
     - cdms2 >2.4.1
     - eztemplate
     - output_viewer <2.0.0
+    - numpy x.x
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcmetrics

@@ -20,12 +20,13 @@ requirements:
     - genutil
     - unidata
     - dv3d
-    - vtk
+    - vtk-cdat
     - cdms2
     - cdutil
     - ffmpeg
     - vcsaddons
     - requests
+    - numpy
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat

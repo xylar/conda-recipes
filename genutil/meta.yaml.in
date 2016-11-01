@@ -13,13 +13,13 @@ requirements:
   build:
     - python
     - setuptools
-    - numpy  
+    - numpy x.x
   run:
     - python
     - cdms2
     - cdutil
     - unidata
-    - numpy  
+    - numpy x.x
 
 about:
     home:  http://gitub.com/UV-CDAT/genutil
