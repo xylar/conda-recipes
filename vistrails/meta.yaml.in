@@ -11,10 +11,11 @@ build:
  
 requirements:
   build:
+    - python
   run:
     - numpy
     - scipy
-    - pyqt 4.9.3
+    - pyqt 4.11.3
     - uvcmetrics
     - matplotlib
     - scikit-learn

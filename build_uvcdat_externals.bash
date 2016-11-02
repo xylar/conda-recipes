@@ -7,6 +7,7 @@ conda build clapack -c conda-forge
 conda build ossuuid -c conda-forge
 conda build gfortran -c conda-forge
 conda build libcf -c conda-forge
+conda build esmf -c conda-forge --numpy=1.11
 conda build jasper -c conda-forge
 conda build g2clib -c conda-forge
 #conda build yasm -c conda-forge
@@ -16,7 +17,7 @@ conda build vtk-cdat -c conda-forge
 conda build libdrs_c -c conda-forge
 conda build libcdms -c conda-forge
 conda build libdrs_f -c conda-forge
-conda build cmor --numpy ['1.9', '1.10', '1.11'] -c conda-forge
+conda build cmor -c conda-forge --numpy 1.11
 conda build lats -c conda-forge
 conda build ezget -c conda-forge
 conda build cd77 -c conda-forge

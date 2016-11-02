@@ -18,7 +18,7 @@ requirements:
     - curl
     - python
     - ossuuid 
-    - gfortran [osx]
+    - gcc [osx]
   run:
     - python
     - hdf5 1.8.17
@@ -27,7 +27,7 @@ requirements:
     - clapack >=3.2.1
     - curl
     - ossuuid
-    - gfortran [osx]
+    - gcc [osx]
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat
