@@ -1,6 +1,6 @@
 package:
-  name: vtk
-  version: 7.1.0.@VERSION@
+    name: vtk-cdat
+    version: 7.1.0.@VERSION@
 
 source:
     git_rev: uvcdat-master
