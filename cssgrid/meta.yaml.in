@@ -7,13 +7,13 @@ source:
     git_url: git://github.com/UV-CDAT/uvcdat.git
 
 build:
-  string: @BUILD_NAME@
+  number: @BUILD_NUMBER@
  
 test:
   requires:
     - python
-    - gfortran [osx]
-    - numpy <=1.9.2
+    - gcc [osx]
+    - numpy x.x 
   imports:
     - css
 
@@ -21,12 +21,12 @@ requirements:
   build:
     - python
     - setuptools
-    - numpy <=1.9.2
-    - gfortran [osx]
+    - numpy x.x
+    - gcc [osx]
   run:
     - python
-    - numpy <=1.9.2
-    - gfortran [osx]
+    - numpy x.x
+    - gcc [osx]
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat

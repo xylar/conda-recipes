@@ -1,19 +1,21 @@
 package:
     name: libnetcdf
-    version: 4.3.3.1
+    version: 4.4.1
 
 source:
-    fn:  netcdf-4.3.3.1.tar.gz
-    url: http://uvcdat.llnl.gov/cdat/resources/netcdf-4.3.3.1.tar.gz
-    md5: 5c9dad3705a3408d27f696e5b31fb88c
+    fn:  netcdf-4.4.1.tar.gz
+    url: https://github.com/Unidata/netcdf-c/archive/v4.4.1.tar.gz
+    #md5: 5c9dad3705a3408d27f696e5b31fb88c
 
 requirements:
     build:
-        - hdf5
+        - hdf5 1.8.17
+        - curl
     run:
-        - hdf5
+        - hdf5 1.8.17
+        - curl
 build:
-    string: UVCDAT
+    number: @BUILD_NUMBER@
 
 about:
     home:  http://hdfgroup.org

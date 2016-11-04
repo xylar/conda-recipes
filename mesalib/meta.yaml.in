@@ -9,4 +9,4 @@ source:
 
 
 build:
-    string: UVCDAT
+    number: @BUILD_NUMBER@

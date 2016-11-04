@@ -17,7 +17,7 @@ parser.add_argument("-b", "--branch", default="master",
 parser.add_argument(
     "-B",
     "--build",
-    default="UVCDAT",
+    default="0",
     help="name of this build")
 
 parser.add_argument("-v", "--version", default=today,
@@ -32,11 +32,12 @@ args = parser.parse_args(sys.argv[1:])
 featured_packages = {}
 files = glob.glob("*/meta.yaml.in")
 for fnm in files:
+    print fnm
     f = open(fnm)
     s = f.read()
     f.close()
     s = s.replace("@UVCDAT_BRANCH@", args.branch)
-    s = s.replace("@BUILD_NAME@", args.build)
+    s = s.replace("@BUILD_NUMBER@", args.build)
     s = s.replace("@VERSION@", args.version)
     # Now we deal with features
     lines = []

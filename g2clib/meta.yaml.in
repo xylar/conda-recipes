@@ -7,14 +7,14 @@ source:
   url: http://uvcdat.llnl.gov/cdat/resources/g2clib-1.4.0b.tar.gz
 
 build:
-  string: UVCDAT
+  number: @BUILD_NUMBER@
 
 requirements:
   build:
     - jasper
-    - libpng ==1.6.17
+    - libpng
     - jpeg
   run:
     - jasper
-    - libpng ==1.6.17
+    - libpng
     - jpeg

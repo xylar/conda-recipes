@@ -7,14 +7,15 @@ source:
     git_url: git://github.com/UV-CDAT/VisTrails.git
 
 build:
-  string: UVCDAT
+  number: @BUILD_NUMBER@
  
 requirements:
   build:
+    - python
   run:
-    - numpy <=1.9.2
+    - numpy
     - scipy
-    - pyqt
+    - pyqt 4.11.3
     - uvcmetrics
     - matplotlib
     - scikit-learn

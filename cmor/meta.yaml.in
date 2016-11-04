@@ -1,18 +1,18 @@
 package:
     name: cmor
-    version: 2.9.2
+    version: @VERSION@
 
 source:
-    git_rev: 2.9.2
+    git_rev: @UVCDAT_BRANCH@
     git_url: git://github.com/PCMDI/cmor.git
 
 build:
-  string: PCMDI
+  number: @BUILD_NUMBER@
  
 test:
   requires:
     - python
-    - gfortran [osx]
+    - gcc [osx]
   imports:
     - cmor
 
@@ -21,21 +21,19 @@ requirements:
     - python
     - ossuuid 1.6.2
     - udunits2
-    - hdf5
-    - libnetcdf 4.3.3.1
-    - numpy <=1.9.2
-    - gfortran [osx]
-    - hdf5 ==1.8.16
+    - hdf5 1.8.17
+    - libnetcdf 4.4.1
+    - numpy x.x
+    - gcc [osx]
   run:
     - python
     - ossuuid 1.6.2
     - udunits2
-    - hdf5
-    - libnetcdf 4.3.3.1
-    - numpy <=1.9.2
+    - libnetcdf 4.4.1
+    - numpy x.x
     - cdms2
-    - gfortran [osx]
-    - hdf5 ==1.8.16
+    - gcc [osx]
+    - hdf5 1.8.17
 
 about:
     home:  http://gitub.com/PCMDI

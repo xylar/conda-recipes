@@ -4,5 +4,4 @@ export CPPFLAGS="-I${PREFIX}/include"
 export LDFLAGS="-L${PREFIX}/lib"
 export EXTERNALS="${PREFIX}"
 
-cd Packages/unidata
 python setup.py install

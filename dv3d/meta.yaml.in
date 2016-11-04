@@ -4,10 +4,10 @@ package:
 
 source:
     git_rev: @UVCDAT_BRANCH@
-    git_url: git://github.com/UV-CDAT/uvcdat.git
+    git_url: git://github.com/UV-CDAT/dv3d.git
 
 build:
-  string: UVCDAT
+  number: @BUILD_NUMBER@
  
 requirements:
   build:
@@ -15,7 +15,7 @@ requirements:
     - setuptools
   run:
     - python
-    - vtk
+    - vtk-cdat
     - cdms2
 
 about:

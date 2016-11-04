@@ -7,13 +7,13 @@ source:
     url: http://uvcdat.llnl.gov/cdat/resources/esmp.ESMF_6_3_0rp1_ESMP_01.tar.bz2
 
 build:
-  string: UVCDAT
+  number: @BUILD_NUMBER@
 
 test:
   requires:
     - python
-    - numpy <=1.9.2
-    - gfortran          [osx]
+    - numpy  x.x
+    - gcc          [osx]
     - openmpi >=1.6.4   {openmpi}
     - mpi4py            {openmpi}
   imports:
@@ -22,14 +22,14 @@ test:
 requirements:
   build:
     - python
-    - numpy <=1.9.2
-    - gfortran          [osx]
+    - numpy x.x
+    - gcc          [osx]
     - openmpi >=1.6.4   {openmpi}
     - mpi4py            {openmpi}
   run:
     - python
-    - numpy <=1.9.2
-    - gfortran          [osx]
+    - numpy x.x
+    - gcc          [osx]
     - openmpi >=1.6.4   {openmpi}
     - mpi4py            {openmpi}
 

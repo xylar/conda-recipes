@@ -7,17 +7,17 @@ source:
     git_url: git://github.com/UV-CDAT/ezget.git
 
 build:
-  string: UVCDAT
+  number: @BUILD_NUMBER@
  
 requirements:
   build:
     - libcdms
     - libdrs_f
-    - gfortran [osx]
+    - gcc [osx]
   run:
     - libcdms
     - libdrs_f
-    - gfortran [osx]
+    - gcc [osx]
 
 about:
     home:  http://github.com/UV-CDAT/ezget

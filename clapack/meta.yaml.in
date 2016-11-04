@@ -7,7 +7,7 @@ source:
   url: http://uvcdat.llnl.gov/cdat/resources/clapack-3.2.1-CMAKE.tgz
 
 build:
-  string: UVCDAT
+  number: @BUILD_NUMBER@
 
 requirements:
   build:

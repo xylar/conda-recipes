@@ -7,17 +7,17 @@ source:
     git_url: git://github.com/UV-CDAT/libdrs.git
 
 build:
-  string: UVCDAT
+  number: @BUILD_NUMBER@
  
 requirements:
   build:
-    - libnetcdf
+    - libnetcdf 4.4.1
     - g2clib
-    - gfortran [osx]
+    - gcc [osx]
   run:
-    - libnetcdf
+    - libnetcdf 4.4.1
     - g2clib
-    - gfortran [osx]
+    - gcc [osx]
 
 about:
     home:  http://github.com/UV-CDAT/libdrs

@@ -7,7 +7,7 @@ source:
     git_url: git://github.com/UV-CDAT/wk.git
 
 build:
-  string: UVCDAT
+  number: @BUILD_NUMBER@
  
 requirements:
   build:

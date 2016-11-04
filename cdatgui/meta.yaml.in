@@ -7,7 +7,7 @@ source:
     git_url: git://github.com/UV-CDAT/cdatgui.git
 
 build:
-  string: @BUILD_NAME@
+  number: @BUILD_NUMBER@
  
 requirements:
   build:
