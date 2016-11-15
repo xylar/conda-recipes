@@ -25,7 +25,7 @@ requirements:
     - libcdms
     - cdat_info
     - numpy x.x
-    - esmf
+    - esmf <7
     - libdrs_f
 
 about:

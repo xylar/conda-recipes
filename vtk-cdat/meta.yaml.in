@@ -23,7 +23,7 @@ requirements:
   build:
     - cmake
     - python
-    - proj4 >=4.9.2
+    - proj4 >4.9.2
     - hdf5 1.8.17
     - ffmpeg
     - freetype
@@ -31,7 +31,7 @@ requirements:
     - x264 <20151006.2245
   run:
     - python
-    - proj4 >=4.9.2
+    - proj4 >4.9.2
     - hdf5 1.8.17
     - ffmpeg
     - freetype
