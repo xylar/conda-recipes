@@ -46,7 +46,16 @@ echo "ESMK FILES ${FILES}"
 export ESMFMKFILE=`python -c "import sys,os;full = sys.argv[1]; pth2 = os.path.join('libO',full.split('libO')[1][1:]) ; print pth2" ${FILES}`
 echo "ESMF_mkfile: ${ESMFMKFILE}"
 
-${PYTHON} generateESMP_Config.py
+if [ `uname` == Darwin ]; then
+    cat > src/ESMP_Config.py << EOF
+    ESMFMKFILE = "libO/Darwin.gfortran.64.mpiuni.default/esmf.mk"
+EOF
+
+else
+    ${PYTHON} generateESMP_Config.py
+fi
+
+
 
 cat > ESMP.patch << EOF
 --- a/ESMP_LoadESMF.py  2014-01-14 10:00:22.000000000 -0500
