@@ -1,0 +1,21 @@
+package:
+    name: wget
+    version: 1.18
+
+source:
+    fn:  wget-1.18.tar.gz
+    url: http://ftp.gnu.org/gnu/wget/wget-1.18.tar.gz
+    md5: fc2debd8399e3b933a9b226794e2a886
+
+
+requirements:
+    build:
+        - openssl
+        - python >=3
+        - pkg-config
+    run:
+        - openssl
+        - python
+build:
+    number: 0
+
