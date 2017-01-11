@@ -13,9 +13,11 @@ requirements:
         - openssl
         - python >=3
         - pkg-config
+        - gcc
     run:
         - openssl
         - python
+        - gcc
 build:
     number: 0
 
