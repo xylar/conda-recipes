@@ -27,6 +27,7 @@ requirements:
     - numpy x.x
     - esmf <7
     - libdrs_f
+    - pyopenssl
 
 about:
     home:  http://gitub.com/UV-CDAT/cdms
