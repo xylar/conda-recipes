@@ -3,6 +3,8 @@
 mkdir build
 cd build
 
+# To make sure we get the correct g++
+export LD_LIBRARY_PATH=${PREFIX}/lib:${LIBRARY_PATH}
 CONDA_LST=`conda list`
 if [[ ${CONDA_LST}'y' == *'openmpi'* ]]; then
     export CC=mpicc
@@ -11,8 +13,8 @@ if [[ ${CONDA_LST}'y' == *'openmpi'* ]]; then
     export DYLD_FALLBACK_LIBRARY_PATH=${PREFIX}/lib
     MPI_ARGS="-DVTK_USE_MPI:BOOL=ON"
 else
-    export CC=gcc
-    export CXX=g++
+    export CC="gcc -Wl,-rpath=${PREFIX}/lib"
+    export CXX="g++ -Wl,-rpath=${PREFIX}/lib"
     MPI_ARGS=""
 fi
 
