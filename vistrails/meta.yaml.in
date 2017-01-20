@@ -1,0 +1,28 @@
+package:
+    name: vistrails
+    version: @VERSION@
+
+source:
+    git_rev: uvcdat-master
+    git_url: git://github.com/UV-CDAT/VisTrails.git
+
+build:
+  number: @BUILD_NUMBER@
+ 
+requirements:
+  build:
+    - python
+  run:
+    - numpy
+    - scipy
+    - pyqt 4.11.3
+    - uvcmetrics
+    - matplotlib
+    - scikit-learn
+    - pyopenssl
+
+about:
+    home:  http://gitub.com/UV-CDAT/uvcdat
+
+
+

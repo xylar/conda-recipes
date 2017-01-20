@@ -1,0 +1,27 @@
+package:
+    name: cdatgui
+    version: @VERSION@
+
+source:
+    git_rev: @UVCDAT_BRANCH@
+    git_url: git://github.com/UV-CDAT/cdatgui.git
+
+build:
+  number: @BUILD_NUMBER@
+ 
+requirements:
+  build:
+    - python
+    - setuptools
+    - cdat_info
+  run:
+    - python
+    - uvcdat
+    - pyside
+    - ipython >=4
+
+about:
+    home:  http://gitub.com/UV-CDAT/cdatgui
+
+
+

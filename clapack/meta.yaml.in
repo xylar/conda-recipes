@@ -1,0 +1,21 @@
+package:
+    name: clapack
+    version: 3.2.1
+
+source:
+  fn: clapack-3.2.1-CMAKE.tgz
+  url: http://uvcdat.llnl.gov/cdat/resources/clapack-3.2.1-CMAKE.tgz
+
+build:
+  number: @BUILD_NUMBER@
+
+requirements:
+  build:
+    - cmake
+  run:
+
+about:
+    home:  http://gitub.com/UV-CDAT/uvcdat
+
+
+

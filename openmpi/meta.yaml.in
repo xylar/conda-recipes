@@ -1,0 +1,15 @@
+package:
+  name: openmpi
+  version: 1.6.4
+ 
+source:
+  fn: openmpi-1.6.4.tar.gz
+  url: http://uvcdat.llnl.gov/cdat/resources/openmpi-1.6.4.tar.gz
+  md5: 70aa9b6271d904c6b337ca326e6613d1
+
+build:
+  number: @BUILD_NUMBER@
+ 
+requirements:
+  build:
+  run:

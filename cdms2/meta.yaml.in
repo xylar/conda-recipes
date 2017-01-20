@@ -1,0 +1,36 @@
+package:
+    name: cdms2
+    version: @VERSION@
+
+source:
+    git_rev: @UVCDAT_BRANCH@
+    git_url: git://github.com/UV-CDAT/cdms.git
+
+build:
+  number: @BUILD_NUMBER@
+ 
+requirements:
+  build:
+    - python
+    - setuptools
+    - libcdms
+    - cdat_info
+    - numpy x.x
+    - libdrs_f
+  run:
+    - python
+    - libcf
+    - distarray
+    - cdtime
+    - libcdms
+    - cdat_info
+    - numpy x.x
+    - esmf <7
+    - libdrs_f
+    - pyopenssl
+
+about:
+    home:  http://gitub.com/UV-CDAT/cdms
+
+
+

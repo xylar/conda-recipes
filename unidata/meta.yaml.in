@@ -1,0 +1,28 @@
+package:
+    name: unidata
+    version: @VERSION@
+
+source:
+    git_rev: @UVCDAT_BRANCH@
+    git_url: git://github.com/UV-CDAT/unidata.git
+
+build:
+  number: @BUILD_NUMBER@
+ 
+requirements:
+  build:
+    - python
+    - setuptools
+    - udunits2
+    - numpy x.x
+    - cdat_info
+  run:
+    - python
+    - udunits2
+    - numpy x.x
+
+about:
+    home:  http://gitub.com/UV-CDAT/uvcdat
+
+
+

@@ -1,0 +1,23 @@
+package:
+  name: hdf5
+  version: 1.8.17
+ 
+source:
+  fn: hdf5-1.8.17.tar
+  url: https://support.hdfgroup.org/ftp/HDF5/current/src/hdf5-1.8.17.tar.gz
+  md5: 7d572f8f3b798a628b8245af0391a0ca
+
+build:
+  number: @BUILD_NUMBER@
+ 
+requirements:
+  build:
+   - openmpi   {openmpi}
+  run:
+   - openmpi   {openmpi}
+ 
+about:
+  home: https://www.hdfgroup.org
+
+
+

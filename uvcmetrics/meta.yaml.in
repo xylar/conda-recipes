@@ -1,0 +1,30 @@
+package:
+    name: uvcmetrics
+    version: @VERSION@
+
+source:
+    git_rev: @UVCDAT_BRANCH@
+    git_url: git://github.com/UV-CDAT/uvcmetrics.git
+
+build:
+  number: @BUILD_NUMBER@
+ 
+requirements:
+  build:
+    - python
+    - setuptools
+    - numpy x.x
+  run:
+    - python
+    - vcs
+    - cdms2 >2.4.1
+    - eztemplate
+    - output_viewer <2.0.0
+    - numpy x.x
+
+about:
+    home:  http://gitub.com/UV-CDAT/uvcmetrics
+    summary: A set of diagnostics to analyze climate model simulations
+
+
+

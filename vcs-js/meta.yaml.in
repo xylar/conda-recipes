@@ -1,0 +1,29 @@
+package:
+    name: vcs-js
+    version: 0.1
+
+source:
+    git_rev: easy_deployment
+    git_url: git://github.com/UV-CDAT/vcs-js.git
+
+build:
+  string: dev
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - nodejs
+  run:
+    - python
+    - vcs
+    - cdms2
+    - genutil
+    - cdutil
+    - tornado
+
+about:
+    home:  http://gitub.com/UV-CDAT/uvcdat
+
+
+

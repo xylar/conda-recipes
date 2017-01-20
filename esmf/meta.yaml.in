@@ -1,0 +1,37 @@
+package:
+    name: esmf
+    version: ESMF_6_3_0rp1_ESMP_01
+
+source:
+    fn:  esmp.ESMF_6_3_0rp1_ESMP_01.tar.gz
+    url: http://uvcdat.llnl.gov/cdat/resources/esmp.ESMF_6_3_0rp1_ESMP_01.tar.bz2
+
+build:
+  number: @BUILD_NUMBER@
+
+test:
+  requires:
+    - python
+    - numpy 
+    - gcc          [osx]
+    - openmpi >=1.6.4   {openmpi}
+    - mpi4py            {openmpi}
+  imports:
+    - ESMP
+
+requirements:
+  build:
+    - python
+    - numpy x.x
+    - gcc          [osx]
+    - openmpi >=1.6.4   {openmpi}
+    - mpi4py            {openmpi}
+  run:
+    - python
+    - numpy x.x
+    - gcc          [osx]
+    - openmpi >=1.6.4   {openmpi}
+    - mpi4py            {openmpi}
+
+about:
+    home:  http://gitub.com/UV-CDAT/uvcdat

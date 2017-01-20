@@ -1,0 +1,24 @@
+package:
+    name: cdutil
+    version: @VERSION@
+
+source:
+    git_rev: @UVCDAT_BRANCH@
+    git_url: git://github.com/UV-CDAT/cdutil.git
+
+build:
+  number: @BUILD_NUMBER@
+ 
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - cdms2
+
+about:
+    home:  http://gitub.com/UV-CDAT/cdutil
+
+
+

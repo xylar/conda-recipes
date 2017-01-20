@@ -1,0 +1,28 @@
+package:
+    name: genutil
+    version: @VERSION@
+
+source:
+    git_rev: @UVCDAT_BRANCH@
+    git_url: git://github.com/UV-CDAT/genutil.git
+
+build:
+  number: @BUILD_NUMBER@
+ 
+requirements:
+  build:
+    - python
+    - setuptools
+    - numpy x.x
+  run:
+    - python
+    - cdms2
+    - cdutil
+    - unidata
+    - numpy x.x
+
+about:
+    home:  http://gitub.com/UV-CDAT/genutil
+
+
+

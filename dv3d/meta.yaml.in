@@ -1,0 +1,25 @@
+package:
+    name: dv3d
+    version: @VERSION@
+
+source:
+    git_rev: @UVCDAT_BRANCH@
+    git_url: git://github.com/UV-CDAT/dv3d.git
+
+build:
+  number: @BUILD_NUMBER@
+ 
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - vtk-cdat
+    - cdms2
+
+about:
+    home:  http://gitub.com/UV-CDAT/uvcdat
+
+
+

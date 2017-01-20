@@ -1,0 +1,27 @@
+package:
+    name: hdf5tools
+    version: @VERSION@
+
+source:
+    git_rev: @UVCDAT_BRANCH@
+    git_url: git://github.com/UV-CDAT/uvcdat.git
+
+build:
+  number: @BUILD_NUMBER@
+ 
+requirements:
+  build:
+    - python
+    - setuptools
+    - numpy x.x
+  run:
+    - python
+    - numpy x.x 
+    - hdf5 1.8.17
+
+about:
+    home:  http://gitub.com/UV-CDAT/uvcdat
+
+
+
+

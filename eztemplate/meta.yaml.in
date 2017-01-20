@@ -1,0 +1,25 @@
+package:
+    name: eztemplate
+    version: @VERSION@
+
+source:
+    git_rev: @UVCDAT_BRANCH@
+    git_url: git://github.com/UV-CDAT/uvcdat.git
+
+build:
+  number: @BUILD_NUMBER@
+ 
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - vcs
+
+about:
+    home:  http://gitub.com/UV-CDAT/uvcdat
+
+
+
+

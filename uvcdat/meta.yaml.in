@@ -1,0 +1,118 @@
+package:
+    name: uvcdat
+    version: @VERSION@
+
+source:
+
+build:
+  number: @BUILD_NUMBER@
+
+requirements:
+  build:
+    - asciidata ==@VERSION@
+    - basemap
+    - binaryio ==@VERSION@
+    - cdat_info ==@VERSION@
+    - cdms2 ==@VERSION@
+    - cdtime ==@VERSION@
+    - cdutil ==@VERSION@
+    - clapack ==3.2.1
+    - cmor
+    - cssgrid ==@VERSION@
+    - distarray ==@VERSION@
+    - dsgrid ==@VERSION@
+    - dv3d ==@VERSION@
+    - esg ==@VERSION@
+    - esmf ==ESMF_6_3_0rp1_ESMP_01
+    - eztemplate ==@VERSION@
+    - ffmpeg ==2.7.0
+    - g2clib ==1.4.0b
+    - genutil ==@VERSION@
+    - hdf5tools ==@VERSION@
+    - jasper ==1.900.1
+    - lapack ==3.4.2
+    - libcdms ==@VERSION@
+    - libcf ==1.0.beta11
+    - libnetcdf
+    - libpng
+    - lmoments ==@VERSION@
+    - natgrid ==@VERSION@
+    - ort ==@VERSION@
+    - ossuuid ==1.6.2
+    - pydebug ==@VERSION@
+    - regrid2 ==@VERSION@
+    - regridpack ==@VERSION@
+    - shgrid ==@VERSION@
+    - spherepack ==@VERSION@
+    - thermo ==@VERSION@
+    - trends ==@VERSION@
+    - udunits2 ==2.2.17
+    - unidata ==@VERSION@
+    - vcs ==@VERSION@
+    - uvcmetrics
+    - vcsaddons ==@VERSION@
+    - vistrails ==master
+    - vtk-cdat >=7.1.0
+    - wk ==@VERSION@
+    - x264 ==20151006.2245
+    - xmgrace ==@VERSION@
+    - yasm ==1.2.0
+    - zonalmeans ==@VERSION@
+    - pyqt
+  run:
+    - asciidata ==@VERSION@
+    - basemap
+    - binaryio ==@VERSION@
+    - cdat_info ==@VERSION@
+    - cdms2 ==@VERSION@
+    - cdtime ==@VERSION@
+    - cdutil ==@VERSION@
+    - clapack ==3.2.1
+    - cmor ==2.9.2
+    - cssgrid ==@VERSION@
+    - distarray ==@VERSION@
+    - dsgrid ==@VERSION@
+    - dv3d ==@VERSION@
+    - esg ==@VERSION@
+    - esmf ==ESMF_6_3_0rp1_ESMP_01
+    - eztemplate ==@VERSION@
+    - ffmpeg ==2.7.0
+    - g2clib ==1.4.0b
+    - genutil ==@VERSION@
+    - hdf5tools ==@VERSION@
+    - jasper ==1.900.1
+    - lapack ==3.4.2
+    - libcdms ==@VERSION@
+    - libcf ==1.0.beta11
+    - libnetcdf
+    - libpng
+    - lmoments ==@VERSION@
+    - natgrid ==@VERSION@
+    - ort ==@VERSION@
+    - ossuuid ==1.6.2
+    - pydebug ==@VERSION@
+    - regrid2 ==@VERSION@
+    - regridpack ==@VERSION@
+    - shgrid ==@VERSION@
+    - spherepack ==@VERSION@
+    - thermo ==@VERSION@
+    - trends ==@VERSION@
+    - udunits2 ==2.2.17
+    - unidata ==@VERSION@
+    - vcs ==@VERSION@
+    - uvcmetrics
+    - vcsaddons ==@VERSION@
+    - vistrails ==master
+    - vtk >=7.1.0.2.6
+    - wk ==@VERSION@
+    - x264 ==20151006.2245
+    - xmgrace ==@VERSION@
+    - yasm ==1.2.0
+    - zonalmeans ==@VERSION@
+    - pyqt
+
+about:
+  home:  http://gitub.com/UV-CDAT/uvcdat
+
+
+

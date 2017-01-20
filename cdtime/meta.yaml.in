@@ -1,0 +1,32 @@
+package:
+    name: cdtime
+    version: @VERSION@
+
+source:
+    git_rev: @UVCDAT_BRANCH@
+    git_url: git://github.com/UV-CDAT/cdtime.git
+
+build:
+  number: @BUILD_NUMBER@
+ 
+requirements:
+  build:
+    - python
+    - setuptools
+    - libcdms
+    - numpy x.x
+    - cdat_info
+    - libdrs_f
+  run:
+    - python
+    - setuptools
+    - libcdms
+    - cdat_info
+    - libdrs_f
+    - numpy x.x
+
+about:
+    home:  http://gitub.com/UV-CDAT/cdtime
+
+
+

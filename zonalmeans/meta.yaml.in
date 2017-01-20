@@ -1,0 +1,39 @@
+package:
+    name: zonalmeans
+    version: @VERSION@
+
+source:
+    git_rev: @UVCDAT_BRANCH@
+    git_url: git://github.com/UV-CDAT/uvcdat.git
+
+build:
+  number: @BUILD_NUMBER@
+ 
+test:
+  requires:
+    - python
+    - gcc [osx]
+    - cdms2
+    - genutil
+  imports:
+    - ZonalMeans
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - numpy x.x
+    - gcc [osx]
+  run:
+    - python
+    - numpy x.x
+    - gcc [osx]
+    - cdms2
+    - genutil
+
+about:
+    home:  http://gitub.com/UV-CDAT/uvcdat
+
+
+
+

@@ -1,0 +1,36 @@
+package:
+    name: libcf
+    version: 1.0.beta11
+
+source:
+  fn: libcf-1.0-beta11.tar.gz
+  url: http://uvcdat.llnl.gov/cdat/resources/libcf-1.0-beta11.tar.gz
+
+build:
+  number: @BUILD_NUMBER@
+ 
+requirements:
+  build:
+    - hdf5 1.8.17
+    - libnetcdf 4.4.1
+    - lapack >=3.4.2
+    - clapack >=3.2.1
+    - curl
+    - python
+    - ossuuid 
+    - gcc [osx]
+  run:
+    - python
+    - hdf5 1.8.17
+    - libnetcdf 4.4.1
+    - lapack >=3.4.2
+    - clapack >=3.2.1
+    - curl
+    - ossuuid
+    - gcc [osx]
+
+about:
+    home:  http://gitub.com/UV-CDAT/uvcdat
+
+
+

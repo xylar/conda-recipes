@@ -1,0 +1,35 @@
+package:
+    name: vcs
+    version: @VERSION@
+
+source:
+    git_rev: @UVCDAT_BRANCH@
+    git_url: git://github.com/UV-CDAT/vcs.git
+
+build:
+  number: @BUILD_NUMBER@
+ 
+requirements:
+  build:
+    - python
+    - setuptools
+    - cdat_info
+  run:
+    - python
+    - cdat_info
+    - genutil
+    - unidata
+    - dv3d
+    - vtk-cdat
+    - cdms2
+    - cdutil
+    - ffmpeg
+    - vcsaddons
+    - requests
+    - numpy
+
+about:
+    home:  http://gitub.com/UV-CDAT/uvcdat
+
+
+

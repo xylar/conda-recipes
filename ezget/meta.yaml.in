@@ -1,0 +1,26 @@
+package:
+    name: ezget
+    version: 1.0.1
+
+source:
+    git_rev: master
+    git_url: git://github.com/UV-CDAT/ezget.git
+
+build:
+  number: @BUILD_NUMBER@
+ 
+requirements:
+  build:
+    - libcdms
+    - libdrs_f
+    - gcc [osx]
+  run:
+    - libcdms
+    - libdrs_f
+    - gcc [osx]
+
+about:
+    home:  http://github.com/UV-CDAT/ezget
+
+
+

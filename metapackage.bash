@@ -1,0 +1,1 @@
+conda metapackage uvcdat 2.8.0 --dependencies cdat_info distarray cdms2 cdtime cdutil unidata genutil dv3d vcs vcsaddons thermo wk vistrails uvcmetrics xmgrace eztemplate hdf5tools asciidata binaryio cssgrid dsgrid lmoments natgrid ort regridpack shgrid trends zonalmeans matplotlib basemap ipython

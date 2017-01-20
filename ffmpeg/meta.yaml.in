@@ -1,0 +1,17 @@
+package:
+    name: ffmpeg
+    version: 3.2.0
+
+source:
+    fn:  ffmpeg-3.2.0.tar.gz
+    url: http://ffmpeg.org/releases/ffmpeg-3.2.tar.bz2
+    md5: ce8fb81e2742eb70548956492c4625b8
+
+
+requirements:
+    build:
+        - x264
+    run:
+        - x264
+build:
+    number: @BUILD_NUMBER@
