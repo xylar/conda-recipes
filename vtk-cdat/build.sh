@@ -11,7 +11,7 @@ if [[ ${CONDA_LST}'y' == *'openmpi'* ]]; then
     export DYLD_FALLBACK_LIBRARY_PATH=${PREFIX}/lib
     MPI_ARGS="-DVTK_USE_MPI:BOOL=ON"
 else
-    if [ `uname` == `Linux` ]; then
+    if [ `uname` == Linux ]; then
         # To make sure we get the correct g++
         export LD_LIBRARY_PATH=${PREFIX}/lib:${LIBRARY_PATH}
         export CC="gcc -Wl,-rpath=${PREFIX}/lib"
