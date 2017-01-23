@@ -17,6 +17,8 @@ requirements:
     - cdat_info
     - numpy x.x
     - libdrs_f
+    - gcc [linux]
+    - libgcc [linux]
   run:
     - python
     - libcf
@@ -28,6 +30,8 @@ requirements:
     - esmf <7
     - libdrs_f
     - pyopenssl
+    - gcc [linux]
+    - libgcc [linux]
 
 about:
     home:  http://gitub.com/UV-CDAT/cdms
