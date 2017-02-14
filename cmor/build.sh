@@ -20,3 +20,13 @@ fi
     --prefix=${PREFIX}
 make 
 make install
+# Make sure CMOR UDNITS2 env is still present in the package
+ACTIVATE_DIR=$PREFIX/etc/conda/activate.d
+DEACTIVATE_DIR=$PREFIX/etc/conda/deactivate.d
+mkdir -p $ACTIVATE_DIR
+mkdir -p $DEACTIVATE_DIR
+
+cp $RECIPE_DIR/scripts/activate.sh $ACTIVATE_DIR/cmor-activate.sh
+cp $RECIPE_DIR/scripts/deactivate.sh $DEACTIVATE_DIR/cmor-deactivate.sh
+## END BUILD
+
