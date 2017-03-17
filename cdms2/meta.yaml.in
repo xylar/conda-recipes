@@ -28,6 +28,7 @@ requirements:
     - cdat_info
     - numpy x.x
     - esmf <7
+    - esmpy
     - libdrs_f
     - pyopenssl
     - gcc [linux]
