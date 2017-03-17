@@ -27,7 +27,7 @@ requirements:
     - libcdms
     - cdat_info
     - numpy x.x
-    - esmf <7
+    - esmf >=7
     - libdrs_f
     - pyopenssl
     - gcc [linux]
