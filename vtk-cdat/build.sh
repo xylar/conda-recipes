@@ -32,7 +32,7 @@ fi
 
 COMMON_ARGS="-DCMAKE_C_COMPILER=$CC \
         -DCMAKE_CXX_COMPILER=$CXX \
-        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_BUILD_TYPE=Debug \
         -DCMAKE_INSTALL_PREFIX=\"${PREFIX}\" \
         -DCMAKE_INSTALL_RPATH:STRING=\"${PREFIX}/lib\" \
         -DBUILD_DOCUMENTATION=OFF \
@@ -130,11 +130,11 @@ if [ `uname` == Darwin ]; then
         -DVTK_USE_COCOA=ON \
         -DVTK_USE_X=OFF \
         -DLIBPROJ4_LIBRARIES:FILEPATH=${PREFIX}/lib/libproj.dylib \
-        -DCMAKE_OSX_DEPLOYMENT_TARGET=10.11 \
+        -DCMAKE_OSX_DEPLOYMENT_TARGET=10.12 \
         ${MPI_ARGS} \
         ${COMMON_ARGS}"
     eval ${COMMAND}
 fi
 
-make -j16
+make -j7
 make install
