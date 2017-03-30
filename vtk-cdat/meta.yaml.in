@@ -1,6 +1,6 @@
 package:
     name: vtk-cdat
-    version: 7.1.0.@VERSION@
+    version: 7.1.0.@VERSION@.{{ GIT_FULL_HASH }}
 
 source:
     git_rev: master

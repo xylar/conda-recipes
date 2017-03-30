@@ -8,6 +8,7 @@ source:
 
 build:
   number: @BUILD_NUMBER@
+  noarch_python: True
  
 requirements:
   build:
