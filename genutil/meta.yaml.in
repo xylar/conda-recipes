@@ -14,11 +14,10 @@ requirements:
     - python
     - setuptools
     - numpy x.x
+    - gcc [osx]
   run:
     - python
     - cdms2
-    - cdutil
-    - unidata
     - numpy x.x
 
 about:
