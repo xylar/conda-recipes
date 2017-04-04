@@ -1,6 +1,6 @@
 package:
     name: vcs
-    version: @VERSION@
+    version: @VERSION@.{{ GIT_FULL_HASH }}
 
 source:
     git_rev: @UVCDAT_BRANCH@
@@ -8,15 +8,14 @@ source:
 
 build:
   number: @BUILD_NUMBER@
-  noarch_python: True
  
 requirements:
   build:
-    - python
+    - python <3
     - setuptools
     - cdat_info
   run:
-    - python
+    - python <3
     - cdat_info
     - genutil
     - unidata

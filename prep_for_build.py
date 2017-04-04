@@ -39,6 +39,7 @@ for fnm in files:
     s = s.replace("@UVCDAT_BRANCH@", args.branch)
     s = s.replace("@BUILD_NUMBER@", args.build)
     s = s.replace("@VERSION@", args.version)
+    s = s.replace("{{","$$$CRAP$$$")
     # Now we deal with features
     lines = []
     features_used = set()
@@ -70,14 +71,16 @@ for fnm in files:
             lines.append(l)
     f = open(fnm[:-3], "w")
     for l in lines:
+        l = l.replace("{{","$$$CRAP$$$")
         # Is it a name line?
         if l.find("name:") > -1:
             sp = l.split("name:")
             original_name = sp[-1].strip()
             sp[-1] = "-".join([sp[-1]] + sorted(list(features_used)))
-            print >> f, "name:".join(sp).rstrip()
+            mystr = "name:".join(sp).rstrip()
         else:
-            print >> f, l.rstrip()
+            mystr = l.rstrip()
+        print >> f, mystr.replace("$$$CRAP$$$","{{")
     f.close()
     if len(features_used) > 0:
         featured_packages[original_name] = features_used
@@ -98,13 +101,14 @@ while len(featured_packages.keys()) > 0:
         f = open(fnm, "w")
 
         for l in lines:
+            l = l.replace("{{","$$$CRAP$$$")
             # Let's go to the requirements section
             if l.find("requirements:") > -1:
                 found_req = True
-                print >>f, l.rstrip()
+                print >>f, l.rstrip().replace("$$$CRAP$$$","{{")
                 continue
             if not found_req:
-                print >>f, l.rstrip()
+                print >>f, l.rstrip().replace("$$$CRAP$$$","{{")
                 continue
             # Ok from now on let's see if one of these req is a "featured
             # package"
@@ -130,7 +134,7 @@ while len(featured_packages.keys()) > 0:
                     sp2 = sp[0].split("-")
                     sp[0] = sp2[0] + "- " + nm
                     l2 = "[".join(sp)
-                    print >>f, l2.rstrip()
+                    print >>f, l2.rstrip().replace("$$$CRAP$$$","{{")
                     wrote_it = True
                     if fnm not in packages_renaming.keys():
                         packages_renaming[fnm] = set()
@@ -138,7 +142,7 @@ while len(featured_packages.keys()) > 0:
                         packages_renaming[fnm].add(F)
                     break
             if not wrote_it:
-                print >>f, l.rstrip()
+                print >>f, l.rstrip().replace("$$$CRAP$$$","{{")
         f.close()
 
     # print packages_renaming
@@ -152,6 +156,7 @@ while len(featured_packages.keys()) > 0:
         f = open(fnm, "w")
 
         for l in lines:
+            l = l.replace("{{","$$$CRAP$$$")
             if l.find("name:") > -1:
                 sp = l.split("name:")
                 name = sp[-1].strip()
@@ -176,8 +181,8 @@ while len(featured_packages.keys()) > 0:
                 if final_name != clean_name:
                     print "final name:", final_name, clean_name
                 sp[-1] = " " + final_name
-                print >>f, "name:".join(sp).rstrip()
+                print >>f, "name:".join(sp).rstrip().replace("$$$CRAP$$$","{{")
             else:
-                print >>f, l.rstrip()
+                print >>f, l.rstrip().replace("$$$CRAP$$$","{{")
 
     featured_packages = featured_packages_2
