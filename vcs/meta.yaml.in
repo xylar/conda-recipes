@@ -1,6 +1,6 @@
 package:
     name: vcs
-    version: @VERSION@.{{ GIT_FULL_HASH }}
+    version: @VERSION@
 
 source:
     git_rev: @UVCDAT_BRANCH@
