@@ -17,8 +17,8 @@ else
         export CC="gcc -Wl,-rpath=${PREFIX}/lib"
         export CXX="g++ -Wl,-rpath=${PREFIX}/lib"
     else
-        export CC="gcc"
-        export CXX="g++"
+        export CC="clang"
+        export CXX="clang++"
     fi
     MPI_ARGS=""
 fi
@@ -131,6 +131,12 @@ if [ `uname` == Darwin ]; then
         -DVTK_USE_X=OFF \
         -DLIBPROJ4_LIBRARIES:FILEPATH=${PREFIX}/lib/libproj.dylib \
         -DCMAKE_OSX_DEPLOYMENT_TARGET=10.12 \
+        -DVTK_OPENGL_HAS_OSMESA:BOOL=ON \
+        -DOPENGL_gl_LIBRARY:FILEPATH=${PREFIX}/lib/libOSMesa32.dylib \
+        -DOPENGL_INCLUDE_DIR:PATH=${PREFIX}/include \
+        -DOPENGL_glu_LIBRARY:FILEPATH=${PREFIX}/lib/libGLU.dylib \
+        -DOSMESA_INCLUDE_DIR:PATH=${PREFIX}/include \
+        -DOSMESA_LIBRARY:FILEPATH=${PREFIX}/lib/libOSMesa32.dylib \
         ${MPI_ARGS} \
         ${COMMON_ARGS}"
     eval ${COMMAND}
