@@ -27,7 +27,7 @@ requirements:
     - hdf5 1.8.17
     - ffmpeg
     - freetype
-    - mesalib                                 [linux] {nox}
+    - mesalib                                 {nox}
     - x264 <20151006.2245
     - gcc [linux]
     - libgcc [linux]
@@ -37,7 +37,7 @@ requirements:
     - hdf5 1.8.17
     - ffmpeg
     - freetype
-    - mesalib                                 [linux] {nox}
+    - mesalib                                 {nox}
     - x264 <20151006.2245
     - gcc [linux]
     - libgcc [linux]

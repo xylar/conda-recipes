@@ -17,6 +17,7 @@ build:
 requirements:
     build:
         - pthread-stubs 
+        - pkgconfig
     run:
         - pthread-stubs 
 
@@ -26,18 +27,10 @@ test:
         - test -f $PREFIX/lib/libOSMesa.dylib   # [osx]
 
 about:
-    home: http://www.mesa3d.org/
+    home: http://www.mesa3d.org
     license: MIT
     license_file: docs/license.html
-    summary: Mesa is an open-source implementation of the OpenGL specification -
-    a system for rendering interactive 3D graphics.
-    description: |
-        A variety of device drivers allows Mesa to be used in many different
-        environments ranging from software emulation to complete hardware
-        acceleration for modern GPUs.  Mesa ties into several other open-source
-        projects. The Direct Rendering Infrastructure and X.org to provide
-        OpenGL support to users of X on Linux, FreeBSD and other operating
-        systems.
+    summary: Mesa is an open-source implementation of the OpenGL specification
 
 extra:
     recipe-maintainers:
