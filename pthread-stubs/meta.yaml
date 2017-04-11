@@ -1,0 +1,30 @@
+{% set name = "pthread-stubs" %}
+{% set version = "0.1" %}
+
+package:
+    name: {{ name|lower }}
+    version: {{ version }}
+
+source:
+    fn: {{ name }}-{{ version }}.tar.bz2
+    url: ftp://ftp.x.org/pub/individual/lib/{{ name }}-{{ version }}.tar.bz2
+    md5: 774eabaf33440d534efe108ef9130a7d
+
+build:
+    skip: True  # [win]
+    number: 0
+    track_features:
+        - pthread-stubs
+
+test:
+    commands:
+        - test -f $PREFIX/lib/pkgconfig/pthread-stubs.pc
+
+about:
+    home: http://www.linuxfromscratch.org/blfs/view/6.3/general/libpthread-stubs.html
+    summary: The libpthread-stubs package provides weak aliases for pthread
+    functions not provided in libc or otherwise available by default.
+
+extra:
+    recipe-maintainers:
+        - sankhesh

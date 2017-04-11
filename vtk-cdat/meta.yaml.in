@@ -3,11 +3,11 @@ package:
     version: 7.1.0.@VERSION@
 
 source:
-    git_rev: master
+    git_rev: mac_osmesa_opengl
     #git_url: git://github.com/UV-CDAT/VTK.git
     #git_url: git://github.com/Kitware/VTK.git
     #git_rev: remove-renderer-leak-followup
-    git_url: https://gitlab.kitware.com/vtk/vtk.git
+    git_url: https://gitlab.kitware.com/sankhesh/vtk.git
 
     #  patches:
     #    - dlls.patch                              [win]
@@ -27,8 +27,7 @@ requirements:
     - hdf5 1.8.17
     - ffmpeg
     - freetype
-    #- mesalib                                 [linux] {nox}
-    - mesalib
+    - mesalib                                 [linux] {nox}
     - x264 <20151006.2245
     - gcc [linux]
     - libgcc [linux]
@@ -38,8 +37,7 @@ requirements:
     - hdf5 1.8.17
     - ffmpeg
     - freetype
-    #- mesalib                                 [linux] {nox}
-    - mesalib
+    - mesalib                                 [linux] {nox}
     - x264 <20151006.2245
     - gcc [linux]
     - libgcc [linux]
