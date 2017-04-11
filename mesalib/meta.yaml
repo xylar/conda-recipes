@@ -5,7 +5,7 @@ package:
     version: {{ version }}
 source:
     fn: {{ name }}-{{ version }}.tar.gz
-    url: ftp://ftp.freedesktop.org/pub/mesa/{{ name }}-{{ version }}.tar.gz
+    url: ftp://ftp.freedesktop.org/pub/mesa/mesa-{{ version }}.tar.gz
     sha256: 8253edf1bdd7b14ab63d5982349143a5c9ac3767f39a63257cc9d7e7d92f60f1
 
 build:
