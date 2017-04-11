@@ -2,8 +2,8 @@
 
 osname=`uname`
 if [ $osname == Linux ]; then
-    export CC="gcc -Wl"
-    export CXX="g++ -Wl"
+    export CC="gcc"
+    export CXX="g++"
 elif [ $osname == Darwin ]; then
     export CC="clang"
     export CXX="clang++"

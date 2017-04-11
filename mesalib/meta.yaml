@@ -16,10 +16,12 @@ build:
 
 requirements:
     build:
-        - pthread-stubs 
+        - pthread-stubs
         - pkgconfig
+        - gcc
     run:
-        - pthread-stubs 
+        - pthread-stubs
+        - libgcc
 
 test:
     commands:
