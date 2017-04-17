@@ -46,3 +46,8 @@ about:
   home: http://www.vtk.org/
   license: BSD
   summary: VTK is an open-source, freely available software system for 3D computer graphics
+
+extra:
+  recipe-maintainers:
+    - doutriaux1
+    - sankhesh

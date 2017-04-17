@@ -134,7 +134,7 @@ if [[ ${CONDA_LST}'y' == *'mesalib'* ]]; then
     elif [ ${OSNAME} == Darwin ]; then
         VTK_ARGS="${VTK_ARGS} \
             -DVTK_USE_CARBON:BOOL=OFF \
-            -DVTK_USE_COCOA:BOOL=OFF"
+            -DVTK_USE_COCOA:BOOL=ON"
     fi
 else
     VTK_ARGS="${VTK_ARGS} \
