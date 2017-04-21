@@ -1,0 +1,13 @@
+diff --git a/Rendering/OpenGL/CMakeLists.txt b/Rendering/OpenGL/CMakeLists.txt
+index 32f4b48227..aa1b947327 100644
+--- a/Rendering/OpenGL/CMakeLists.txt
++++ b/Rendering/OpenGL/CMakeLists.txt
+@@ -175,7 +175,7 @@ if(WIN32)
+   if(DirectX_FOUND)
+     set(VTK_USE_DIRECTX 1)
+   endif()
+-elseif(APPLE)
++elseif(APPLE AND NOT VTK_USE_OSMESA)
+   set(VTK_USE_APPLE_LOADER 1)
+   set(VTK_USE_CORE_GRAPHICS 1)
+ else()

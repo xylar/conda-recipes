@@ -1,17 +1,19 @@
 package:
-    name: vtk-cdat
-    version: 7.1.0.@VERSION@
+  name: vtk-cdat
+  version: 7.1.0.@VERSION@
 
 source:
-    git_rev: f03521b50c4b630d4dcf23d237ef2d9470581306
-    #git_url: git://github.com/UV-CDAT/VTK.git
-    #git_url: git://github.com/Kitware/VTK.git
-    #git_rev: remove-renderer-leak-followup
-    git_url: https://gitlab.kitware.com/vtk/vtk.git
+  git_rev: f03521b50c4b630d4dcf23d237ef2d9470581306
+  #git_url: git://github.com/UV-CDAT/VTK.git
+  #git_url: git://github.com/Kitware/VTK.git
+  #git_rev: remove-renderer-leak-followup
+  t_url: https://gitlab.kitware.com/vtk/vtk.git
 
-    #  patches:
-    #    - dlls.patch                              [win]
-    #    - apple.patch                             [osx]
+  #  patches:
+  #    - dlls.patch                              [win]
+  #    - apple.patch                             [osx]
+  patches:
+    - osmesa.patch {nox}
 
 build:
   number: @BUILD_NUMBER@
