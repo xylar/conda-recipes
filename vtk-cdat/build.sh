@@ -123,9 +123,7 @@ if [[ ${CONDA_LST}'y' == *'mesalib'* ]]; then
     VTK_ARGS="${VTK_ARGS} \
         -DVTK_USE_OFFSCREEN:BOOL=ON \
         -DVTK_OPENGL_HAS_OSMESA:BOOL=ON \
-        -DOPENGL_INCLUDE_DIR:PATH=${PREFIX}/include \
         -DOSMESA_INCLUDE_DIR:PATH=${PREFIX}/include \
-        -DOPENGL_gl_LIBRARY:FILEPATH=${PREFIX}/lib/libOSMesa32.${LIBEXT} \
         -DOSMESA_LIBRARY:FILEPATH=${PREFIX}/lib/libOSMesa32.${LIBEXT}"
 
     if [ ${OSNAME} == Linux ]; then
