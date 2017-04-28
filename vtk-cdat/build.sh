@@ -4,6 +4,7 @@ mkdir build
 cd build
 
 CONDA_LST=`conda list`
+OSNAME=`uname`
 if [[ ${CONDA_LST}'y' == *'openmpi'* ]]; then
     export CC=mpicc
     export CXX=mpicxx
@@ -11,22 +12,23 @@ if [[ ${CONDA_LST}'y' == *'openmpi'* ]]; then
     export DYLD_FALLBACK_LIBRARY_PATH=${PREFIX}/lib
     MPI_ARGS="-DVTK_USE_MPI:BOOL=ON"
 else
-    if [ `uname` == Linux ]; then
+    if [ ${OSNAME} == Linux ]; then
         # To make sure we get the correct g++
         export LD_LIBRARY_PATH=${PREFIX}/lib:${LIBRARY_PATH}
         export CC="gcc -Wl,-rpath=${PREFIX}/lib"
         export CXX="g++ -Wl,-rpath=${PREFIX}/lib"
+        export LDFLAGS="-lm"
     else
-        export CC="gcc"
-        export CXX="g++"
+        export CC="clang"
+        export CXX="clang++"
     fi
     MPI_ARGS=""
 fi
 
 
-if [ `uname` == Linux ]; then
+if [ ${OSNAME} == Linux ]; then
     PY_LIB="libpython${PY_VER}.so"
-elif [ `uname` == Darwin ]; then
+elif [ ${OSNAME} == Darwin ]; then
     PY_LIB="libpython${PY_VER}.dylib"
 fi
 
@@ -107,34 +109,51 @@ COMMON_ARGS="-DCMAKE_C_COMPILER=$CC \
         -DVTK_Group_StandAlone:BOOL=OFF \
         -DVTK_LEGACY_SILENT:BOOL=ON"
 
+if [ ${OSNAME} == Linux ]; then
+    LIBEXT="so"
+elif [ ${OSNAME} == Darwin ]; then
+    LIBEXT="dylib"
+fi
 
-if [ `uname` == Linux ]; then
+VTK_ARGS="\
+    -DCMAKE_OSX_DEPLOYMENT_TARGET=10.12 \
+    -DVTK_REQUIRED_OBJCXX_FLAGS='' \
+    -DLIBPROJ4_LIBRARIES:FILEPATH=${PREFIX}/lib/libproj.${LIBEXT}"
 
-    if [[ ${CONDA_LST}'y' == *'mesalib'* ]]; then
-        COMMAND="cmake .. -DVTK_USE_X:BOOL=OFF -DVTK_OPENGL_HAS_OSMESA:BOOL=ON -DOPENGL_INCLUDE_DIR:PATH=${PREFIX}/include -DOPENGL_gl_LIBRARY:FILEPATH=${PREFIX}/lib/libOSMesa.so -DOPENGL_glu_LIBRARY:FILEPATH=${PREFIX}/lib/libGLU.so -DOSMESA_INCLUDE_DIR:PATH=${PREFIX}/include -DOSMESA_LIBRARY:FILEPATH=${PREFIX}/lib/libOSMesa32.so -DLIBPROJ4_LIBRARIES:FILEPATH=${PREFIX}/lib/libproj.so \
-              ${MPI_ARGS} \
-              ${COMMON_ARGS}"
-        eval ${COMMAND}
-    else
-        COMMAND="cmake .. -DVTK_USE_X:BOOL=ON  -DLIBPROJ4_LIBRARIES:FILEPATH=${PREFIX}/lib/libproj.so \
-              ${MPI_ARGS} \
-              ${COMMON_ARGS}"
-        eval ${COMMAND}
+if [[ ${CONDA_LST}'y' == *'mesalib'* ]]; then
+    VTK_ARGS="${VTK_ARGS} \
+        -DVTK_USE_OFFSCREEN:BOOL=ON \
+        -DVTK_OPENGL_HAS_OSMESA:BOOL=ON \
+        -DOSMESA_INCLUDE_DIR:PATH=${PREFIX}/include \
+        -DOSMESA_LIBRARY:FILEPATH=${PREFIX}/lib/libOSMesa32.${LIBEXT}"
+
+    if [ ${OSNAME} == Linux ]; then
+        VTK_ARGS="${VTK_ARGS} \
+            -DVTK_USE_X:BOOL=OFF"
+    elif [ ${OSNAME} == Darwin ]; then
+        VTK_ARGS="${VTK_ARGS} \
+            -DVTK_USE_CARBON:BOOL=OFF \
+            -DVTK_USE_COCOA:BOOL=OFF"
+    fi
+else
+    VTK_ARGS="${VTK_ARGS} \
+        -DVTK_USE_OFFSCREEN:BOOL=OFF \
+        -DVTK_OPENGL_HAS_OSMESA:BOOL=OFF"
+    if [ ${OSNAME} == Linux ]; then
+        VTK_ARGS="${VTK_ARGS} \
+            -DVTK_USE_X:BOOL=ON"
+    elif [ ${OSNAME} == Darwin ]; then
+        VTK_ARGS="${VTK_ARGS} \
+            -DVTK_USE_CARBON:BOOL=OFF \
+            -DVTK_USE_COCOA:BOOL=ON"
     fi
 fi
 
-if [ `uname` == Darwin ]; then
-    COMMAND="cmake .. \
-        -DVTK_REQUIRED_OBJCXX_FLAGS='' \
-        -DVTK_USE_CARBON=OFF \
-        -DVTK_USE_COCOA=ON \
-        -DVTK_USE_X=OFF \
-        -DLIBPROJ4_LIBRARIES:FILEPATH=${PREFIX}/lib/libproj.dylib \
-        -DCMAKE_OSX_DEPLOYMENT_TARGET=10.12 \
-        ${MPI_ARGS} \
-        ${COMMON_ARGS}"
-    eval ${COMMAND}
-fi
+COMMAND="cmake .. \
+    ${COMMON_ARGS} \
+    ${VTK_ARGS} \
+    ${MPI_ARGS}"
+eval ${COMMAND}
 
 make -j7
 make install

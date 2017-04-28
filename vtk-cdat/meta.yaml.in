@@ -1,17 +1,10 @@
 package:
-    name: vtk-cdat
-    version: 7.1.0.@VERSION@
+  name: vtk-cdat
+  version: 7.1.0.@VERSION@
 
 source:
-    git_rev: master
-    #git_url: git://github.com/UV-CDAT/VTK.git
-    #git_url: git://github.com/Kitware/VTK.git
-    #git_rev: remove-renderer-leak-followup
-    git_url: https://gitlab.kitware.com/vtk/vtk.git
-
-    #  patches:
-    #    - dlls.patch                              [win]
-    #    - apple.patch                             [osx]
+  git_rev: f02f455d3c34b27e594020271c96dc38238e1150
+  git_url: git://github.com/Kitware/VTK.git
 
 build:
   number: @BUILD_NUMBER@
@@ -27,7 +20,7 @@ requirements:
     - hdf5 1.8.17
     - ffmpeg
     - freetype
-    - mesalib                                 [linux] {nox}
+    - mesalib >17                                {nox}
     - x264 <20151006.2245
     - gcc [linux]
     - libgcc [linux]
@@ -37,7 +30,7 @@ requirements:
     - hdf5 1.8.17
     - ffmpeg
     - freetype
-    - mesalib                                 [linux] {nox}
+    - mesalib >17                                {nox}
     - x264 <20151006.2245
     - gcc [linux]
     - libgcc [linux]
@@ -46,3 +39,8 @@ about:
   home: http://www.vtk.org/
   license: BSD
   summary: VTK is an open-source, freely available software system for 3D computer graphics
+
+extra:
+  recipe-maintainers:
+    - doutriaux1
+    - sankhesh
