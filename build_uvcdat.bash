@@ -1,20 +1,17 @@
 #!/usr/bin/env bash
 if [ $2"-" == "FULL-" ]; then ./build_uvcdat_externals.bash ; fi
-conda build -c conda-forge cdat_info
-conda build -c conda-forge distarray
-conda build -c conda-forge cdms2 --numpy=1.11
-conda build -c conda-forge cdms2 --numpy=1.10
-conda build -c conda-forge cdms2 --numpy=1.9
-conda build -c conda-forge cdtime --numpy=1.11
+#conda build -c conda-forge cdat_info
+#conda build -c conda-forge distarray
+#conda build -c conda-forge cdtime --numpy=1.11
 conda build -c conda-forge cdtime --numpy=1.10
 conda build -c conda-forge cdtime --numpy=1.9
-conda build -c conda-forge cdutil
-conda build -c conda-forge unidata --numpy=1.11
-conda build -c conda-forge unidata --numpy=1.10
-conda build -c conda-forge unidata --numpy=1.9
-conda build -c conda-forge genutil --numpy=1.11
+#conda build -c conda-forge cdms2 --numpy=1.11
+conda build -c conda-forge cdms2 --numpy=1.10
+conda build -c conda-forge cdms2 --numpy=1.9
+#conda build -c conda-forge genutil --numpy=1.11
 conda build -c conda-forge genutil --numpy=1.10
 conda build -c conda-forge genutil --numpy=1.9
+conda build -c conda-forge cdutil
 conda build -c conda-forge dv3d
 conda build -c conda-forge vcs
 conda build -c conda-forge vcsaddons
