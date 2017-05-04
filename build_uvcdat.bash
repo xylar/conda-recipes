@@ -18,12 +18,12 @@ conda build -c conda-forge vcsaddons
 conda build -c conda-forge thermo
 conda build -c conda-forge wk
 #conda build -c conda-forge pydebug
-conda build -c conda-forge output_viewer
-conda build -c conda-forge cdp
-conda build -c conda-forge uvcmetrics --numpy=1.12
-conda build -c conda-forge uvcmetrics --numpy=1.11
-conda build -c conda-forge uvcmetrics --numpy=1.10
-conda build -c conda-forge uvcmetrics --numpy=1.9
+#conda build -c conda-forge output_viewer
+#conda build -c conda-forge cdp
+#conda build -c conda-forge uvcmetrics --numpy=1.12
+#conda build -c conda-forge uvcmetrics --numpy=1.11
+#conda build -c conda-forge uvcmetrics --numpy=1.10
+#conda build -c conda-forge uvcmetrics --numpy=1.9
 conda build -c conda-forge vistrails
 conda build -c conda-forge xmgrace
 if [ $1"-" == "FULL-" ]; then ./build_uvcdat_contrib.bash ; fi
