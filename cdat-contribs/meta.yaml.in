@@ -1,0 +1,32 @@
+package:
+  name: cdat-contribs
+  version: @VERSION@
+
+source:
+  git_rev: @UVCDAT_BRANCH@
+  git_url: git://github.com/uv-cdat/uvcdat.git
+
+build:
+  number: @BUILD_NUMBER@
+
+requirements:
+  build:
+    - python
+    - gcc
+    - toolchain
+    - numpy x.x
+  run:
+    - python
+    - cdms2
+    - libgfortran
+    - cdutil
+    - genutil
+
+about:
+  home: http://uvcdat.llnl.gov
+  license: BSD
+  summary: Contributed Utilities for CDAT
+
+extra:
+  recipe-maintainers:
+    - doutriaux1
