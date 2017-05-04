@@ -1,11 +1,5 @@
 #!/bin/bash
 
-mkdir build
-cd build
-
-CONDA_LST=`conda list`
-OSNAME=`uname`
-
 pkgs=(ComparisonStatistics  HDF5Tools  MSU   ZonalMeans  binaryio  dsgrid  eof  lmoments  ort    shgrid   spherepack  SP   asciidata   cssgrid  natgrid  regridpack trends )
 
 for p in ${pkgs[*]}
