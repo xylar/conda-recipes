@@ -13,6 +13,7 @@ requirements:
   build:
     - python
     - setuptools
+    - toolchain  # [osx]
   run:
     - python
     - vcs

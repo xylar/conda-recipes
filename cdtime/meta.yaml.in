@@ -17,6 +17,7 @@ requirements:
     - numpy x.x
     - cdat_info
     - libdrs_f
+    - toolchain
   run:
     - python
     - setuptools
