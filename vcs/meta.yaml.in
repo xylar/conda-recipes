@@ -18,13 +18,10 @@ requirements:
     - python <3
     - cdat_info
     - genutil
-    - unidata
     - dv3d
     - vtk-cdat
     - cdms2
     - cdutil
-    - ffmpeg
-    - vcsaddons
     - requests
     - numpy
 
