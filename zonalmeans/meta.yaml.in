@@ -24,12 +24,13 @@ requirements:
     - setuptools
     - numpy x.x
     - gcc [osx]
+    - toolchain [osx]
   run:
     - python
     - numpy x.x
-    - gcc [osx]
     - cdms2
     - genutil
+    - libgfortran [osx]
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat

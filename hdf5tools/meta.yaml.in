@@ -13,10 +13,10 @@ requirements:
   build:
     - python
     - setuptools
-    - numpy x.x
+    - numpy
   run:
     - python
-    - numpy x.x 
+    - numpy 
     - hdf5 1.8.17
 
 about:

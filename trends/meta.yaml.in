@@ -15,10 +15,11 @@ requirements:
     - setuptools
     - numpy x.x
     - gcc [osx]
+    - toolchain [osx]
   run:
     - python
     - numpy x.x
-    - gcc [osx]
+    - libgfortran [osx]
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat
