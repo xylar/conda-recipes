@@ -5,7 +5,7 @@
 
 mkdir SphPack
 cd SphPack
-curl -o spherepack3.2.tar http://uvcdat.llnl.gov/cdat/resources/spherepack3.2.tar
+curl -o spherepack3.2.tar https://uvcdat.llnl.gov/cdat/resources/spherepack3.2.tar
 tar xvf spherepack3.2.tar
 cp spherepack3.2/src/*.f ../src
 cd ..
