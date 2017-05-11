@@ -155,5 +155,5 @@ COMMAND="cmake .. \
     ${MPI_ARGS}"
 eval ${COMMAND}
 
-make -j7
+make -j15
 make install
