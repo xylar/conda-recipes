@@ -157,5 +157,5 @@ echo $COMMAND
 exit 0
 eval ${COMMAND}
 
-make -j7
+make -j15
 make install
