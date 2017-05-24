@@ -153,6 +153,8 @@ COMMAND="cmake .. \
     ${COMMON_ARGS} \
     ${VTK_ARGS} \
     ${MPI_ARGS}"
+echo $COMMAND
+exit 0
 eval ${COMMAND}
 
 make -j15

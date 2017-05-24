@@ -11,6 +11,8 @@ build:
   detect_binary_files_with_prefix: true
   has_prefix_files:                           [win]
     - Lib/site-packages/vtk/__init__.py       [win]
+  features:  # {{{ mesalib }}}
+    - mesalib  # {{{ mesalib }}}
 
 requirements:
   build:
@@ -20,7 +22,7 @@ requirements:
     - hdf5 1.8.17
     - ffmpeg
     - freetype
-    - mesalib >17                                {nox}
+    - mesalib >17  # {{{ mesalib }}}
     - x264 <20151006.2245
     - gcc [linux]
     - libgcc [linux]
@@ -30,7 +32,7 @@ requirements:
     - hdf5 1.8.17
     - ffmpeg
     - freetype
-    - mesalib >17                                {nox}
+    - mesalib >17  # {{{ mesalib }}}
     - x264 <20151006.2245
     - gcc [linux]
     - libgcc [linux]
