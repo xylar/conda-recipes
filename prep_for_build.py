@@ -6,7 +6,7 @@ import time
 
 last_stable = "2.10"
 l = time.localtime()
-today = "%s.%s.%s.%s.%s.%s.{{ GIT_FULL_HASH }}" % (last_stable, l.tm_year, l.tm_mon, l.tm_mday, l.tm_hour, l.tm_min)
+today = "%s.%.2i.%.2i.%.2i.%.2i.%.2i.{{ GIT_FULL_HASH }}" % (last_stable, l.tm_year, l.tm_mon, l.tm_mday, l.tm_hour, l.tm_min)
 
 parser = argparse.ArgumentParser(
     description='Cleanup your anaconda server',
