@@ -23,7 +23,7 @@ parser.add_argument(
 parser.add_argument("-v", "--version", default=today,
                     help="which version are we building")
 
-parser.add_argument("-l", "--last_stable", default=2.10,
+parser.add_argument("-l", "--last_stable", default="2.10",
                     help="which version are we building")
 
 parser.add_argument("-f", "--features", nargs="*",
