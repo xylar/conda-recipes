@@ -23,21 +23,28 @@ parser.add_argument(
 parser.add_argument("-v", "--version", default=today,
                     help="which version are we building")
 
+parser.add_argument("-l", "--last_stable", default=2.10,
+                    help="which version are we building")
+
 parser.add_argument("-f", "--features", nargs="*",
                     help="features to be enabled", default=[])
 
 
 args = parser.parse_args(sys.argv[1:])
 
+today2 = "%s.%.2i.%.2i.%.2i.%.2i.%.2i.{{ GIT_FULL_HASH }}" % (args.last_stable, l.tm_year, l.tm_mon, l.tm_mday, l.tm_hour, l.tm_min)
 featured_packages = {}
 files = glob.glob("*/meta.yaml.in")
 for fnm in files:
-    print fnm
+    print fnm, args.version,today
     with open(fnm) as f:
         s = f.read()
     s = s.replace("@UVCDAT_BRANCH@", args.branch)
     s = s.replace("@BUILD_NUMBER@", args.build)
-    s = s.replace("@VERSION@", args.version)
+    if args.version != today:
+        s = s.replace("@VERSION@", args.version)
+    else:
+        s = s.replace("@VERSION@", today2)
 
     out = []
     for l in s.split("\n"):
