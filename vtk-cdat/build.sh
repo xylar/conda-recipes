@@ -154,8 +154,7 @@ COMMAND="cmake .. \
     ${VTK_ARGS} \
     ${MPI_ARGS}"
 echo $COMMAND
-exit 0
 eval ${COMMAND}
 
-make -j15
+make -j6
 make install
