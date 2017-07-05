@@ -21,9 +21,11 @@ requirements:
       - pthread-stubs
       - pkgconfig
       - gcc  # [linux]
+      - llvm
   run:
       - pthread-stubs
       - libgcc  # [linux]
+      - llvm
 
 test:
   commands:
