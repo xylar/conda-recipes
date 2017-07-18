@@ -58,7 +58,7 @@ COMMON_ARGS="-DCMAKE_C_COMPILER=$CC \
         -DModule_vtkFiltersImaging:BOOL=ON \
         -DModule_vtkFiltersModeling:BOOL=ON \
         -DModule_vtkFiltersSelection:BOOL=ON \
-        -DModule_vtkFiltersSMP:BOOL=ON \
+        -DModule_vtkFiltersSMP:BOOL=OFF \
         -DModule_vtkFiltersSources:BOOL=ON \
         -DModule_vtkFiltersStatistics:BOOL=ON \
         -DModule_vtkFiltersTexture:BOOL=ON \
@@ -103,7 +103,7 @@ COMMON_ARGS="-DCMAKE_C_COMPILER=$CC \
         -DVTK_USE_SYSTEM_LIBXML2:BOOL=ON \
         -DVTK_USE_SYSTEM_HDF5:BOOL=ON \
         -DVTK_USE_SYSTEM_NETCDF:BOOL=ON \
-        -DVTK_USE_SYSTEM_FREETYPE:BOOL=OFF \
+        -DVTK_USE_SYSTEM_FREETYPE:BOOL=ON \
         -DVTK_USE_SYSTEM_LIBPROJ4:BOOL=ON \
         -DVTK_Group_Rendering:BOOL=ON \
         -DVTK_Group_StandAlone:BOOL=OFF \
@@ -156,5 +156,5 @@ COMMAND="cmake .. \
 echo $COMMAND
 eval ${COMMAND}
 
-make -j8
+make -j${CPU_COUNT}
 make install
