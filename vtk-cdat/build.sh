@@ -90,6 +90,7 @@ COMMON_ARGS="-DCMAKE_C_COMPILER=$CC \
         -DModule_vtkViewsGeovis:BOOL=ON \
         -DModule_vtkIOFFMPEG:BOOL=ON \
         -DBUILD_SHARED_LIBS=ON \
+        -DModule_AutobahnPython:BOOL=ON \
         -DVTK_WRAP_PYTHON=ON \
         -DPYTHON_EXECUTABLE=${PYTHON} \
         -DPYTHON_INCLUDE_PATH=${PREFIX}/include/python${PY_VER} \
