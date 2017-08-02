@@ -1,6 +1,6 @@
 package:
     name: vcs-js
-    version: 0.1.@VERSION@
+    version: 0.4.@VERSION@
 
 source:
     git_rev: use-vtkweb
