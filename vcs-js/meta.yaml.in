@@ -1,9 +1,9 @@
 package:
     name: vcs-js
-    version: 0.1
+    version: 0.4.@VERSION@
 
 source:
-    git_rev: easy_deployment
+    git_rev: use-vtkweb
     git_url: git://github.com/UV-CDAT/vcs-js.git
 
 build:
