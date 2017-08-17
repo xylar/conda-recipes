@@ -3,7 +3,7 @@ package:
   version: 7.1.0.@VERSION@
 
 source:
-  git_rev: 1c03d1d03b1c12d99dd090ba4c5ca078e2d9612f
+  git_rev: 9a839a5c50131cc30320e6fc05712572096ca6fd
   git_url: git://github.com/Kitware/VTK.git
 
 build:
