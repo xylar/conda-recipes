@@ -3,7 +3,7 @@ package:
     version: 0.4.@VERSION@
 
 source:
-    git_rev: use-vtkweb
+    git_rev: 1d99ee44718e7cff82839e186c57f09bb6fec1ab
     git_url: git://github.com/UV-CDAT/vcs-js.git
 
 build:

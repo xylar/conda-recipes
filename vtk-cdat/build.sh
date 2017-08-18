@@ -17,7 +17,7 @@ else
         export LD_LIBRARY_PATH=${PREFIX}/lib:${LIBRARY_PATH}
         export CC="gcc -Wl,-rpath=${PREFIX}/lib"
         export CXX="g++ -Wl,-rpath=${PREFIX}/lib"
-        export LDFLAGS="-lm"
+        export LDFLAGS="-L/usr/lib/x86_64-linux-gnu -lm"
     else
         export CC="clang"
         export CXX="clang++"
