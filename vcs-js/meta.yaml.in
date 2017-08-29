@@ -3,7 +3,7 @@ package:
     version: 0.4.@VERSION@
 
 source:
-    git_rev: 1d99ee44718e7cff82839e186c57f09bb6fec1ab
+    git_rev: 9d73be755cb73e8f60aeb806d42f83f58659fa4f
     git_url: git://github.com/UV-CDAT/vcs-js.git
 
 build:
