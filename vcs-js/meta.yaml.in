@@ -7,7 +7,7 @@ source:
     git_url: git://github.com/UV-CDAT/vcs-js.git
 
 build:
-  string: dev
+    number: 0
 
 requirements:
   build:
