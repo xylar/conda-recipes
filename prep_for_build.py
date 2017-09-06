@@ -4,7 +4,7 @@ import sys
 import glob
 import time
 
-last_stable = "2.10"
+last_stable = "2.12"
 l = time.localtime()
 today = "%s.%.2i.%.2i.%.2i.%.2i.%.2i.{{ GIT_FULL_HASH }}" % (last_stable, l.tm_year, l.tm_mon, l.tm_mday, l.tm_hour, l.tm_min)
 
