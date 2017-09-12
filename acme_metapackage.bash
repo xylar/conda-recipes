@@ -3,7 +3,7 @@ export BUILD=0
 export VERSION=1.1
 
 # For nightly set OPERATOR to ">="
-export OPERATOR=">="
+export OPERATOR="=="
 
 conda metapackage acme-unified ${VERSION} --build-number ${BUILD}  \
     --dependencies "cdat_info ${OPERATOR}${UVCDAT_VERSION}" \
