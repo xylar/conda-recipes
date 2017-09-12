@@ -1,51 +1,56 @@
 export UVCDAT_VERSION=2.12
 export BUILD=0
 export VERSION=1.1
+
+# For nightly set OPERATOR to ">="
+export OPERATOR=">="
+
 conda metapackage acme-unified ${VERSION} --build-number ${BUILD}  \
-    --dependencies "cdat_info ==${UVCDAT_VERSION}" \
-"distarray ==${UVCDAT_VERSION}" \
-"cdms2 ==${UVCDAT_VERSION}" \
-"cdtime ==${UVCDAT_VERSION}" \
-"cdutil ==${UVCDAT_VERSION}" \
-"genutil ==${UVCDAT_VERSION}" \
-"vtk-cdat ==7.1.0.${UVCDAT_VERSION}" \
-"dv3d ==${UVCDAT_VERSION}" \
-"vcs ==${UVCDAT_VERSION}" \
-"vcsaddons ==${UVCDAT_VERSION}" \
-"thermo ==${UVCDAT_VERSION}" \
-"wk ==${UVCDAT_VERSION}" \
-"vistrails ==${UVCDAT_VERSION}" \
-"xmgrace ==${UVCDAT_VERSION}" \
-"hdf5tools ==${UVCDAT_VERSION}" \
-"asciidata ==${UVCDAT_VERSION}" \
-"binaryio ==${UVCDAT_VERSION}" \
-"cssgrid ==${UVCDAT_VERSION}" \
-"dsgrid ==${UVCDAT_VERSION}" \
-"lmoments ==${UVCDAT_VERSION}" \
-"natgrid ==${UVCDAT_VERSION}" \
-"ort ==${UVCDAT_VERSION}" \
-"regridpack ==${UVCDAT_VERSION}" \
-"shgrid ==${UVCDAT_VERSION}" \
-"trends ==${UVCDAT_VERSION}" \
-"zonalmeans ==${UVCDAT_VERSION}" \
-"cdp ==1.1.0" \
-"acme_diags ==v0.1b" \
-"cibots ==0.2" \
-"output_viewer ==1.2.2" \
-"xarray ==0.9.5" \
-"dask ==0.15.2" \
-"nco ==4.6.8" \
-"lxml ==3.8.0" \
-"sympy ==1.1.1" \
-"pyproj ==1.9.5.1" \
-"pytest ==3.2.2" \
-"shapely  ==1.6.1" \
-"cartopy  ==0.15.1" \
-"progressbar ==2.3" \
+    --dependencies "cdat_info ${OPERATOR}${UVCDAT_VERSION}" \
+"distarray ${OPERATOR}${UVCDAT_VERSION}" \
+"cdms2 ${OPERATOR}${UVCDAT_VERSION}" \
+"cdtime ${OPERATOR}${UVCDAT_VERSION}" \
+"cdutil ${OPERATOR}${UVCDAT_VERSION}" \
+"genutil ${OPERATOR}${UVCDAT_VERSION}" \
+"vtk-cdat ${OPERATOR}7.1.0.${UVCDAT_VERSION}" \
+"dv3d ${OPERATOR}${UVCDAT_VERSION}" \
+"vcs ${OPERATOR}${UVCDAT_VERSION}" \
+"vcsaddons ${OPERATOR}${UVCDAT_VERSION}" \
+"thermo ${OPERATOR}${UVCDAT_VERSION}" \
+"wk ${OPERATOR}${UVCDAT_VERSION}" \
+"vistrails ${OPERATOR}${UVCDAT_VERSION}" \
+"xmgrace ${OPERATOR}${UVCDAT_VERSION}" \
+"hdf5tools ${OPERATOR}${UVCDAT_VERSION}" \
+"asciidata ${OPERATOR}${UVCDAT_VERSION}" \
+"binaryio ${OPERATOR}${UVCDAT_VERSION}" \
+"cssgrid ${OPERATOR}${UVCDAT_VERSION}" \
+"dsgrid ${OPERATOR}${UVCDAT_VERSION}" \
+"lmoments ${OPERATOR}${UVCDAT_VERSION}" \
+"natgrid ${OPERATOR}${UVCDAT_VERSION}" \
+"ort ${OPERATOR}${UVCDAT_VERSION}" \
+"regridpack ${OPERATOR}${UVCDAT_VERSION}" \
+"shgrid ${OPERATOR}${UVCDAT_VERSION}" \
+"trends ${OPERATOR}${UVCDAT_VERSION}" \
+"zonalmeans ${OPERATOR}${UVCDAT_VERSION}" \
+"cdp ${OPERATOR}1.1.0" \
+"acme_diags ${OPERATOR}v0.1b" \
+"cibots ${OPERATOR}0.2" \
+"output_viewer ${OPERATOR}1.2.2" \
+"xarray ${OPERATOR}0.9.6" \
+"dask ${OPERATOR}0.15.2" \
+"nco ${OPERATOR}4.6.8" \
+"lxml ${OPERATOR}3.8.0" \
+"sympy ${OPERATOR}1.1.1" \
+"pyproj ${OPERATOR}1.9.5.1" \
+"pytest ${OPERATOR}3.2.2" \
+"shapely  ${OPERATOR}1.6.1" \
+"cartopy  ${OPERATOR}0.15.1" \
+"progressbar ${OPERATOR}2.3" \
 "matplotlib" \
 "basemap" \
 "jupyter" \
 "nb_conda" \
 "ipython" \
-"bottleneck ==1.2.1" \
-"netcdf4 ==1.2.9"
+"bottleneck ${OPERATOR}1.2.1" \
+"netcdf4 ${OPERATOR}1.2.9" \
+"pyevtk ${OPERATOR}1.0.0"
