@@ -1,6 +1,6 @@
 export UVCDAT_VERSION=2.12
 export BUILD=0
-export VERSION=1.1
+export VERSION=1.1.1
 
 # For nightly set OPERATOR to ">="
 export OPERATOR="=="
@@ -33,12 +33,12 @@ conda metapackage acme-unified ${VERSION} --build-number ${BUILD}  \
 "trends ${OPERATOR}${UVCDAT_VERSION}" \
 "zonalmeans ${OPERATOR}${UVCDAT_VERSION}" \
 "cdp ${OPERATOR}1.1.0" \
-"acme_diags ${OPERATOR}v0.1b" \
+"acme_diags ${OPERATOR}1.0.0" \
 "cibots ${OPERATOR}0.2" \
 "output_viewer ${OPERATOR}1.2.2" \
 "xarray ${OPERATOR}0.9.6" \
 "dask ${OPERATOR}0.15.2" \
-"nco ${OPERATOR}4.6.8" \
+"nco ${OPERATOR}4.6.9" \
 "lxml ${OPERATOR}3.8.0" \
 "sympy ${OPERATOR}1.1.1" \
 "pyproj ${OPERATOR}1.9.5.1" \
