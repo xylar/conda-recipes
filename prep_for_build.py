@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+from __future__ import print_function
 import argparse
 import sys
 import glob
@@ -36,7 +37,7 @@ today2 = "%s.%.2i.%.2i.%.2i.%.2i.%.2i.{{ GIT_FULL_HASH }}" % (args.last_stable, 
 featured_packages = {}
 files = glob.glob("*/meta.yaml.in")
 for fnm in files:
-    print fnm, args.version,today
+    print(fnm, args.version,today)
     with open(fnm) as f:
         s = f.read()
     s = s.replace("@UVCDAT_BRANCH@", args.branch)
