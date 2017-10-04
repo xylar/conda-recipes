@@ -12,7 +12,7 @@ build:
 requirements:
   build:
     - toolchain [osx]
-    - python
+    - python {{PY_VER}}*,>=2.7,<3.3|>=3.4
     - setuptools
     - libcdms
     - cdat_info
@@ -21,7 +21,7 @@ requirements:
     - gcc [linux]
     - libgcc [linux]
   run:
-    - python
+    - python {{PY_VER}}*,>=2.7,<3.3|>=3.4
     - libcf
     - distarray
     - cdtime
