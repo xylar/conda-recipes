@@ -12,22 +12,22 @@ build:
 requirements:
   build:
     - toolchain [osx]
-    - python {{PY_VER}}*,>=2.7,<3.3|>=3.4
+    - python {{PY_VER}}*
     - setuptools
     - libcdms
     - cdat_info
-    - numpy x.x
+    - numpy {{NPY_VER}}*
     - libdrs_f
     - gcc [linux]
     - libgcc [linux]
   run:
-    - python {{PY_VER}}*,>=2.7,<3.3|>=3.4
+    - python {{PY_VER}}*
     - libcf
     - distarray
     - cdtime
     - libcdms
     - cdat_info
-    - numpy x.x
+    - numpy {{NPY_VER}}*
     - esmf >=7
     - esmpy
     - libdrs_f
