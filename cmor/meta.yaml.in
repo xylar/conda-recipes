@@ -18,20 +18,22 @@ test:
 
 requirements:
   build:
-    - python
-    - ossuuid 1.6.2
+    - python {{PY_VER}}*
+    - ossuuid 1.6.2.*
     - udunits2
     - hdf5 1.8.18|1.8.18.*
     - libnetcdf 4.4.*
-    - numpy x.x
+    - numpy {{NPY_VER}}*
+    - setuptools
     - gcc [osx]
   run:
-    - python
-    - ossuuid 1.6.2
+    - python {{PY_VER}}*
+    - ossuuid 1.6.2.*
     - udunits2
     - libnetcdf 4.4.*
-    - numpy x.x
+    - numpy {{NPY_VER}}*
     - cdms2
+    - setuptools
     - gcc [osx]
     - hdf5 1.8.18|1.8.18.*
 
