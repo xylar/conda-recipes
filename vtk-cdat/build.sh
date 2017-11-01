@@ -27,9 +27,11 @@ fi
 if [ ${PY3K} ]; then
     PYVER_SHORT=3
     PY_LIB="libpython${PY_VER}m${SHLIB_EXT}"
+    SIX="-DVTK_USE_SYSTEM_SIX:BOOL=ON"
 else
     PYVER_SHORT=2
     PY_LIB="libpython${PY_VER}${SHLIB_EXT}"
+    SIX=""
 fi
 
 echo "PYLIB: "${PY_LIB}
@@ -111,7 +113,7 @@ COMMON_ARGS="-DCMAKE_C_COMPILER=$CC \
         -DVTK_USE_SYSTEM_LIBPROJ4:BOOL=ON \
         -DVTK_Group_Rendering:BOOL=ON \
         -DVTK_Group_StandAlone:BOOL=OFF \
-        -DVTK_LEGACY_SILENT:BOOL=ON"
+        -DVTK_LEGACY_SILENT:BOOL=ON {SIX}"
 
 
 VTK_ARGS="\
@@ -154,6 +156,5 @@ COMMAND="cmake .. \
 echo $COMMAND
 eval ${COMMAND}
 
-#make -j${CPU_COUNT}
-make
+make -j${CPU_COUNT}
 make install
