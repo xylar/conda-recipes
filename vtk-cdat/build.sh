@@ -25,12 +25,14 @@ else
     MPI_ARGS=""
 fi
 
-
-if [ ${OSNAME} == Linux ]; then
-    PY_LIB="libpython${PY_VER}.so"
-elif [ ${OSNAME} == Darwin ]; then
-    PY_LIB="libpython${PY_VER}.dylib"
+if [ ${PY3K} == 1 ]; then
+    PYVER_SHORT=3
+    PY_LIB="libpython${PY_VER}m${SHLIB_EXT}"
+else
+    PYVER_SHORT=2
+    PY_LIB="libpython${PY_VER}${SHLIB_EXT}"
 fi
+
 
 COMMON_ARGS="-DCMAKE_C_COMPILER=$CC \
         -DCMAKE_CXX_COMPILER=$CXX \
@@ -92,6 +94,7 @@ COMMON_ARGS="-DCMAKE_C_COMPILER=$CC \
         -DBUILD_SHARED_LIBS=ON \
         -DModule_AutobahnPython:BOOL=ON \
         -DVTK_WRAP_PYTHON=ON \
+        -DPYTHON_MAJOR_VERSION=${PYVER_SHORT} \
         -DPYTHON_EXECUTABLE=${PYTHON} \
         -DPYTHON_INCLUDE_PATH=${PREFIX}/include/python${PY_VER} \
         -DPYTHON_LIBRARY=${PREFIX}/lib/${PY_LIB} \
@@ -110,23 +113,18 @@ COMMON_ARGS="-DCMAKE_C_COMPILER=$CC \
         -DVTK_Group_StandAlone:BOOL=OFF \
         -DVTK_LEGACY_SILENT:BOOL=ON"
 
-if [ ${OSNAME} == Linux ]; then
-    LIBEXT="so"
-elif [ ${OSNAME} == Darwin ]; then
-    LIBEXT="dylib"
-fi
 
 VTK_ARGS="\
     -DCMAKE_OSX_DEPLOYMENT_TARGET=10.12 \
     -DVTK_REQUIRED_OBJCXX_FLAGS='' \
-    -DLIBPROJ4_LIBRARIES:FILEPATH=${PREFIX}/lib/libproj.${LIBEXT}"
+    -DLIBPROJ4_LIBRARIES:FILEPATH=${PREFIX}/lib/libproj${SHLIB_EXT}"
 
 if [[ ${CONDA_LST}'y' == *'mesalib'* ]]; then
     VTK_ARGS="${VTK_ARGS} \
         -DVTK_USE_OFFSCREEN:BOOL=ON \
         -DVTK_OPENGL_HAS_OSMESA:BOOL=ON \
         -DOSMESA_INCLUDE_DIR:PATH=${PREFIX}/include \
-        -DOSMESA_LIBRARY:FILEPATH=${PREFIX}/lib/libOSMesa32.${LIBEXT}"
+        -DOSMESA_LIBRARY:FILEPATH=${PREFIX}/lib/libOSMesa32${SHLIB_EXT}"
 
     if [ ${OSNAME} == Linux ]; then
         VTK_ARGS="${VTK_ARGS} \
@@ -149,7 +147,6 @@ else
             -DVTK_USE_COCOA:BOOL=ON"
     fi
 fi
-
 COMMAND="cmake .. \
     ${COMMON_ARGS} \
     ${VTK_ARGS} \

@@ -1,6 +1,6 @@
 package:
   name: vtk-cdat
-  version: 7.1.0.@VERSION@
+  version: 8.0.1.@VERSION@
 
 source:
   git_rev: 9a839a5c50131cc30320e6fc05712572096ca6fd
@@ -8,7 +8,7 @@ source:
 
 build:
   number: @BUILD_NUMBER@
-  skip: True  # [win or py3k]
+  skip: True  # [win]
   detect_binary_files_with_prefix: true
   has_prefix_files:                           [win]
     - Lib/site-packages/vtk/__init__.py       [win]
