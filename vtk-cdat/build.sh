@@ -24,8 +24,7 @@ else
     fi
     MPI_ARGS=""
 fi
-
-if [ ${PY3K} == 1 ]; then
+if [ ${PY3K} ]; then
     PYVER_SHORT=3
     PY_LIB="libpython${PY_VER}m${SHLIB_EXT}"
 else
@@ -33,6 +32,7 @@ else
     PY_LIB="libpython${PY_VER}${SHLIB_EXT}"
 fi
 
+echo "PYLIB: "${PY_LIB}
 
 COMMON_ARGS="-DCMAKE_C_COMPILER=$CC \
         -DCMAKE_CXX_COMPILER=$CXX \
@@ -154,5 +154,6 @@ COMMAND="cmake .. \
 echo $COMMAND
 eval ${COMMAND}
 
-make -j${CPU_COUNT}
+#make -j${CPU_COUNT}
+make
 make install
