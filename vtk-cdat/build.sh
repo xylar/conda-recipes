@@ -113,7 +113,8 @@ COMMON_ARGS="-DCMAKE_C_COMPILER=$CC \
         -DVTK_USE_SYSTEM_LIBPROJ4:BOOL=ON \
         -DVTK_Group_Rendering:BOOL=ON \
         -DVTK_Group_StandAlone:BOOL=OFF \
-        -DVTK_LEGACY_SILENT:BOOL=ON {SIX}"
+        -DVTK_LEGACY_SILENT:BOOL=ON\
+        ${SIX}"
 
 
 VTK_ARGS="\
