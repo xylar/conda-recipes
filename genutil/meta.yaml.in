@@ -11,15 +11,15 @@ build:
  
 requirements:
   build:
-    - python
+    - python {{ PY_VER }}
     - setuptools
-    - numpy x.x
+    - numpy  {{ NPY_VER }}
     - udunits2
     - toolchain [osx]
   run:
-    - python
+    - python {{ PY_VER }}
     - cdms2
-    - numpy x.x
+    - numpy  {{ NPY_VER }}
     - udunits2
 
 about:
