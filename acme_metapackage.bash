@@ -1,11 +1,11 @@
 export UVCDAT_VERSION=2.12
 export BUILD=0
-export VERSION=1.1.1
+export VERSION=1.1.2
 
 # For nightly set OPERATOR to ">="
 export OPERATOR="=="
 
-conda metapackage -c conda-forge -c uvcdat -c acme -c opengeostat acme-unified ${VERSION} --build-number ${BUILD}  \
+conda metapackage -c conda-forge -c acme -c uvcdat -c opengeostat acme-unified ${VERSION} --build-number ${BUILD}  \
     --dependencies "cdat_info ${OPERATOR}${UVCDAT_VERSION}" \
 "distarray ${OPERATOR}${UVCDAT_VERSION}" \
 "cdms2 ${OPERATOR}${UVCDAT_VERSION}" \
@@ -32,8 +32,7 @@ conda metapackage -c conda-forge -c uvcdat -c acme -c opengeostat acme-unified $
 "shgrid ${OPERATOR}${UVCDAT_VERSION}" \
 "trends ${OPERATOR}${UVCDAT_VERSION}" \
 "zonalmeans ${OPERATOR}${UVCDAT_VERSION}" \
-"cdp ${OPERATOR}1.1.0" \
-"acme_diags ${OPERATOR}1.0.0" \
+"acme_diags ${OPERATOR}1.0.1" \
 "cibots ${OPERATOR}0.2" \
 "output_viewer ${OPERATOR}1.2.2" \
 "xarray ${OPERATOR}0.9.6" \
