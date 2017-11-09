@@ -5,7 +5,7 @@ export VERSION=1.1.1
 # For nightly set OPERATOR to ">="
 export OPERATOR="=="
 
-conda metapackage acme-unified ${VERSION} --build-number ${BUILD}  \
+conda metapackage -c conda-forge -c uvcdat -c acme -c opengeostat acme-unified ${VERSION} --build-number ${BUILD}  \
     --dependencies "cdat_info ${OPERATOR}${UVCDAT_VERSION}" \
 "distarray ${OPERATOR}${UVCDAT_VERSION}" \
 "cdms2 ${OPERATOR}${UVCDAT_VERSION}" \
