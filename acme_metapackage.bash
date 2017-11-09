@@ -45,6 +45,7 @@ conda metapackage -c conda-forge -c acme -c uvcdat -c opengeostat acme-unified $
 "shapely  ${OPERATOR}1.6.1" \
 "cartopy  ${OPERATOR}0.15.1" \
 "progressbar ${OPERATOR}2.3" \
+"scipy <1.0.0" \
 "matplotlib" \
 "basemap" \
 "jupyter" \
