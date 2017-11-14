@@ -16,25 +16,8 @@ conda metapackage -c conda-forge -c acme -c uvcdat -c opengeostat acme-unified $
 "dv3d ${OPERATOR}${UVCDAT_VERSION}" \
 "vcs ${OPERATOR}${UVCDAT_VERSION}" \
 "vcsaddons ${OPERATOR}${UVCDAT_VERSION}" \
-"thermo ${OPERATOR}${UVCDAT_VERSION}" \
-"wk ${OPERATOR}${UVCDAT_VERSION}" \
-"vistrails ${OPERATOR}${UVCDAT_VERSION}" \
-"xmgrace ${OPERATOR}${UVCDAT_VERSION}" \
-"hdf5tools ${OPERATOR}${UVCDAT_VERSION}" \
-"asciidata ${OPERATOR}${UVCDAT_VERSION}" \
-"binaryio ${OPERATOR}${UVCDAT_VERSION}" \
-"cssgrid ${OPERATOR}${UVCDAT_VERSION}" \
-"dsgrid ${OPERATOR}${UVCDAT_VERSION}" \
-"lmoments ${OPERATOR}${UVCDAT_VERSION}" \
-"natgrid ${OPERATOR}${UVCDAT_VERSION}" \
-"ort ${OPERATOR}${UVCDAT_VERSION}" \
-"regridpack ${OPERATOR}${UVCDAT_VERSION}" \
-"shgrid ${OPERATOR}${UVCDAT_VERSION}" \
-"trends ${OPERATOR}${UVCDAT_VERSION}" \
-"zonalmeans ${OPERATOR}${UVCDAT_VERSION}" \
 "acme_diags ${OPERATOR}1.0.1" \
 "cibots ${OPERATOR}0.2" \
-"output_viewer ${OPERATOR}1.2.2" \
 "xarray ${OPERATOR}0.9.6" \
 "dask ${OPERATOR}0.15.2" \
 "nco ${OPERATOR}4.6.9" \
@@ -47,8 +30,6 @@ conda metapackage -c conda-forge -c acme -c uvcdat -c opengeostat acme-unified $
 "progressbar ${OPERATOR}2.3" \
 "scipy <1.0.0" \
 "numpy >1.13" \
-"matplotlib" \
-"basemap" \
 "jupyter" \
 "nb_conda" \
 "ipython" \
