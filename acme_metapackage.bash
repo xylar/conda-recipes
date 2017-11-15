@@ -30,6 +30,7 @@ conda metapackage -c conda-forge -c acme -c uvcdat -c opengeostat acme-unified $
 "progressbar ${OPERATOR}2.3" \
 "scipy <1.0.0" \
 "numpy >1.13" \
+"blas" \
 "jupyter" \
 "nb_conda" \
 "ipython" \
