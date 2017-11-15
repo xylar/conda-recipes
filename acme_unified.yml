@@ -1,4 +1,4 @@
-name: acme_unified_env-might-work-charles2
+name: acme_unified_env
 channels:
 - conda-forge
 - acme
