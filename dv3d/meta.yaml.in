@@ -17,6 +17,7 @@ requirements:
     - python
     - vtk-cdat
     - cdms2
+    - cdutil
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat
