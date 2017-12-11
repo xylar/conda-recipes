@@ -1,0 +1,15 @@
+From conda-forge meeting discussion, the proposal was change to: basically the same as now, but use build strings directly instead of setting any features:
+
+nothing to do with features in any package
+mpi metapackage sets build string for each variant
+mpi providers depend on metapackage with buildstring, e.g. - mpi 1.0 mpich, rather than relying on features for mutual exclusivity
+downstream packages include mpi variant in build string manually, e.g.
+{% set mpi = os.environ['MPI_VARIANT'] %}
+build:
+  number: {{ build }}
+    string: {{ mpi }}_{{ build }}
+    downstream packages depend directly on mpi provider, not mpi metapackage
+    users just install packages, but can pin metapackage if they so choose
+    BTW, this proposal means that downstream packages can begin adopting mpi variants right away, since there aren't features to wait for in the upstream packages. Only the mutual-exclusivity provided by the metapackage is something to wait for, but that's independent of changes to the packages.
+
+
