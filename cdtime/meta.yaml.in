@@ -11,22 +11,22 @@ build:
  
 requirements:
   build:
-    - python {{ PY_VER }}
+    - python {{ python }}
     - setuptools
     - libcdms
-    - numpy  {{ NPY_VER }}
+    - numpy {{ numpy }}
     - cdat_info
     - libdrs_f
     - toolchain
     - libgfortran
   run:
-    - python {{ PY_VER }}
+    - python {{ python }}
     - setuptools
     - libcdms
     - cdat_info
     - libdrs_f
     - libgfortran
-    - numpy  {{ NPY_VER }}
+    - numpy  
 
 about:
     home:  http://gitub.com/UV-CDAT/cdtime
