@@ -1,0 +1,27 @@
+package:
+    name: libuuid
+    version: 1.0.3
+
+source:
+    fn: libuuid-1.0.3.tar.gz
+    url: http://downloads.sourceforge.net/project/libuuid/libuuid-1.0.3.tar.gz
+    sha256: 46af3275291091009ad7f1b899de3d0cea0252737550e7919d17237997db5644
+
+build:
+    string: PCMDI
+    skip: True  # [win]
+
+requirements:
+    run:
+        - libgcc
+
+test:
+    commands:
+        - test -f ${PREFIX}/lib/libuuid.a  # [unix]
+        - conda inspect linkages -n _test libuuid  # [linux]
+
+about:
+    home: http://sourceforge.net/projects/libuuid/
+    license: BSD 3-Clause
+    summary: Portable uuid C library
+
