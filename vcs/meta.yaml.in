@@ -1,6 +1,6 @@
 package:
     name: vcs
-    version: @VERSION@
+    version: "@VERSION@"
 
 source:
     git_rev: @UVCDAT_BRANCH@
@@ -8,7 +8,6 @@ source:
 
 build:
   number: @BUILD_NUMBER@
-  noarch_python: True
  
 requirements:
   build:
@@ -19,13 +18,10 @@ requirements:
     - python
     - cdat_info
     - genutil
-    - unidata
     - dv3d
-    - vtk-cdat
+    - vtk-cdat >7.1.0.2.8
     - cdms2
     - cdutil
-    - ffmpeg
-    - vcsaddons
     - requests
     - numpy
 

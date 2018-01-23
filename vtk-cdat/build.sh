@@ -4,6 +4,7 @@ mkdir build
 cd build
 
 CONDA_LST=`conda list`
+OSNAME=`uname`
 if [[ ${CONDA_LST}'y' == *'openmpi'* ]]; then
     export CC=mpicc
     export CXX=mpicxx
@@ -11,28 +12,33 @@ if [[ ${CONDA_LST}'y' == *'openmpi'* ]]; then
     export DYLD_FALLBACK_LIBRARY_PATH=${PREFIX}/lib
     MPI_ARGS="-DVTK_USE_MPI:BOOL=ON"
 else
-    if [ `uname` == Linux ]; then
+    if [ ${OSNAME} == Linux ]; then
         # To make sure we get the correct g++
         export LD_LIBRARY_PATH=${PREFIX}/lib:${LIBRARY_PATH}
         export CC="gcc -Wl,-rpath=${PREFIX}/lib"
         export CXX="g++ -Wl,-rpath=${PREFIX}/lib"
+        export LDFLAGS="-L/usr/lib/x86_64-linux-gnu -lm"
     else
-        export CC="gcc"
-        export CXX="g++"
+        export CC="clang"
+        export CXX="clang++"
     fi
     MPI_ARGS=""
 fi
-
-
-if [ `uname` == Linux ]; then
-    PY_LIB="libpython${PY_VER}.so"
-elif [ `uname` == Darwin ]; then
-    PY_LIB="libpython${PY_VER}.dylib"
+if [ ${PY3K} ]; then
+    PYVER_SHORT=3
+    PY_LIB="libpython${PY_VER}m${SHLIB_EXT}"
+    SIX="-DVTK_USE_SYSTEM_SIX:BOOL=ON"
+else
+    PYVER_SHORT=2
+    PY_LIB="libpython${PY_VER}${SHLIB_EXT}"
+    SIX=""
 fi
+
+echo "PYLIB: "${PY_LIB}
 
 COMMON_ARGS="-DCMAKE_C_COMPILER=$CC \
         -DCMAKE_CXX_COMPILER=$CXX \
-        -DCMAKE_BUILD_TYPE=Debug \
+        -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_PREFIX=\"${PREFIX}\" \
         -DCMAKE_INSTALL_RPATH:STRING=\"${PREFIX}/lib\" \
         -DBUILD_DOCUMENTATION=OFF \
@@ -56,7 +62,7 @@ COMMON_ARGS="-DCMAKE_C_COMPILER=$CC \
         -DModule_vtkFiltersImaging:BOOL=ON \
         -DModule_vtkFiltersModeling:BOOL=ON \
         -DModule_vtkFiltersSelection:BOOL=ON \
-        -DModule_vtkFiltersSMP:BOOL=ON \
+        -DModule_vtkFiltersSMP:BOOL=OFF \
         -DModule_vtkFiltersSources:BOOL=ON \
         -DModule_vtkFiltersStatistics:BOOL=ON \
         -DModule_vtkFiltersTexture:BOOL=ON \
@@ -88,7 +94,9 @@ COMMON_ARGS="-DCMAKE_C_COMPILER=$CC \
         -DModule_vtkViewsGeovis:BOOL=ON \
         -DModule_vtkIOFFMPEG:BOOL=ON \
         -DBUILD_SHARED_LIBS=ON \
+        -DModule_AutobahnPython:BOOL=ON \
         -DVTK_WRAP_PYTHON=ON \
+        -DPYTHON_MAJOR_VERSION=${PYVER_SHORT} \
         -DPYTHON_EXECUTABLE=${PYTHON} \
         -DPYTHON_INCLUDE_PATH=${PREFIX}/include/python${PY_VER} \
         -DPYTHON_LIBRARY=${PREFIX}/lib/${PY_LIB} \
@@ -101,40 +109,53 @@ COMMON_ARGS="-DCMAKE_C_COMPILER=$CC \
         -DVTK_USE_SYSTEM_LIBXML2:BOOL=ON \
         -DVTK_USE_SYSTEM_HDF5:BOOL=ON \
         -DVTK_USE_SYSTEM_NETCDF:BOOL=ON \
-        -DVTK_USE_SYSTEM_FREETYPE:BOOL=OFF \
+        -DVTK_USE_SYSTEM_FREETYPE:BOOL=ON \
         -DVTK_USE_SYSTEM_LIBPROJ4:BOOL=ON \
         -DVTK_Group_Rendering:BOOL=ON \
         -DVTK_Group_StandAlone:BOOL=OFF \
-        -DVTK_LEGACY_SILENT:BOOL=ON"
+        -DVTK_LEGACY_SILENT:BOOL=ON\
+        ${SIX}"
 
 
-if [ `uname` == Linux ]; then
+VTK_ARGS="\
+    -DCMAKE_OSX_DEPLOYMENT_TARGET=10.12 \
+    -DVTK_REQUIRED_OBJCXX_FLAGS='' \
+    -DLIBPROJ4_LIBRARIES:FILEPATH=${PREFIX}/lib/libproj${SHLIB_EXT}"
 
-    if [[ ${CONDA_LST}'y' == *'mesalib'* ]]; then
-        COMMAND="cmake .. -DVTK_USE_X:BOOL=OFF -DVTK_OPENGL_HAS_OSMESA:BOOL=ON -DOPENGL_INCLUDE_DIR:PATH=${PREFIX}/include -DOPENGL_gl_LIBRARY:FILEPATH=${PREFIX}/lib/libOSMesa.so -DOPENGL_glu_LIBRARY:FILEPATH=${PREFIX}/lib/libGLU.so -DOSMESA_INCLUDE_DIR:PATH=${PREFIX}/include -DOSMESA_LIBRARY:FILEPATH=${PREFIX}/lib/libOSMesa32.so -DLIBPROJ4_LIBRARIES:FILEPATH=${PREFIX}/lib/libproj.so \
-              ${MPI_ARGS} \
-              ${COMMON_ARGS}"
-        eval ${COMMAND}
-    else
-        COMMAND="cmake .. -DVTK_USE_X:BOOL=ON  -DLIBPROJ4_LIBRARIES:FILEPATH=${PREFIX}/lib/libproj.so \
-              ${MPI_ARGS} \
-              ${COMMON_ARGS}"
-        eval ${COMMAND}
+if [[ ${CONDA_LST}'y' == *'mesalib'* ]]; then
+    VTK_ARGS="${VTK_ARGS} \
+        -DVTK_USE_OFFSCREEN:BOOL=ON \
+        -DVTK_OPENGL_HAS_OSMESA:BOOL=ON \
+        -DOSMESA_INCLUDE_DIR:PATH=${PREFIX}/include \
+        -DOSMESA_LIBRARY:FILEPATH=${PREFIX}/lib/libOSMesa32${SHLIB_EXT}"
+
+    if [ ${OSNAME} == Linux ]; then
+        VTK_ARGS="${VTK_ARGS} \
+            -DVTK_USE_X:BOOL=OFF"
+    elif [ ${OSNAME} == Darwin ]; then
+        VTK_ARGS="${VTK_ARGS} \
+            -DVTK_USE_CARBON:BOOL=OFF \
+            -DVTK_USE_COCOA:BOOL=OFF"
+    fi
+else
+    VTK_ARGS="${VTK_ARGS} \
+        -DVTK_USE_OFFSCREEN:BOOL=OFF \
+        -DVTK_OPENGL_HAS_OSMESA:BOOL=OFF"
+    if [ ${OSNAME} == Linux ]; then
+        VTK_ARGS="${VTK_ARGS} \
+            -DVTK_USE_X:BOOL=ON"
+    elif [ ${OSNAME} == Darwin ]; then
+        VTK_ARGS="${VTK_ARGS} \
+            -DVTK_USE_CARBON:BOOL=OFF \
+            -DVTK_USE_COCOA:BOOL=ON"
     fi
 fi
+COMMAND="cmake .. \
+    ${COMMON_ARGS} \
+    ${VTK_ARGS} \
+    ${MPI_ARGS}"
+echo $COMMAND
+eval ${COMMAND}
 
-if [ `uname` == Darwin ]; then
-    COMMAND="cmake .. \
-        -DVTK_REQUIRED_OBJCXX_FLAGS='' \
-        -DVTK_USE_CARBON=OFF \
-        -DVTK_USE_COCOA=ON \
-        -DVTK_USE_X=OFF \
-        -DLIBPROJ4_LIBRARIES:FILEPATH=${PREFIX}/lib/libproj.dylib \
-        -DCMAKE_OSX_DEPLOYMENT_TARGET=10.12 \
-        ${MPI_ARGS} \
-        ${COMMON_ARGS}"
-    eval ${COMMAND}
-fi
-
-make -j7
+make -j${CPU_COUNT}
 make install

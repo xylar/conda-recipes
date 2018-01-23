@@ -17,16 +17,17 @@ requirements:
     - numpy {{ numpy }}
     - cdat_info
     - libdrs_f
+    - toolchain
+    - libgfortran
   run:
-    - python
+    - python {{ python }}
     - setuptools
     - libcdms
     - cdat_info
     - libdrs_f
-    - numpy 
+    - libgfortran
+    - numpy  
 
 about:
     home:  http://gitub.com/UV-CDAT/cdtime
-
-
 

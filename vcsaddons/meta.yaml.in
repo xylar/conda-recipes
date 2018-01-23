@@ -1,6 +1,6 @@
 package:
     name: vcsaddons
-    version: @VERSION@
+    version: "@VERSION@"
 
 source:
     git_rev: @UVCDAT_BRANCH@
@@ -13,6 +13,7 @@ requirements:
   build:
     - python
     - setuptools
+    - toolchain  # [osx]
   run:
     - python
     - vcs

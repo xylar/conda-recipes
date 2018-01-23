@@ -13,11 +13,11 @@ requirements:
   build:
     - python
     - setuptools
-    - numpy x.x
+    - numpy
   run:
     - python
-    - numpy x.x 
-    - hdf5 1.8.17
+    - numpy 
+    - hdf5 >=1.8.17
 
 about:
     home:  http://gitub.com/UV-CDAT/uvcdat

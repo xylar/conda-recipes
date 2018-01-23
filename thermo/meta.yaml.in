@@ -1,6 +1,6 @@
 package:
     name: thermo
-    version: @VERSION@
+    version: "@VERSION@"
 
 source:
     git_rev: @UVCDAT_BRANCH@

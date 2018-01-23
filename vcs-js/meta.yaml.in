@@ -1,13 +1,13 @@
 package:
     name: vcs-js
-    version: 0.1
+    version: 0.4.@VERSION@
 
 source:
-    git_rev: easy_deployment
+    git_rev: @UVCDAT_BRANCH@
     git_url: git://github.com/UV-CDAT/vcs-js.git
 
 build:
-  string: dev
+    number: 0
 
 requirements:
   build:
