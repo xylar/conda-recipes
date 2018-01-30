@@ -28,7 +28,7 @@ requirements:
     - cdtime
     - libcdms
     - cdat_info
-    - numpy 
+    - numpy {{ numpy }}
     - esmf >=7
     - esmpy
     - libdrs_f
