@@ -16,7 +16,7 @@ requirements:
     - setuptools
     - libcdms
     - cdat_info
-    - numpy {{ numpy }}
+    - numpy {{ numpy }}.*
     - esmf >=7
     - libdrs_f
     - gcc [linux]
@@ -28,7 +28,7 @@ requirements:
     - cdtime
     - libcdms
     - cdat_info
-    - numpy {{ numpy }}
+    - numpy {{ numpy }}.*
     - esmf >=7
     - esmpy
     - libdrs_f
