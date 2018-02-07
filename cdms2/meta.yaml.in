@@ -1,6 +1,6 @@
 package:
     name: cdms2
-    version: @VERSION@
+    version: @VERSION@.npy{{ numpy }}
 
 source:
     git_rev: @UVCDAT_BRANCH@
