@@ -7,7 +7,7 @@ import time
 
 last_stable = "2.12"
 l = time.localtime()
-today = "%s.%.2i.%.2i.%.2i.%.2i.%.2i.{{ GIT_FULL_HASH }}" % (last_stable, l.tm_year, l.tm_mon, l.tm_mday, l.tm_hour, l.tm_min)
+today = "%s.%.2i.%.2i.%.2i.%.2i.%.2i.{{ GIT_DESCRIBE_HASH }}" % (last_stable, l.tm_year, l.tm_mon, l.tm_mday, l.tm_hour, l.tm_min)
 
 parser = argparse.ArgumentParser(
     description='Cleanup your anaconda server',
@@ -33,7 +33,7 @@ parser.add_argument("-f", "--features", nargs="*",
 
 args = parser.parse_args(sys.argv[1:])
 
-today2 = "%s.%.2i.%.2i.%.2i.%.2i.%.2i.{{ GIT_FULL_HASH }}" % (args.last_stable, l.tm_year, l.tm_mon, l.tm_mday, l.tm_hour, l.tm_min)
+today2 = "%s.%.2i.%.2i.%.2i.%.2i.%.2i.{{ GIT_DESCRIBE_HASH }}" % (args.last_stable, l.tm_year, l.tm_mon, l.tm_mday, l.tm_hour, l.tm_min)
 featured_packages = {}
 files = glob.glob("*/meta.yaml.in")
 for fnm in files:
