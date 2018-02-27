@@ -1,6 +1,6 @@
 package:
     name: cdtime
-    version: @VERSION@
+    version: @VERSION@.np{{ numpy }}
 
 source:
     git_rev: @UVCDAT_BRANCH@
