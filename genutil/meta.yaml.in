@@ -1,6 +1,6 @@
 package:
     name: genutil
-    version: @VERSION@
+    version: @VERSION@.npy{{ numpy }}
 
 source:
     git_rev: @UVCDAT_BRANCH@
@@ -11,15 +11,15 @@ build:
  
 requirements:
   build:
-    - python {{ PY_VER }}
+    - python {{ python }}
     - setuptools
-    - numpy  {{ NPY_VER }}
+    - numpy {{ numpy }}.*
     - udunits2
     - toolchain [osx]
   run:
-    - python {{ PY_VER }}
+    - python {{ python }}
     - cdms2
-    - numpy  {{ NPY_VER }}
+    - numpy {{ numpy }}.*
     - udunits2
 
 about:
