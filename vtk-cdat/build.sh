@@ -2,7 +2,7 @@
 
 mkdir build
 cd build
-
+env
 CONDA_LST=`conda list`
 OSNAME=`uname`
 if [[ ${CONDA_LST}'y' == *'openmpi'* ]]; then
@@ -24,15 +24,15 @@ else
     fi
     MPI_ARGS=""
 fi
-if [ ${PY3K} ]; then
+if [ ${PY3K} != 0 ]; then
     PYVER_SHORT=3
     PY_LIB="libpython${PY_VER}m${SHLIB_EXT}"
-    SIX="-DVTK_USE_SYSTEM_SIX:BOOL=ON"
 else
     PYVER_SHORT=2
     PY_LIB="libpython${PY_VER}${SHLIB_EXT}"
-    SIX=""
 fi
+
+SIX="-DVTK_USE_SYSTEM_SIX:BOOL=ON"
 
 echo "PYLIB: "${PY_LIB}
 

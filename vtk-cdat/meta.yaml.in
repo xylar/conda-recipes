@@ -20,7 +20,7 @@ requirements:
     - cmake
     - python
     - proj4 >4.9.2
-    - hdf5 1.8.18
+    - hdf5 1.10.*
     - ffmpeg
     - freetype
     - mesalib >17  # {{{ mesalib }}}
@@ -28,16 +28,18 @@ requirements:
     - gcc [linux]
     - libgcc [linux]
     - toolchain
+    - six
   run:
     - python
     - proj4 >4.9.2
-    - hdf5 1.8.18
+    - hdf5 1.10.*
     - ffmpeg
     - freetype
     - mesalib >17  # {{{ mesalib }}}
     - x264 <20151006.2245
     - gcc [linux]
     - libgcc [linux]
+    - six
 
 test:
     imports:
