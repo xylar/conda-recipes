@@ -19,7 +19,7 @@ requirements:
     - cdat_info
     - genutil
     - dv3d
-    - vtk-cdat >7.1.0.2.8
+    - vtk-cdat
     - cdms2
     - cdutil
     - requests
