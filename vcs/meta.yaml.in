@@ -4,7 +4,7 @@ package:
 
 source:
     git_rev: @UVCDAT_BRANCH@
-    git_url: git://github.com/UV-CDAT/vcs.git
+    git_url: git://github.com/cdat/vcs.git
 
 build:
   number: @BUILD_NUMBER@
@@ -26,7 +26,8 @@ requirements:
     - numpy
 
 about:
-    home:  http://gitub.com/UV-CDAT/uvcdat
+    home:  http://github.com/cdat/vcs
+    summary: VCS Allows scientists to produce highly customized plots. Everything can be precisely and logically controlled.
 
 
 

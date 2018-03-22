@@ -4,7 +4,7 @@ package:
 
 source:
     git_rev: @UVCDAT_BRANCH@
-    git_url: git://github.com/UV-CDAT/dv3d.git
+    git_url: git://github.com/cdat/dv3d.git
 
 build:
   number: @BUILD_NUMBER@
@@ -20,7 +20,9 @@ requirements:
     - cdutil
 
 about:
-    home:  http://gitub.com/UV-CDAT/uvcdat
+    home:  http://github.com/cdat/dv3d
+    summary: >
+        A version of DV3D customized for the UVIS framework. Removes dependencies on Qt and vistrails. Integrates structured and unstructured grid plotting. Introduces VTK-only interaction widgets. Integrates all structured grid visualization modes (slice, surface, volume) in a single plot.
 
 
 
