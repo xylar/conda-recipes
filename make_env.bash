@@ -24,5 +24,5 @@ source deactivate
 source activate base
 
 conda create -y -n cdat-${RELEASE}-nox_py3 -c cdat/label/${RELEASE} -c nesii/label/dev-esmf -c conda-forge cdat mesalib "python>3"
-source activate cdat-3.0.beta-nox_py3
+source activate cdat-${RELEASE}-nox_py3
 conda env export > cdat-${RELEASE}-nox_py3.$(uname).yaml 
