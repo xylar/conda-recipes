@@ -4,7 +4,7 @@ package:
 
 source:
     git_rev: @UVCDAT_BRANCH@
-    git_url: git://github.com/UV-CDAT/vcsaddons.git
+    git_url: git://github.com/cdat/vcsaddons.git
 
 build:
   number: @BUILD_NUMBER@
@@ -20,7 +20,8 @@ requirements:
     - cdms2
 
 about:
-    home:  http://gitub.com/UV-CDAT/vcsaddons
+    home:  http://github.com/cdat/vcsaddons
+    summary: Addons to VCS.
 
 
 

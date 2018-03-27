@@ -4,7 +4,7 @@ package:
 
 source:
     git_rev: @UVCDAT_BRANCH@
-    git_url: git://github.com/UV-CDAT/thermo.git
+    git_url: git://github.com/cdat/thermo.git
 
 build:
   number: @BUILD_NUMBER@
@@ -19,7 +19,8 @@ requirements:
     - cdms2
 
 about:
-    home:  http://gitub.com/UV-CDAT/thermo
+    home:  http://github.com/cdat/thermo
+    summary: Package to draw thermodynamic diagrams
 
 
 
