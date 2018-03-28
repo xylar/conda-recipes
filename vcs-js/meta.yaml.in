@@ -1,10 +1,10 @@
 package:
     name: vcs-js
-    version: 0.4.@VERSION@
+    version: 0.6.@VERSION@
 
 source:
     git_rev: @UVCDAT_BRANCH@
-    git_url: git://github.com/UV-CDAT/vcs-js.git
+    git_url: git://github.com/cdat/vcs-js.git
 
 build:
     number: 0
@@ -23,7 +23,5 @@ requirements:
     - tornado
 
 about:
-    home:  http://gitub.com/UV-CDAT/uvcdat
-
-
+    home:  http://gitub.com/cdat/vcs-js
 
