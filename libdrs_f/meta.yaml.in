@@ -3,7 +3,7 @@ package:
     version: 1.0.1
 
 source:
-    git_rev: master
+    git_rev: new_gcc
     git_url: git://github.com/UV-CDAT/libdrs.git
 
 build:
@@ -15,11 +15,15 @@ requirements:
     - libcdms
     - libpng
     - gcc [osx]
+    - gcc_linux-64 [linux]
+    - gfortran_linux-64 [linux]
   run:
     - g2clib
     - libcdms
     - libpng
     - gcc [osx]
+    - libgcc [linux]
+    - libgfortran [linux]
 
 about:
     home:  http://github.com/UV-CDAT/libdrs

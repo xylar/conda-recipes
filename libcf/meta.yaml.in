@@ -2,7 +2,7 @@
 {% set version = "1.0.1" %}
 package:
     name: libcf
-    version: i1.0.1
+    version: 1.0.1
 
 source:
     url: http://uvcdat.llnl.gov/cdat/resources/{{ name }}-{{ version }}-beta12.tar.gz
@@ -14,22 +14,24 @@ build:
 requirements:
   build:
     - toolchain
-    - hdf5 1.10.1
-    - libnetcdf 4.5.*
+    - hdf5 >=1.10.1
+    - libnetcdf >=4.5
     - lapack >=3.4.2
     - clapack >=3.2.1
     - curl >=7.44.0,<8
     - python
     - ossuuid 
     - gcc [osx]
+    - gcc_linux-64 [linux]
   run:
     - python
-    - hdf5 1.10.1
+    - hdf5 >=1.10.1
     - libnetcdf >=4.5
     - lapack >=3.4.2
     - clapack >=3.2.1
     - curl >=7.44.0,<8
     - ossuuid
+    - libgcc
 
 about:
     home:  http://gitub.com/UV-CDAT/cdat
