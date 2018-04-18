@@ -17,9 +17,9 @@ else
         #export LD_LIBRARY_PATH=${PREFIX}/lib:${LIBRARY_PATH}
         #export CC=${CC}" -Wl,-rpath=${PREFIX}/lib"
         #export CXX=${CXX}" -Wl,-rpath=${PREFIX}/lib"
-        export CXXFLAGS="${CXXFLAGS} -I/usr/include"
-        export CPPFLAGS="${CPPFLAGS} -I/usr/include"
-        export CFLAGS="${CFLAGS} -I/usr/include"
+        export CXXFLAGS="${CXXFLAGS} -I/usr/include -I/usr/include/x86_64-linux-gnu"
+        export CPPFLAGS="${CPPFLAGS} -I/usr/include -I/usr/include/x86_64-linux-gnu"
+        export CFLAGS="${CFLAGS} -I/usr/include -I/usr/include/x86_64-linux-gnu"
         export LDFLAGS="-L/usr/lib/x86_64-linux-gnu -lm"
     fi
     MPI_ARGS=""
