@@ -4,7 +4,7 @@ package:
 
 source:
     git_rev: master
-    git_url: git://github.com/UV-CDAT/lats.git
+    git_url: git://github.com/cdat/lats.git
 
 build:
   number: @BUILD_NUMBER@
@@ -12,15 +12,17 @@ build:
 requirements:
   build:
     - libnetcdf 4.*
-    - hdf5 1.8.17
-    - gcc [osx]
+    - hdf5 1.10.*
+    - gcc_linux-64 [linux]
+    - gfortran_linux-64 [linux]
   run:
     - libnetcdf 4.*
-    - hdf5 1.8.17
-    - gcc [osx]
+    - hdf5 1.10.*
+    - libgcc [linux]
+    - libgfortran [linux]
 
 about:
-    home:  http://github.com/UV-CDAT/lats
+    home:  http://github.com/cdat/lats
 
 
 
