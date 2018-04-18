@@ -1,22 +1,23 @@
 {% set name = "libcdms" %}
-{% set version = "2.10" %}
+{% set version = "3.0" %}
 
 package:
   name: libcdms
-  version: 2.10
+  version: {{ version }}
 
 source:
-    url: https://github.com/UV-CDAT/libcdms/archive/v2.10.tar.gz
-    sha256: 1a82c29612474247110544c472d5fd7e9bb991400f849d92dce482dda9fb439c
+    fn: {{ name }}-{{ version }}.tar.gz
+    url: https://github.com/UV-CDAT/libcdms/archive/v3.0.tar.gz
+    sha256: 18131119b862c744224669dbd9d9fc292f34ef0c6ec5d97a39e179962fc2e3df
 
 build:
-  number: 0
+  number: 2
   skip: True  # [win] 
 
 requirements:
   build:
-    - hdf5 1.8.17|1.8.17.*
-    - libnetcdf 4.4.*
+    - hdf5 1.10.*
+    - libnetcdf 4.5.*
     - jasper
     - g2clib
     - libpng >=1.6.28,<1.7
@@ -25,8 +26,8 @@ requirements:
     - libdrs
     - toolchain  # [osx]
   run:
-    - hdf5 1.8.17|1.8.17.*
-    - libnetcdf 4.4.*
+    - hdf5 1.10.*
+    - libnetcdf 4.5.*
     - jasper
     - g2clib
     - libpng >=1.6.28,<1.7
