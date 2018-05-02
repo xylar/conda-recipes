@@ -19,6 +19,7 @@ requirements:
     - libdrs_f
     - toolchain
     - libgfortran
+    - libnetcdf >4.6
   run:
     - python {{ python }}
     - setuptools
