@@ -6,7 +6,7 @@ import glob
 import time
 import os
 
-if os.environ.has_key("VERSION"):
+if "VERSION" in os.environ.keys():
     last_stable=os.environ['VERSION']
 else:
     last_stable = "8.0"
