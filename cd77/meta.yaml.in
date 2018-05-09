@@ -4,7 +4,7 @@ package:
 
 source:
     git_rev: master
-    git_url: git://github.com/UV-CDAT/cd77.git
+    git_url: git://github.com/cdat/cd77.git
 
 build:
   number: @BUILD_NUMBER@
@@ -13,15 +13,17 @@ requirements:
   build:
     - python
     - setuptools
+    - gcc_linux-64 [linux]
   run:
     - libcdms
     - libdrs_f
     - ezget
     - lats
     - python
+    - libgcc [linux]
 
 about:
-    home:  http://github.com/UV-CDAT/cd77
+    home:  http://github.com/cdat/cd77
 
 
 

@@ -25,9 +25,9 @@ requirements:
     - freetype
     - mesalib >17  # {{{ mesalib }}}
     - x264 <20151006.2245
-    - gcc [linux]
-    - libgcc [linux]
-    - toolchain
+    - gcc_linux-64 [linux]
+    - gxx_linux-64 [linux]
+    - toolchain [osx]
     - six
   run:
     - python
@@ -37,7 +37,6 @@ requirements:
     - freetype
     - mesalib >17  # {{{ mesalib }}}
     - x264 <20151006.2245
-    - gcc [linux]
     - libgcc [linux]
     - six
 

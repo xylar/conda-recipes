@@ -14,13 +14,14 @@ if [[ ${CONDA_LST}'y' == *'openmpi'* ]]; then
 else
     if [ ${OSNAME} == Linux ]; then
         # To make sure we get the correct g++
-        export LD_LIBRARY_PATH=${PREFIX}/lib:${LIBRARY_PATH}
-        export CC="gcc -Wl,-rpath=${PREFIX}/lib"
-        export CXX="g++ -Wl,-rpath=${PREFIX}/lib"
-        export LDFLAGS="-L/usr/lib/x86_64-linux-gnu -lm"
-    else
-        export CC="clang"
-        export CXX="clang++"
+        #export LD_LIBRARY_PATH=${PREFIX}/lib:${LIBRARY_PATH}
+        #export CC=${CC}" -Wl,-rpath=${PREFIX}/lib"
+        #export CXX=${CXX}" -Wl,-rpath=${PREFIX}/lib"
+        export CXXFLAGS="-std=c++11 -I/usr/include ${CXXFLAGS} -I/usr/include"
+        export CPPFLAGS="-I/usr/include ${CPPFLAGS} -I/usr/include"
+        export CFLAGS="-I/usr/include ${CFLAGS} -I/usr/include"
+        #export LDFLAGS="-L/usr/lib/x86_64-linux-gnu -lm"
+        echo "BARE FLAGS: ${CFLAGS} ${CXXFLAGS}"
     fi
     MPI_ARGS=""
 fi
