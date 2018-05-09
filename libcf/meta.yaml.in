@@ -1,19 +1,21 @@
 {% set name = "libcf" %}
-{% set version = "1.0.1" %}
 package:
     name: libcf
-    version: 1.0.1
+    version: @VERSION@
 
 source:
-    url: http://uvcdat.llnl.gov/cdat/resources/{{ name }}-{{ version }}-beta12.tar.gz
-    sha256: de3f16c515198eba596f5e52fc69ce7fd18230c043711ff4c1934d76dbbc8259
+    git_rev: @UVCDAT_BRANCH@
+    git_url: git://github.com/cdat/libcf.git
+
+#    url: http://uvcdat.llnl.gov/cdat/resources/{{ name }}-1.0.1-beta12.tar.gz
+#    sha256: de3f16c515198eba596f5e52fc69ce7fd18230c043711ff4c1934d76dbbc8259
 
 build:
   number: @BUILD_NUMBER@
  
 requirements:
   build:
-    - toolchain
+    - toolchain [osx]
     - hdf5 >=1.10.1
     - libnetcdf >=4.5
     - lapack >=3.4.2
