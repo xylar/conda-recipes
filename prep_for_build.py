@@ -4,8 +4,13 @@ import argparse
 import sys
 import glob
 import time
+import os
 
-last_stable="${VERSION}"
+if os.environ.has_key("VERSION"):
+    last_stable=os.environ['VERSION']
+else:
+    last_stable = "8.0"
+
 l = time.localtime()
 today = "%s.%.2i.%.2i.%.2i.%.2i.%.2i.{{ GIT_DESCRIBE_HASH }}" % (last_stable, l.tm_year, l.tm_mon, l.tm_mday, l.tm_hour, l.tm_min)
 
