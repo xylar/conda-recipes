@@ -1,6 +1,6 @@
 package:
     name: libdrs_f
-    version: 1.0.1
+    version: @VERSION@
 
 source:
     git_rev: new_gcc
