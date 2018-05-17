@@ -4,7 +4,7 @@ package:
 
 source:
     git_rev: @UVCDAT_BRANCH@
-    git_url: git://github.com/UV-CDAT/genutil.git
+    git_url: git://github.com/CDAT/genutil.git
 
 build:
   number: @BUILD_NUMBER@
@@ -23,7 +23,7 @@ requirements:
     - udunits2
 
 about:
-    home:  http://gitub.com/UV-CDAT/genutil
+    home:  http://gitub.com/CDAT/genutil
 
 
 

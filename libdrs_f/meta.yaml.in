@@ -4,7 +4,7 @@ package:
 
 source:
     git_rev: new_gcc
-    git_url: git://github.com/UV-CDAT/libdrs.git
+    git_url: git://github.com/CDAT/libdrs.git
 
 build:
   number: @BUILD_NUMBER@
@@ -26,7 +26,7 @@ requirements:
     - libgfortran [linux]
 
 about:
-    home:  http://github.com/UV-CDAT/libdrs
+    home:  http://github.com/CDAT/libdrs
 
 
 

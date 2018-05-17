@@ -4,7 +4,7 @@ package:
 
 source:
     git_rev: @UVCDAT_BRANCH@
-    git_url: git://github.com/UV-CDAT/cdatgui.git
+    git_url: git://github.com/CDAT/cdatgui.git
 
 build:
   number: @BUILD_NUMBER@
@@ -21,7 +21,7 @@ requirements:
     - ipython >=4
 
 about:
-    home:  http://gitub.com/UV-CDAT/cdatgui
+    home:  http://gitub.com/CDAT/cdatgui
 
 
 

@@ -4,7 +4,7 @@ package:
 
 source:
     git_rev: @UVCDAT_BRANCH@
-    git_url: git://github.com/UV-CDAT/xmgrace.git
+    git_url: git://github.com/CDAT/xmgrace.git
 
 build:
   number: @BUILD_NUMBER@
@@ -18,7 +18,7 @@ requirements:
     - cdms2
 
 about:
-    home:  http://gitub.com/UV-CDAT/uvcdat
+    home:  http://gitub.com/CDAT/uvcdat
 
 
 

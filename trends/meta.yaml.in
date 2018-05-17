@@ -4,7 +4,7 @@ package:
 
 source:
     git_rev: @UVCDAT_BRANCH@
-    git_url: git://github.com/UV-CDAT/uvcdat.git
+    git_url: git://github.com/CDAT/uvcdat.git
 
 build:
   number: @BUILD_NUMBER@
@@ -22,7 +22,7 @@ requirements:
     - libgfortran [osx]
 
 about:
-    home:  http://gitub.com/UV-CDAT/uvcdat
+    home:  http://gitub.com/CDAT/uvcdat
 
 
 
