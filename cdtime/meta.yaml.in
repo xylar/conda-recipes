@@ -4,7 +4,7 @@ package:
 
 source:
     git_rev: @UVCDAT_BRANCH@
-    git_url: git://github.com/UV-CDAT/cdtime.git
+    git_url: git://github.com/CDAT/cdtime.git
 
 build:
   number: @BUILD_NUMBER@
@@ -29,5 +29,5 @@ requirements:
     - numpy  {{ numpy }}.*
 
 about:
-    home:  http://gitub.com/UV-CDAT/cdtime
+    home:  http://gitub.com/CDAT/cdtime
 

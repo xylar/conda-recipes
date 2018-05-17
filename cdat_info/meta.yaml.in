@@ -6,7 +6,7 @@ package:
 
 source:
     git_rev: @UVCDAT_BRANCH@
-    git_url: git://github.com/UV-CDAT/cdat_info.git
+    git_url: git://github.com/CDAT/cdat_info.git
 
 build:
   number: 0

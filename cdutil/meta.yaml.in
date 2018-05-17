@@ -4,7 +4,7 @@ package:
 
 source:
     git_rev: @UVCDAT_BRANCH@
-    git_url: git://github.com/UV-CDAT/cdutil.git
+    git_url: git://github.com/CDAT/cdutil.git
 
 build:
   number: @BUILD_NUMBER@
@@ -19,7 +19,7 @@ requirements:
     - genutil
 
 about:
-    home:  http://gitub.com/UV-CDAT/cdutil
+    home:  http://gitub.com/CDAT/cdutil
 
 
 
