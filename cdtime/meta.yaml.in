@@ -14,11 +14,12 @@ requirements:
     - python {{ python }}
     - setuptools
     - libcdms
-    - numpy {{ numpy }}.*
+    - numpy 
     - cdat_info
     - libdrs_f
     - toolchain
     - gcc_linux-64 [linux]
+    - gcc [osx]
     - libgfortran
   run:
     - python {{ python }}
@@ -27,7 +28,8 @@ requirements:
     - cdat_info
     - libdrs_f
     - libgfortran
-    - numpy  {{ numpy }}.*
+    - numpy  
+    - libgcc
 
 about:
     home:  http://gitub.com/CDAT/cdtime
