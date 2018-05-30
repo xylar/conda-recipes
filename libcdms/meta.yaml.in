@@ -6,7 +6,7 @@ package:
   version:  @VERSION@
 
 source:
-    git_rev: netcdf5
+    git_rev: @BUILD_NUMBER@
     git_url: git://github.com/UV-CDAT/libcdms.git
 
 #    fn: {{ name }}-{{ version }}.tar.gz
