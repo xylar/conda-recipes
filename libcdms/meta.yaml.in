@@ -6,8 +6,8 @@ package:
   version:  @VERSION@
 
 source:
-    git_rev: @BUILD_NUMBER@
-    git_url: git://github.com/UV-CDAT/libcdms.git
+    git_rev: @UVCDAT_BRANCH@
+    git_url: git://github.com/CDAT/libcdms.git
 
 #    fn: {{ name }}-{{ version }}.tar.gz
 #    url: https://github.com/CDAT/libcdms/archive/v3.0.1.tar.gz
