@@ -3,14 +3,20 @@ export CXXLAGS="${CFLAGS}"
 export CPPFLAGS="-I${PREFIX}/include"
 export LDFLAGS="-L${PREFIX}/lib"
 
-if [ `uname` == Linux ]; then
-    # To make sure we get the correct g++
-    export LD_LIBRARY_PATH=${PREFIX}/lib:${LIBRARY_PATH}
-    export CC="gcc -Wl,-rpath=${PREFIX}/lib"
-    export CXX="g++ -Wl,-rpath=${PREFIX}/lib"
+#if [ `uname` == Linux ]; then
+#    # To make sure we get the correct g++
+#    export LD_LIBRARY_PATH=${PREFIX}/lib:${LIBRARY_PATH}
+#    export CC="gcc -Wl,-rpath=${PREFIX}/lib"
+#    export CXX="g++ -Wl,-rpath=${PREFIX}/lib"
+#else
+#    export CC="gcc"
+#    export CXX="g++"
+#fi
+
+if [ $(uname) == "Linux" ];then
+    export LDSHARED="$CC -shared -pthread"
+    LDSHARED="$CC -shared -pthread" python setup.py install
 else
-    export CC="gcc"
-    export CXX="g++"
+    python setup.py install
 fi
 
-python setup.py install
