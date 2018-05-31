@@ -9,7 +9,7 @@ if [ $(uname) == "Linux" ];then
     if [ ! -f ${PREFIX}/lib/libgfortran.so ]; then
         ln -s ${PREFIX}/lib/libgfortran.so.3.0.0 ${PREFIX}/lib/libgfortran.so
     fi
-    LDSHARED="$CC -shared -pthread" python setup install
+    LDSHARED="$CC -shared -pthread" python setup.py install
 else
     python setup.py install
 fi
