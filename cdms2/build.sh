@@ -12,6 +12,7 @@ export LDFLAGS="-L${PREFIX}/lib"
 #    export CC="gcc"
 #    export CXX="g++"
 #fi
+#python setup.py install
 
 if [ $(uname) == "Linux" ];then
     export LDSHARED="$CC -shared -pthread"
