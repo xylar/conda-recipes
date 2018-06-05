@@ -9,5 +9,9 @@ export LDSHARED="$CC -shared -pthread"
 ./configure --prefix=${PREFIX}
 make 
 make install
-${PYTHON} setup.py install
+if [ $(uname) == "Linux" ]; then
+   LDSHARED="$CC -shared -pthread" python setup.py install
+else
+   python setup.py install
+fi
 
