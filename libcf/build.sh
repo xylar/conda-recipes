@@ -7,5 +7,7 @@ export LFLAGS="-fPIC ${LFLAGS}"
 export FC=""
 export LDSHARED="$CC -shared -pthread" 
 ./configure --prefix=${PREFIX}
+make 
+make install
 ${PYTHON} setup.py install
 
