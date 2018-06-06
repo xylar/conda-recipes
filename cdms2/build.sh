@@ -1,7 +1,11 @@
-export CFLAGS="-Wall -g -m64 -pipe -O2  -fPIC"
-export CXXLAGS="${CFLAGS}"
-export CPPFLAGS="-I${PREFIX}/include"
-export LDFLAGS="-L${PREFIX}/lib"
+#source activate "${CONDA_DEFAULT_ENV}"
+export CFLAGS="-Wall -g -m64 -pipe -O2  -fPIC ${CFLAGS}"
+export CXXLAGS="${CFLAGS} ${CXXFLAGS}"
+export CPPFLAGS="-I${PREFIX}/include ${CPPFLAGS}"
+export LDFLAGS="-L${PREFIX}/lib ${LDFLAGS}"
+export LFLAGS="-fPIC ${LFLAGS}"
+export FC=""
+export LDSHARED="$CC -shared -pthread"
 
 #if [ `uname` == Linux ]; then
 #    # To make sure we get the correct g++
@@ -20,4 +24,3 @@ if [ $(uname) == "Linux" ];then
 else
     python setup.py install
 fi
-
