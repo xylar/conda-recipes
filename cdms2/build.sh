@@ -5,7 +5,6 @@ export CPPFLAGS="-I${PREFIX}/include ${CPPFLAGS}"
 export LDFLAGS="-L${PREFIX}/lib ${LDFLAGS}"
 export LFLAGS="-fPIC ${LFLAGS}"
 export FC=""
-export LDSHARED="$CC -shared -pthread"
 
 #if [ `uname` == Linux ]; then
 #    # To make sure we get the correct g++
