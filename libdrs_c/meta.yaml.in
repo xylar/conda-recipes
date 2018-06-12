@@ -3,7 +3,7 @@ package:
     version: @VERSION@
 
 source:
-    git_rev: new_gcc
+    git_rev: master
     git_url: git://github.com/CDAT/libdrs.git
 
 build:
