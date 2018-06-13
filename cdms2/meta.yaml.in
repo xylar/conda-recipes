@@ -1,6 +1,6 @@
 package:
     name: cdms2
-    version: @VERSION@.npy{{ numpy }}
+    version: @VERSION@
 
 source:
     git_rev: @UVCDAT_BRANCH@
@@ -16,7 +16,7 @@ requirements:
     - setuptools
     - libcdms
     - cdat_info
-    - numpy {{ numpy }}.*
+    - numpy 
     - esmf >=7
     - libdrs_f
     - gcc_linux-64 [linux]
@@ -28,7 +28,7 @@ requirements:
     - cdtime
     - libcdms
     - cdat_info
-    - numpy {{ numpy }}.*
+    - numpy 
     - esmf >=7
     - esmpy
     - libdrs_f
