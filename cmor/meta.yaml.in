@@ -33,7 +33,6 @@ requirements:
     - libnetcdf 4.6.*
     - {{ pin_compatible('numpy') }}
     - cdms2
-    - gcc
     - hdf5 1.10.*
 
 about:
