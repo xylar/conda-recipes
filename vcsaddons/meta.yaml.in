@@ -11,13 +11,15 @@ build:
  
 requirements:
   build:
+    - {{ compiler("c") }}
+  host:
     - python
     - setuptools
-    - toolchain  # [osx]
   run:
     - python
     - vcs
     - cdms2
+    - libgcc
 
 about:
     home:  http://github.com/cdat/vcsaddons
