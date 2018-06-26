@@ -1,4 +1,4 @@
-{% set name = "cdat_info" %}
+{% set name = "testsrunner" %}
 
 package:
   name: {{ name|lower }}
@@ -6,7 +6,7 @@ package:
 
 source:
     git_rev: @UVCDAT_BRANCH@
-    git_url: git://github.com/CDAT/cdat_info.git
+    git_url: git://github.com/cdat/testsrunner.git
 
 build:
   number: 0
@@ -20,22 +20,19 @@ requirements:
   run:
     - python
     - requests
-    - testsrunner
+    - cdp
 
 test:
   imports:
-    - cdat_info
+    - testsrunner
 
 about:
-  home:  http://cdat.llnl.gov
+  home:  http://github.com/cdat/testsrunner
   license: CCLRC
   license_file: LEGAL.txt
-  summary: 'Community Data Analysis Tools'
+  summary: 'Generic Test Suite Runner"
   description: |                                                                                                                                             
-    is a powerful and complete front-end to a rich set of visual-data 
-    exploration and analysis capabilities well suited for climate-data 
-    analysis problems.
-
+  A set of tools to run nose-based test suites and generate reports
 
 extra:
   recipe-maintainers:
