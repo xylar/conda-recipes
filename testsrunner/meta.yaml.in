@@ -31,9 +31,8 @@ about:
   home:  http://github.com/cdat/testsrunner
   license: CCLRC
   license_file: LEGAL.txt
-  summary: 'Generic Test Suite Runner"
-  description: |                                                                                                                                             
-  A set of tools to run nose-based test suites and generate reports
+  summary: 'Generic Test Suite Runner'
+  description: A set of tools to run nose-based test suites and generate reports
 
 extra:
   recipe-maintainers:
