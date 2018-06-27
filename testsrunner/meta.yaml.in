@@ -29,8 +29,7 @@ test:
 
 about:
   home:  http://github.com/cdat/testsrunner
-  license: CCLRC
-  license_file: LEGAL.txt
+  license: BSD 3-Clause
   summary: 'Generic Test Suite Runner'
   description: A set of tools to run nose-based test suites and generate reports
 
