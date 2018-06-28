@@ -11,16 +11,14 @@ build:
  
 requirements:
   build:
+    - {{ compiler('c') }}
+    - {{ compiler('fortran') }}
+  host:
     - libnetcdf >=4.5
     - g2clib
-    - gcc [osx]
-    - gcc_linux-64 [linux]
-    - gfortran_linux-64 [linux]
   run:
     - libnetcdf >=4.5
     - g2clib
-    - gcc [osx]
-    - libgcc [linux]
 
 about:
     home:  http://github.com/CDAT/libdrs

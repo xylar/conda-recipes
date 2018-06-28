@@ -11,7 +11,8 @@ build:
  
 requirements:
   build:
-    - toolchain [osx]
+    - {{ compiler('c') }}
+  host:
     - python {{ python }}
     - setuptools
     - libcdms
@@ -19,8 +20,6 @@ requirements:
     - numpy 
     - esmf >=7
     - libdrs_f
-    - gcc_linux-64 [linux]
-    - gcc [osx]
   run:
     - python {{ python }}
     - libcf
@@ -33,8 +32,6 @@ requirements:
     - esmpy
     - libdrs_f
     - pyopenssl
-    - gcc_linux-64 [linux]
-    - gcc [osx]
 
 about:
     home:  http://gitub.com/CDAT/cdms
