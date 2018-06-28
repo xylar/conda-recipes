@@ -22,6 +22,8 @@ requirements:
     - requests
     - jinja2
     - cdp
+    - nose
+    - flake8
 
 test:
   imports:

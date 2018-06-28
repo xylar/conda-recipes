@@ -20,7 +20,6 @@ requirements:
   run:
     - python
     - requests
-    - testsrunner
 
 test:
   imports:
