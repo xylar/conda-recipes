@@ -15,25 +15,21 @@ build:
  
 requirements:
   build:
-    - toolchain [osx]
-    - hdf5 >=1.10.1
+    - {{ compiler('c') }}
+  host:
     - libnetcdf >=4.5
     - lapack >=3.4.2
     - clapack >=3.2.1
     - curl >=7.44.0,<8
     - python
     - ossuuid 
-    - gcc [osx]
-    - gcc_linux-64 [linux]
   run:
-    - python
-    - hdf5 >=1.10.1
     - libnetcdf >=4.5
     - lapack >=3.4.2
     - clapack >=3.2.1
     - curl >=7.44.0,<8
+    - python
     - ossuuid
-    - libgcc
 
 about:
     home:  http://gitub.com/CDAT/cdat

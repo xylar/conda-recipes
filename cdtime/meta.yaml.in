@@ -1,6 +1,6 @@
 package:
     name: cdtime
-    version: @VERSION@.np{{ numpy }}
+    version: @VERSION@
 
 source:
     git_rev: @UVCDAT_BRANCH@
@@ -11,25 +11,22 @@ build:
  
 requirements:
   build:
+    - {{ compiler('c') }}
+    - {{ compiler('fortran') }}
+  host:
     - python {{ python }}
     - setuptools
     - libcdms
     - numpy 
     - cdat_info
     - libdrs_f
-    - toolchain [osx]
-    - gcc_linux-64 [linux]
-    - gcc [osx]
-    - libgfortran
   run:
     - python {{ python }}
     - setuptools
     - libcdms
     - cdat_info
     - libdrs_f
-    - libgfortran
     - numpy  
-    - libgcc
 
 about:
     home:  http://gitub.com/CDAT/cdtime
