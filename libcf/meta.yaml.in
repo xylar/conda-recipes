@@ -1,4 +1,6 @@
 {% set name = "libcf" %}
+{% set variant = "openblas" %}
+
 package:
     name: libcf
     version: @VERSION@
@@ -17,16 +19,14 @@ requirements:
   build:
     - {{ compiler('c') }}
   host:
-    - libnetcdf >=4.5
-    - lapack >=3.4.2
-    - clapack >=3.2.1
+    - libnetcdf 
+    - blas 1.1 {{ variant }}
     - curl >=7.44.0,<8
     - python
     - ossuuid 
   run:
-    - libnetcdf >=4.5
-    - lapack >=3.4.2
-    - clapack >=3.2.1
+    - libnetcdf 
+    - blas 1.1 {{ variant }}
     - curl >=7.44.0,<8
     - python
     - ossuuid
