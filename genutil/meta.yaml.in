@@ -11,16 +11,17 @@ build:
  
 requirements:
   build:
+    - {{ compiler("c") }}
+  host:
     - python {{ python }}
     - setuptools
-    - numpy {{ numpy }}.*
+    - numpy >1.11.*
     - udunits2
-    - toolchain [osx]
   run:
     - python {{ python }}
     - cdms2
-    - numpy {{ numpy }}.*
     - udunits2
+    - {{ pin_compatible('numpy') }}
 
 about:
     home:  http://gitub.com/CDAT/genutil
