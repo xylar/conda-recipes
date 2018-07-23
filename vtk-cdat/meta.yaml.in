@@ -18,6 +18,7 @@ build:
 requirements:
   host:
     - {{ compiler("cxx") }}
+    - mesalib >17  # {{{ mesalib }}}
     - python
   build:
     - cmake
@@ -25,7 +26,6 @@ requirements:
     - hdf5 1.10.*
     - ffmpeg
     - freetype
-    - mesalib >17  # {{{ mesalib }}}
     - x264 <20151006.2245
     - six
   run:
