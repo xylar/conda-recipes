@@ -3,8 +3,8 @@ package:
   version: 8.0.1.@VERSION@
 
 source:
-  git_rev: 9a839a5c50131cc30320e6fc05712572096ca6fd
-  git_url: git://github.com/Kitware/VTK.git
+  git_rev: context2d-fix-polydataitem-rendering
+  git_url: https://gitlab.kitware.com/scott.wittenburg/vtk.git
 
 build:
   number: @BUILD_NUMBER@
@@ -16,18 +16,17 @@ build:
     - mesalib  # {{{ mesalib }}}
 
 requirements:
+  host:
+    - {{ compiler("cxx") }}
+    - python
   build:
     - cmake
-    - python
     - proj4 <5
     - hdf5 1.10.*
     - ffmpeg
     - freetype
     - mesalib >17  # {{{ mesalib }}}
     - x264 <20151006.2245
-    - gcc_linux-64 [linux]
-    - gxx_linux-64 [linux]
-    - toolchain [osx]
     - six
   run:
     - python
@@ -37,7 +36,6 @@ requirements:
     - freetype
     - mesalib >17  # {{{ mesalib }}}
     - x264 <20151006.2245
-    - libgcc [linux]
     - six
 
 test:
