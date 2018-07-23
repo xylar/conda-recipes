@@ -21,6 +21,8 @@ requirements:
     - genutil
     - cdutil
     - tornado
+    - compute_graph
+    - cdat_compute_graph
 
 about:
     home:  http://gitub.com/cdat/vcs-js
