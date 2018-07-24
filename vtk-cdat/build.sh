@@ -18,9 +18,10 @@ else
         #export CC=${CC}" -Wl,-rpath=${PREFIX}/lib"
         #export CXX=${CXX}" -Wl,-rpath=${PREFIX}/lib"
         #export CXXFLAGS="-std=c++11 -I/usr/include ${CXXFLAGS} -I/usr/include"
-        #export CPPFLAGS="-I/usr/include ${CPPFLAGS} -I/usr/include"
-        #export CFLAGS="-I/usr/include ${CFLAGS} -I/usr/include"
-        #export LDFLAGS="-L/usr/lib/x86_64-linux-gnu -lm"
+        export CXXFLAGS="-I/usr/include ${CXXFLAGS} -I/usr/include"
+        export CPPFLAGS="-I/usr/include ${CPPFLAGS} -I/usr/include"
+        export CFLAGS="-I/usr/include ${CFLAGS} -I/usr/include"
+        export LDFLAGS=$LDFLAGS" -L/usr/lib/x86_64-linux-gnu -lm "
         echo "BARE FLAGS: ${CFLAGS} ${CXXFLAGS}"
     fi
     MPI_ARGS=""
