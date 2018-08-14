@@ -16,7 +16,7 @@ requirements:
     - python {{ python }}
     - setuptools
     - libcdms
-    - libpng
+    - libpng=1.6.34
     - cdat_info
     - numpy 
     - esmf >=7
@@ -27,7 +27,7 @@ requirements:
     - distarray
     - cdtime
     - libcdms
-    - libpng
+    - libpng=1.6.34
     - cdat_info
     - numpy 
     - esmf >=7
