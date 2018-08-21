@@ -18,9 +18,60 @@ build:
 requirements:
   host:
     - {{ compiler("cxx") }}
-    - mesalib >17  # {{{ mesalib }}}
     - python
+#    - xorg-libx11
+#    - xorg-applewmproto
+#    - xorg-bigreqsproto
+#    - xorg-cf-files
+#    - xorg-compositeproto
+#    - xorg-damageproto
+#    - xorg-dmxproto
+#    - xorg-evieext
+#    - xorg-fixesproto
+#    - xorg-font-util
+#    - xorg-fontcacheproto
+#    - xorg-fontsproto
+#    - xorg-gccmakedep
+#    - xorg-glproto
+#    - xorg-imake
+#    - xorg-inputproto
+#    - xorg-kbproto
+#    - xorg-libice
+#    - xorg-libpthread-stubs
+#    - xorg-libsm
+#    - xorg-libx11
+#    - xorg-libxau
+#    - xorg-libxaw
+#    - xorg-libxaw3d
+#    - xorg-libxcb
+#    - xorg-libxcursor
+#    - xorg-libxdmcp
+#    - xorg-libxext
+#    - xorg-libxfixes
+#    - xorg-libxft
+#    - xorg-libxi
+#    - xorg-libxmu
+#    - xorg-libxp
+#    - xorg-libxpm
+##    - xorg-libxrandr
+#    - xorg-libxrender
+#    - xorg-libxt
+#    - xorg-libxtst
+#    - xorg-makedepend
+#    - xorg-presentproto
+#    - xorg-printproto
+#    - xorg-randrproto
+#    - xorg-recordproto
+#    - xorg-renderproto
+#    - xorg-resourceproto
+#    - xorg-scrnsaverproto
+#    - xorg-trapproto
+#    - xorg-util-macros
+#    - xorg-videoproto
+#    - xorg-windowswmproto
+#    - libglu
   build:
+    - mesalib >17  # {{{ mesalib }}}
     - cmake
     - proj4 <5
     - hdf5 1.10.*
