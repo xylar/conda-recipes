@@ -24,7 +24,7 @@ requirements:
     - ffmpeg
     - freetype
     - mesalib >17  # {{{ mesalib }}}
-    - x264 <20151006.2245
+    - x264
     - gcc_linux-64 [linux]
     - gxx_linux-64 [linux]
     - toolchain [osx]
@@ -36,7 +36,7 @@ requirements:
     - ffmpeg
     - freetype
     - mesalib >17  # {{{ mesalib }}}
-    - x264 <20151006.2245
+    - x264
     - libgcc [linux]
     - six
 
