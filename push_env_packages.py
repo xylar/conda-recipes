@@ -19,6 +19,7 @@ else:
 conda_pkgs = os.path.abspath(os.path.join(os.environ.get("CONDA_EXE"),"..","..","pkgs"))
 # Get list of package we are using
 pkgs, err = run_cmd("conda list", verbose=True)
+missing = []
 for l in pkgs.decode("utf8").split("\n")[2:-1]:
     sp = l.split()
     name = sp[0]
@@ -29,7 +30,10 @@ for l in pkgs.decode("utf8").split("\n")[2:-1]:
     print("looking at:",tarball,os.path.exists(tarball))
     if os.path.exists(tarball):
         o,e = run_cmd("anaconda upload {} -u cdat-forge".format(tarball))
-        print("OUT:",o)
-        print("Err:",e)
+        print("OUT:",o.decode("utf8"))
+        print("Err:",e.decode("utf8"))
+    else:
+        missing.append(tarball)
 print(sys.prefix)
 print(conda_pkgs)
+print("Error on:",missing)
