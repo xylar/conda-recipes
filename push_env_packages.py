@@ -19,7 +19,7 @@ else:
 conda_pkgs = os.path.abspath(os.path.join(os.environ.get("CONDA_EXE"),"..","..","pkgs"))
 # Get list of package we are using
 pkgs, err = run_cmd("conda list", verbose=True)
-for l in pkgs.split("\n")[2:-1]:
+for l in pkgs.decode("utf8").split("\n")[2:-1]:
     sp = l.split()
     name = sp[0]
     version = sp[1]
