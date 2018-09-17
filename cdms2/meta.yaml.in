@@ -12,31 +12,29 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ compiler('fortran') }}
   host:
-    - python {{ python }}
+    - python
     - setuptools
     - libcdms
-    - libpng
     - cdat_info
-    - numpy 
-    - esmf >=7
+    - numpy
     - libdrs_f
   run:
-    - python {{ python }}
+    - python
     - libcf
     - distarray
     - cdtime
     - libcdms
-    - libpng
     - cdat_info
-    - numpy 
-    - esmf >=7
-    - esmpy
+    - {{ pin_compatible('numpy') }}
+    - esmf >=7.1.*
+    - esmpy >=7.1.*
     - libdrs_f
     - pyopenssl
 
 about:
-    home:  http://gitub.com/CDAT/cdms
+    home:  http://github.com/CDAT/cdms
 
 
 
