@@ -1,44 +1,35 @@
+{% set build_number = @BUILD_NUMBER@ %}
+
 package:
   name: vtk-cdat
-  version: 8.0.1.@VERSION@
+  version: {{ environ['GIT_DESCRIBE_TAG'][1:] ~ "." ~ environ['GIT_DESCRIBE_NUMBER']}}.@VERSION@
 
 source:
-  git_rev: 9a839a5c50131cc30320e6fc05712572096ca6fd
-  git_url: git://github.com/Kitware/VTK.git
+  git_branch: master
+  git_url: https://gitlab.kitware.com/vtk/vtk.git
 
 build:
-  number: @BUILD_NUMBER@
-  skip: True  # [win]
-  detect_binary_files_with_prefix: true
-  has_prefix_files:                           [win]
-    - Lib/site-packages/vtk/__init__.py       [win]
-  features:  # {{{ mesalib }}}
-    - mesalib  # {{{ mesalib }}}
+  number: {{ build_number }}
+  features:
+    - mesalib  # [VTK_WITH_OSMESA]
+
 
 requirements:
   build:
+    - toolchain
     - cmake
-    - python
-    - proj4 <5
-    - hdf5 1.10.*
+    - ninja
+    - python {{python}}
+    - numpy
     - ffmpeg
-    - freetype
-    - mesalib >17  # {{{ mesalib }}}
-    - x264
-    - gcc_linux-64 [linux]
-    - gxx_linux-64 [linux]
-    - toolchain [osx]
-    - six
+    - mesalib # [VTK_WITH_OSMESA]
+
   run:
     - python
-    - proj4 <5
-    - hdf5 1.10.*
+    - numpy
+    - future
     - ffmpeg
-    - freetype
-    - mesalib >17  # {{{ mesalib }}}
-    - x264
-    - libgcc [linux]
-    - six
+    - mesalib # [VTK_WITH_OSMESA]
 
 test:
     imports:
@@ -49,7 +40,7 @@ about:
     home: http://www.vtk.org/
     license: BSD 3-Clause
     license_file: Copyright.txt
-    summary: >
+    summary:
         The Visualization Toolkit (VTK) is an open-source, freely available software
         system for 3D computer graphics, modeling, image processing, volume 
         rendering, scientific visualization, and information visualization.
