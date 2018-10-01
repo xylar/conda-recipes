@@ -22,6 +22,8 @@ requirements:
     - python {{python}}
     - numpy
     - ffmpeg {{ffmpeg}}
+    # needed by ffmpeg for nice videos
+    - x264
     - mesalib  # [VTK_WITH_OSMESA]
 
   run:
@@ -29,6 +31,8 @@ requirements:
     - numpy
     - future
     - ffmpeg
+    # needed by ffmpeg for nice videos
+    - x264
     - mesalib # [VTK_WITH_OSMESA]
 
 test:
