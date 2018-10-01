@@ -4,6 +4,11 @@ python:
 pin_run_as_build:
   python: x.x
 
+ffmpeg:
+    - 4.0.*
+pin_run_as_build:
+  ffmpeg: x.x
+
 numpy:
     - 1.15
 
