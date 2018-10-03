@@ -4,27 +4,35 @@ mkdir build
 cd build
 
 BUILD_CONFIG=Release
+OSNAME=`uname`
 
-# choose different screen settings for OS X and Linux
-if [ `uname` = "Darwin" ]; then
-    SCREEN_ARGS=(
-        "-DVTK_USE_X:BOOL=OFF"
-        "-DVTK_USE_COCOA:BOOL=ON"
-        "-DVTK_USE_CARBON:BOOL=OFF"
-    )
-else
-    SCREEN_ARGS=(
-        "-DVTK_USE_X:BOOL=ON"
-    )
-fi
+if [ -f "$PREFIX/lib/libOSMesa32${SHLIB_EXT}" ]; then
+    VTK_ARGS="${VTK_ARGS} \
+        -DVTK_USE_OFFSCREEN:BOOL=ON \
+        -DVTK_OPENGL_HAS_OSMESA:BOOL=ON \
+        -DOSMESA_INCLUDE_DIR:PATH=${PREFIX}/include \
+        -DOSMESA_LIBRARY:FILEPATH=${PREFIX}/lib/libOSMesa32${SHLIB_EXT}"
 
-if [ -f '$PREFIX/lib/libOSMesa32.so']; then
-    WITH_OSMESA=(
-        "-DVTK_OPENGL_HAS_OSMESA:BOOL=ON"
-        "-DOSMESA_LIBRARY=${PREFIX}/lib/libOSMesa32.so"
-    )
+    if [ ${OSNAME} == Linux ]; then
+        VTK_ARGS="${VTK_ARGS} \
+            -DVTK_USE_X:BOOL=OFF"
+    elif [ ${OSNAME} == Darwin ]; then
+        VTK_ARGS="${VTK_ARGS} \
+            -DVTK_USE_CARBON:BOOL=OFF \
+            -DVTK_USE_COCOA:BOOL=OFF"
+    fi
 else
-    WITH_OSMESA=()
+    VTK_ARGS="${VTK_ARGS} \
+        -DVTK_USE_OFFSCREEN:BOOL=OFF \
+        -DVTK_OPENGL_HAS_OSMESA:BOOL=OFF"
+    if [ ${OSNAME} == Linux ]; then
+        VTK_ARGS="${VTK_ARGS} \
+            -DVTK_USE_X:BOOL=ON"
+    elif [ ${OSNAME} == Darwin ]; then
+        VTK_ARGS="${VTK_ARGS} \
+            -DVTK_USE_CARBON:BOOL=OFF \
+            -DVTK_USE_COCOA:BOOL=ON"
+    fi
 fi
 
 # now we can start configuring
@@ -49,7 +57,7 @@ cmake .. -G "Ninja" \
     -DModule_vtkIOFFMPEG:BOOL=ON \
     -DModule_vtkViewsCore:BOOL=ON \
     -DModule_vtkViewsGeovis:BOOL=ON \
-    ${SCREEN_ARGS[@]} ${WITH_OSMESA[@]}
+    ${VTK_ARGS}
 
 # compile & install!
 ninja install

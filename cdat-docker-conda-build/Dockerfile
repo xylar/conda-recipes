@@ -4,7 +4,7 @@ MAINTAINER Dan Lipsa <dan.lipsa@kitware.com>
 # Get a free Red Hat Developer Subscription
 
 # enable subscription to be able to install packages
-RUN subscription-manager register --username danlipsa --password sJCAa3HQ25u7jqp --auto-attach
+RUN subscription-manager register --username xxx --password xxx --auto-attach
 
 # install required packages
 RUN yum -y groupinstall "Development tools"
