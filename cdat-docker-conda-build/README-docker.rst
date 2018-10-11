@@ -17,7 +17,7 @@ RedHat 6 docker for building CDAT conda recipes
 * run the container test, using image test to create it, mounting the
   important folders. For instance ~/projects has all the CDAT
   recipes. This gives you a prompt in RedHat 6 docker.
-  >>> docker run -it -v ~/projects/:/root/projects --name test test
+  >>> docker run -it -v ~/projects/:/root/projects -v ~/anaconda3:/home/danlipsa/anaconda3 --name test test
 
 * build conda recipes
 

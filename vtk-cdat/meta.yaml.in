@@ -27,6 +27,7 @@ requirements:
     - mesalib  # [VTK_WITH_OSMESA]
 
   run:
+    - toolchain
     - python
     - numpy
     - future

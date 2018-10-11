@@ -33,3 +33,6 @@ export PATH="/root/miniconda3/bin:$PATH" \n\
 ' >> ~/.bashrc
 RUN /root/miniconda3/bin/conda install -y conda-build anaconda-client
 RUN /root/miniconda3/bin/conda create -y -n cdat8 -c cdat/label/v80 -c conda-forge -c cdat python=3.6 cdat
+RUN echo $'channels:\n\
+  - conda-forge\n\
+' >> ~/.condarc
