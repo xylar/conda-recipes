@@ -15,6 +15,7 @@ if [ -f "$PREFIX/lib/libOSMesa32${SHLIB_EXT}" ]; then
 
     if [ ${OSNAME} == Linux ]; then
         VTK_ARGS="${VTK_ARGS} \
+            -DCMAKE_CXX_STANDARD_LIBRARIES:PATH=${PREFIX}/lib/libstdc++.so \
             -DVTK_USE_X:BOOL=OFF"
     elif [ ${OSNAME} == Darwin ]; then
         VTK_ARGS="${VTK_ARGS} \
