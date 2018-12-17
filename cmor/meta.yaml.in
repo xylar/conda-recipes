@@ -23,17 +23,19 @@ requirements:
     - python {{ python }}
     - ossuuid 1.6.2
     - udunits2
-    - hdf5 1.10.*
-    - libnetcdf 4.6.*
-    - numpy >1.11.*
+    - hdf5
+    - libnetcdf
+    - numpy
+    - setuptools
+    - cdms2
   run:
     - python {{ python }}
     - ossuuid 1.6.2
     - udunits2
-    - libnetcdf 4.6.*
     - {{ pin_compatible('numpy') }}
+    - {{ pin_compatible('hdf5') }}
+    - {{ pin_compatible('libnetcdf') }}
     - cdms2
-    - hdf5 1.10.*
 
 about:
     home:  http://gitub.com/PCMDI
