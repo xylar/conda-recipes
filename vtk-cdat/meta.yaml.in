@@ -16,22 +16,23 @@ build:
 
 requirements:
   build:
-    - toolchain
+    - {{ compiler("cxx") }}
+    - {{ compiler("c") }}
+  host:
     - cmake
     - ninja
     - python {{python}}
     - numpy
-    - ffmpeg {{ffmpeg}}
+    - ffmpeg 4.*
     # needed by ffmpeg for nice videos
     - x264
     - mesalib  # [VTK_WITH_OSMESA]
 
   run:
-    - toolchain
     - python
     - numpy
     - future
-    - ffmpeg
+    - {{ pin_compatible('ffmpeg') }}
     # needed by ffmpeg for nice videos
     - x264
     - mesalib # [VTK_WITH_OSMESA]
