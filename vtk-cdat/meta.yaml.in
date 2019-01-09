@@ -5,7 +5,7 @@ package:
   version: {{ environ['GIT_DESCRIBE_TAG'][1:] ~ "." ~ environ['GIT_DESCRIBE_NUMBER']}}.@VERSION@
 
 source:
-  git_branch: master
+  git_branch: 14c0bb
   git_url: https://gitlab.kitware.com/vtk/vtk.git
 
 build:
@@ -18,6 +18,27 @@ requirements:
   build:
     - {{ compiler("cxx") }}
     - {{ compiler("c") }}
+    - {{ cdt("mesa-libgl-devel") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("mesa-libgl") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("mesa-libegl") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("mesa-libegl-devel") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("xorg-x11-proto-devel") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("xorg-x11-util-macros") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("xorg-x11-server-common") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("xorg-x11-server-common") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("libxext-devel") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("libxext") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("libx11") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("libx11-common") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("libx11-devel") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("libxt") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("libxt-devel") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("libxtst") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("libxtst-devel") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("libsm") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("libsm-devel") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("libice") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("libice-devel") }} # [linux and not VTK_WITH_OSMESA]
   host:
     - cmake
     - ninja
