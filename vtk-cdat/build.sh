@@ -5,7 +5,12 @@ cd build
 
 BUILD_CONFIG=Release
 OSNAME=`uname`
-export LDFLAGS="$LDFLAGS -L/usr/lib/x86_64-linux-gnu/"
+export OPENGL_PATH="/usr/lib/x86_64-linux-gnu/"
+export LIBBSD_PATH="/lib/x86_64-linux-gnu"
+export LDFLAGS="$LDFLAGS -L${OPENGL_PATH}"
+export CFLAGS="$CFLAGS -I${PREFIX}/include -Wl,-rpath,${OPENGL_PATH} -Wl,-rpath-link,${OPENGL_PATH} -Wl,-rpath-link,${LIBBSD_PATH}"
+export CXXFLAGS="$CXXFLAGS -I${PREFIX}/include -Wl,-rpath,${OPENGL_PATH} -Wl,-rpath-link,${OPENGL_PATH} -Wl,-rpath-link,${LIBBSD_PATH}"
+
 
 if [ -f "$PREFIX/lib/libOSMesa32${SHLIB_EXT}" ]; then
     VTK_ARGS="${VTK_ARGS} \

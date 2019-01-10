@@ -39,6 +39,9 @@ requirements:
     - {{ cdt("libsm-devel") }} # [linux and not VTK_WITH_OSMESA]
     - {{ cdt("libice") }} # [linux and not VTK_WITH_OSMESA]
     - {{ cdt("libice-devel") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("libuuid") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("libxcb") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("libxau") }} # [linux and not VTK_WITH_OSMESA]
   host:
     - cmake
     - ninja
@@ -48,6 +51,7 @@ requirements:
     # needed by ffmpeg for nice videos
     - x264
     - mesalib  # [VTK_WITH_OSMESA]
+    - libiconv # [linux and not VTK_WITH_OSMESA]
 
   run:
     - python
