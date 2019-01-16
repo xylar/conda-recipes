@@ -5,7 +5,7 @@ package:
   version: {{ environ['GIT_DESCRIBE_TAG'][1:] ~ "." ~ environ['GIT_DESCRIBE_NUMBER']}}.@VERSION@
 
 source:
-  git_branch: master
+  git_branch: 14c0bb696d
   git_url: https://gitlab.kitware.com/vtk/vtk.git
 
 build:
@@ -16,7 +16,6 @@ build:
 
 requirements:
   build:
-    - toolchain
     - cmake
     - ninja
     - python {{python}}
@@ -27,11 +26,10 @@ requirements:
     - mesalib  # [VTK_WITH_OSMESA]
 
   run:
-    - toolchain
     - python
-    - numpy
+    - {{ pin_compatible('numpy') }}
+    - {{ pin_compatible('ffmpeg') }}
     - future
-    - ffmpeg
     # needed by ffmpeg for nice videos
     - x264
     - mesalib # [VTK_WITH_OSMESA]
