@@ -18,7 +18,7 @@ build:
 
 requirements:
   build:
-    - toolchain3
+    - toolchain3 # [linux]
     - cmake
     - ninja
     - python {{python}}
@@ -29,7 +29,7 @@ requirements:
     - mesalib  # [VTK_WITH_OSMESA]
 
   run:
-    - toolchain3
+    - toolchain3 # [linux]
     - python
     - numpy
     - future
