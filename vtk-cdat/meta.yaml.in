@@ -18,12 +18,16 @@ build:
 
 requirements:
   build:
-    - toolchain3 # [linux]
+    - {{ compiler('cxx') }} # [osx]   # clang 4.0.1
     - cmake
     - ninja
+
+  host:
+    # this matches compiler("cxx") version gcc 7.3.0
+    - toolchain3 # [linux]
     - python {{python}}
     - numpy
-    - ffmpeg {{ffmpeg}}
+    - ffmpeg
     # needed by ffmpeg for nice videos
     - x264
     - mesalib  # [VTK_WITH_OSMESA]
@@ -40,8 +44,12 @@ requirements:
 
 test:
     imports:
-        - vtk
-        - vtk.vtkCommonCore
+        - vtkmodules.vtkCommonCore
+        - vtkmodules.vtkCommonDataModel
+        - vtkmodules.vtkCommonTransforms
+        - vtkmodules.vtkImagingCore
+        - vtkmodules.vtkRenderingFreeType
+
 
 about:
     home: http://www.vtk.org/

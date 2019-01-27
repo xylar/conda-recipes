@@ -4,14 +4,9 @@ python:
 pin_run_as_build:
   python: x.x
 
-ffmpeg:
-    - 4.0.*
-pin_run_as_build:
-  ffmpeg: x.x
-
-numpy:
-    - 1.14
-
 VTK_WITH_OSMESA:
     - False
     - True
+
+CONDA_BUILD_SYSROOT:
+  - /opt/MacOSX10.9.sdk        # [osx]

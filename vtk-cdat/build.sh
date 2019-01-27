@@ -5,6 +5,7 @@ cd build
 
 BUILD_CONFIG=Release
 OSNAME=`uname`
+CONDA_BUILD_SYSROOT=/opt/MacOSX10.9.sdk
 
 if [ -f "$PREFIX/lib/libOSMesa32${SHLIB_EXT}" ]; then
     VTK_ARGS="${VTK_ARGS} \
@@ -20,7 +21,8 @@ if [ -f "$PREFIX/lib/libOSMesa32${SHLIB_EXT}" ]; then
     elif [ ${OSNAME} == Darwin ]; then
         VTK_ARGS="${VTK_ARGS} \
             -DVTK_USE_CARBON:BOOL=OFF \
-            -DVTK_USE_COCOA:BOOL=OFF"
+            -DVTK_USE_COCOA:BOOL=OFF \
+            -DCMAKE_OSX_SYSROOT:PATH=${CONDA_BUILD_SYSROOT}"
     fi
 else
     VTK_ARGS="${VTK_ARGS} \
@@ -32,7 +34,8 @@ else
     elif [ ${OSNAME} == Darwin ]; then
         VTK_ARGS="${VTK_ARGS} \
             -DVTK_USE_CARBON:BOOL=OFF \
-            -DVTK_USE_COCOA:BOOL=ON"
+            -DVTK_USE_COCOA:BOOL=ON \
+            -DCMAKE_OSX_SYSROOT:PATH=${CONDA_BUILD_SYSROOT}"
     fi
 fi
 
