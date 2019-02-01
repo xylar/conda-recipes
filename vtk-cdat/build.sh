@@ -63,5 +63,14 @@ cmake .. -G "Ninja" \
     -DModule_vtkViewsGeovis:BOOL=ON \
     ${VTK_ARGS}
 
-# compile & install!
+# compile and install
 ninja install
+
+# patch the dynamic load libraries
+if [ ${PY3K} == 1 ] && [ ${OSNAME} == Darwin ]; then
+    echo 'Patching dynamic lookup libraries'
+    mv ${PREFIX}/lib/libvtkRenderingMatplotlib-8.2.1.dylib ${PREFIX}/lib/libvtkRenderingMatplotlib-8.2.1.dylib_orig
+    mv ${PREFIX}/lib/libvtkRenderingMatplotlibPython36D-8.2.1.dylib ${PREFIX}/lib/libvtkRenderingMatplotlibPython36D-8.2.1.dylib_orig
+    cp ../libvtkRenderingMatplotlib-8.2.1.dylib ${PREFIX}/lib/libvtkRenderingMatplotlib-8.2.1.dylib
+    cp ../libvtkRenderingMatplotlibPython36D-8.2.1.dylib ${PREFIX}/lib/libvtkRenderingMatplotlibPython36D-8.2.1.dylib
+fi

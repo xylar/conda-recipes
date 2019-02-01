@@ -1,12 +1,17 @@
 python:
     - 3.6
     - 2.7
+
 pin_run_as_build:
   python: x.x
+
+numpy:
+    - 1.14
 
 VTK_WITH_OSMESA:
     - False
     - True
+
 
 CONDA_BUILD_SYSROOT:
   - /opt/MacOSX10.9.sdk        # [osx]

@@ -44,12 +44,7 @@ requirements:
 
 test:
     imports:
-        - vtkmodules.vtkCommonCore
-        - vtkmodules.vtkCommonDataModel
-        - vtkmodules.vtkCommonTransforms
-        - vtkmodules.vtkImagingCore
-        - vtkmodules.vtkRenderingFreeType
-
+        - vtk
 
 about:
     home: http://www.vtk.org/
