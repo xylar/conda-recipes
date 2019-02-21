@@ -2,7 +2,8 @@
 
 package:
   name: vtk-cdat
-  version: {{ environ['GIT_DESCRIBE_TAG'][1:] ~ "." ~ environ['GIT_DESCRIBE_NUMBER']}}.@VERSION@
+  # version: {{ environ['GIT_DESCRIBE_TAG'][1:] ~ "." ~ environ['GIT_DESCRIBE_NUMBER']}}.@VERSION@
+  version: 8.2.0rc2.8.1
 
 source:
   # git_branch: master

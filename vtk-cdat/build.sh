@@ -70,9 +70,9 @@ ninja install
 if [ ${PY3K} == 1 ] && [ ${OSNAME} == Darwin ]; then
     echo 'Patching dynamic lookup libraries'
     mv ${PREFIX}/lib/libvtkRenderingMatplotlib-8.2.1.dylib ${PREFIX}/lib/libvtkRenderingMatplotlib-8.2.1.dylib_orig
-    mv ${PREFIX}/lib/libvtkRenderingMatplotlibPython36D-8.2.1.dylib ${PREFIX}/lib/libvtkRenderingMatplotlibPython36D-8.2.1.dylib_orig
+    mv ${PREFIX}/lib/libvtkRenderingMatplotlibPython37D-8.2.1.dylib ${PREFIX}/lib/libvtkRenderingMatplotlibPython37D-8.2.1.dylib_orig
     mv ${PREFIX}/lib/libvtkPythonInterpreter-8.2.1.dylib ${PREFIX}/lib/libvtkPythonInterpreter-8.2.1.dylib_orig
     cp ../libvtkRenderingMatplotlib-8.2.1.dylib ${PREFIX}/lib/libvtkRenderingMatplotlib-8.2.1.dylib
-    cp ../libvtkRenderingMatplotlibPython36D-8.2.1.dylib ${PREFIX}/lib/libvtkRenderingMatplotlibPython36D-8.2.1.dylib
+    cp ../libvtkRenderingMatplotlibPython36D-8.2.1.dylib ${PREFIX}/lib/libvtkRenderingMatplotlibPython37D-8.2.1.dylib
     cp ../libvtkPythonInterpreter-8.2.1.dylib ${PREFIX}/lib/libvtkPythonInterpreter-8.2.1.dylib
 fi
