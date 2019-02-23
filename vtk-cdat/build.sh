@@ -5,7 +5,6 @@ cd build
 
 BUILD_CONFIG=Release
 OSNAME=`uname`
-CONDA_BUILD_SYSROOT=/opt/MacOSX10.9.sdk
 
 if [ -f "$PREFIX/lib/libOSMesa32${SHLIB_EXT}" ]; then
     VTK_ARGS="${VTK_ARGS} \
