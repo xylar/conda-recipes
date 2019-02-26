@@ -5,20 +5,30 @@ import sys
 import re
 import subprocess
 import shlex
-import traceback
+from datetime import datetime, timedelta
+
 
 parser = argparse.ArgumentParser(
-    description='remove your anaconda pkgs',
+    description='remove your anaconda pkgs that are older than the specified constraint(s)',
     formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
 parser.add_argument("-c", "--channel", help="conda channel, ex: cdat/label/unstable")
 parser.add_argument("-p", "--packages", help="conda packages, ex: 'thermo cdutil'",
                     default=None)
 parser.add_argument("-R", "--regex", default=None,
-                    help="regex to match with version, ex: '.*2016.*', '.*(2016|2017).*'")
-
+                    help="regex to match with substring in the pkg version, ex: '.*2016.*', '.*(2016|2017).*'")
+parser.add_argument("-o", "--older_than", default=None,
+                    help="look for packages older than specified constraints: days=<num>, hours=<num>, minutes=<num> or weeks=<num>")
 parser.add_argument("-d", "--dryrun", default=False, action="store_true",
-                    help="dry run do not actually do anything, just list out the packages")
+                    help="dry run do not actually do anything, just list out the packages to be removed")
+
+#
+# Example runs: REMEMBER to use the '-d' option first to check if you really want to 
+#    remove the files
+#
+# python ./remove_anaconda_pkgs.py -c cdat/label/linatest -R ".*(2018|2019).*" -d
+# python ./remove_anaconda_pkgs.py -c cdat/label/linatest -o days=210 -d 
+#
 
 args = parser.parse_args(sys.argv[1:])
 
@@ -29,17 +39,8 @@ if regex:
     regex = re.compile(args.regex.replace("\!","!"))
 
 regex=args.regex
+older_than= args.older_than
 dryrun = args.dryrun
-
-print("args, channel: {c}".format(c=channel))
-print("args, packages: {p}".format(p=packages))
-print("args, regex: {r}".format(r=regex))
-print("args, dryrun: {d}".format(d=dryrun))
-
-def match_regex(my_string):
-    m = regex.match(my_string)
-    return m is not None
-
 
 def run_command(cmd, join_stderr=True, shell_cmd=False, verbose=True, cwd=None):
     if verbose:
@@ -70,12 +71,61 @@ def run_command(cmd, join_stderr=True, shell_cmd=False, verbose=True, cwd=None):
     ret_code = P.returncode
     return(ret_code, out)
 
-def get_packages(channel, packages, regex, older_than):
+def check_if_pkg_satisfies_constraint(pkg_version, older_than_time_delta):
+    """
+       checks if the specified <pkg_version> is older than the specified
+       <older_than_time_delta>
+
+    older_than_time_delta can one of these:
+    days=<num>, minutes=<num>, hours=<num>, weeks=<num>
+    pkg_version ex: 8.0.2018.07.30.22.03.g70b6163 py36_0
+    """
+
+    if older_than_time_delta is None:
+        return True
+
+    current_time = datetime.now()
+    m = re.match(r'^\d+.\d+.(\d+).(\d+).(\d+).\d+.\d+.\S+$', pkg_version)
+    if m is None:
+        m = re.match(r'^\d+.\d+.\d+.(\d+).(\d+).(\d+).\d+.\d+.\S+$', pkg_version)
+
+    if m is None:
+        # this will be the case where the package's version is not
+        # following the above formats.
+        return False
+
+    pkg_time = datetime(int(m.group(1)), int(m.group(2)), int(m.group(3)))
+    match_obj = re.match(r'(\S+)=(\d+)', older_than_time_delta)
+    time_key = match_obj.group(1)
+    time_val = match_obj.group(2)
+    if time_key == 'days':
+        delta = timedelta(days=int(time_val))
+    elif time_key == 'hours':
+        delta = timedelta(hours=int(time_val))
+    elif time_key == 'minutes':
+        delta = timedelta(minutes=int(time_val))
+    elif time_key == 'weeks':
+        delta = timedelta(weeks=int(time_val))
+    
+    if current_time - pkg_time > delta:
+        return True
+    else:
+        return False
+
+def get_packages(channel, packages, regex, constraint):
+    """
+    gets the list of the specified <packages> from the specified
+    <channel>, and satisfy the <regex> and <constraint> if specified.
+    """
 
     cmd = "conda search --override -c {c}".format(c=channel)
     pkgs = []
     ret_code, out = run_command(cmd, True, False, True)
-    for p in out:
+
+    for p in out[2:-1]:
+        if packages is None and regex is None and constraint is None:
+            pkgs.append(p)
+            continue
         include_pkg = False
         if packages:
             m = re.search(r"^{pkgs}\s+\S+\s+\S+\s+\S+".format(pkgs=packages), p)
@@ -86,23 +136,23 @@ def get_packages(channel, packages, regex, older_than):
             if m1:
                 include_pkg = True
 
+        if constraint:
+            # check if it satisfies time contraint if specified
+            m2 = re.match(r"^\S+\s+(\S+)\s+\S+\s+\S+", p)
+            pkg_version = m2.group(1)
+            satisfies_constraint = check_if_pkg_satisfies_constraint(pkg_version,
+                                                                     constraint)
+            if satisfies_constraint:
+                include_pkg = True
+
         if include_pkg:
-            if older_than:
-                # check if it satisfies time contraint if specified
-                m2 = re.(r"^\S+\s+(\S+)\s+\S+\s+\S+", p)
-                version = m2.group(1)
-                print("xxx version: {v}".format(v=version))
-            else:
-                pkgs.append(p)
-
-
+            pkgs.append(p)
     return pkgs
-
-
 
 def do_remove(pkgs):
 
-    for p in pkgs:        
+    ret_code = 0
+    for p in pkgs:
         m = re.match(r'(\S+)\s+(\S+)\s+(\S+)\s+(\S+)', p)
         pkg = m.group(1)
         version = m.group(2)
@@ -113,27 +163,15 @@ def do_remove(pkgs):
                                              p=pkg,
                                              v=version)
         print("Going to remove: {p}".format(p=pkg_to_remove))
+        if args.dryrun:
+            continue
+        cmd = "anaconda remove -f {p}".format(p=pkg_to_remove)
+        ret_code, out = run_command(cmd, True, False, True)
 
-def check_if_pkg_satisfies_constraint(pkg_version, older_than):
-    
+    return(ret_code)
 
-#pkgs = get_packages(channel, packages, regex)
+pkgs = get_packages(channel, packages, regex, older_than)
 
-#if args.dryrun:
-#    sys.exit(0)
-
-#do_remove(pkgs)
-
-my_str = "8.0.2018.07.30.22.03.g70b6163 py36_0"
-m = re.match(r'.*.(\d+).(\d+).(\d+).\d+.\d+.\S+\s+', my_str)
-if m:
-    year = m.group(1)
-    month = m.group(2)
-    day = m.group(3)
-    print("xxx year: {y}, month: {m}, day: {d}".format(y=year,
-                                                       m=month,
-                                                       d=day))
+do_remove(pkgs)
 
 
-
-# python ./remove_anaconda_pkgs.py -c cdat/label/linatest  -R ".*(2018|2019).*"
