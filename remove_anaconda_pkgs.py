@@ -162,11 +162,20 @@ def do_remove(pkgs):
         pkg_to_remove = "{c}/{p}/{v}".format(c=channel_name,
                                              p=pkg,
                                              v=version)
-        print("Going to remove: {p}".format(p=pkg_to_remove))
+        print("\nGoing to remove: {p}".format(p=pkg_to_remove))
         if args.dryrun:
             continue
-        cmd = "anaconda remove -f {p}".format(p=pkg_to_remove)
-        ret_code, out = run_command(cmd, True, False, True)
+
+        # prompt user before really removing
+        user_prompt = "Removing {p}, enter ['y'|'n']: ".format(p=pkg_to_remove)
+        user_input = input(user_prompt)
+        if user_input == 'n':
+            print("NOT REMOVING {p}".format(p=pkg_to_remove))
+            continue
+        
+        print("Removing: {p}".format(p=pkg_to_remove))
+        #cmd = "anaconda remove -f {p}".format(p=pkg_to_remove)
+        #ret_code, out = run_command(cmd, True, False, True)
 
     return(ret_code)
 
