@@ -12,7 +12,7 @@ parser = argparse.ArgumentParser(
     description='remove your anaconda pkgs that are older than the specified constraint(s)',
     formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-parser.add_argument("-c", "--channel", help="conda channel, ex: cdat/label/unstable")
+parser.add_argument("-c", "--channel", action='append', help="conda channel, ex: cdat/label/unstable")
 parser.add_argument("-p", "--packages", help="conda packages, ex: 'thermo cdutil'",
                     default=None)
 parser.add_argument("-R", "--regex", default=None,
@@ -22,17 +22,21 @@ parser.add_argument("-o", "--older_than", default=None,
 parser.add_argument("-d", "--dryrun", default=False, action="store_true",
                     help="dry run do not actually do anything, just list out the packages to be removed")
 
+parser.add_argument("-n", "--no_prompt", default=False, action="store_true",
+                    help="prompt before really removing")
+
 #
 # Example runs: REMEMBER to use the '-d' option first to check if you really want to 
 #    remove the files
 #
 # python ./remove_anaconda_pkgs.py -c cdat/label/linatest -R ".*(2018|2019).*" -d
 # python ./remove_anaconda_pkgs.py -c cdat/label/linatest -o days=210 -d 
+# python ./remove_anaconda_pkgs.py -c cdat/label/linatest -c cdat/label/unstable -c cdat/label/nightly -o days=5 --d
 #
 
 args = parser.parse_args(sys.argv[1:])
 
-channel = args.channel
+channels = args.channel
 packages = args.packages
 regex = args.regex
 if regex:
@@ -41,6 +45,7 @@ if regex:
 regex=args.regex
 older_than= args.older_than
 dryrun = args.dryrun
+no_prompt = args.no_prompt
 
 def run_command(cmd, join_stderr=True, shell_cmd=False, verbose=True, cwd=None):
     if verbose:
@@ -80,15 +85,14 @@ def check_if_pkg_satisfies_constraint(pkg_version, older_than_time_delta):
     days=<num>, minutes=<num>, hours=<num>, weeks=<num>
     pkg_version ex: 8.0.2018.07.30.22.03.g70b6163 py36_0
     """
-
     if older_than_time_delta is None:
         return True
 
     current_time = datetime.now()
-    m = re.match(r'^\d+.\d+.(\d+).(\d+).(\d+).\d+.\d+.\S+$', pkg_version)
+    m = re.match(r'^\d+.\d+.\d+.(\d+).(\d+).(\d+).\d+.\d+.\S+$', pkg_version)
     if m is None:
-        m = re.match(r'^\d+.\d+.\d+.(\d+).(\d+).(\d+).\d+.\d+.\S+$', pkg_version)
-
+        m = re.match(r'^\d+.\d+.(\d+).(\d+).(\d+).\d+.\d+.\S+$', pkg_version)
+    
     if m is None:
         # this will be the case where the package's version is not
         # following the above formats.
@@ -112,41 +116,42 @@ def check_if_pkg_satisfies_constraint(pkg_version, older_than_time_delta):
     else:
         return False
 
-def get_packages(channel, packages, regex, constraint):
+def get_packages(channels, packages, regex, constraint):
     """
     gets the list of the specified <packages> from the specified
-    <channel>, and satisfy the <regex> and <constraint> if specified.
+    <channels>, and satisfy the <regex> and <constraint> if specified.
     """
-
-    cmd = "conda search --override -c {c}".format(c=channel)
     pkgs = []
-    ret_code, out = run_command(cmd, True, False, True)
+    for channel in channels:
+        cmd = "conda search --override -c {c}".format(c=channel)
+        ret_code, out = run_command(cmd, True, False, True)
 
-    for p in out[2:-1]:
-        if packages is None and regex is None and constraint is None:
-            pkgs.append(p)
-            continue
-        include_pkg = False
-        if packages:
-            m = re.search(r"^{pkgs}\s+\S+\s+\S+\s+\S+".format(pkgs=packages), p)
-            if m:
-                include_pkg = True
-        if regex:
-            m1 = re.match(r"^\S+\s+{r}\s+\S+\s+\S+".format(r=regex), p)
-            if m1:
-                include_pkg = True
+        for p in out[2:-1]:
+            if packages is None and regex is None and constraint is None:
+                pkgs.append(p)
+                continue
+            include_pkg = False
+            if packages:
+                m = re.search(r"^{pkgs}\s+\S+\s+\S+\s+\S+".format(pkgs=packages), p)
+                if m:
+                    include_pkg = True
+            if regex:
+                m1 = re.match(r"^\S+\s+{r}\s+\S+\s+\S+".format(r=regex), p)
+                if m1:
+                    include_pkg = True
 
-        if constraint:
-            # check if it satisfies time contraint if specified
-            m2 = re.match(r"^\S+\s+(\S+)\s+\S+\s+\S+", p)
-            pkg_version = m2.group(1)
-            satisfies_constraint = check_if_pkg_satisfies_constraint(pkg_version,
-                                                                     constraint)
-            if satisfies_constraint:
-                include_pkg = True
+            if constraint:
+                # check if it satisfies time contraint if specified
+                m2 = re.match(r"^\S+\s+(\S+)\s+\S+\s+\S+", p)
+                pkg_version = m2.group(1)
+                satisfies_constraint = check_if_pkg_satisfies_constraint(pkg_version,
+                                                                         constraint)
+                if satisfies_constraint:
+                    include_pkg = True
 
-        if include_pkg:
-            pkgs.append(p)
+            if include_pkg:
+                pkgs.append(p)
+
     return pkgs
 
 def do_remove(pkgs):
@@ -162,24 +167,24 @@ def do_remove(pkgs):
         pkg_to_remove = "{c}/{p}/{v}".format(c=channel_name,
                                              p=pkg,
                                              v=version)
-        print("\nGoing to remove: {p}".format(p=pkg_to_remove))
+        print("\nFound: {p}".format(p=pkg_to_remove))
         if args.dryrun:
             continue
 
         # prompt user before really removing
-        user_prompt = "Removing {p}, enter ['y'|'n']: ".format(p=pkg_to_remove)
+        user_prompt = "Remove {p} ? enter ['y'|'n']: ".format(p=pkg_to_remove)
         user_input = input(user_prompt)
         if user_input == 'n':
             print("NOT REMOVING {p}".format(p=pkg_to_remove))
             continue
         
         print("Removing: {p}".format(p=pkg_to_remove))
-        #cmd = "anaconda remove -f {p}".format(p=pkg_to_remove)
-        #ret_code, out = run_command(cmd, True, False, True)
+        cmd = "anaconda remove -f {p}".format(p=pkg_to_remove)
+        ret_code, out = run_command(cmd, True, False, True)
 
     return(ret_code)
 
-pkgs = get_packages(channel, packages, regex, older_than)
+pkgs = get_packages(channels, packages, regex, older_than)
 
 do_remove(pkgs)
 
