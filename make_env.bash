@@ -25,5 +25,6 @@ for PYVER in 2.7 3.6 3.7
             conda env export --no-builds > cdat-${RELEASE}${MEA_NAME}_py$PYVER.$(uname).yaml 
             conda deactivate
             conda activate base
+        done
     done
 
