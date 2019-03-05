@@ -28,8 +28,9 @@ for PYVER in 2.7 3.6 3.7
             if [ ${CREATE} == "y" ]; then
                 conda create -y -n cdat-${RELEASE}${MESA_NAME}_py$PYVER ${PREPEND_CHANNEL} -c cdat/label/${RELEASE} -c conda-forge ${APPEND_CHANNEL} cdat python=$PYVER ${MESA_PKG}
             fi
-            ${ACTIVATE_COMMAND} activate cdat-${RELEASE}_py$PYVER
-            conda env export --no-builds > cdat-${RELEASE}${MEA_NAME}_py$PYVER.$(uname).yaml 
+            ${ACTIVATE_COMMAND} activate cdat-${RELEASE}${MESA_NAME}_py$PYVER
+            echo $(conda list vtk)
+            conda env export --no-builds > cdat-${RELEASE}${MESA_NAME}_py$PYVER.$(uname).yaml 
             ${ACTIVATE_COMMAND} deactivate
             ${ACTIVATE_COMMAND} activate base
         done
