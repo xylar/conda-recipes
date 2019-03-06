@@ -29,7 +29,7 @@ for l in pkgs.decode("utf8").split("\n")[2:-1]:
     tarball = os.path.join(conda_pkgs,tarname)
     print("looking at:",tarball,os.path.exists(tarball))
     if os.path.exists(tarball):
-        o,e = run_cmd("anaconda upload {} -u cdat-forge".format(tarball))
+        o,e = run_cmd("/Users/doutriaux1/miniconda3/bin/anaconda upload {} -u cdat-forge".format(tarball), verbose=True)
         print("OUT:",o.decode("utf8"))
         print("Err:",e.decode("utf8"))
     else:
