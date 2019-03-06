@@ -8,8 +8,8 @@ package:
 source:
   # git_branch: master
   # git_url: https://gitlab.kitware.com/vtk/vtk.git
-  git_branch: context2d-contour-label-improvements
-  git_url: https://github.com/CDAT/VTK.git
+  git_branch: debug-optional-python-link
+  git_url: https://gitlab.kitware.com/scott.wittenburg/VTK.git
 
 build:
   number: {{ build_number }}

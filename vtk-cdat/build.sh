@@ -46,32 +46,36 @@ cmake .. -G "Ninja" \
     -DCMAKE_INSTALL_PREFIX:PATH="${PREFIX}" \
     -DCMAKE_INSTALL_LIBDIR:PATH="lib" \
     -DCMAKE_INSTALL_RPATH:PATH="${PREFIX}/lib" \
-    -DBUILD_DOCUMENTATION:BOOL=OFF \
-    -DBUILD_TESTING:BOOL=OFF \
-    -DBUILD_EXAMPLES:BOOL=OFF \
+    -DVTK_BUILD_DOCUMENTATION:BOOL=OFF \
+    -DVTK_BUILD_TESTING:STRING==OFF \
+    -DVTK_BUILD_EXAMPLES:BOOL=OFF \
     -DBUILD_SHARED_LIBS:BOOL=ON \
-    -DVTK_WRAP_PYTHON:BOOL=ON \
-    -DModule_vtkPythonInterpreter:BOOL=OFF \
-    -DVTK_PYTHON_VERSION:STRING="${PY_VER}" \
+    -DVTK_LEGACY_SILENT:BOOL=OFF \
     -DVTK_HAS_FEENABLEEXCEPT:BOOL=OFF \
-    -DModule_vtkRenderingMatplotlib=ON \
-    -DVTK_Group_Web:BOOL=ON \
-    -DVTK_LEGACY_SILENT:BOOL=ON \
-    -DModule_vtkIOFFMPEG:BOOL=ON \
-    -DModule_vtkViewsCore:BOOL=ON \
-    -DModule_vtkViewsGeovis:BOOL=ON \
+    -DVTK_WRAP_PYTHON:BOOL=ON \
+    -DVTK_PYTHON_VERSION:STRING="${PY_VER}" \
+    -DVTK_PYTHON_OPTIONAL_LINK:BOOL=ON \
+    -DVTK_MODULE_ENABLE_VTK_PythonInterpreter:STRING=NO \
+    -DVTK_MODULE_ENABLE_VTK_RenderingMatplotlib:STRING=YES \
+    -DVTK_MODULE_ENABLE_VTK_IOFFMPEG:STRING=YES \
+    -DVTK_MODULE_ENABLE_VTK_ViewsCore:STRING=YES \
+    -DVTK_MODULE_ENABLE_VTK_ViewsGeovis:STRING=YES \
+    -DVTK_MODULE_ENABLE_VTK_ViewsContext2D:STRING=YES \
+    -DVTK_MODULE_ENABLE_VTK_PythonContext2D:STRING=YES \
+    -DVTK_MODULE_ENABLE_VTK_RenderingContext2D:STRING=YES \
+    -DVTK_MODULE_ENABLE_VTK_RenderingContextOpenGL2:STRING=YES \
     ${VTK_ARGS}
 
 # compile and install
 ninja install
 
 # patch the dynamic load libraries
-if [ ${PY3K} == 1 ] && [ ${OSNAME} == Darwin ]; then
-    echo 'Patching dynamic lookup libraries'
-    mv ${PREFIX}/lib/libvtkRenderingMatplotlib-8.2.1.dylib ${PREFIX}/lib/libvtkRenderingMatplotlib-8.2.1.dylib_orig
-    mv ${PREFIX}/lib/libvtkRenderingMatplotlibPython37D-8.2.1.dylib ${PREFIX}/lib/libvtkRenderingMatplotlibPython37D-8.2.1.dylib_orig
-    mv ${PREFIX}/lib/libvtkPythonInterpreter-8.2.1.dylib ${PREFIX}/lib/libvtkPythonInterpreter-8.2.1.dylib_orig
-    cp ../libvtkRenderingMatplotlib-8.2.1.dylib ${PREFIX}/lib/libvtkRenderingMatplotlib-8.2.1.dylib
-    cp ../libvtkRenderingMatplotlibPython36D-8.2.1.dylib ${PREFIX}/lib/libvtkRenderingMatplotlibPython37D-8.2.1.dylib
-    cp ../libvtkPythonInterpreter-8.2.1.dylib ${PREFIX}/lib/libvtkPythonInterpreter-8.2.1.dylib
-fi
+# if [ ${PY3K} == 1 ] && [ ${OSNAME} == Darwin ]; then
+#     echo 'Patching dynamic lookup libraries'
+#     mv ${PREFIX}/lib/libvtkRenderingMatplotlib-8.2.1.dylib ${PREFIX}/lib/libvtkRenderingMatplotlib-8.2.1.dylib_orig
+#     mv ${PREFIX}/lib/libvtkRenderingMatplotlibPython37D-8.2.1.dylib ${PREFIX}/lib/libvtkRenderingMatplotlibPython37D-8.2.1.dylib_orig
+#     mv ${PREFIX}/lib/libvtkPythonInterpreter-8.2.1.dylib ${PREFIX}/lib/libvtkPythonInterpreter-8.2.1.dylib_orig
+#     cp ../libvtkRenderingMatplotlib-8.2.1.dylib ${PREFIX}/lib/libvtkRenderingMatplotlib-8.2.1.dylib
+#     cp ../libvtkRenderingMatplotlibPython36D-8.2.1.dylib ${PREFIX}/lib/libvtkRenderingMatplotlibPython37D-8.2.1.dylib
+#     cp ../libvtkPythonInterpreter-8.2.1.dylib ${PREFIX}/lib/libvtkPythonInterpreter-8.2.1.dylib
+# fi
