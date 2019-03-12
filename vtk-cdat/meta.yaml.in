@@ -2,14 +2,11 @@
 
 package:
   name: vtk-cdat
-  # version: {{ environ['GIT_DESCRIBE_TAG'][1:] ~ "." ~ environ['GIT_DESCRIBE_NUMBER']}}.@VERSION@
-  version: 8.2.0rc2.8.1
+  version: {{ environ['GIT_DESCRIBE_TAG'][1:] ~ "." ~ environ['GIT_DESCRIBE_NUMBER']}}.@VERSION@
 
 source:
-  # git_branch: master
-  # git_url: https://gitlab.kitware.com/vtk/vtk.git
-  git_branch: debug-optional-python-link
-  git_url: https://gitlab.kitware.com/scott.wittenburg/VTK.git
+  git_branch: master
+  git_url: https://gitlab.kitware.com/vtk/vtk.git
 
 build:
   number: {{ build_number }}
