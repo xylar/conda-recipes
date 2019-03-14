@@ -3,18 +3,22 @@
 mkdir build
 cd build
 
+BUILD_CONFIG=Release
+OSNAME=`uname`
+
 # Use bash "Remove Largest Suffix Pattern" to get rid of all but major version number
 PYTHON_MAJOR_VERSION=${PY_VER%%.*}
 
 # These will help cmake find the right python
 PYTHON_H_FILE=$(find $PREFIX -name Python.h -type f)
 PYTHON_INCLUDE_DIR=$(dirname ${PYTHON_H_FILE})
-PYTHON_LIBRARY=$(find $PREFIX -type f -regex ".*libpython.*\.dylib$")
+if [ ${OSNAME} == Darwin ]; then
+    PYTHON_LIBRARY=$(find $PREFIX -regex '.*libpython.*\.dylib$')
+elif [ ${OSNAME} == Linux ]; then
+    PYTHON_LIBRARY=$(find $PREFIX -regex '.*libpython.*\.so$')
+fi
 PYTHON_INCLUDE_PARAMETER_NAME="Python${PYTHON_MAJOR_VERSION}_INCLUDE_DIR"
 PYTHON_LIBRARY_PARAMETER_NAME="Python${PYTHON_MAJOR_VERSION}_LIBRARY_RELEASE"
-
-BUILD_CONFIG=Release
-OSNAME=`uname`
 
 if [ -f "$PREFIX/lib/libOSMesa32${SHLIB_EXT}" ]; then
     VTK_ARGS="${VTK_ARGS} \
