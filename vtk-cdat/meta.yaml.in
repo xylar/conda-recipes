@@ -7,8 +7,8 @@ package:
 source:
   # git_branch: master
   # git_url: https://gitlab.kitware.com/vtk/vtk.git
-  git_branch: python-optional-link-default-off
-  git_url: https://gitlab.kitware.com/scott.wittenburg/VTK.git
+  git_branch: python-optional-link
+  git_url: https://gitlab.kitware.com/ben.boeckel/VTK.git
 
 build:
   number: {{ build_number }}
@@ -19,7 +19,7 @@ build:
 requirements:
   build:
     - {{ compiler('cxx') }} # [osx]   # clang 4.0.1
-    - cmake
+    # expect cmake >= 3.13 installed on root conda
     - ninja
 
   host:
