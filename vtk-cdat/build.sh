@@ -19,6 +19,9 @@ elif [ "${OSNAME}" == Linux ]; then
 fi
 PYTHON_INCLUDE_PARAMETER_NAME="Python${PYTHON_MAJOR_VERSION}_INCLUDE_DIR"
 PYTHON_LIBRARY_PARAMETER_NAME="Python${PYTHON_MAJOR_VERSION}_LIBRARY_RELEASE"
+if [ "${OSNAME}" == Darwin ]; then
+    CONDA_BUILD_SYSROOT=/opt/MacOSX10.9.sdk
+fi
 
 if [ -f "$PREFIX/lib/libOSMesa32${SHLIB_EXT}" ]; then
     VTK_ARGS="${VTK_ARGS} \
@@ -29,7 +32,7 @@ if [ -f "$PREFIX/lib/libOSMesa32${SHLIB_EXT}" ]; then
 
     if [ "${OSNAME}" == Linux ]; then
         VTK_ARGS="${VTK_ARGS} \
-            -DCMAKE_CXX_STANDARD_LIBRARIES:PATH=${PREFIX}/lib/libstdc++.so \
+            -DCMAKE_TOOLCHAIN_FILE=${RECIPE_DIR}/cross-linux.cmake
             -DVTK_USE_X:BOOL=OFF"
     elif [ "${OSNAME}" == Darwin ]; then
         VTK_ARGS="${VTK_ARGS} \
@@ -42,7 +45,13 @@ else
         -DVTK_OPENGL_HAS_OSMESA:BOOL=OFF"
     if [ "${OSNAME}" == Linux ]; then
         VTK_ARGS="${VTK_ARGS} \
-            -DVTK_USE_X:BOOL=ON"
+            -DVTK_USE_X:BOOL=ON \
+            -DCMAKE_TOOLCHAIN_FILE=${RECIPE_DIR}/cross-linux.cmake
+            -DOPENGL_gl_LIBRARY:FILEPATH=${BUILD_PREFIX}/${HOST}/sysroot/usr/lib64/libGL.so
+            -DX11_Xt_LIB:PATH=${BUILD_PREFIX}/${HOST}/sysroot/usr/lib64/libXt.so
+            -DX11_SM_LIB:PATH=${BUILD_PREFIX}/${HOST}/sysroot/usr/lib64/libSM.so
+            -DX11_ICE_LIB:PATH=${BUILD_PREFIX}/${HOST}/sysroot/usr/lib64/libICE.so
+            -DX11_X11_LIB:PATH=${BUILD_PREFIX}/${HOST}/sysroot/usr/lib64/libX11.so"
     elif [ "${OSNAME}" == Darwin ]; then
         VTK_ARGS="${VTK_ARGS} \
             -DVTK_USE_COCOA:BOOL=ON \

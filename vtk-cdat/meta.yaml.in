@@ -15,16 +15,40 @@ build:
   features:
     - mesalib  # [VTK_WITH_OSMESA]
 
-
 requirements:
   build:
-    - {{ compiler('cxx') }} # [osx]   # clang 4.0.1
-    # expect cmake >= 3.13 installed on root conda
+    - {{ compiler('cxx') }} # clang 4.0.1, gcc 7.3.0
+    - cmake
     - ninja
 
+    - {{ cdt("mesa-libgl-devel") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("mesa-libgl") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("mesa-dri-drivers") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("xorg-x11-proto-devel") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("xorg-x11-util-macros") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("xorg-x11-server-common") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("libXdamage") }} # [linux and not VTK_WITH_OSMESA]    
+    - {{ cdt("libxext-devel") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("libxext") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("libXfixes") }} # [linux and not VTK_WITH_OSMESA]    
+    - {{ cdt("libx11") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("libx11-common") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("libx11-devel") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("libxt") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("libxt-devel") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("libxtst") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("libxtst-devel") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("libXxf86vm") }} # [linux and not VTK_WITH_OSMESA]    
+    - {{ cdt("libsm") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("libsm-devel") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("libice") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("libice-devel") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("libuuid") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("libxcb") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("libxau") }} # [linux and not VTK_WITH_OSMESA]
+    - {{ cdt("libselinux") }} # [linux and not VTK_WITH_OSMESA]    
+
   host:
-    # this matches compiler("cxx") version gcc 7.3.0
-    - toolchain3 # [linux]
     - python {{python}}
     - numpy
     - ffmpeg
@@ -33,7 +57,6 @@ requirements:
     - mesalib  # [VTK_WITH_OSMESA]
 
   run:
-    - toolchain3 # [linux]
     - python
     - numpy
     - future
