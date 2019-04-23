@@ -12,9 +12,9 @@ RUN yum -y install wget tar which
 RUN yum -y install mesa-libGL-devel "@X Window System" libXt-devel
 
 # install newer compiler 4.9.2
-# See https://www.softwarecollections.org/en/scls/rhscl/devtoolset-3/
+# See https://www.softwarecollections.org/en/scls/rhscl/devtoolset-7/
 RUN yum-config-manager --enable rhel-server-rhscl-6-rpms
-RUN yum -y install devtoolset-3-gcc-c++
+RUN yum -y install devtoolset-7-gcc-c++
 
 # Enable the new compiler in bash
 RUN echo $'currentver="$(gcc -dumpversion)" \n\
@@ -22,7 +22,7 @@ oldver="4.4.7" \n\
 echo "Current version" ${currentver} \n\
 if [ "$(printf "%s\\n" "$oldver" "$currentver" | sort -r -V | head -n1)" = "$oldver" ]; then \
   echo "Setup a new version";\
-  scl enable devtoolset-3 bash;\
+  scl enable devtoolset-7 bash;\
 fi' >> ~/.bashrc
 
 # install conda and CDAT
