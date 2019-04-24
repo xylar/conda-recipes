@@ -12,24 +12,22 @@ build:
 test:
   requires:
     - python
-    - gcc [osx]
   imports:
     - lmoments
 
 requirements:
   build:
+    - {{ compiler('fortran') }} 
+  host:
     - python
     - setuptools
-    - numpy x.x
-    - gcc [osx]
-    - toolchain [osx]
+    - numpy
   run:
     - python
-    - numpy x.x
-    - libgfortran [osx]
+    - numpy
 
 about:
-    home:  http://gitub.com/CDAT/uvcdat
+    home:  http://github.com/CDAT/cdat
 
 
 
