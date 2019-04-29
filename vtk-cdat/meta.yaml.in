@@ -7,7 +7,9 @@ package:
 source:
   patches:
     - enable-python-optional-link.patch
-  git_branch: master
+  # git_branch: master
+  # A revision from master. When we want to user a newer VTK we change this
+  git_rev: 5e9164e3da773da8a90e5b97736a0355ef456079
   git_url: https://gitlab.kitware.com/vtk/vtk.git
 
 build:
