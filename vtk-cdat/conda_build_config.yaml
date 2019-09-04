@@ -4,7 +4,7 @@ python:
     - 2.7
 
 pin_run_as_build:
-  python: x.x.x
+  python: x.x
 
 VTK_WITH_OSMESA:
     - False
