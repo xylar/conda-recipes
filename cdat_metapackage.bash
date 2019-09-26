@@ -1,11 +1,11 @@
-export VERSION=8.1
-export CDAT_VERSION=8.1
-export CDAT_INFO_VERSION=8.1.1
-export CDMS_VERSION=3.1.2
+export VERSION=8.2
+export CDAT_VERSION=8.2
+export CDAT_INFO_VERSION=8.2
+export CDMS_VERSION=3.1.4
 export CDTIME_VERSION=3.1.2
-export GENUTIL_VERSION=8.1.1
+export GENUTIL_VERSION=8.2
 export VERSION_EXTRA=""
-export BUILD=1
+export BUILD=0
 export OPERATOR="=="
 export CDMS_OPERATOR="=="
 export PY3_VERSION="<"
