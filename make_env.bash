@@ -23,11 +23,11 @@ ${ACTIVATE_COMMAND} activate base
 for PYVER in 2.7 3.6 3.7
     do
         if [ $PYVER == "2.7" ]; then
-	    PYVER_STR = "python<3"
+	    PYVER_STR="python<3"
 	elif [ $PYVER == "3.6" ]; then
-            PYVER_STR = "python>=3.6,<3.7"
+            PYVER_STR="python>=3.6,<3.7"
 	else
-            PYVER_STR = "python>=3.7"
+            PYVER_STR="python>=3.7"
 	fi
         for MESA in y n
         do
@@ -40,7 +40,7 @@ for PYVER in 2.7 3.6 3.7
             fi
             echo "Doing version $PYVER with mesalib set to $MESA"
             if [ ${CREATE} == "y" ]; then
-                conda create -y -n cdat-${RELEASE}${MESA_NAME}_py$PYVER ${PREPEND_CHANNEL} -c cdat/label/${RELEASE} -c conda-forge ${APPEND_CHANNEL} cdat python=$PYVER ${MESA_PKG}
+                conda create -y -n cdat-${RELEASE}${MESA_NAME}_py$PYVER ${PREPEND_CHANNEL} -c cdat/label/${RELEASE} -c conda-forge ${APPEND_CHANNEL} cdat "$PYVER_STR" ${MESA_PKG}
             fi
             ${ACTIVATE_COMMAND} activate cdat-${RELEASE}${MESA_NAME}_py$PYVER
             echo $(conda list vtk)
