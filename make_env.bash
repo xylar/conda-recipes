@@ -1,20 +1,34 @@
 #!/usr/bin/env bash
 
-export RELEASE="v81"
+export RELEASE="v82"
 export PREPEND_CHANNEL="-c cdat/label/test"
 export PREPEND_CHANNEL=""
 export APPEND_CHANNEL=""
 
-export ACTIVATE_COMMAND="conda"
-export CREATE="n"
+#export ACTIVATE_COMMAND="conda"
+export ACTIVATE_COMMAND="source"
+export CREATE="y"
 
 echo "ACTIVATE COMMAND: ${ACTIVATE_COMMAND}"
+
+#export CONDA_BASE=$(conda info --base)
+#echo "CONDA_BASE: $CONDA_BASE"
+
 
 ${ACTIVATE_COMMAND} deactivate
 ${ACTIVATE_COMMAND} activate base
 
+#source $CONDA_BASE/etc/profile.d/conda.sh
+
 for PYVER in 2.7 3.6 3.7
     do
+        if [ $PYVER == "2.7" ]; then
+	    PYVER_STR = "python<3"
+	elif [ $PYVER == "3.6" ]; then
+            PYVER_STR = "python>=3.6,<3.7"
+	else
+            PYVER_STR = "python>=3.7"
+	fi
         for MESA in y n
         do
             if [ $MESA == "y" ]; then
