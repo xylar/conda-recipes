@@ -1,4 +1,4 @@
-#!/usr/bin/env bash -x
+#!/usr/bin/env bash
 
 export RELEASE="v82"
 export PREPEND_CHANNEL="-c cdat/label/test"
