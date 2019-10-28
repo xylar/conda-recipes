@@ -1,12 +1,7 @@
 #!/usr/bin/env bash
 
-export RELEASE="v81"
-export PREPEND_CHANNEL="-c cdat/label/test"
-export PREPEND_CHANNEL=""
-export APPEND_CHANNEL=""
-
-export ACTIVATE_COMMAND="conda"
-export CREATE="n"
+export RELEASE="v82"
+export ACTIVATE_COMMAND="source"
 
 echo "ACTIVATE COMMAND: ${ACTIVATE_COMMAND}"
 
@@ -25,7 +20,8 @@ for PYVER in 2.7 3.6 3.7
                 export MESA_PKG=""
             fi
             echo "Doing version $PYVER with mesalib set to $MESA"
-            conda env create -f cdat-${RELEASE}${MESA_NAME}_py$PYVER.$(uname).yaml 
+            conda env create -n cdat-${RELEASE}${MESA_NAME}_py$PYVER -f cdat-${RELEASE}${MESA_NAME}_py$PYVER.$(uname).yaml
+	    echo "conda env create -n cdat-${RELEASE}${MESA_NAME}_py$PYVER -f cdat-${RELEASE}${MESA_NAME}_py$PYVER.$(uname).yaml"
             ${ACTIVATE_COMMAND} deactivate
             ${ACTIVATE_COMMAND} activate base
         done
