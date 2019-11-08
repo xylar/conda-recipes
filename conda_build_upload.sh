@@ -31,7 +31,7 @@ echo "BASE_DIR: $BASE_DIR"
 prep_conda_env()
 {
     conda clean --all
-    conda install -n base conda-build anaconda conda-smithy
+    conda install -n base -c conda-forge conda-build anaconda conda-smithy
     conda update -y -q conda
     conda config --set anaconda_upload no
 }
