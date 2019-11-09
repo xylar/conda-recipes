@@ -1,6 +1,8 @@
 #!/bin/sh -x
 
-WORKDIR=$1
+PKG_NAME=$1
+WORKDIR=$2
+UPLOAD_LABEL=$3
 USER=cdat
 
 #
@@ -61,6 +63,34 @@ copy_build_yaml_to_repo()
     cp -r $WORKDIR/.ci_support $REPO_DIR/
 }
 
+#
+# here, if needed, we can specify --variants "{'python': ['2.7', '3.7']}"
+#
+do_build()
+{
+    cd $REPO_DIR
+    mkdir $WORKDIR/conda-bld
+    export CONDA_BLD_PATH=$WORKDIR/conda-bld
+    conda build recipe
+}
+
+do_upload()
+{
+    echo "xxx xxx CONDA_BLD_PATH: $CONDA_BLD_PATH"
+    if [[ $UPLOAD_LABEL = 'DONT_UPLOAD' ]]; then
+        return
+    fi
+    grep noarch recipe/meta.yaml.in 2>&1 > /dev/null
+    if [[ $? = 0 ]]; then
+	# noarch
+	anaconda -t $CONDA_UPLOAD_TOKEN upload -u $USER -l $LABEL $CONDA_BLD_PATH/noarch/$PKG_NAME-$VERSION.`date +%Y*`0.tar.bz2 --force
+    else
+	# not noarch
+	anaconda -t $CONDA_UPLOAD_TOKEN upload -u $USER -l $LABEL $CONDA_BLD_PATH/$OS/${PKG_NAME}-$VERSION.`date +%Y*`0.tar.bz2 --force
+    fi
+    
+}
+
 REPO_DIR=`pwd`
 
 prep_conda_env
@@ -73,8 +103,6 @@ conda smithy rerender
 
 copy_build_yaml_to_repo
 
-#
-# here, if needed, we can specify --variants "{'python': ['2.7', '3.7']}"
-#
-cd $REPO_DIR
-conda build recipe
+do_build
+
+do_upload
