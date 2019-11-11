@@ -77,6 +77,9 @@ do_build()
 do_upload()
 {
     echo "xxx xxx CONDA_BLD_PATH: $CONDA_BLD_PATH"
+    echo "xxx xxx PKG_NAME: $PKG_NAME"
+    echo "xxx xxx VERSION: $VERSION"
+
     if [[ $UPLOAD_LABEL = 'DONT_UPLOAD' ]]; then
         return
     fi
