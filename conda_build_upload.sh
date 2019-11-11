@@ -69,8 +69,8 @@ copy_build_yaml_to_repo()
 do_build()
 {
     cd $REPO_DIR
-    mkdir $WORKDIR/conda-bld
-    export CONDA_BLD_PATH=$WORKDIR/conda-bld
+    mkdir conda-bld
+    export CONDA_BLD_PATH=conda-bld
     conda build recipe
 }
 
@@ -83,15 +83,18 @@ do_upload()
     grep noarch recipe/meta.yaml.in 2>&1 > /dev/null
     if [[ $? = 0 ]]; then
 	# noarch
+	echo "CMD: anaconda -t $CONDA_UPLOAD_TOKEN upload -u $USER -l $LABEL $CONDA_BLD_PATH/noarch/$PKG_NAME-$VERSION.`date +%Y*`0.tar.bz2 --force"
 	anaconda -t $CONDA_UPLOAD_TOKEN upload -u $USER -l $LABEL $CONDA_BLD_PATH/noarch/$PKG_NAME-$VERSION.`date +%Y*`0.tar.bz2 --force
     else
 	# not noarch
+	echo "CMD: anaconda -t $CONDA_UPLOAD_TOKEN upload -u $USER -l $LABEL $CONDA_BLD_PATH/$OS/${PKG_NAME}-$VERSION.`date +%Y*`0.tar.bz2 --force"
 	anaconda -t $CONDA_UPLOAD_TOKEN upload -u $USER -l $LABEL $CONDA_BLD_PATH/$OS/${PKG_NAME}-$VERSION.`date +%Y*`0.tar.bz2 --force
     fi
     
 }
 
 REPO_DIR=`pwd`
+echo "REPO_DIR: $REPO_DIR"
 
 prep_conda_env
 
