@@ -78,13 +78,13 @@ do_build()
     # conda build recipe
     if [ $OS == 'linux-64' ]; then
 	for x in $(ls .ci_support/linux*yaml); do
-	    echo "XXX conda build $PKG_NAME -m ${x} -c conda-forge"
-	    conda build $PKG_NAME -m ${x} -c conda-forge
+	    echo "conda build $PKG_NAME -m ${x} -c conda-forge"
+	    conda build -m ${x} -c conda-forge recipe
 	done
     else
 	for x in $(ls .ci_support/osx*yaml); do
-	    echo "XXX conda build $PKG_NAME -m ${x} -c conda-forge"
-	    conda build $PKG_NAME -m ${x} -c conda-forge
+	    echo "conda build $PKG_NAME -m ${x} -c conda-forge"
+	    conda build -m ${x} -c conda-forge recipe
 	done
     fi
 }
