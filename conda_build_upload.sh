@@ -71,6 +71,10 @@ do_build()
     cd $REPO_DIR
     mkdir conda-bld
     export CONDA_BLD_PATH=conda-bld
+    echo "XXX ls -l $REPO_DIR"
+    ls -l $REPO_DIR
+    echo "XXX ls -l $REPO_DIR/.ci_support"
+    ls -l $REPO_DIR/.ci_support
     conda build recipe
 }
 
@@ -105,6 +109,7 @@ copy_repo_recipe
 
 get_conda_forge_configs
 
+mkdir .ci_support
 conda smithy rerender
 
 copy_build_yaml_to_repo
