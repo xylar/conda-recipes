@@ -75,7 +75,18 @@ do_build()
     ls -l $REPO_DIR
     echo "XXX ls -l $REPO_DIR/.ci_support"
     ls -l $REPO_DIR/.ci_support
-    conda build recipe
+    # conda build recipe
+    if [ $OS == 'linux-64' ]; then
+	for x in $(ls recipe/linux*yaml); do
+	    echo "XXX conda build $PKG_NAME -m ${x} -c conda-forge"
+	    conda build $PKG_NAME -m ${x} -c conda-forge
+	done
+    else
+	for x in $(ls recipe/osx*yaml); do
+	    echo "XXX conda build $PKG_NAME -m ${x} -c conda-forge"
+	    conda build $PKG_NAME -m ${x} -c conda-forge
+	done
+    fi
 }
 
 do_upload()
