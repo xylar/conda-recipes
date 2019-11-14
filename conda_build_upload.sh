@@ -61,6 +61,7 @@ get_conda_forge_configs()
     cp -r $WORKDIR/conda-forge-pinning-feedstock/recipe/migrations $WORKDIR/recipe
 
     if [[ ! -d $WORKDIR/.ci_support ]]; then
+	echo "XXX mkdir $WORKDIR/.ci_support"
 	mkdir $WORKDIR/.ci_support
     fi
     cd $WORKDIR
@@ -76,6 +77,7 @@ copy_build_yaml_to_repo()
     echo "XXX copy_build_yaml_to_repo XXX")
     if [[ ! -d $REPO_DIR/.ci_support ]]; then
 	mkdir $REPO_DIR/.ci_support
+	echo "xxx mkdir $REPO_DIR/.ci_support"
     fi
     cp -r $WORKDIR/.ci_support/* $REPO_DIR/.ci_support
     echo "xxx ls -al $REPO_DIR/.ci_support"
@@ -91,7 +93,7 @@ do_build()
     mkdir conda-bld
     export CONDA_BLD_PATH=conda-bld
     echo "XXX ls -al $REPO_DIR"
-    ls -l $REPO_DIR
+    ls -al $REPO_DIR
     echo "XXX ls -al $REPO_DIR/.ci_support"
     ls -l $REPO_DIR/.ci_support
     # conda build recipe
