@@ -113,8 +113,8 @@ do_upload()
     
 }
 
-##REPO_DIR=`pwd`
-##echo "REPO_DIR: $REPO_DIR"
+REPO_DIR=`pwd`
+echo "REPO_DIR: $REPO_DIR"
 
 ##prep_conda_env
 
