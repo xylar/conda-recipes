@@ -53,7 +53,7 @@ get_conda_forge_configs()
     url="https://www.github.com/conda-forge/conda-forge-pinning-feedstock.git"
     git clone $url $WORKDIR/conda-forge-pinning-feedstock
     cd $WORKDIR/conda-forge-pinning-feedstock
-    git checkout c3714e1513b62240fb517067c9ba8eb0485ef7a7
+    # git checkout c3714e1513b62240fb517067c9ba8eb0485ef7a7
     cp $WORKDIR/conda-forge-pinning-feedstock/recipe/conda_build_config.yaml $WORKDIR/recipe
     echo "xxx cat $WORKDIR/recipe/conda_build_config.yaml"
     cat $WORKDIR/recipe/conda_build_config.yaml
@@ -92,7 +92,7 @@ do_build()
     cd $REPO_DIR
     mkdir conda-bld
     export CONDA_BLD_PATH=conda-bld
-    echo "XXX ls -al $REPO_DIR"
+    ecdho "XXX ls -al $REPO_DIR"
     ls -al $REPO_DIR
     echo "XXX ls -al $REPO_DIR/.ci_support"
     ls -l $REPO_DIR/.ci_support
