@@ -52,8 +52,11 @@ get_conda_forge_configs()
     # globally pinned packages.
     url="https://www.github.com/conda-forge/conda-forge-pinning-feedstock.git"
     git clone $url $WORKDIR/conda-forge-pinning-feedstock
+    cd $WORKDIR/conda-forge-pinning-feedstock
+    git checkout c3714e1513b62240fb517067c9ba8eb0485ef7a7
     cp $WORKDIR/conda-forge-pinning-feedstock/recipe/conda_build_config.yaml $WORKDIR/recipe
-
+    echo "xxx cat $WORKDIR/recipe/conda_build_config.yaml"
+    cat $WORKDIR/recipe/conda_build_config.yaml
     # get the migrations folder
     cp -r $WORKDIR/conda-forge-pinning-feedstock/recipe/migrations $WORKDIR/recipe
 }
@@ -97,7 +100,7 @@ do_upload()
     echo "xxx xxx PKG_NAME: $PKG_NAME"
     echo "xxx xxx VERSION: $VERSION"
 
-    if [[ $UPLOAD_LABEL = 'DONT_UPLOAD' ]]; then
+    if [[ $UPLOAD_LABEL = 'DO_NOT_UPLOAD' ]]; then
         return
     fi
     grep noarch recipe/meta.yaml.in 2>&1 > /dev/null
