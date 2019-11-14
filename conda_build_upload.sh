@@ -113,20 +113,59 @@ do_upload()
     
 }
 
-REPO_DIR=`pwd`
-echo "REPO_DIR: $REPO_DIR"
+##REPO_DIR=`pwd`
+##echo "REPO_DIR: $REPO_DIR"
 
-prep_conda_env
+##prep_conda_env
 
-copy_repo_recipe
+##copy_repo_recipe
 
-get_conda_forge_configs
+##get_conda_forge_configs
 
+##mkdir .ci_support
+##conda smithy rerender
+
+##copy_build_yaml_to_repo
+
+##do_build
+
+##do_upload
+
+#####
+current_dir=`pwd`
+echo "XXX current directory: $current_dir"
+
+conda clean --all
+conda install -n base -c conda-forge conda-build anaconda conda-smithy conda-verify
+conda update -y -q conda
+conda config --set anaconda_upload no
+
+echo "xxx copy repo recipe xxx"
+cp -r $REPO_DIR/recipe $WORKDIR
+
+echo "xxx copy build configs from conda-forge to workdir"
+
+# copy build configs from conda-forge to workdir
+
+# get conda_build_config.yaml -- this file defines the versions of 
+# globally pinned packages.
+url="https://www.github.com/conda-forge/conda-forge-pinning-feedstock.git"
+git clone $url $WORKDIR/conda-forge-pinning-feedstock
+cp $WORKDIR/conda-forge-pinning-feedstock/recipe/conda_build_config.yaml $WORKDIR/recipe
+
+# get the migrations folder
+cp -r $WORKDIR/conda-forge-pinning-feedstock/recipe/migrations $WORKDIR/recipe
+
+cd $WORKDIR
 mkdir .ci_support
 conda smithy rerender
 
-copy_build_yaml_to_repo
+echo "xxx xxx copy build yaml to repo xxx"
+echo "xxx cp -r $WORKDIR/.ci_support $REPO_DIR/"
+cp -r $WORKDIR/.ci_support $REPO_DIR/
+
+echo "xxx ls -l $REPO_DIR/.ci_support"
+ls -l $REPO_DIR/.ci_support
 
 do_build
 
-do_upload
